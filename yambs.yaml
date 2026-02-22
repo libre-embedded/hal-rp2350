@@ -1,0 +1,25 @@
+# =====================================
+# generator=datazen
+# version=3.2.3
+# hash=343ca952693b7a5247018669d3f0b067
+# =====================================
+---
+project:
+  name: hal-rp2350
+
+  github: {owner: &self libre-embedded}
+  version: {major: 0, minor: 1, patch: 0}
+variants:
+  clang:
+    suffix: &clang_version "-19"
+
+  debug:
+    suffix: &gcc_version "-14"
+  opt:
+    suffix: *gcc_version
+
+  clang-opt:
+    suffix: *clang_version
+
+includes:
+  - local/yambs.yaml

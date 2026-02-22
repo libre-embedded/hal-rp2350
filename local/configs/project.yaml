@@ -1,0 +1,11 @@
+---
+name: hal-rp2350
+description: A C++ RP2350 hardware abstraction layer.
+owner: libre-embedded
+
+main_branch: main
+
+version:
+  major: 0
+  minor: 1
+  patch: 0
