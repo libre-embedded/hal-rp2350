@@ -12,7 +12,7 @@
 #include <cstring>
 #include <iostream>
 
-namespace hal_rp2350
+namespace RP2350
 {
 /* Declared to ensure this namespace has been declared in general. */
 };
@@ -24,7 +24,7 @@ namespace hal_rp2350
  */
 int main(void)
 {
-    using namespace hal_rp2350;
+    using namespace RP2350;
 
     // TODO.
     return 0;

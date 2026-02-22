@@ -4,12 +4,12 @@
  */
 
 #pragma once
-#ifndef HAL_RP2350_CUSTOM_STRUCT_RECEIVER_H
-#define HAL_RP2350_CUSTOM_STRUCT_RECEIVER_H
+#ifndef RP2350_CUSTOM_STRUCT_RECEIVER_H
+#define RP2350_CUSTOM_STRUCT_RECEIVER_H
 
 #include <functional>
 
-namespace hal_rp2350
+namespace RP2350
 {
 
 template <ifgen_struct T>
@@ -84,6 +84,6 @@ struct StructReceiver
     }
 };
 
-}; // namespace hal_rp2350
+}; // namespace RP2350
 
 #endif
