@@ -1,0 +1,2079 @@
+---
+structs:
+  otp_data:
+    description: |-
+      Predefined OTP data layout for RP2350
+    instances:
+      - name: OTP_DATA
+        address: '0x40130000'
+    fields:
+      - name: CHIPID0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 0
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of public device ID. (ECC)
+
+                              The CHIPID0..3 rows contain a 64-bit random identifier for this chip, which can be read from the USB bootloader PICOBOOT interface or from the get_sys_info ROM API.
+
+                              The number of random bits makes the occurrence of twins exceedingly unlikely: for example, a fleet of a hundred million devices has a 99.97% probability of no twinned IDs. This is estimated to be lower than the occurrence of process errors in the assignment of sequential random IDs, and for practical purposes CHIPID may be treated as unique.
+        fields:
+          - name: CHIPID0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: CHIPID1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 2
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of public device ID (ECC)
+        fields:
+          - name: CHIPID1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: CHIPID2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 4
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of public device ID (ECC)
+        fields:
+          - name: CHIPID2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: CHIPID3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 6
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of public device ID (ECC)
+        fields:
+          - name: CHIPID3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: RANDID0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 8
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of private per-device random number (ECC)
+
+                              The RANDID0..7 rows form a 128-bit random number generated during device test.
+
+                              This ID is not exposed through the USB PICOBOOT GET_INFO command or the ROM `get_sys_info()` API. However note that the USB PICOBOOT OTP access point can read the entirety of page 0, so this value is not meaningfully private unless the USB PICOBOOT interface is disabled via the DISABLE_BOOTSEL_USB_PICOBOOT_IFC flag in BOOT_FLAGS0.
+        fields:
+          - name: RANDID0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: RANDID1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 10
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of private per-device random number (ECC)
+        fields:
+          - name: RANDID1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: RANDID2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 12
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of private per-device random number (ECC)
+        fields:
+          - name: RANDID2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: RANDID3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 14
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of private per-device random number (ECC)
+        fields:
+          - name: RANDID3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: RANDID4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 16
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of private per-device random number (ECC)
+        fields:
+          - name: RANDID4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: RANDID5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 18
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of private per-device random number (ECC)
+        fields:
+          - name: RANDID5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: RANDID6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 20
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of private per-device random number (ECC)
+        fields:
+          - name: RANDID6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: RANDID7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 22
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of private per-device random number (ECC)
+        fields:
+          - name: RANDID7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: ROSC_CALIB
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 32
+        const: true
+        description: |-
+          (read-only) Ring oscillator frequency in kHz, measured during manufacturing (ECC)
+
+                              This is measured at 1.1 V, at room temperature, with the ROSC configuration registers in their reset state.
+        fields:
+          - name: ROSC_CALIB
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: LPOSC_CALIB
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 34
+        const: true
+        description: |-
+          (read-only) Low-power oscillator frequency in Hz, measured during manufacturing (ECC)
+
+                              This is measured at 1.1V, at room temperature, with the LPOSC trim register in its reset state.
+        fields:
+          - name: LPOSC_CALIB
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: NUM_GPIOS
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 48
+        const: true
+        description: |-
+          (read-only) The number of main user GPIOs (bank 0). Should read 48 in the QFN80 package, and 30 in the QFN60 package. (ECC)
+        fields:
+          - name: NUM_GPIOS
+            index: 0
+            width: 8
+            read: true
+            write: false
+      - name: INFO_CRC0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 108
+        const: true
+        description: |-
+          (read-only) Lower 16 bits of CRC32 of OTP addresses 0x00 through 0x6b (polynomial 0x4c11db7, input reflected, output reflected, seed all-ones, final XOR all-ones) (ECC)
+        fields:
+          - name: INFO_CRC0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: INFO_CRC1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 110
+        const: true
+        description: |-
+          (read-only) Upper 16 bits of CRC32 of OTP addresses 0x00 through 0x6b (ECC)
+        fields:
+          - name: INFO_CRC1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: FLASH_DEVINFO
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 168
+        const: true
+        description: |-
+          (read-only) Stores information about external flash device(s). (ECC)
+
+                              Assumed to be valid if BOOT_FLAGS0_FLASH_DEVINFO_ENABLE is set.
+        fields:
+          - name: CS1_GPIO
+            description: |-
+              Indicate a GPIO number to be used for the secondary flash chip select (CS1), which selects the external QSPI device mapped at system addresses 0x11000000 through 0x11ffffff. There is no such configuration for CS0, as the primary chip select has a dedicated pin.
+
+                                          On RP2350 the permissible GPIO numbers are 0, 8, 19 and 47.
+
+                                          Ignored if CS1_size is zero. If CS1_SIZE is nonzero, the bootrom will automatically configure this GPIO as a second chip select upon entering the flash boot path, or entering any other path that may use the QSPI flash interface, such as BOOTSEL mode (nsboot).
+            index: 0
+            width: 6
+            read: true
+            write: false
+          - name: D8H_ERASE_SUPPORTED
+            description: |-
+              If true, all attached devices are assumed to support (or ignore, in the case of PSRAM) a block erase command with a command prefix of D8h, an erase size of 64 kiB, and a 24-bit address. Almost all 25-series flash devices support this command.
+
+                                          If set, the bootrom will use the D8h erase command where it is able, to accelerate bulk erase operations. This makes flash programming faster.
+
+                                          When BOOT_FLAGS0_FLASH_DEVINFO_ENABLE is not set, this field defaults to false.
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: CS0_SIZE
+            description: |-
+              The size of the flash/PSRAM device on chip select 0 (addressable at 0x10000000 through 0x10ffffff).
+
+                                          A value of zero is decoded as a size of zero (no device). Nonzero values are decoded as 4kiB << CS0_SIZE. For example, four megabytes is encoded with a CS0_SIZE value of 10, and 16 megabytes is encoded with a CS0_SIZE value of 12.
+
+                                          When BOOT_FLAGS0_FLASH_DEVINFO_ENABLE is not set, a default of 12 (16 MiB) is used.
+            index: 8
+            width: 4
+            read: true
+            write: false
+            type: OTP_DATA_FLASH_DEVINFO_CS0_SIZE
+          - name: CS1_SIZE
+            description: |-
+              The size of the flash/PSRAM device on chip select 1 (addressable at 0x11000000 through 0x11ffffff).
+
+                                          A value of zero is decoded as a size of zero (no device). Nonzero values are decoded as 4kiB << CS1_SIZE. For example, four megabytes is encoded with a CS1_SIZE value of 10, and 16 megabytes is encoded with a CS1_SIZE value of 12.
+
+                                          When BOOT_FLAGS0_FLASH_DEVINFO_ENABLE is not set, a default of zero is used.
+            index: 12
+            width: 4
+            read: true
+            write: false
+            type: OTP_DATA_FLASH_DEVINFO_CS1_SIZE
+      - name: FLASH_PARTITION_SLOT_SIZE
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 170
+        const: true
+        description: |-
+          (read-only) Gap between partition table slot 0 and slot 1 at the start of flash (the default size is 4096 bytes) (ECC) Enabled by the OVERRIDE_FLASH_PARTITION_SLOT_SIZE bit in BOOT_FLAGS, the size is 4096 * (value + 1)
+        fields:
+          - name: FLASH_PARTITION_SLOT_SIZE
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTSEL_LED_CFG
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 172
+        const: true
+        description: |-
+          (read-only) Pin configuration for LED status, used by USB bootloader. (ECC) 
+                              Must be valid if BOOT_FLAGS0_ENABLE_BOOTSEL_LED is set.
+        fields:
+          - name: PIN
+            description: |-
+              GPIO index to use for bootloader activity LED.
+            index: 0
+            width: 6
+            read: true
+            write: false
+          - name: ACTIVELOW
+            description: |-
+              LED is active-low. (Default: active-high.)
+            index: 8
+            width: 1
+            read: true
+            write: false
+      - name: BOOTSEL_PLL_CFG
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 174
+        const: true
+        description: |-
+          (read-only) Optional PLL configuration for BOOTSEL mode. (ECC)
+
+                              This should be configured to produce an exact 48 MHz based on the crystal oscillator frequency. User mode software may also use this value to calculate the expected crystal frequency based on an assumed 48 MHz PLL output.
+
+                              If no configuration is given, the crystal is assumed to be 12 MHz.
+
+                              The PLL frequency can be calculated as:
+
+                              PLL out = (XOSC frequency / (REFDIV+1)) x FBDIV / (POSTDIV1 x POSTDIV2)
+
+                              Conversely the crystal frequency can be calculated as:
+
+                              XOSC frequency = 48 MHz x (REFDIV+1) x (POSTDIV1 x POSTDIV2) / FBDIV
+
+                              (Note the  +1 on REFDIV is because the value stored in this OTP location is the actual divisor value minus one.)
+
+                              Used if and only if ENABLE_BOOTSEL_NON_DEFAULT_PLL_XOSC_CFG is set in BOOT_FLAGS0. That bit should be set only after this row and BOOTSEL_XOSC_CFG are both correctly programmed.
+        fields:
+          - name: FBDIV
+            description: |-
+              PLL feedback divisor, in the range 16..320 inclusive.
+            index: 0
+            width: 9
+            read: true
+            write: false
+          - name: POSTDIV1
+            description: |-
+              PLL post-divide 1 divisor, in the range 1..7 inclusive.
+            index: 9
+            width: 3
+            read: true
+            write: false
+          - name: POSTDIV2
+            description: |-
+              PLL post-divide 2 divisor, in the range 1..7 inclusive.
+            index: 12
+            width: 3
+            read: true
+            write: false
+          - name: REFDIV
+            description: |-
+              PLL reference divisor, minus one.
+
+                                          Programming a value of 0 means a reference divisor of 1. Programming a value of 1 means a reference divisor of 2 (for exceptionally fast XIN inputs)
+            index: 15
+            width: 1
+            read: true
+            write: false
+      - name: BOOTSEL_XOSC_CFG
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 176
+        const: true
+        description: |-
+          (read-only) Non-default crystal oscillator configuration for the USB bootloader. (ECC)
+
+                              These values may also be used by user code configuring the crystal oscillator.
+
+                              Used if and only if ENABLE_BOOTSEL_NON_DEFAULT_PLL_XOSC_CFG is set in BOOT_FLAGS0. That bit should be set only after this row and BOOTSEL_PLL_CFG are both correctly programmed.
+        fields:
+          - name: STARTUP
+            description: |-
+              Value of the XOSC_STARTUP register
+            index: 0
+            width: 14
+            read: true
+            write: false
+          - name: RANGE
+            description: |-
+              Value of the XOSC_CTRL_FREQ_RANGE register.
+            index: 14
+            width: 2
+            read: true
+            write: false
+            type: OTP_DATA_BOOTSEL_XOSC_CFG_RANGE
+      - name: USB_WHITE_LABEL_ADDR
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 184
+        const: true
+        description: |-
+          (read-only) Row index of the USB_WHITE_LABEL structure within OTP (ECC)
+
+                              The table has 16 rows, each of which are also ECC and marked valid by the corresponding valid bit in USB_BOOT_FLAGS (ECC).
+
+                              The entries are either _VALUEs where the 16 bit value is used as is, or _STRDEFs which acts as a pointers to a string value.
+
+                              The value stored in a _STRDEF is two separate bytes: The low seven bits of the first (LSB) byte indicates the number of characters in the string, and the top bit of the first (LSB) byte if set to indicate that each character in the string is two bytes (Unicode) versus one byte if unset. The second (MSB) byte represents the location of the string data, and is encoded as the number of rows from this USB_WHITE_LABEL_ADDR; i.e. the row of the start of the string is USB_WHITE_LABEL_ADDR value + msb_byte.
+
+                              In each case, the corresponding valid bit enables replacing the default value for the corresponding item provided by the boot rom.
+
+                              Note that Unicode _STRDEFs are only supported for USB_DEVICE_PRODUCT_STRDEF, USB_DEVICE_SERIAL_NUMBER_STRDEF and USB_DEVICE_MANUFACTURER_STRDEF. Unicode values will be ignored if specified for other fields, and non-unicode values for these three items will be converted to Unicode characters by setting the upper 8 bits to zero.
+
+                              Note that if the USB_WHITE_LABEL structure or the corresponding strings are not readable by BOOTSEL mode based on OTP permissions, or if alignment requirements are not met, then the corresponding default values are used.
+
+                              The index values indicate where each field is located (row USB_WHITE_LABEL_ADDR value + index):
+        fields:
+          - name: USB_WHITE_LABEL_ADDR
+            index: 0
+            width: 16
+            read: true
+            write: false
+            type: OTP_DATA_USB_WHITE_LABEL_ADDR_USB_WHITE_LABEL_ADDR
+      - name: OTPBOOT_SRC
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 188
+        const: true
+        description: |-
+          (read-only) OTP start row for the OTP boot image. (ECC)
+
+                              If OTP boot is enabled, the bootrom will load from this location into SRAM and then directly enter the loaded image. Note that the image must be signed if SECURE_BOOT_ENABLE is set. The image itself is assumed to be ECC-protected.
+
+                              This must be an even number. Equivalently, the OTP boot image must start at a word-aligned location in the ECC read data address window.
+        fields:
+          - name: OTPBOOT_SRC
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: OTPBOOT_LEN
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 190
+        const: true
+        description: |-
+          (read-only) Length in rows of the OTP boot image. (ECC)
+
+                              OTPBOOT_LEN must be even. The total image size must be a multiple of 4 bytes (32 bits).
+        fields:
+          - name: OTPBOOT_LEN
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: OTPBOOT_DST0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 192
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of the OTP boot image load destination (and entry point). (ECC)
+
+                              This must be a location in main SRAM (main SRAM is addresses 0x20000000 through 0x20082000) and must be word-aligned.
+        fields:
+          - name: OTPBOOT_DST0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: OTPBOOT_DST1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 194
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of the OTP boot image load destination (and entry point). (ECC)
+
+                              This must be a location in main SRAM (main SRAM is addresses 0x20000000 through 0x20082000) and must be word-aligned.
+        fields:
+          - name: OTPBOOT_DST1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 256
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 258
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 260
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 262
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 264
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 266
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 268
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 270
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_8
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 272
+        const: true
+        description: |-
+          (read-only) Bits 143:128 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_8
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_9
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 274
+        const: true
+        description: |-
+          (read-only) Bits 159:144 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_9
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_10
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 276
+        const: true
+        description: |-
+          (read-only) Bits 175:160 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_10
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_11
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 278
+        const: true
+        description: |-
+          (read-only) Bits 191:176 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_11
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_12
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 280
+        const: true
+        description: |-
+          (read-only) Bits 207:192 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_12
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_13
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 282
+        const: true
+        description: |-
+          (read-only) Bits 223:208 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_13
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_14
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 284
+        const: true
+        description: |-
+          (read-only) Bits 239:224 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_14
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY0_15
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 286
+        const: true
+        description: |-
+          (read-only) Bits 255:240 of SHA-256 hash of boot key 0 (ECC)
+        fields:
+          - name: BOOTKEY0_15
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 288
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 290
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 292
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 294
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 296
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 298
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 300
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 302
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_8
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 304
+        const: true
+        description: |-
+          (read-only) Bits 143:128 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_8
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_9
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 306
+        const: true
+        description: |-
+          (read-only) Bits 159:144 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_9
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_10
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 308
+        const: true
+        description: |-
+          (read-only) Bits 175:160 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_10
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_11
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 310
+        const: true
+        description: |-
+          (read-only) Bits 191:176 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_11
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_12
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 312
+        const: true
+        description: |-
+          (read-only) Bits 207:192 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_12
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_13
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 314
+        const: true
+        description: |-
+          (read-only) Bits 223:208 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_13
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_14
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 316
+        const: true
+        description: |-
+          (read-only) Bits 239:224 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_14
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY1_15
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 318
+        const: true
+        description: |-
+          (read-only) Bits 255:240 of SHA-256 hash of boot key 1 (ECC)
+        fields:
+          - name: BOOTKEY1_15
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 320
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 322
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 324
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 326
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 328
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 330
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 332
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 334
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_8
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 336
+        const: true
+        description: |-
+          (read-only) Bits 143:128 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_8
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_9
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 338
+        const: true
+        description: |-
+          (read-only) Bits 159:144 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_9
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_10
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 340
+        const: true
+        description: |-
+          (read-only) Bits 175:160 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_10
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_11
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 342
+        const: true
+        description: |-
+          (read-only) Bits 191:176 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_11
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_12
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 344
+        const: true
+        description: |-
+          (read-only) Bits 207:192 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_12
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_13
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 346
+        const: true
+        description: |-
+          (read-only) Bits 223:208 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_13
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_14
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 348
+        const: true
+        description: |-
+          (read-only) Bits 239:224 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_14
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY2_15
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 350
+        const: true
+        description: |-
+          (read-only) Bits 255:240 of SHA-256 hash of boot key 2 (ECC)
+        fields:
+          - name: BOOTKEY2_15
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 352
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 354
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 356
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 358
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 360
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 362
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 364
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 366
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_8
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 368
+        const: true
+        description: |-
+          (read-only) Bits 143:128 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_8
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_9
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 370
+        const: true
+        description: |-
+          (read-only) Bits 159:144 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_9
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_10
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 372
+        const: true
+        description: |-
+          (read-only) Bits 175:160 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_10
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_11
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 374
+        const: true
+        description: |-
+          (read-only) Bits 191:176 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_11
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_12
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 376
+        const: true
+        description: |-
+          (read-only) Bits 207:192 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_12
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_13
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 378
+        const: true
+        description: |-
+          (read-only) Bits 223:208 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_13
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_14
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 380
+        const: true
+        description: |-
+          (read-only) Bits 239:224 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_14
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: BOOTKEY3_15
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 382
+        const: true
+        description: |-
+          (read-only) Bits 255:240 of SHA-256 hash of boot key 3 (ECC)
+        fields:
+          - name: BOOTKEY3_15
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY1_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7824
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of OTP access key 1 (ECC)
+        fields:
+          - name: KEY1_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY1_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7826
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of OTP access key 1 (ECC)
+        fields:
+          - name: KEY1_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY1_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7828
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of OTP access key 1 (ECC)
+        fields:
+          - name: KEY1_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY1_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7830
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of OTP access key 1 (ECC)
+        fields:
+          - name: KEY1_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY1_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7832
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of OTP access key 1 (ECC)
+        fields:
+          - name: KEY1_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY1_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7834
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of OTP access key 1 (ECC)
+        fields:
+          - name: KEY1_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY1_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7836
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of OTP access key 1 (ECC)
+        fields:
+          - name: KEY1_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY1_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7838
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of OTP access key 1 (ECC)
+        fields:
+          - name: KEY1_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY2_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7840
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of OTP access key 2 (ECC)
+        fields:
+          - name: KEY2_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY2_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7842
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of OTP access key 2 (ECC)
+        fields:
+          - name: KEY2_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY2_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7844
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of OTP access key 2 (ECC)
+        fields:
+          - name: KEY2_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY2_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7846
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of OTP access key 2 (ECC)
+        fields:
+          - name: KEY2_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY2_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7848
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of OTP access key 2 (ECC)
+        fields:
+          - name: KEY2_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY2_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7850
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of OTP access key 2 (ECC)
+        fields:
+          - name: KEY2_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY2_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7852
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of OTP access key 2 (ECC)
+        fields:
+          - name: KEY2_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY2_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7854
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of OTP access key 2 (ECC)
+        fields:
+          - name: KEY2_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY3_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7856
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of OTP access key 3 (ECC)
+        fields:
+          - name: KEY3_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY3_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7858
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of OTP access key 3 (ECC)
+        fields:
+          - name: KEY3_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY3_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7860
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of OTP access key 3 (ECC)
+        fields:
+          - name: KEY3_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY3_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7862
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of OTP access key 3 (ECC)
+        fields:
+          - name: KEY3_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY3_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7864
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of OTP access key 3 (ECC)
+        fields:
+          - name: KEY3_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY3_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7866
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of OTP access key 3 (ECC)
+        fields:
+          - name: KEY3_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY3_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7868
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of OTP access key 3 (ECC)
+        fields:
+          - name: KEY3_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY3_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7870
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of OTP access key 3 (ECC)
+        fields:
+          - name: KEY3_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY4_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7872
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of OTP access key 4 (ECC)
+        fields:
+          - name: KEY4_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY4_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7874
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of OTP access key 4 (ECC)
+        fields:
+          - name: KEY4_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY4_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7876
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of OTP access key 4 (ECC)
+        fields:
+          - name: KEY4_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY4_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7878
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of OTP access key 4 (ECC)
+        fields:
+          - name: KEY4_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY4_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7880
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of OTP access key 4 (ECC)
+        fields:
+          - name: KEY4_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY4_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7882
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of OTP access key 4 (ECC)
+        fields:
+          - name: KEY4_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY4_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7884
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of OTP access key 4 (ECC)
+        fields:
+          - name: KEY4_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY4_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7886
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of OTP access key 4 (ECC)
+        fields:
+          - name: KEY4_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY5_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7888
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of OTP access key 5 (ECC)
+        fields:
+          - name: KEY5_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY5_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7890
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of OTP access key 5 (ECC)
+        fields:
+          - name: KEY5_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY5_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7892
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of OTP access key 5 (ECC)
+        fields:
+          - name: KEY5_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY5_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7894
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of OTP access key 5 (ECC)
+        fields:
+          - name: KEY5_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY5_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7896
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of OTP access key 5 (ECC)
+        fields:
+          - name: KEY5_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY5_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7898
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of OTP access key 5 (ECC)
+        fields:
+          - name: KEY5_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY5_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7900
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of OTP access key 5 (ECC)
+        fields:
+          - name: KEY5_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY5_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7902
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of OTP access key 5 (ECC)
+        fields:
+          - name: KEY5_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY6_0
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7904
+        const: true
+        description: |-
+          (read-only) Bits 15:0 of OTP access key 6 (ECC)
+        fields:
+          - name: KEY6_0
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY6_1
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7906
+        const: true
+        description: |-
+          (read-only) Bits 31:16 of OTP access key 6 (ECC)
+        fields:
+          - name: KEY6_1
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY6_2
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7908
+        const: true
+        description: |-
+          (read-only) Bits 47:32 of OTP access key 6 (ECC)
+        fields:
+          - name: KEY6_2
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY6_3
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7910
+        const: true
+        description: |-
+          (read-only) Bits 63:48 of OTP access key 6 (ECC)
+        fields:
+          - name: KEY6_3
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY6_4
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7912
+        const: true
+        description: |-
+          (read-only) Bits 79:64 of OTP access key 6 (ECC)
+        fields:
+          - name: KEY6_4
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY6_5
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7914
+        const: true
+        description: |-
+          (read-only) Bits 95:80 of OTP access key 6 (ECC)
+        fields:
+          - name: KEY6_5
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY6_6
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7916
+        const: true
+        description: |-
+          (read-only) Bits 111:96 of OTP access key 6 (ECC)
+        fields:
+          - name: KEY6_6
+            index: 0
+            width: 16
+            read: true
+            write: false
+      - name: KEY6_7
+        type: uint16_t
+        expected_size: 2
+        expected_offset: 7918
+        const: true
+        description: |-
+          (read-only) Bits 127:112 of OTP access key 6 (ECC)
+        fields:
+          - name: KEY6_7
+            index: 0
+            width: 16
+            read: true
+            write: false
+enums:
+  OTP_DATA_FLASH_DEVINFO_CS0_SIZE:
+    enum:
+      NONE:
+        value: 0
+      _8K:
+        value: 1
+      _16K:
+        value: 2
+      _32K:
+        value: 3
+      _64k:
+        value: 4
+      _128K:
+        value: 5
+      _256K:
+        value: 6
+      _512K:
+        value: 7
+      _1M:
+        value: 8
+      _2M:
+        value: 9
+      _4M:
+        value: 10
+      _8M:
+        value: 11
+      _16M:
+        value: 12
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_DATA_FLASH_DEVINFO_CS1_SIZE:
+    enum:
+      NONE:
+        value: 0
+      _8K:
+        value: 1
+      _16K:
+        value: 2
+      _32K:
+        value: 3
+      _64k:
+        value: 4
+      _128K:
+        value: 5
+      _256K:
+        value: 6
+      _512K:
+        value: 7
+      _1M:
+        value: 8
+      _2M:
+        value: 9
+      _4M:
+        value: 10
+      _8M:
+        value: 11
+      _16M:
+        value: 12
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_DATA_BOOTSEL_XOSC_CFG_RANGE:
+    enum:
+      _1_15MHZ:
+        value: 0
+      _10_30MHZ:
+        value: 1
+      _25_60MHZ:
+        value: 2
+      _40_100MHZ:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_DATA_USB_WHITE_LABEL_ADDR_USB_WHITE_LABEL_ADDR:
+    enum:
+      USB_DEVICE_VID_VALUE:
+        value: 0
+      USB_DEVICE_PID_VALUE:
+        value: 1
+      USB_DEVICE_BCD_DEVICE_VALUE:
+        value: 2
+      USB_DEVICE_LANG_ID_VALUE:
+        value: 3
+      USB_DEVICE_MANUFACTURER_STRDEF:
+        value: 4
+      USB_DEVICE_PRODUCT_STRDEF:
+        value: 5
+      USB_DEVICE_SERIAL_NUMBER_STRDEF:
+        value: 6
+      USB_CONFIG_ATTRIBUTES_MAX_POWER_VALUES:
+        value: 7
+      VOLUME_LABEL_STRDEF:
+        value: 8
+      SCSI_INQUIRY_VENDOR_STRDEF:
+        value: 9
+      SCSI_INQUIRY_PRODUCT_STRDEF:
+        value: 10
+      SCSI_INQUIRY_VERSION_STRDEF:
+        value: 11
+      INDEX_HTM_REDIRECT_URL_STRDEF:
+        value: 12
+      INDEX_HTM_REDIRECT_NAME_STRDEF:
+        value: 13
+      INFO_UF2_TXT_MODEL_STRDEF:
+        value: 14
+      INFO_UF2_TXT_BOARD_ID_STRDEF:
+        value: 15
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+    underlying: uint16_t

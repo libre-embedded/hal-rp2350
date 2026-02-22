@@ -1,0 +1,741 @@
+{
+  "ACCESSCTRL": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "236",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "ADC": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "36",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "ADC_IRQ_FIFO",
+        "value": "35"
+      }
+    ]
+  },
+  "BOOTRAM": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "2092",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "BUSCTRL": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "44",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "CLOCKS": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "212",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "CLOCKS_IRQ",
+        "value": "30"
+      }
+    ]
+  },
+  "CORESIGHT_TRACE": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "8",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "DMA": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "3016",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "DMA_IRQ_0",
+        "value": "10"
+      },
+      {
+        "name": "DMA_IRQ_1",
+        "value": "11"
+      },
+      {
+        "name": "DMA_IRQ_2",
+        "value": "12"
+      },
+      {
+        "name": "DMA_IRQ_3",
+        "value": "13"
+      }
+    ]
+  },
+  "EPPB": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "12",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "GLITCH_DETECTOR": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "24",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "HSTX_CTRL": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "44",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "HSTX_FIFO": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "8",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "I2C0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "256",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "I2C0_IRQ",
+        "value": "36"
+      }
+    ]
+  },
+  "I2C1": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "I2C1_IRQ",
+        "value": "37"
+      }
+    ]
+  },
+  "IO_BANK0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "800",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "IO_IRQ_BANK0",
+        "value": "21"
+      },
+      {
+        "name": "IO_IRQ_BANK0_NS",
+        "value": "22"
+      }
+    ]
+  },
+  "IO_QSPI": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "576",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "IO_IRQ_QSPI",
+        "value": "23"
+      },
+      {
+        "name": "IO_IRQ_QSPI_NS",
+        "value": "24"
+      }
+    ]
+  },
+  "OTP": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "372",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "OTP_IRQ",
+        "value": "38"
+      }
+    ]
+  },
+  "OTP_DATA": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "7920",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "OTP_DATA_RAW": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "16384",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PADS_BANK0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "204",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PADS_QSPI": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "28",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PIO0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "392",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "PIO0_IRQ_0",
+        "value": "15"
+      },
+      {
+        "name": "PIO0_IRQ_1",
+        "value": "16"
+      }
+    ]
+  },
+  "PIO1": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "PIO1_IRQ_0",
+        "value": "17"
+      },
+      {
+        "name": "PIO1_IRQ_1",
+        "value": "18"
+      }
+    ]
+  },
+  "PIO2": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "PIO2_IRQ_0",
+        "value": "19"
+      },
+      {
+        "name": "PIO2_IRQ_1",
+        "value": "20"
+      }
+    ]
+  },
+  "PLL_SYS": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "32",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "PLL_SYS_IRQ",
+        "value": "42"
+      }
+    ]
+  },
+  "PLL_USB": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "PLL_USB_IRQ",
+        "value": "43"
+      }
+    ]
+  },
+  "POWMAN": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "240",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "POWMAN_IRQ_POW",
+        "value": "44"
+      },
+      {
+        "name": "POWMAN_IRQ_TIMER",
+        "value": "45"
+      }
+    ]
+  },
+  "PPB": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "274432",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PPB_NS": {
+    "address_blocks": [],
+    "interrupts": []
+  },
+  "PSM": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "16",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PWM": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "272",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "PWM_IRQ_WRAP_0",
+        "value": "8"
+      },
+      {
+        "name": "PWM_IRQ_WRAP_1",
+        "value": "9"
+      }
+    ]
+  },
+  "QMI": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "84",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "RESETS": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "12",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "ROSC": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "40",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "SHA256": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "40",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "SIO": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "488",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "SIO_IRQ_FIFO",
+        "value": "25"
+      },
+      {
+        "name": "SIO_IRQ_BELL",
+        "value": "26"
+      },
+      {
+        "name": "SIO_IRQ_FIFO_NS",
+        "value": "27"
+      },
+      {
+        "name": "SIO_IRQ_BELL_NS",
+        "value": "28"
+      },
+      {
+        "name": "SIO_IRQ_MTIMECMP",
+        "value": "29"
+      }
+    ]
+  },
+  "SIO_NS": {
+    "address_blocks": [],
+    "interrupts": []
+  },
+  "SPARE_IRQ": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "4",
+        "usage": "reserved"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "SPARE_IRQ_0",
+        "value": "46"
+      },
+      {
+        "name": "SPARE_IRQ_1",
+        "value": "47"
+      },
+      {
+        "name": "SPARE_IRQ_2",
+        "value": "48"
+      },
+      {
+        "name": "SPARE_IRQ_3",
+        "value": "49"
+      },
+      {
+        "name": "SPARE_IRQ_4",
+        "value": "50"
+      },
+      {
+        "name": "SPARE_IRQ_5",
+        "value": "51"
+      }
+    ]
+  },
+  "SPI0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "4096",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "SPI0_IRQ",
+        "value": "31"
+      }
+    ]
+  },
+  "SPI1": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "SPI1_IRQ",
+        "value": "32"
+      }
+    ]
+  },
+  "SYSCFG": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "24",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "SYSINFO": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "24",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "TBMAN": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "4",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "TICKS": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "72",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "TIMER0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "76",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "TIMER0_IRQ_0",
+        "value": "0"
+      },
+      {
+        "name": "TIMER0_IRQ_1",
+        "value": "1"
+      },
+      {
+        "name": "TIMER0_IRQ_2",
+        "value": "2"
+      },
+      {
+        "name": "TIMER0_IRQ_3",
+        "value": "3"
+      }
+    ]
+  },
+  "TIMER1": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "TIMER1_IRQ_0",
+        "value": "4"
+      },
+      {
+        "name": "TIMER1_IRQ_1",
+        "value": "5"
+      },
+      {
+        "name": "TIMER1_IRQ_2",
+        "value": "6"
+      },
+      {
+        "name": "TIMER1_IRQ_3",
+        "value": "7"
+      }
+    ]
+  },
+  "TRNG": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "492",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "TRNG_IRQ",
+        "value": "39"
+      }
+    ]
+  },
+  "UART0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "4096",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "UART0_IRQ",
+        "value": "33"
+      }
+    ]
+  },
+  "UART1": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "UART1_IRQ",
+        "value": "34"
+      }
+    ]
+  },
+  "USB": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "280",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "USBCTRL_IRQ",
+        "value": "14"
+      }
+    ]
+  },
+  "USB_DPRAM": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "256",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "WATCHDOG": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "44",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "XIP_AUX": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "12",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "XIP_CTRL": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "32",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "XOSC": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "20",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "cpu": {
+    "deviceNumInterrupts": "52",
+    "dspPresent": "1",
+    "endian": "little",
+    "fpuPresent": "true",
+    "mpuPresent": "true",
+    "name": "CM33",
+    "nvicPrioBits": "4",
+    "revision": "r1p0",
+    "sauNumRegions": "8",
+    "vendorSystickConfig": "false",
+    "vtorPresent": "1"
+  },
+  "device": {
+    "access": "read-write",
+    "addressUnitBits": "8",
+    "description": "\n        Dual Cortex-M33 or Hazard3 processors at 150MHz\n        520kB on-chip SRAM, in 10 independent banks\n        Extended low-power sleep states with optional SRAM retention: as low as 10uA DVDD\n        8kB of one-time-programmable storage (OTP)\n        Up to 16MB of external QSPI flash/PSRAM via dedicated QSPI bus\n            Additional 16MB flash/PSRAM accessible via optional second chip-select\n        On-chip switched-mode power supply to generate core voltage\n            Low-quiescent-current LDO mode can be enabled for sleep states\n        2x on-chip PLLs for internal or external clock generation\n        GPIOs are 5V-tolerant (powered), and 3.3V-failsafe (unpowered)\n        Security features:\n            Optional boot signing, enforced by on-chip mask ROM, with key fingerprint in OTP\n            Protected OTP storage for optional boot decryption key\n            Global bus filtering based on Arm or RISC-V security/privilege levels\n            Peripherals, GPIOs and DMA channels individually assignable to security domains\n            Hardware mitigations for fault injection attacks\n            Hardware SHA-256 accelerator\n        Peripherals:\n            2x UARTs\n            2x SPI controllers\n            2x I2C controllers\n            24x PWM channels\n            USB 1.1 controller and PHY, with host and device support\n            12x PIO state machines\n            1x HSTX peripheral\n    ",
+    "licenseText": "\n        Copyright (c) 2024 Raspberry Pi Ltd.\n\n        SPDX-License-Identifier: BSD-3-Clause\n    ",
+    "name": "RP2350",
+    "resetMask": "0xffffffff",
+    "resetValue": "0x00000000",
+    "series": "RP",
+    "size": "32",
+    "vendor": "Raspberry Pi",
+    "version": "0.1",
+    "width": "32"
+  },
+  "filtered_includes": {}
+}

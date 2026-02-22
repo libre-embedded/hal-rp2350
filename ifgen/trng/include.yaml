@@ -1,0 +1,590 @@
+---
+structs:
+  trng:
+    description: |-
+      ARM TrustZone RNG register block
+    instances:
+      - name: TRNG
+        address: '0x400f0000'
+    fields:
+      - name: RNG_IMR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 256
+        description: |-
+          (read-write) Interrupt masking.
+        fields:
+          - name: EHR_VALID_INT_MASK
+            description: |-
+              1'b1-mask interrupt, no interrupt will be generated. See RNG_ISR for an explanation on this interrupt.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: AUTOCORR_ERR_INT_MASK
+            description: |-
+              1'b1-mask interrupt, no interrupt will be generated. See RNG_ISR for an explanation on this interrupt.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CRNGT_ERR_INT_MASK
+            description: |-
+              1'b1-mask interrupt, no interrupt will be generated. See RNG_ISR for an explanation on this interrupt.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: VN_ERR_INT_MASK
+            description: |-
+              1'b1-mask interrupt, no interrupt will be generated. See RNG_ISR for an explanation on this interrupt.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 4
+            width: 28
+            read: true
+            write: false
+      - name: RNG_ISR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 260
+        const: true
+        description: |-
+          (read-only) RNG status register. If corresponding RNG_IMR bit is unmasked, an interrupt will be generated.
+        fields:
+          - name: EHR_VALID
+            description: |-
+              1'b1 indicates that 192 bits have been collected in the RNG, and are ready to be read.
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: AUTOCORR_ERR
+            description: |-
+              1'b1 indicates Autocorrelation test failed four times in a row. When set, RNG cease from functioning until next reset.
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: CRNGT_ERR
+            description: |-
+              1'b1 indicates CRNGT in the RNG test failed. Failure occurs when two consecutive blocks of 16 collected bits are equal.
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: VN_ERR
+            description: |-
+              1'b1 indicates Von Neuman error. Error in von Neuman occurs if 32 consecutive collected bits are identical, ZERO or ONE.
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 4
+            width: 28
+            read: true
+            write: false
+      - name: RNG_ICR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 264
+        description: |-
+          (read-write) Interrupt/status bit clear Register.
+        fields:
+          - name: EHR_VALID
+            description: |-
+              Write 1'b1 - clear corresponding bit in RNG_ISR.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: AUTOCORR_ERR
+            description: |-
+              Cannot be cleared by SW! Only RNG reset clears this bit.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CRNGT_ERR
+            description: |-
+              Write 1'b1 - clear corresponding bit in RNG_ISR.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: VN_ERR
+            description: |-
+              Write 1'b1 - clear corresponding bit in RNG_ISR.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 4
+            width: 28
+            read: true
+            write: false
+      - name: TRNG_CONFIG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 268
+        description: |-
+          (read-write) Selecting the inverter-chain length.
+        fields:
+          - name: RND_SRC_SEL
+            description: |-
+              Selects the number of inverters (out of four possible selections) in the ring oscillator (the entropy source).
+            index: 0
+            width: 2
+            read: true
+            write: true
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 2
+            width: 30
+            read: true
+            write: false
+      - name: TRNG_VALID
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 272
+        const: true
+        description: |-
+          (read-only) 192 bit collection indication.
+        fields:
+          - name: EHR_VALID
+            description: |-
+              1'b1 indicates that collection of bits in the RNG is completed, and data can be read from EHR_DATA register.
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 1
+            width: 31
+            read: true
+            write: false
+      - name: EHR_DATA0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 276
+        const: true
+        description: |-
+          (read-only) RNG collected bits.
+        fields:
+          - name: EHR_DATA0
+            description: |-
+              Bits [31:0] of Entropy Holding Register (EHR) - RNG output register
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: EHR_DATA1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 280
+        const: true
+        description: |-
+          (read-only) RNG collected bits.
+        fields:
+          - name: EHR_DATA1
+            description: |-
+              Bits [63:32] of Entropy Holding Register (EHR) - RNG output register
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: EHR_DATA2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 284
+        const: true
+        description: |-
+          (read-only) RNG collected bits.
+        fields:
+          - name: EHR_DATA2
+            description: |-
+              Bits [95:64] of Entropy Holding Register (EHR) - RNG output register
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: EHR_DATA3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 288
+        const: true
+        description: |-
+          (read-only) RNG collected bits.
+        fields:
+          - name: EHR_DATA3
+            description: |-
+              Bits [127:96] of Entropy Holding Register (EHR) - RNG output register
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: EHR_DATA4
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 292
+        const: true
+        description: |-
+          (read-only) RNG collected bits.
+        fields:
+          - name: EHR_DATA4
+            description: |-
+              Bits [159:128] of Entropy Holding Register (EHR) - RNG output register
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: EHR_DATA5
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 296
+        const: true
+        description: |-
+          (read-only) RNG collected bits.
+        fields:
+          - name: EHR_DATA5
+            description: |-
+              Bits [191:160] of Entropy Holding Register (EHR) - RNG output register
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: RND_SOURCE_ENABLE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 300
+        description: |-
+          (read-write) Enable signal for the random source.
+        fields:
+          - name: RND_SRC_EN
+            description: |-
+              * 1'b1 - entropy source is enabled. *1'b0 - entropy source is disabled
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 1
+            width: 31
+            read: true
+            write: false
+      - name: SAMPLE_CNT1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 304
+        description: |-
+          (read-write) Counts clocks between sampling of random bit.
+        fields:
+          - name: SAMPLE_CNTR1
+            description: |-
+              Sets the number of rng_clk cycles between two consecutive ring oscillator samples. Note! If the Von-Neuman is bypassed, the minimum value for sample counter must not be less then decimal seventeen
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: AUTOCORR_STATISTIC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 308
+        description: |-
+          (read-write) Statistic about Autocorrelation test activations.
+        fields:
+          - name: AUTOCORR_TRYS
+            description: |-
+              Count each time an autocorrelation test starts. Any write to the register reset the counter. Stop collecting statistic if one of the counters reached the limit.
+            index: 0
+            width: 14
+            read: true
+            write: true
+          - name: AUTOCORR_FAILS
+            description: |-
+              Count each time an autocorrelation test fails. Any write to the register reset the counter. Stop collecting statistic if one of the counters reached the limit.
+            index: 14
+            width: 8
+            read: true
+            write: true
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 22
+            width: 10
+            read: true
+            write: false
+      - name: TRNG_DEBUG_CONTROL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 312
+        description: |-
+          (read-write) Debug register.
+        fields:
+          - name: RESERVED
+            description: |-
+              N/A
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: VNC_BYPASS
+            description: |-
+              When set, the Von-Neuman balancer is bypassed (including the 32 consecutive bits test).
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: TRNG_CRNGT_BYPASS
+            description: |-
+              When set, the CRNGT test in the RNG is bypassed.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: AUTO_CORRELATE_BYPASS
+            description: |-
+              When set, the autocorrelation test in the TRNG module is bypassed.
+            index: 3
+            width: 1
+            read: true
+            write: true
+      - name: TRNG_SW_RESET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 320
+        description: |-
+          (read-write) Generate internal SW reset within the RNG block.
+        fields:
+          - name: TRNG_SW_RESET
+            description: |-
+              Writing 1'b1 to this register causes an internal RNG reset.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 1
+            width: 31
+            read: true
+            write: false
+      - name: RNG_DEBUG_EN_INPUT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 436
+        description: |-
+          (read-write) Enable the RNG debug mode
+        fields:
+          - name: RNG_DEBUG_EN
+            description: |-
+              * 1'b1 - debug mode is enabled. *1'b0 - debug mode is disabled
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 1
+            width: 31
+            read: true
+            write: false
+      - name: TRNG_BUSY
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 440
+        const: true
+        description: |-
+          (read-only) RNG Busy indication.
+        fields:
+          - name: TRNG_BUSY
+            description: |-
+              Reflects rng_busy status.
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 1
+            width: 31
+            read: true
+            write: false
+      - name: RST_BITS_COUNTER
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 444
+        description: |-
+          (read-write) Reset the counter of collected bits in the RNG.
+        fields:
+          - name: RST_BITS_COUNTER
+            description: |-
+              Writing any value to this address will reset the bits counter and RNG valid registers. RND_SORCE_ENABLE register must be unset in order for the reset to take place.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 1
+            width: 31
+            read: true
+            write: false
+      - name: RNG_VERSION
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 448
+        const: true
+        description: |-
+          (read-only) Displays the version settings of the TRNG.
+        fields:
+          - name: EHR_WIDTH_192
+            description: |-
+              * 1'b1 - 192-bit EHR. *1'b0 - 128-bit EHR
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: CRNGT_EXISTS
+            description: |-
+              * 1'b1 - Exists. *1'b0 - Does not exist
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: AUTOCORR_EXISTS
+            description: |-
+              * 1'b1 - Exists. *1'b0 - Does not exist
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: TRNG_TESTS_BYPASS_EN
+            description: |-
+              * 1'b1 - Exists. *1'b0 - Does not exist
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: PRNG_EXISTS
+            description: |-
+              * 1'b1 - Exists. *1'b0 - Does not exist
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: KAT_EXISTS
+            description: |-
+              * 1'b1 - Exists. *1'b0 - Does not exist
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: RESEEDING_EXISTS
+            description: |-
+              * 1'b1 - Exists. *1'b0 - Does not exist
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: RNG_USE_5_SBOXES
+            description: |-
+              * 1'b1 - 5 SBOX AES. *1'b0 - 20 SBOX AES
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 8
+            width: 24
+            read: true
+            write: false
+      - name: RNG_BIST_CNTR_0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 480
+        const: true
+        description: |-
+          (read-only) Collected BIST results.
+        fields:
+          - name: ROSC_CNTR_VAL
+            description: |-
+              Reflects the results of RNG BIST counter.
+            index: 0
+            width: 22
+            read: true
+            write: false
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 22
+            width: 10
+            read: true
+            write: false
+      - name: RNG_BIST_CNTR_1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 484
+        const: true
+        description: |-
+          (read-only) Collected BIST results.
+        fields:
+          - name: ROSC_CNTR_VAL
+            description: |-
+              Reflects the results of RNG BIST counter.
+            index: 0
+            width: 22
+            read: true
+            write: false
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 22
+            width: 10
+            read: true
+            write: false
+      - name: RNG_BIST_CNTR_2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 488
+        const: true
+        description: |-
+          (read-only) Collected BIST results.
+        fields:
+          - name: ROSC_CNTR_VAL
+            description: |-
+              Reflects the results of RNG BIST counter.
+            index: 0
+            width: 22
+            read: true
+            write: false
+          - name: RESERVED
+            description: |-
+              RESERVED
+            index: 22
+            width: 10
+            read: true
+            write: false
+enums: {}

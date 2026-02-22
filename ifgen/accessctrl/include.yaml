@@ -1,0 +1,3850 @@
+---
+structs:
+  accessctrl:
+    description: |-
+      Hardware access control registers
+    instances:
+      - name: ACCESSCTRL
+        address: '0x40060000'
+    fields:
+      - name: LOCK
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: |-
+          (read-write) Once a LOCK bit is written to 1, ACCESSCTRL silently ignores writes from that master. LOCK is writable only by a Secure, Privileged processor or debugger.
+
+                              LOCK bits are only writable when their value is zero. Once set, they can never be cleared, except by a full reset of ACCESSCTRL
+
+                              Setting the LOCK bit does not affect whether an access raises a bus error. Unprivileged writes, or writes from the DMA, will continue to raise bus errors. All other accesses will continue not to.
+        fields:
+          - name: CORE0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: DEBUG
+            index: 3
+            width: 1
+            read: true
+            write: true
+      - name: FORCE_CORE_NS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: |-
+          (read-write) Force core 1's bus accesses to always be Non-secure, no matter the core's internal state.
+
+                              Useful for schemes where one core is designated as the Non-secure core, since some peripherals may filter individual registers internally based on security state but not on master ID.
+        fields:
+          - name: CORE1
+            index: 1
+            width: 1
+            read: true
+            write: true
+      - name: CFGRESET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: |-
+          (write-only) Write 1 to reset all ACCESSCTRL configuration, except for the LOCK and FORCE_CORE_NS registers.
+
+                              This bit is used in the RP2350 bootrom to quickly restore ACCESSCTRL to a known state during the boot path.
+
+                              Note that, like all registers in ACCESSCTRL, this register is not writable when the writer's corresponding LOCK bit is set, therefore a master which has been locked out of ACCESSCTRL can not use the CFGRESET register to disturb its contents.
+        fields:
+          - name: CFGRESET
+            index: 0
+            width: 1
+            read: false
+            write: true
+      - name: GPIO_NSMASK0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: |-
+          (read-write) Control whether GPIO0...31 are accessible to Non-secure code. Writable only by a Secure, Privileged processor or debugger.
+
+                              0 -> Secure access only
+
+                              1 -> Secure + Non-secure access
+        fields:
+          - name: GPIO_NSMASK0
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: GPIO_NSMASK1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: |-
+          (read-write) Control whether GPIO32..47 are accessible to Non-secure code, and whether QSPI and USB bitbang are accessible through the Non-secure SIO. Writable only by a Secure, Privileged processor or debugger.
+        fields:
+          - name: GPIO
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: USB_DP
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: USB_DM
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: QSPI_SCK
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: QSPI_CSN
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: QSPI_SD
+            index: 28
+            width: 4
+            read: true
+            write: true
+      - name: ROM
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access ROM, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, ROM can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, ROM can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, ROM can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, ROM can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, ROM can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, ROM can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, ROM can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, ROM can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: XIP_MAIN
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access XIP_MAIN, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, XIP_MAIN can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, XIP_MAIN can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, XIP_MAIN can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, XIP_MAIN can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, XIP_MAIN can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, XIP_MAIN can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, XIP_MAIN can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, XIP_MAIN can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM0, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM0 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM0 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM0 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM0 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM0 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM0 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM0 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM0 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM1, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM1 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM1 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM1 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM1 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM1 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM1 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM1 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM1 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM2, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM2 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM2 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM2 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM2 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM2 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM2 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM2 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM2 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM3, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM3 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM3 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM3 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM3 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM3 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM3 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM3 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM3 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM4
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM4, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM4 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM4 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM4 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM4 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM4 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM4 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM4 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM4 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM5
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM5, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM5 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM5 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM5 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM5 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM5 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM5 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM5 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM5 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM6
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM6, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM6 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM6 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM6 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM6 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM6 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM6 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM6 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM6 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM7
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM7, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM7 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM7 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM7 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM7 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM7 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM7 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM7 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM7 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM8
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM8, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM8 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM8 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM8 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM8 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM8 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM8 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM8 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM8 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SRAM9
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SRAM9, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SRAM9 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SRAM9 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SRAM9 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SRAM9 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SRAM9 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SRAM9 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SRAM9 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SRAM9 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: DMA
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 68
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access DMA, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, DMA can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, DMA can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, DMA can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, DMA can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, DMA can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, DMA can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, DMA can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, DMA can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: USBCTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 72
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access USBCTRL, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, USBCTRL can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, USBCTRL can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, USBCTRL can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, USBCTRL can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, USBCTRL can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, USBCTRL can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, USBCTRL can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, USBCTRL can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: PIO0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 76
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access PIO0, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, PIO0 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, PIO0 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, PIO0 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, PIO0 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, PIO0 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, PIO0 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, PIO0 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, PIO0 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: PIO1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 80
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access PIO1, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, PIO1 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, PIO1 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, PIO1 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, PIO1 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, PIO1 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, PIO1 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, PIO1 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, PIO1 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: PIO2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 84
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access PIO2, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, PIO2 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, PIO2 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, PIO2 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, PIO2 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, PIO2 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, PIO2 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, PIO2 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, PIO2 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CORESIGHT_TRACE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 88
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access CORESIGHT_TRACE, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, CORESIGHT_TRACE can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, CORESIGHT_TRACE can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, CORESIGHT_TRACE can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, CORESIGHT_TRACE can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, CORESIGHT_TRACE can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, CORESIGHT_TRACE can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, CORESIGHT_TRACE can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, CORESIGHT_TRACE can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CORESIGHT_PERIPH
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 92
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access CORESIGHT_PERIPH, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, CORESIGHT_PERIPH can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, CORESIGHT_PERIPH can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, CORESIGHT_PERIPH can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, CORESIGHT_PERIPH can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, CORESIGHT_PERIPH can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, CORESIGHT_PERIPH can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, CORESIGHT_PERIPH can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, CORESIGHT_PERIPH can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SYSINFO
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 96
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SYSINFO, and at what security/privilege levels they can do so.
+
+                              Defaults to fully open access.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SYSINFO can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SYSINFO can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SYSINFO can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SYSINFO can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SYSINFO can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SYSINFO can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SYSINFO can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SYSINFO can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: RESETS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 100
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access RESETS, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, RESETS can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, RESETS can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, RESETS can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, RESETS can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, RESETS can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, RESETS can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, RESETS can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, RESETS can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: IO_BANK0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 104
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access IO_BANK0, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, IO_BANK0 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, IO_BANK0 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, IO_BANK0 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, IO_BANK0 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, IO_BANK0 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, IO_BANK0 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, IO_BANK0 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, IO_BANK0 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: IO_BANK1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 108
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access IO_BANK1, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, IO_BANK1 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, IO_BANK1 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, IO_BANK1 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, IO_BANK1 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, IO_BANK1 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, IO_BANK1 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, IO_BANK1 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, IO_BANK1 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: PADS_BANK0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 112
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access PADS_BANK0, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, PADS_BANK0 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, PADS_BANK0 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, PADS_BANK0 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, PADS_BANK0 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, PADS_BANK0 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, PADS_BANK0 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, PADS_BANK0 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, PADS_BANK0 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: PADS_QSPI
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 116
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access PADS_QSPI, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, PADS_QSPI can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, PADS_QSPI can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, PADS_QSPI can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, PADS_QSPI can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, PADS_QSPI can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, PADS_QSPI can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, PADS_QSPI can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, PADS_QSPI can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: BUSCTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 120
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access BUSCTRL, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, BUSCTRL can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, BUSCTRL can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, BUSCTRL can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, BUSCTRL can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, BUSCTRL can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, BUSCTRL can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, BUSCTRL can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, BUSCTRL can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: ADC0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 124
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access ADC0, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, ADC0 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, ADC0 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, ADC0 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, ADC0 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, ADC0 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, ADC0 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, ADC0 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, ADC0 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: HSTX
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 128
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access HSTX, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, HSTX can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, HSTX can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, HSTX can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, HSTX can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, HSTX can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, HSTX can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, HSTX can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, HSTX can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: I2C0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 132
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access I2C0, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, I2C0 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, I2C0 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, I2C0 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, I2C0 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, I2C0 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, I2C0 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, I2C0 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, I2C0 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: I2C1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 136
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access I2C1, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, I2C1 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, I2C1 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, I2C1 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, I2C1 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, I2C1 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, I2C1 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, I2C1 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, I2C1 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: PWM
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 140
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access PWM, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, PWM can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, PWM can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, PWM can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, PWM can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, PWM can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, PWM can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, PWM can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, PWM can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SPI0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 144
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SPI0, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SPI0 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SPI0 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SPI0 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SPI0 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SPI0 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SPI0 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SPI0 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SPI0 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SPI1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 148
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SPI1, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SPI1 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SPI1 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SPI1 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SPI1 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SPI1 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SPI1 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SPI1 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SPI1 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: TIMER0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 152
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access TIMER0, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, TIMER0 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, TIMER0 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, TIMER0 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, TIMER0 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, TIMER0 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, TIMER0 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, TIMER0 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, TIMER0 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: TIMER1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 156
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access TIMER1, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, TIMER1 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, TIMER1 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, TIMER1 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, TIMER1 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, TIMER1 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, TIMER1 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, TIMER1 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, TIMER1 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: UART0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 160
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access UART0, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, UART0 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, UART0 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, UART0 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, UART0 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, UART0 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, UART0 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, UART0 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, UART0 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: UART1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 164
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access UART1, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, UART1 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, UART1 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, UART1 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, UART1 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, UART1 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, UART1 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, UART1 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, UART1 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: OTP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 168
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access OTP, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, OTP can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, OTP can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, OTP can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, OTP can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, OTP can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, OTP can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, OTP can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, OTP can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: TBMAN
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 172
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access TBMAN, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure access from any master.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, TBMAN can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, TBMAN can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, TBMAN can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, TBMAN can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, TBMAN can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, TBMAN can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, TBMAN can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, TBMAN can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: POWMAN
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 176
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access POWMAN, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, POWMAN can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, POWMAN can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, POWMAN can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, POWMAN can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, POWMAN can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, POWMAN can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, POWMAN can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, POWMAN can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: TRNG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 180
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access TRNG, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, TRNG can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, TRNG can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, TRNG can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, TRNG can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, TRNG can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, TRNG can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, TRNG can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, TRNG can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SHA256
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 184
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SHA256, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SHA256 can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SHA256 can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SHA256 can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SHA256 can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SHA256 can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SHA256 can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SHA256 can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SHA256 can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: SYSCFG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 188
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access SYSCFG, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, SYSCFG can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, SYSCFG can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, SYSCFG can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, SYSCFG can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, SYSCFG can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, SYSCFG can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, SYSCFG can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, SYSCFG can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CLOCKS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 192
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access CLOCKS, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, CLOCKS can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, CLOCKS can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, CLOCKS can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, CLOCKS can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, CLOCKS can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, CLOCKS can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, CLOCKS can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, CLOCKS can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: XOSC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 196
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access XOSC, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, XOSC can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, XOSC can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, XOSC can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, XOSC can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, XOSC can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, XOSC can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, XOSC can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, XOSC can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: ROSC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 200
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access ROSC, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, ROSC can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, ROSC can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, ROSC can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, ROSC can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, ROSC can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, ROSC can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, ROSC can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, ROSC can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: PLL_SYS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 204
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access PLL_SYS, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, PLL_SYS can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, PLL_SYS can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, PLL_SYS can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, PLL_SYS can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, PLL_SYS can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, PLL_SYS can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, PLL_SYS can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, PLL_SYS can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: PLL_USB
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 208
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access PLL_USB, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, PLL_USB can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, PLL_USB can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, PLL_USB can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, PLL_USB can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, PLL_USB can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, PLL_USB can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, PLL_USB can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, PLL_USB can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: TICKS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 212
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access TICKS, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, TICKS can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, TICKS can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, TICKS can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, TICKS can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, TICKS can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, TICKS can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, TICKS can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, TICKS can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: WATCHDOG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 216
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access WATCHDOG, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, WATCHDOG can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, WATCHDOG can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, WATCHDOG can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, WATCHDOG can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, WATCHDOG can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, WATCHDOG can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, WATCHDOG can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, WATCHDOG can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: RSM
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 220
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access RSM, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, RSM can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, RSM can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, RSM can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, RSM can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, RSM can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, RSM can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, RSM can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, RSM can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: XIP_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 224
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access XIP_CTRL, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, XIP_CTRL can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, XIP_CTRL can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, XIP_CTRL can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, XIP_CTRL can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, XIP_CTRL can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, XIP_CTRL can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, XIP_CTRL can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, XIP_CTRL can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: XIP_QMI
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 228
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access XIP_QMI, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged processor or debug access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, XIP_QMI can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, XIP_QMI can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, XIP_QMI can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, XIP_QMI can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, XIP_QMI can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, XIP_QMI can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, XIP_QMI can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, XIP_QMI can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: XIP_AUX
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 232
+        description: |-
+          (read-write) Control whether debugger, DMA, core 0 and core 1 can access XIP_AUX, and at what security/privilege levels they can do so.
+
+                              Defaults to Secure, Privileged access only.
+
+                              This register is writable only from a Secure, Privileged processor or debugger, with the exception of the NSU bit, which becomes Non-secure-Privileged-writable when the NSP bit is set.
+        fields:
+          - name: NSU
+            description: |-
+              If 1, and NSP is also set, XIP_AUX can be accessed from a Non-secure, Unprivileged context.
+
+                                          This bit is writable from a Non-secure, Privileged context, if and only if the NSP bit is set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NSP
+            description: |-
+              If 1, XIP_AUX can be accessed from a Non-secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SU
+            description: |-
+              If 1, and SP is also set, XIP_AUX can be accessed from a Secure, Unprivileged context.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SP
+            description: |-
+              If 1, XIP_AUX can be accessed from a Secure, Privileged context.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CORE0
+            description: |-
+              If 1, XIP_AUX can be accessed by core 0, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              If 1, XIP_AUX can be accessed by core 1, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DMA
+            description: |-
+              If 1, XIP_AUX can be accessed by the DMA, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: DBG
+            description: |-
+              If 1, XIP_AUX can be accessed by the debugger, at security/privilege levels permitted by SP/NSP/SU/NSU in this register.
+            index: 7
+            width: 1
+            read: true
+            write: true
+enums: {}

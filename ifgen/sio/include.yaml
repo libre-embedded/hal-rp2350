@@ -1,0 +1,2369 @@
+---
+structs:
+  sio:
+    description: |-
+      Single-cycle IO block 
+                  Provides core-local and inter-core hardware for the two processors, with single-cycle access.
+    instances:
+      - name: SIO
+        address: '0xd0000000'
+      - name: SIO_NS
+        address: '0xd0020000'
+    fields:
+      - name: CPUID
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        const: true
+        description: |-
+          (read-only) Processor core identifier
+        fields:
+          - name: CPUID
+            description: |-
+              Value is 0 when read from processor core 0, and 1 when read from processor core 1.
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: GPIO_IN
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        const: true
+        description: |-
+          (read-only) Input value for GPIO0...31.
+
+                              In the Non-secure SIO, Secure-only GPIOs (as per ACCESSCTRL) appear as zero.
+        fields:
+          - name: GPIO_IN
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: GPIO_HI_IN
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        const: true
+        description: |-
+          (read-only) Input value on GPIO32...47, QSPI IOs and USB pins
+
+                              In the Non-secure SIO, Secure-only GPIOs (as per ACCESSCTRL) appear as zero.
+        fields:
+          - name: GPIO
+            description: |-
+              Input value on GPIO32...47
+            index: 0
+            width: 16
+            read: true
+            write: false
+          - name: USB_DP
+            description: |-
+              Input value on USB D+ pin
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: USB_DM
+            description: |-
+              Input value on USB D- pin
+            index: 25
+            width: 1
+            read: true
+            write: false
+          - name: QSPI_SCK
+            description: |-
+              Input value on QSPI SCK pin
+            index: 26
+            width: 1
+            read: true
+            write: false
+          - name: QSPI_CSN
+            description: |-
+              Input value on QSPI CSn pin
+            index: 27
+            width: 1
+            read: true
+            write: false
+          - name: QSPI_SD
+            description: |-
+              Input value on QSPI SD0 (MOSI), SD1 (MISO), SD2 and SD3 pins
+            index: 28
+            width: 4
+            read: true
+            write: false
+      - name: GPIO_OUT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: |-
+          (read-write) GPIO0...31 output value
+        fields:
+          - name: GPIO_OUT
+            description: |-
+              Set output level (1/0 -> high/low) for GPIO0...31. Reading back gives the last value written, NOT the input value from the pins.
+
+                                          If core 0 and core 1 both write to GPIO_OUT simultaneously (or to a SET/CLR/XOR alias), the result is as though the write from core 0 took place first, and the write from core 1 was then applied to that intermediate result.
+
+                                          In the Non-secure SIO, Secure-only GPIOs (as per ACCESSCTRL) ignore writes, and their output status reads back as zero. This is also true for SET/CLR/XOR aliases of this register.
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: GPIO_HI_OUT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: |-
+          (read-write) Output value for GPIO32...47, QSPI IOs and USB pins.
+
+                              Write to set output level (1/0 -> high/low). Reading back gives the last value written, NOT the input value from the pins. If core 0 and core 1 both write to GPIO_HI_OUT simultaneously (or to a SET/CLR/XOR alias), the result is as though the write from core 0 took place first, and the write from core 1 was then applied to that intermediate result.
+
+                              In the Non-secure SIO, Secure-only GPIOs (as per ACCESSCTRL) ignore writes, and their output status reads back as zero. This is also true for SET/CLR/XOR aliases of this register.
+        fields:
+          - name: GPIO
+            description: |-
+              Output value for GPIO32...47
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: USB_DP
+            description: |-
+              Output value for USB D+ pin
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: USB_DM
+            description: |-
+              Output value for USB D- pin
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: QSPI_SCK
+            description: |-
+              Output value for QSPI SCK pin
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: QSPI_CSN
+            description: |-
+              Output value for QSPI CSn pin
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: QSPI_SD
+            description: |-
+              Output value for QSPI SD0 (MOSI), SD1 (MISO), SD2 and SD3 pins
+            index: 28
+            width: 4
+            read: true
+            write: true
+      - name: GPIO_OUT_SET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: |-
+          (write-only) GPIO0...31 output value set
+        fields:
+          - name: GPIO_OUT_SET
+            description: |-
+              Perform an atomic bit-set on GPIO_OUT, i.e. `GPIO_OUT |= wdata`
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: GPIO_HI_OUT_SET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: |-
+          (write-only) Output value set for GPIO32..47, QSPI IOs and USB pins. 
+                              Perform an atomic bit-set on GPIO_HI_OUT, i.e. `GPIO_HI_OUT |= wdata`
+        fields:
+          - name: GPIO
+            index: 0
+            width: 16
+            read: false
+            write: true
+          - name: USB_DP
+            index: 24
+            width: 1
+            read: false
+            write: true
+          - name: USB_DM
+            index: 25
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SCK
+            index: 26
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_CSN
+            index: 27
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SD
+            index: 28
+            width: 4
+            read: false
+            write: true
+      - name: GPIO_OUT_CLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        description: |-
+          (write-only) GPIO0...31 output value clear
+        fields:
+          - name: GPIO_OUT_CLR
+            description: |-
+              Perform an atomic bit-clear on GPIO_OUT, i.e. `GPIO_OUT &= ~wdata`
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: GPIO_HI_OUT_CLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: |-
+          (write-only) Output value clear for GPIO32..47, QSPI IOs and USB pins. 
+                              Perform an atomic bit-clear on GPIO_HI_OUT, i.e. `GPIO_HI_OUT &= ~wdata`
+        fields:
+          - name: GPIO
+            index: 0
+            width: 16
+            read: false
+            write: true
+          - name: USB_DP
+            index: 24
+            width: 1
+            read: false
+            write: true
+          - name: USB_DM
+            index: 25
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SCK
+            index: 26
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_CSN
+            index: 27
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SD
+            index: 28
+            width: 4
+            read: false
+            write: true
+      - name: GPIO_OUT_XOR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        description: |-
+          (write-only) GPIO0...31 output value XOR
+        fields:
+          - name: GPIO_OUT_XOR
+            description: |-
+              Perform an atomic bitwise XOR on GPIO_OUT, i.e. `GPIO_OUT ^= wdata`
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: GPIO_HI_OUT_XOR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        description: |-
+          (write-only) Output value XOR for GPIO32..47, QSPI IOs and USB pins. 
+                              Perform an atomic bitwise XOR on GPIO_HI_OUT, i.e. `GPIO_HI_OUT ^= wdata`
+        fields:
+          - name: GPIO
+            index: 0
+            width: 16
+            read: false
+            write: true
+          - name: USB_DP
+            index: 24
+            width: 1
+            read: false
+            write: true
+          - name: USB_DM
+            index: 25
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SCK
+            index: 26
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_CSN
+            index: 27
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SD
+            index: 28
+            width: 4
+            read: false
+            write: true
+      - name: GPIO_OE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: |-
+          (read-write) GPIO0...31 output enable
+        fields:
+          - name: GPIO_OE
+            description: |-
+              Set output enable (1/0 -> output/input) for GPIO0...31. Reading back gives the last value written.
+
+                                          If core 0 and core 1 both write to GPIO_OE simultaneously (or to a SET/CLR/XOR alias), the result is as though the write from core 0 took place first, and the write from core 1 was then applied to that intermediate result.
+
+                                          In the Non-secure SIO, Secure-only GPIOs (as per ACCESSCTRL) ignore writes, and their output status reads back as zero. This is also true for SET/CLR/XOR aliases of this register.
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: GPIO_HI_OE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        description: |-
+          (read-write) Output enable value for GPIO32...47, QSPI IOs and USB pins.
+
+                              Write output enable (1/0 -> output/input). Reading back gives the last value written. If core 0 and core 1 both write to GPIO_HI_OE simultaneously (or to a SET/CLR/XOR alias), the result is as though the write from core 0 took place first, and the write from core 1 was then applied to that intermediate result.
+
+                              In the Non-secure SIO, Secure-only GPIOs (as per ACCESSCTRL) ignore writes, and their output status reads back as zero. This is also true for SET/CLR/XOR aliases of this register.
+        fields:
+          - name: GPIO
+            description: |-
+              Output enable value for GPIO32...47
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: USB_DP
+            description: |-
+              Output enable value for USB D+ pin
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: USB_DM
+            description: |-
+              Output enable value for USB D- pin
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: QSPI_SCK
+            description: |-
+              Output enable value for QSPI SCK pin
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: QSPI_CSN
+            description: |-
+              Output enable value for QSPI CSn pin
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: QSPI_SD
+            description: |-
+              Output enable value for QSPI SD0 (MOSI), SD1 (MISO), SD2 and SD3 pins
+            index: 28
+            width: 4
+            read: true
+            write: true
+      - name: GPIO_OE_SET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        description: |-
+          (write-only) GPIO0...31 output enable set
+        fields:
+          - name: GPIO_OE_SET
+            description: |-
+              Perform an atomic bit-set on GPIO_OE, i.e. `GPIO_OE |= wdata`
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: GPIO_HI_OE_SET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        description: |-
+          (write-only) Output enable set for GPIO32...47, QSPI IOs and USB pins. 
+                              Perform an atomic bit-set on GPIO_HI_OE, i.e. `GPIO_HI_OE |= wdata`
+        fields:
+          - name: GPIO
+            index: 0
+            width: 16
+            read: false
+            write: true
+          - name: USB_DP
+            index: 24
+            width: 1
+            read: false
+            write: true
+          - name: USB_DM
+            index: 25
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SCK
+            index: 26
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_CSN
+            index: 27
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SD
+            index: 28
+            width: 4
+            read: false
+            write: true
+      - name: GPIO_OE_CLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        description: |-
+          (write-only) GPIO0...31 output enable clear
+        fields:
+          - name: GPIO_OE_CLR
+            description: |-
+              Perform an atomic bit-clear on GPIO_OE, i.e. `GPIO_OE &= ~wdata`
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: GPIO_HI_OE_CLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 68
+        description: |-
+          (write-only) Output enable clear for GPIO32...47, QSPI IOs and USB pins. 
+                              Perform an atomic bit-clear on GPIO_HI_OE, i.e. `GPIO_HI_OE &= ~wdata`
+        fields:
+          - name: GPIO
+            index: 0
+            width: 16
+            read: false
+            write: true
+          - name: USB_DP
+            index: 24
+            width: 1
+            read: false
+            write: true
+          - name: USB_DM
+            index: 25
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SCK
+            index: 26
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_CSN
+            index: 27
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SD
+            index: 28
+            width: 4
+            read: false
+            write: true
+      - name: GPIO_OE_XOR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 72
+        description: |-
+          (write-only) GPIO0...31 output enable XOR
+        fields:
+          - name: GPIO_OE_XOR
+            description: |-
+              Perform an atomic bitwise XOR on GPIO_OE, i.e. `GPIO_OE ^= wdata`
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: GPIO_HI_OE_XOR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 76
+        description: |-
+          (write-only) Output enable XOR for GPIO32...47, QSPI IOs and USB pins. 
+                              Perform an atomic bitwise XOR on GPIO_HI_OE, i.e. `GPIO_HI_OE ^= wdata`
+        fields:
+          - name: GPIO
+            index: 0
+            width: 16
+            read: false
+            write: true
+          - name: USB_DP
+            index: 24
+            width: 1
+            read: false
+            write: true
+          - name: USB_DM
+            index: 25
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SCK
+            index: 26
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_CSN
+            index: 27
+            width: 1
+            read: false
+            write: true
+          - name: QSPI_SD
+            index: 28
+            width: 4
+            read: false
+            write: true
+      - name: FIFO_ST
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 80
+        description: |-
+          (read-write) Status register for inter-core FIFOs (mailboxes). 
+                              There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep. 
+                              Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX). 
+                              Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX). 
+                              The SIO IRQ for each core is the logical OR of the VLD, WOF and ROE fields of its FIFO_ST register.
+        fields:
+          - name: VLD
+            description: |-
+              Value is 1 if this core's RX FIFO is not empty (i.e. if FIFO_RD is valid)
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: RDY
+            description: |-
+              Value is 1 if this core's TX FIFO is not full (i.e. if FIFO_WR is ready for more data)
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: WOF
+            description: |-
+              Sticky flag indicating the TX FIFO was written when full. This write was ignored by the FIFO.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: ROE
+            description: |-
+              Sticky flag indicating the RX FIFO was read when empty. This read was ignored by the FIFO.
+            index: 3
+            width: 1
+            read: true
+            write: true
+      - name: FIFO_WR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 84
+        description: |-
+          (write-only) Write access to this core's TX FIFO
+        fields:
+          - name: FIFO_WR
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: FIFO_RD
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 88
+        const: true
+        description: |-
+          (read-only) Read access to this core's RX FIFO
+        fields:
+          - name: FIFO_RD
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: SPINLOCK_ST
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 92
+        const: true
+        description: |-
+          (read-only) Spinlock state 
+                              A bitmap containing the state of all 32 spinlocks (1=locked). 
+                              Mainly intended for debugging.
+        fields:
+          - name: SPINLOCK_ST
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP0_ACCUM0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 128
+        description: |-
+          (read-write) Read/write access to accumulator 0
+        fields:
+          - name: INTERP0_ACCUM0
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP0_ACCUM1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 132
+        description: |-
+          (read-write) Read/write access to accumulator 1
+        fields:
+          - name: INTERP0_ACCUM1
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP0_BASE0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 136
+        description: |-
+          (read-write) Read/write access to BASE0 register.
+        fields:
+          - name: INTERP0_BASE0
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP0_BASE1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 140
+        description: |-
+          (read-write) Read/write access to BASE1 register.
+        fields:
+          - name: INTERP0_BASE1
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP0_BASE2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 144
+        description: |-
+          (read-write) Read/write access to BASE2 register.
+        fields:
+          - name: INTERP0_BASE2
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP0_POP_LANE0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 148
+        const: true
+        description: |-
+          (read-only) Read LANE0 result, and simultaneously write lane results to both accumulators (POP).
+        fields:
+          - name: INTERP0_POP_LANE0
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP0_POP_LANE1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 152
+        const: true
+        description: |-
+          (read-only) Read LANE1 result, and simultaneously write lane results to both accumulators (POP).
+        fields:
+          - name: INTERP0_POP_LANE1
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP0_POP_FULL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 156
+        const: true
+        description: |-
+          (read-only) Read FULL result, and simultaneously write lane results to both accumulators (POP).
+        fields:
+          - name: INTERP0_POP_FULL
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP0_PEEK_LANE0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 160
+        const: true
+        description: |-
+          (read-only) Read LANE0 result, without altering any internal state (PEEK).
+        fields:
+          - name: INTERP0_PEEK_LANE0
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP0_PEEK_LANE1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 164
+        const: true
+        description: |-
+          (read-only) Read LANE1 result, without altering any internal state (PEEK).
+        fields:
+          - name: INTERP0_PEEK_LANE1
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP0_PEEK_FULL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 168
+        const: true
+        description: |-
+          (read-only) Read FULL result, without altering any internal state (PEEK).
+        fields:
+          - name: INTERP0_PEEK_FULL
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP0_CTRL_LANE0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 172
+        description: |-
+          (read-write) Control register for lane 0
+        fields:
+          - name: SHIFT
+            description: |-
+              Right-rotate applied to accumulator before masking. By appropriately configuring the masks, left and right shifts can be synthesised.
+            index: 0
+            width: 5
+            read: true
+            write: true
+          - name: MASK_LSB
+            description: |-
+              The least-significant bit allowed to pass by the mask (inclusive)
+            index: 5
+            width: 5
+            read: true
+            write: true
+          - name: MASK_MSB
+            description: |-
+              The most-significant bit allowed to pass by the mask (inclusive) 
+                                          Setting MSB < LSB may cause chip to turn inside-out
+            index: 10
+            width: 5
+            read: true
+            write: true
+          - name: SIGNED
+            description: |-
+              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits 
+                                          before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: CROSS_INPUT
+            description: |-
+              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware. 
+                                          Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: CROSS_RESULT
+            description: |-
+              If 1, feed the opposite lane's result into this lane's accumulator on POP.
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: ADD_RAW
+            description: |-
+              If 1, mask + shift is bypassed for LANE0 result. This does not affect FULL result.
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: FORCE_MSB
+            description: |-
+              ORed into bits 29:28 of the lane result presented to the processor on the bus. 
+                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence 
+                                          of pointers into flash or SRAM.
+            index: 19
+            width: 2
+            read: true
+            write: true
+          - name: BLEND
+            description: |-
+              Only present on INTERP0 on each core. If BLEND mode is enabled: 
+                                          - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled 
+                                          by the 8 LSBs of lane 1 shift and mask value (a fractional number between 
+                                          0 and 255/256ths) 
+                                          - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value) 
+                                          - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask) 
+                                          LANE1 SIGNED flag controls whether the interpolation is signed or unsigned.
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: OVERF0
+            description: |-
+              Indicates if any masked-off MSBs in ACCUM0 are set.
+            index: 23
+            width: 1
+            read: true
+            write: false
+          - name: OVERF1
+            description: |-
+              Indicates if any masked-off MSBs in ACCUM1 are set.
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: OVERF
+            description: |-
+              Set if either OVERF0 or OVERF1 is set.
+            index: 25
+            width: 1
+            read: true
+            write: false
+      - name: INTERP0_CTRL_LANE1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 176
+        description: |-
+          (read-write) Control register for lane 1
+        fields:
+          - name: SHIFT
+            description: |-
+              Right-rotate applied to accumulator before masking. By appropriately configuring the masks, left and right shifts can be synthesised.
+            index: 0
+            width: 5
+            read: true
+            write: true
+          - name: MASK_LSB
+            description: |-
+              The least-significant bit allowed to pass by the mask (inclusive)
+            index: 5
+            width: 5
+            read: true
+            write: true
+          - name: MASK_MSB
+            description: |-
+              The most-significant bit allowed to pass by the mask (inclusive) 
+                                          Setting MSB < LSB may cause chip to turn inside-out
+            index: 10
+            width: 5
+            read: true
+            write: true
+          - name: SIGNED
+            description: |-
+              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits 
+                                          before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: CROSS_INPUT
+            description: |-
+              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware. 
+                                          Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: CROSS_RESULT
+            description: |-
+              If 1, feed the opposite lane's result into this lane's accumulator on POP.
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: ADD_RAW
+            description: |-
+              If 1, mask + shift is bypassed for LANE1 result. This does not affect FULL result.
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: FORCE_MSB
+            description: |-
+              ORed into bits 29:28 of the lane result presented to the processor on the bus. 
+                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence 
+                                          of pointers into flash or SRAM.
+            index: 19
+            width: 2
+            read: true
+            write: true
+      - name: INTERP0_ACCUM0_ADD
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 180
+        description: |-
+          (read-write) Values written here are atomically added to ACCUM0 
+                              Reading yields lane 0's raw shift and mask value (BASE0 not added).
+        fields:
+          - name: INTERP0_ACCUM0_ADD
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: INTERP0_ACCUM1_ADD
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 184
+        description: |-
+          (read-write) Values written here are atomically added to ACCUM1 
+                              Reading yields lane 1's raw shift and mask value (BASE1 not added).
+        fields:
+          - name: INTERP0_ACCUM1_ADD
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: INTERP0_BASE_1AND0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 188
+        description: |-
+          (write-only) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously. 
+                              Each half is sign-extended to 32 bits if that lane's SIGNED flag is set.
+        fields:
+          - name: INTERP0_BASE_1AND0
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: INTERP1_ACCUM0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 192
+        description: |-
+          (read-write) Read/write access to accumulator 0
+        fields:
+          - name: INTERP1_ACCUM0
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP1_ACCUM1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 196
+        description: |-
+          (read-write) Read/write access to accumulator 1
+        fields:
+          - name: INTERP1_ACCUM1
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP1_BASE0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 200
+        description: |-
+          (read-write) Read/write access to BASE0 register.
+        fields:
+          - name: INTERP1_BASE0
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP1_BASE1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 204
+        description: |-
+          (read-write) Read/write access to BASE1 register.
+        fields:
+          - name: INTERP1_BASE1
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP1_BASE2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 208
+        description: |-
+          (read-write) Read/write access to BASE2 register.
+        fields:
+          - name: INTERP1_BASE2
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: INTERP1_POP_LANE0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 212
+        const: true
+        description: |-
+          (read-only) Read LANE0 result, and simultaneously write lane results to both accumulators (POP).
+        fields:
+          - name: INTERP1_POP_LANE0
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP1_POP_LANE1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 216
+        const: true
+        description: |-
+          (read-only) Read LANE1 result, and simultaneously write lane results to both accumulators (POP).
+        fields:
+          - name: INTERP1_POP_LANE1
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP1_POP_FULL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 220
+        const: true
+        description: |-
+          (read-only) Read FULL result, and simultaneously write lane results to both accumulators (POP).
+        fields:
+          - name: INTERP1_POP_FULL
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP1_PEEK_LANE0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 224
+        const: true
+        description: |-
+          (read-only) Read LANE0 result, without altering any internal state (PEEK).
+        fields:
+          - name: INTERP1_PEEK_LANE0
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP1_PEEK_LANE1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 228
+        const: true
+        description: |-
+          (read-only) Read LANE1 result, without altering any internal state (PEEK).
+        fields:
+          - name: INTERP1_PEEK_LANE1
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP1_PEEK_FULL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 232
+        const: true
+        description: |-
+          (read-only) Read FULL result, without altering any internal state (PEEK).
+        fields:
+          - name: INTERP1_PEEK_FULL
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: INTERP1_CTRL_LANE0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 236
+        description: |-
+          (read-write) Control register for lane 0
+        fields:
+          - name: SHIFT
+            description: |-
+              Right-rotate applied to accumulator before masking. By appropriately configuring the masks, left and right shifts can be synthesised.
+            index: 0
+            width: 5
+            read: true
+            write: true
+          - name: MASK_LSB
+            description: |-
+              The least-significant bit allowed to pass by the mask (inclusive)
+            index: 5
+            width: 5
+            read: true
+            write: true
+          - name: MASK_MSB
+            description: |-
+              The most-significant bit allowed to pass by the mask (inclusive) 
+                                          Setting MSB < LSB may cause chip to turn inside-out
+            index: 10
+            width: 5
+            read: true
+            write: true
+          - name: SIGNED
+            description: |-
+              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits 
+                                          before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: CROSS_INPUT
+            description: |-
+              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware. 
+                                          Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: CROSS_RESULT
+            description: |-
+              If 1, feed the opposite lane's result into this lane's accumulator on POP.
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: ADD_RAW
+            description: |-
+              If 1, mask + shift is bypassed for LANE0 result. This does not affect FULL result.
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: FORCE_MSB
+            description: |-
+              ORed into bits 29:28 of the lane result presented to the processor on the bus. 
+                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence 
+                                          of pointers into flash or SRAM.
+            index: 19
+            width: 2
+            read: true
+            write: true
+          - name: CLAMP
+            description: |-
+              Only present on INTERP1 on each core. If CLAMP mode is enabled: 
+                                          - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of 
+                                          BASE0 and an upper bound of BASE1. 
+                                          - Signedness of these comparisons is determined by LANE0_CTRL_SIGNED
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: OVERF0
+            description: |-
+              Indicates if any masked-off MSBs in ACCUM0 are set.
+            index: 23
+            width: 1
+            read: true
+            write: false
+          - name: OVERF1
+            description: |-
+              Indicates if any masked-off MSBs in ACCUM1 are set.
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: OVERF
+            description: |-
+              Set if either OVERF0 or OVERF1 is set.
+            index: 25
+            width: 1
+            read: true
+            write: false
+      - name: INTERP1_CTRL_LANE1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 240
+        description: |-
+          (read-write) Control register for lane 1
+        fields:
+          - name: SHIFT
+            description: |-
+              Right-rotate applied to accumulator before masking. By appropriately configuring the masks, left and right shifts can be synthesised.
+            index: 0
+            width: 5
+            read: true
+            write: true
+          - name: MASK_LSB
+            description: |-
+              The least-significant bit allowed to pass by the mask (inclusive)
+            index: 5
+            width: 5
+            read: true
+            write: true
+          - name: MASK_MSB
+            description: |-
+              The most-significant bit allowed to pass by the mask (inclusive) 
+                                          Setting MSB < LSB may cause chip to turn inside-out
+            index: 10
+            width: 5
+            read: true
+            write: true
+          - name: SIGNED
+            description: |-
+              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits 
+                                          before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: CROSS_INPUT
+            description: |-
+              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware. 
+                                          Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: CROSS_RESULT
+            description: |-
+              If 1, feed the opposite lane's result into this lane's accumulator on POP.
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: ADD_RAW
+            description: |-
+              If 1, mask + shift is bypassed for LANE1 result. This does not affect FULL result.
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: FORCE_MSB
+            description: |-
+              ORed into bits 29:28 of the lane result presented to the processor on the bus. 
+                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence 
+                                          of pointers into flash or SRAM.
+            index: 19
+            width: 2
+            read: true
+            write: true
+      - name: INTERP1_ACCUM0_ADD
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 244
+        description: |-
+          (read-write) Values written here are atomically added to ACCUM0 
+                              Reading yields lane 0's raw shift and mask value (BASE0 not added).
+        fields:
+          - name: INTERP1_ACCUM0_ADD
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: INTERP1_ACCUM1_ADD
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 248
+        description: |-
+          (read-write) Values written here are atomically added to ACCUM1 
+                              Reading yields lane 1's raw shift and mask value (BASE1 not added).
+        fields:
+          - name: INTERP1_ACCUM1_ADD
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: INTERP1_BASE_1AND0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 252
+        description: |-
+          (write-only) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously. 
+                              Each half is sign-extended to 32 bits if that lane's SIGNED flag is set.
+        fields:
+          - name: INTERP1_BASE_1AND0
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: SPINLOCK0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 256
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK0
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 260
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK1
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 264
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK2
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 268
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK3
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK4
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 272
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK4
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK5
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 276
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK5
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK6
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 280
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK6
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK7
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 284
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK7
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK8
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 288
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK8
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK9
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 292
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK9
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK10
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 296
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK10
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK11
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 300
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK11
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK12
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 304
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK12
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK13
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 308
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK13
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK14
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 312
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK14
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK15
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 316
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK15
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK16
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 320
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK16
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK17
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 324
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK17
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK18
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 328
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK18
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK19
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 332
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK19
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK20
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 336
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK20
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK21
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 340
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK21
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK22
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 344
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK22
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK23
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 348
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK23
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK24
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 352
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK24
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK25
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 356
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK25
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK26
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 360
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK26
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK27
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 364
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK27
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK28
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 368
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK28
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK29
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 372
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK29
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK30
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 376
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK30
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SPINLOCK31
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 380
+        description: |-
+          (read-write) Reading from a spinlock address will: 
+                              - Return 0 if lock is already locked 
+                              - Otherwise return nonzero, and simultaneously claim the lock
+
+                              Writing (any value) releases the lock. 
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              The value returned on success is 0x1 << lock number.
+        fields:
+          - name: SPINLOCK31
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: DOORBELL_OUT_SET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 384
+        description: |-
+          (read-write) Trigger a doorbell interrupt on the opposite core.
+
+                              Write 1 to a bit to set the corresponding bit in DOORBELL_IN on the opposite core. This raises the opposite core's doorbell interrupt.
+
+                              Read to get the status of the doorbells currently asserted on the opposite core. This is equivalent to that core reading its own DOORBELL_IN status.
+        fields:
+          - name: DOORBELL_OUT_SET
+            index: 0
+            width: 8
+            read: true
+            write: true
+      - name: DOORBELL_OUT_CLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 388
+        description: |-
+          (read-write) Clear doorbells which have been posted to the opposite core. This register is intended for debugging and initialisation purposes.
+
+                              Writing 1 to a bit in DOORBELL_OUT_CLR clears the corresponding bit in DOORBELL_IN on the opposite core. Clearing all bits will cause that core's doorbell interrupt to deassert. Since the usual order of events is for software to send events using DOORBELL_OUT_SET, and acknowledge incoming events by writing to DOORBELL_IN_CLR, this register should be used with caution to avoid race conditions.
+
+                              Reading returns the status of the doorbells currently asserted on the other core, i.e. is equivalent to that core reading its own DOORBELL_IN status.
+        fields:
+          - name: DOORBELL_OUT_CLR
+            index: 0
+            width: 8
+            read: true
+            write: true
+      - name: DOORBELL_IN_SET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 392
+        description: |-
+          (read-write) Write 1s to trigger doorbell interrupts on this core. Read to get status of doorbells currently asserted on this core.
+        fields:
+          - name: DOORBELL_IN_SET
+            index: 0
+            width: 8
+            read: true
+            write: true
+      - name: DOORBELL_IN_CLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 396
+        description: |-
+          (read-write) Check and acknowledge doorbells posted to this core. This core's doorbell interrupt is asserted when any bit in this register is 1.
+
+                              Write 1 to each bit to clear that bit. The doorbell interrupt deasserts once all bits are cleared. Read to get status of doorbells currently asserted on this core.
+        fields:
+          - name: DOORBELL_IN_CLR
+            index: 0
+            width: 8
+            read: true
+            write: true
+      - name: PERI_NONSEC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 400
+        description: |-
+          (read-write) Detach certain core-local peripherals from Secure SIO, and attach them to Non-secure SIO, so that Non-secure software can use them. Attempting to access one of these peripherals from the Secure SIO when it is attached to the Non-secure SIO, or vice versa, will generate a bus error.
+
+                              This register is per-core, and is only present on the Secure SIO.
+
+                              Most SIO hardware is duplicated across the Secure and Non-secure SIO, so is not listed in this register.
+        fields:
+          - name: INTERP0
+            description: |-
+              If 1, detach interpolator 0 (of this core) from the Secure SIO, and attach to the Non-secure SIO.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: INTERP1
+            description: |-
+              If 1, detach interpolator 1 (of this core) from the Secure SIO, and attach to the Non-secure SIO.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: TMDS
+            description: |-
+              IF 1, detach TMDS encoder (of this core) from the Secure SIO, and attach to the Non-secure SIO.
+            index: 5
+            width: 1
+            read: true
+            write: true
+      - name: RISCV_SOFTIRQ
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 416
+        description: |-
+          (read-write) Control the assertion of the standard software interrupt (MIP.MSIP) on the RISC-V cores.
+
+                              Unlike the RISC-V timer, this interrupt is not routed to a normal system-level interrupt line, so can not be used by the Arm cores.
+
+                              It is safe for both cores to write to this register on the same cycle. The set/clear effect is accumulated across both cores, and then applied. If a flag is both set and cleared on the same cycle, only the set takes effect.
+        fields:
+          - name: CORE0_SET
+            description: |-
+              Write 1 to atomically set the core 0 software interrupt flag. Read to get the status of this flag.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CORE1_SET
+            description: |-
+              Write 1 to atomically set the core 1 software interrupt flag. Read to get the status of this flag.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CORE0_CLR
+            description: |-
+              Write 1 to atomically clear the core 0 software interrupt flag. Read to get the status of this flag.
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: CORE1_CLR
+            description: |-
+              Write 1 to atomically clear the core 1 software interrupt flag. Read to get the status of this flag.
+            index: 9
+            width: 1
+            read: true
+            write: true
+      - name: MTIME_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 420
+        description: |-
+          (read-write) Control register for the RISC-V 64-bit Machine-mode timer. This timer is only present in the Secure SIO, so is only accessible to an Arm core in Secure mode or a RISC-V core in Machine mode.
+
+                              Note whilst this timer follows the RISC-V privileged specification, it is equally usable by the Arm cores. The interrupts are routed to normal system-level interrupt lines as well as to the MIP.MTIP inputs on the RISC-V cores.
+        fields:
+          - name: EN
+            description: |-
+              Timer enable bit. When 0, the timer will not increment automatically.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: FULLSPEED
+            description: |-
+              If 1, increment the timer every cycle (i.e. run directly from the system clock), rather than incrementing on the system-level timer tick input.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: DBGPAUSE_CORE0
+            description: |-
+              If 1, the timer pauses when core 0 is in the debug halt state.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: DBGPAUSE_CORE1
+            description: |-
+              If 1, the timer pauses when core 1 is in the debug halt state.
+            index: 3
+            width: 1
+            read: true
+            write: true
+      - name: MTIME
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 432
+        description: |-
+          (read-write) Read/write access to the high half of RISC-V Machine-mode timer. This register is shared between both cores. If both cores write on the same cycle, core 1 takes precedence.
+        fields:
+          - name: MTIME
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: MTIMEH
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 436
+        description: |-
+          (read-write) Read/write access to the high half of RISC-V Machine-mode timer. This register is shared between both cores. If both cores write on the same cycle, core 1 takes precedence.
+        fields:
+          - name: MTIMEH
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: MTIMECMP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 440
+        description: |-
+          (read-write) Low half of RISC-V Machine-mode timer comparator. This register is core-local, i.e., each core gets a copy of this register, with the comparison result routed to its own interrupt line.
+
+                              The timer interrupt is asserted whenever MTIME is greater than or equal to MTIMECMP. This comparison is unsigned, and performed on the full 64-bit values.
+        fields:
+          - name: MTIMECMP
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: MTIMECMPH
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 444
+        description: |-
+          (read-write) High half of RISC-V Machine-mode timer comparator. This register is core-local.
+
+                              The timer interrupt is asserted whenever MTIME is greater than or equal to MTIMECMP. This comparison is unsigned, and performed on the full 64-bit values.
+        fields:
+          - name: MTIMECMPH
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: TMDS_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 448
+        description: |-
+          (read-write) Control register for TMDS encoder.
+        fields:
+          - name: L0_ROT
+            description: |-
+              Right-rotate the 16 LSBs of the colour accumulator by 0-15 bits, in order to get the MSB of the lane 0 (blue) colour data aligned with the MSB of the 8-bit encoder input.
+
+                                          For example, for RGB565 (red most significant), blue is bits 4:0, so should be right-rotated by 13 to align with bits 7:3 of the encoder input.
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: L1_ROT
+            description: |-
+              Right-rotate the 16 LSBs of the colour accumulator by 0-15 bits, in order to get the MSB of the lane 1 (green) colour data aligned with the MSB of the 8-bit encoder input.
+
+                                          For example, for RGB565, green is bits 10:5, so should be right-rotated by 3 bits to align with bits 7:2 of the encoder input.
+            index: 4
+            width: 4
+            read: true
+            write: true
+          - name: L2_ROT
+            description: |-
+              Right-rotate the 16 LSBs of the colour accumulator by 0-15 bits, in order to get the MSB of the lane 2 (red) colour data aligned with the MSB of the 8-bit encoder input.
+
+                                          For example, for RGB565 (red most significant), red is bits 15:11, so should be right-rotated by 8 bits to align with bits 7:3 of the encoder input.
+            index: 8
+            width: 4
+            read: true
+            write: true
+          - name: L0_NBITS
+            description: |-
+              Number of valid colour MSBs for lane 0 (1-8 bits, encoded as 0 through 7). Remaining LSBs are masked to 0 after the rotate.
+            index: 12
+            width: 3
+            read: true
+            write: true
+          - name: L1_NBITS
+            description: |-
+              Number of valid colour MSBs for lane 1 (1-8 bits, encoded as 0 through 7). Remaining LSBs are masked to 0 after the rotate.
+            index: 15
+            width: 3
+            read: true
+            write: true
+          - name: L2_NBITS
+            description: |-
+              Number of valid colour MSBs for lane 2 (1-8 bits, encoded as 0 through 7). Remaining LSBs are masked to 0 after the rotate.
+            index: 18
+            width: 3
+            read: true
+            write: true
+          - name: INTERLEAVE
+            description: |-
+              Enable lane interleaving for reads of PEEK_SINGLE/POP_SINGLE.
+
+                                          When interleaving is disabled, each of the 3 symbols appears as a contiguous 10-bit field, with lane 0 being the least-significant and starting at bit 0 of the register.
+
+                                          When interleaving is enabled, the symbols are packed into 5 chunks of 3 lanes times 2 bits (30 bits total). Each chunk contains two bits of a TMDS symbol per lane, with lane 0 being the least significant.
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: PIX_SHIFT
+            description: |-
+              Shift applied to the colour data register with each read of a POP alias register.
+
+                                          Reading from the POP_SINGLE register, or reading from the POP_DOUBLE register with PIX2_NOSHIFT set (for pixel doubling), shifts by the indicated amount.
+
+                                          Reading from a POP_DOUBLE register when PIX2_NOSHIFT is clear will shift by double the indicated amount. (Shift by 32 means no shift.)
+            index: 24
+            width: 3
+            read: true
+            write: true
+            type: SIO_TMDS_CTRL_PIX_SHIFT
+          - name: PIX2_NOSHIFT
+            description: |-
+              When encoding two pixels's worth of symbols in one cycle (a read of a PEEK/POP_DOUBLE register), the second encoder sees a shifted version of the colour data register.
+
+                                          This control disables that shift, so that both encoder layers see the same pixel data. This is used for pixel doubling.
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: CLEAR_BALANCE
+            description: |-
+              Clear the running DC balance state of the TMDS encoders. This bit should be written once at the beginning of each scanline.
+            index: 28
+            width: 1
+            read: false
+            write: true
+      - name: TMDS_WDATA
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 452
+        description: |-
+          (write-only) Write-only access to the TMDS colour data register.
+        fields:
+          - name: TMDS_WDATA
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: TMDS_PEEK_SINGLE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 456
+        const: true
+        description: |-
+          (read-only) Get the encoding of one pixel's worth of colour data, packed into a 32-bit value (3x10-bit symbols).
+
+                              The PEEK alias does not shift the colour register when read, but still advances the running DC balance state of each encoder. This is useful for pixel doubling.
+        fields:
+          - name: TMDS_PEEK_SINGLE
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: TMDS_POP_SINGLE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 460
+        const: true
+        description: |-
+          (read-only) Get the encoding of one pixel's worth of colour data, packed into a 32-bit value. The packing is 5 chunks of 3 lanes times 2 bits (30 bits total). Each chunk contains two bits of a TMDS symbol per lane. This format is intended for shifting out with the HSTX peripheral on RP2350.
+
+                              The POP alias shifts the colour register when read, as well as advancing the running DC balance state of each encoder.
+        fields:
+          - name: TMDS_POP_SINGLE
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: TMDS_PEEK_DOUBLE_L0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 464
+        const: true
+        description: |-
+          (read-only) Get lane 0 of the encoding of two pixels' worth of colour data. Two 10-bit TMDS symbols are packed at the bottom of a 32-bit word.
+
+                              The PEEK alias does not shift the colour register when read, but still advances the lane 0 DC balance state. This is useful if all 3 lanes' worth of encode are to be read at once, rather than processing the entire scanline for one lane before moving to the next lane.
+        fields:
+          - name: TMDS_PEEK_DOUBLE_L0
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: TMDS_POP_DOUBLE_L0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 468
+        const: true
+        description: |-
+          (read-only) Get lane 0 of the encoding of two pixels' worth of colour data. Two 10-bit TMDS symbols are packed at the bottom of a 32-bit word.
+
+                              The POP alias shifts the colour register when read, according to the values of PIX_SHIFT and PIX2_NOSHIFT.
+        fields:
+          - name: TMDS_POP_DOUBLE_L0
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: TMDS_PEEK_DOUBLE_L1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 472
+        const: true
+        description: |-
+          (read-only) Get lane 1 of the encoding of two pixels' worth of colour data. Two 10-bit TMDS symbols are packed at the bottom of a 32-bit word.
+
+                              The PEEK alias does not shift the colour register when read, but still advances the lane 1 DC balance state. This is useful if all 3 lanes' worth of encode are to be read at once, rather than processing the entire scanline for one lane before moving to the next lane.
+        fields:
+          - name: TMDS_PEEK_DOUBLE_L1
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: TMDS_POP_DOUBLE_L1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 476
+        const: true
+        description: |-
+          (read-only) Get lane 1 of the encoding of two pixels' worth of colour data. Two 10-bit TMDS symbols are packed at the bottom of a 32-bit word.
+
+                              The POP alias shifts the colour register when read, according to the values of PIX_SHIFT and PIX2_NOSHIFT.
+        fields:
+          - name: TMDS_POP_DOUBLE_L1
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: TMDS_PEEK_DOUBLE_L2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 480
+        const: true
+        description: |-
+          (read-only) Get lane 2 of the encoding of two pixels' worth of colour data. Two 10-bit TMDS symbols are packed at the bottom of a 32-bit word.
+
+                              The PEEK alias does not shift the colour register when read, but still advances the lane 2 DC balance state. This is useful if all 3 lanes' worth of encode are to be read at once, rather than processing the entire scanline for one lane before moving to the next lane.
+        fields:
+          - name: TMDS_PEEK_DOUBLE_L2
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: TMDS_POP_DOUBLE_L2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 484
+        const: true
+        description: |-
+          (read-only) Get lane 2 of the encoding of two pixels' worth of colour data. Two 10-bit TMDS symbols are packed at the bottom of a 32-bit word.
+
+                              The POP alias shifts the colour register when read, according to the values of PIX_SHIFT and PIX2_NOSHIFT.
+        fields:
+          - name: TMDS_POP_DOUBLE_L2
+            index: 0
+            width: 32
+            read: true
+            write: false
+enums:
+  SIO_TMDS_CTRL_PIX_SHIFT:
+    enum:
+      _0:
+        description: |-
+          Do not shift the colour data register.
+        value: 0
+      _1:
+        description: |-
+          Shift the colour data register by 1 bit
+        value: 1
+      _2:
+        description: |-
+          Shift the colour data register by 2 bits
+        value: 2
+      _4:
+        description: |-
+          Shift the colour data register by 4 bits
+        value: 3
+      _8:
+        description: |-
+          Shift the colour data register by 8 bits
+        value: 4
+      _16:
+        description: |-
+          Shift the colour data register by 16 bits
+        value: 5
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

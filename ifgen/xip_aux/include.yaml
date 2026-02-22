@@ -1,0 +1,107 @@
+---
+structs:
+  xip_aux:
+    description: |-
+      Auxiliary DMA access to XIP FIFOs, via fast AHB bus access
+    instances:
+      - name: XIP_AUX
+        address: '0x50500000'
+    fields:
+      - name: STREAM
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        const: true
+        description: |-
+          (read-only) Read the XIP stream FIFO (fast bus access to XIP_CTRL_STREAM_FIFO)
+        fields:
+          - name: STREAM
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: QMI_DIRECT_TX
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: |-
+          (write-only) Write to the QMI direct-mode TX FIFO (fast bus access to QMI_DIRECT_TX)
+        fields:
+          - name: DATA
+            description: |-
+              Data pushed here will be clocked out falling edges of SCK (or before the very first rising edge of SCK, if this is the first pulse). For each byte clocked out, the interface will simultaneously sample one byte, on rising edges of SCK, and push this to the DIRECT_RX FIFO.
+
+                                          For 16-bit data, the least-significant byte is transmitted first.
+            index: 0
+            width: 16
+            read: false
+            write: true
+          - name: IWIDTH
+            description: |-
+              Configure whether this FIFO record is transferred with single/dual/quad interface width (0/1/2). Different widths can be mixed freely.
+            index: 16
+            width: 2
+            read: false
+            write: true
+            type: XIP_AUX_QMI_DIRECT_TX_IWIDTH
+          - name: DWIDTH
+            description: |-
+              Data width. If 0, hardware will transmit the 8 LSBs of the DIRECT_TX DATA field, and return an 8-bit value in the 8 LSBs of DIRECT_RX. If 1, the full 16-bit width is used. 8-bit and 16-bit transfers can be mixed freely.
+            index: 18
+            width: 1
+            read: false
+            write: true
+          - name: OE
+            description: |-
+              Output enable (active-high). For single width (SPI), this field is ignored, and SD0 is always set to output, with SD1 always set to input.
+
+                                          For dual and quad width (DSPI/QSPI), this sets whether the relevant SDx pads are set to output whilst transferring this FIFO record. In this case the command/address should have OE set, and the data transfer should have OE set or clear depending on the direction of the transfer.
+            index: 19
+            width: 1
+            read: false
+            write: true
+          - name: NOPUSH
+            description: |-
+              Inhibit the RX FIFO push that would correspond to this TX FIFO entry.
+
+                                          Useful to avoid garbage appearing in the RX FIFO when pushing the command at the beginning of a SPI transfer.
+            index: 20
+            width: 1
+            read: false
+            write: true
+      - name: QMI_DIRECT_RX
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        const: true
+        description: |-
+          (read-only) Read from the QMI direct-mode RX FIFO (fast bus access to QMI_DIRECT_RX)
+        fields:
+          - name: QMI_DIRECT_RX
+            description: |-
+              With each byte clocked out on the serial interface, one byte will simultaneously be clocked in, and will appear in this FIFO. The serial interface will stall when this FIFO is full, to avoid dropping data.
+
+                                          When 16-bit data is pushed into the TX FIFO, the corresponding RX FIFO push will also contain 16 bits of data. The least-significant byte is the first one received.
+            index: 0
+            width: 16
+            read: true
+            write: false
+enums:
+  XIP_AUX_QMI_DIRECT_TX_IWIDTH:
+    enum:
+      S:
+        description: |-
+          Single width
+        value: 0
+      D:
+        description: |-
+          Dual width
+        value: 1
+      Q:
+        description: |-
+          Quad width
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

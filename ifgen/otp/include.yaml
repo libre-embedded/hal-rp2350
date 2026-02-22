@@ -1,0 +1,3884 @@
+---
+structs:
+  otp:
+    description: |-
+      SNPS OTP control IF (SBPI and RPi wrapper control)
+    instances:
+      - name: OTP
+        address: '0x40120000'
+    fields:
+      - name: SW_LOCK0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: |-
+          (read-write) Software lock register for page 0.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK0_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK0_NSEC
+      - name: SW_LOCK1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: |-
+          (read-write) Software lock register for page 1.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK1_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK1_NSEC
+      - name: SW_LOCK2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: |-
+          (read-write) Software lock register for page 2.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK2_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK2_NSEC
+      - name: SW_LOCK3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: |-
+          (read-write) Software lock register for page 3.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK3_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK3_NSEC
+      - name: SW_LOCK4
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: |-
+          (read-write) Software lock register for page 4.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK4_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK4_NSEC
+      - name: SW_LOCK5
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: |-
+          (read-write) Software lock register for page 5.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK5_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK5_NSEC
+      - name: SW_LOCK6
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: |-
+          (read-write) Software lock register for page 6.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK6_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK6_NSEC
+      - name: SW_LOCK7
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: |-
+          (read-write) Software lock register for page 7.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK7_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK7_NSEC
+      - name: SW_LOCK8
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        description: |-
+          (read-write) Software lock register for page 8.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK8_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK8_NSEC
+      - name: SW_LOCK9
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: |-
+          (read-write) Software lock register for page 9.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK9_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK9_NSEC
+      - name: SW_LOCK10
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        description: |-
+          (read-write) Software lock register for page 10.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK10_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK10_NSEC
+      - name: SW_LOCK11
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        description: |-
+          (read-write) Software lock register for page 11.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK11_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK11_NSEC
+      - name: SW_LOCK12
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: |-
+          (read-write) Software lock register for page 12.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK12_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK12_NSEC
+      - name: SW_LOCK13
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        description: |-
+          (read-write) Software lock register for page 13.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK13_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK13_NSEC
+      - name: SW_LOCK14
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        description: |-
+          (read-write) Software lock register for page 14.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK14_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK14_NSEC
+      - name: SW_LOCK15
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        description: |-
+          (read-write) Software lock register for page 15.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK15_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK15_NSEC
+      - name: SW_LOCK16
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        description: |-
+          (read-write) Software lock register for page 16.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK16_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK16_NSEC
+      - name: SW_LOCK17
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 68
+        description: |-
+          (read-write) Software lock register for page 17.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK17_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK17_NSEC
+      - name: SW_LOCK18
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 72
+        description: |-
+          (read-write) Software lock register for page 18.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK18_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK18_NSEC
+      - name: SW_LOCK19
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 76
+        description: |-
+          (read-write) Software lock register for page 19.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK19_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK19_NSEC
+      - name: SW_LOCK20
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 80
+        description: |-
+          (read-write) Software lock register for page 20.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK20_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK20_NSEC
+      - name: SW_LOCK21
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 84
+        description: |-
+          (read-write) Software lock register for page 21.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK21_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK21_NSEC
+      - name: SW_LOCK22
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 88
+        description: |-
+          (read-write) Software lock register for page 22.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK22_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK22_NSEC
+      - name: SW_LOCK23
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 92
+        description: |-
+          (read-write) Software lock register for page 23.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK23_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK23_NSEC
+      - name: SW_LOCK24
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 96
+        description: |-
+          (read-write) Software lock register for page 24.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK24_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK24_NSEC
+      - name: SW_LOCK25
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 100
+        description: |-
+          (read-write) Software lock register for page 25.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK25_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK25_NSEC
+      - name: SW_LOCK26
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 104
+        description: |-
+          (read-write) Software lock register for page 26.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK26_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK26_NSEC
+      - name: SW_LOCK27
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 108
+        description: |-
+          (read-write) Software lock register for page 27.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK27_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK27_NSEC
+      - name: SW_LOCK28
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 112
+        description: |-
+          (read-write) Software lock register for page 28.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK28_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK28_NSEC
+      - name: SW_LOCK29
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 116
+        description: |-
+          (read-write) Software lock register for page 29.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK29_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK29_NSEC
+      - name: SW_LOCK30
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 120
+        description: |-
+          (read-write) Software lock register for page 30.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK30_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK30_NSEC
+      - name: SW_LOCK31
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 124
+        description: |-
+          (read-write) Software lock register for page 31.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK31_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK31_NSEC
+      - name: SW_LOCK32
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 128
+        description: |-
+          (read-write) Software lock register for page 32.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK32_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK32_NSEC
+      - name: SW_LOCK33
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 132
+        description: |-
+          (read-write) Software lock register for page 33.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK33_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK33_NSEC
+      - name: SW_LOCK34
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 136
+        description: |-
+          (read-write) Software lock register for page 34.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK34_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK34_NSEC
+      - name: SW_LOCK35
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 140
+        description: |-
+          (read-write) Software lock register for page 35.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK35_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK35_NSEC
+      - name: SW_LOCK36
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 144
+        description: |-
+          (read-write) Software lock register for page 36.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK36_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK36_NSEC
+      - name: SW_LOCK37
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 148
+        description: |-
+          (read-write) Software lock register for page 37.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK37_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK37_NSEC
+      - name: SW_LOCK38
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 152
+        description: |-
+          (read-write) Software lock register for page 38.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK38_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK38_NSEC
+      - name: SW_LOCK39
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 156
+        description: |-
+          (read-write) Software lock register for page 39.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK39_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK39_NSEC
+      - name: SW_LOCK40
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 160
+        description: |-
+          (read-write) Software lock register for page 40.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK40_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK40_NSEC
+      - name: SW_LOCK41
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 164
+        description: |-
+          (read-write) Software lock register for page 41.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK41_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK41_NSEC
+      - name: SW_LOCK42
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 168
+        description: |-
+          (read-write) Software lock register for page 42.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK42_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK42_NSEC
+      - name: SW_LOCK43
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 172
+        description: |-
+          (read-write) Software lock register for page 43.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK43_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK43_NSEC
+      - name: SW_LOCK44
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 176
+        description: |-
+          (read-write) Software lock register for page 44.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK44_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK44_NSEC
+      - name: SW_LOCK45
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 180
+        description: |-
+          (read-write) Software lock register for page 45.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK45_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK45_NSEC
+      - name: SW_LOCK46
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 184
+        description: |-
+          (read-write) Software lock register for page 46.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK46_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK46_NSEC
+      - name: SW_LOCK47
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 188
+        description: |-
+          (read-write) Software lock register for page 47.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK47_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK47_NSEC
+      - name: SW_LOCK48
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 192
+        description: |-
+          (read-write) Software lock register for page 48.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK48_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK48_NSEC
+      - name: SW_LOCK49
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 196
+        description: |-
+          (read-write) Software lock register for page 49.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK49_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK49_NSEC
+      - name: SW_LOCK50
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 200
+        description: |-
+          (read-write) Software lock register for page 50.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK50_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK50_NSEC
+      - name: SW_LOCK51
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 204
+        description: |-
+          (read-write) Software lock register for page 51.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK51_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK51_NSEC
+      - name: SW_LOCK52
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 208
+        description: |-
+          (read-write) Software lock register for page 52.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK52_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK52_NSEC
+      - name: SW_LOCK53
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 212
+        description: |-
+          (read-write) Software lock register for page 53.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK53_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK53_NSEC
+      - name: SW_LOCK54
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 216
+        description: |-
+          (read-write) Software lock register for page 54.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK54_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK54_NSEC
+      - name: SW_LOCK55
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 220
+        description: |-
+          (read-write) Software lock register for page 55.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK55_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK55_NSEC
+      - name: SW_LOCK56
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 224
+        description: |-
+          (read-write) Software lock register for page 56.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK56_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK56_NSEC
+      - name: SW_LOCK57
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 228
+        description: |-
+          (read-write) Software lock register for page 57.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK57_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK57_NSEC
+      - name: SW_LOCK58
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 232
+        description: |-
+          (read-write) Software lock register for page 58.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK58_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK58_NSEC
+      - name: SW_LOCK59
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 236
+        description: |-
+          (read-write) Software lock register for page 59.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK59_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK59_NSEC
+      - name: SW_LOCK60
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 240
+        description: |-
+          (read-write) Software lock register for page 60.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK60_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK60_NSEC
+      - name: SW_LOCK61
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 244
+        description: |-
+          (read-write) Software lock register for page 61.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK61_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK61_NSEC
+      - name: SW_LOCK62
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 248
+        description: |-
+          (read-write) Software lock register for page 62.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK62_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK62_NSEC
+      - name: SW_LOCK63
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 252
+        description: |-
+          (read-write) Software lock register for page 63.
+
+                              Locks are initialised from the OTP lock pages at reset. This register can be written to further advance the lock state of each page (until next reset), and read to check the current lock state of a page.
+        fields:
+          - name: SEC
+            description: |-
+              Secure lock status. Writes are OR'd with the current value. This field is read-only to Non-secure code.
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK63_SEC
+          - name: NSEC
+            description: |-
+              Non-secure lock status. Writes are OR'd with the current value.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: OTP_SW_LOCK63_NSEC
+      - name: SBPI_INSTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 256
+        description: |-
+          (read-write) Dispatch instructions to the SBPI interface, used for programming the OTP fuses.
+        fields:
+          - name: SHORT_WDATA
+            description: |-
+              wdata to be used only when payload_size_m1=0
+            index: 0
+            width: 8
+            read: true
+            write: true
+          - name: CMD
+            index: 8
+            width: 8
+            read: true
+            write: true
+          - name: TARGET
+            description: |-
+              Instruction target, it can be PMC (0x3a) or DAP (0x02)
+            index: 16
+            width: 8
+            read: true
+            write: true
+          - name: PAYLOAD_SIZE_M1
+            description: |-
+              Instruction payload size in bytes minus 1
+            index: 24
+            width: 4
+            read: true
+            write: true
+          - name: HAS_PAYLOAD
+            description: |-
+              Instruction has payload (data to be written or to be read)
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: IS_WR
+            description: |-
+              Payload type is write
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: EXEC
+            description: |-
+              Execute instruction
+            index: 30
+            width: 1
+            read: false
+            write: true
+      - name: SBPI_WDATA_0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 260
+        description: |-
+          (read-write) SBPI write payload bytes 3..0
+        fields:
+          - name: SBPI_WDATA_0
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SBPI_WDATA_1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 264
+        description: |-
+          (read-write) SBPI write payload bytes 7..4
+        fields:
+          - name: SBPI_WDATA_1
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SBPI_WDATA_2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 268
+        description: |-
+          (read-write) SBPI write payload bytes 11..8
+        fields:
+          - name: SBPI_WDATA_2
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SBPI_WDATA_3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 272
+        description: |-
+          (read-write) SBPI write payload bytes 15..12
+        fields:
+          - name: SBPI_WDATA_3
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: SBPI_RDATA_0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 276
+        const: true
+        description: |-
+          (read-only) Read payload bytes 3..0. Once read, the data in the register will automatically clear to 0.
+        fields:
+          - name: SBPI_RDATA_0
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: SBPI_RDATA_1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 280
+        const: true
+        description: |-
+          (read-only) Read payload bytes 7..4. Once read, the data in the register will automatically clear to 0.
+        fields:
+          - name: SBPI_RDATA_1
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: SBPI_RDATA_2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 284
+        const: true
+        description: |-
+          (read-only) Read payload bytes 11..8. Once read, the data in the register will automatically clear to 0.
+        fields:
+          - name: SBPI_RDATA_2
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: SBPI_RDATA_3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 288
+        const: true
+        description: |-
+          (read-only) Read payload bytes 15..12. Once read, the data in the register will automatically clear to 0.
+        fields:
+          - name: SBPI_RDATA_3
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: SBPI_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 292
+        fields:
+          - name: RDATA_VLD
+            description: |-
+              Read command has returned data
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: INSTR_DONE
+            description: |-
+              Last instruction done
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: INSTR_MISS
+            description: |-
+              Last instruction missed (dropped), as the previous has not finished running
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: FLAG
+            description: |-
+              SBPI flag
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: MISO
+            description: |-
+              SBPI MISO (master in - slave out): response from SBPI
+            index: 16
+            width: 8
+            read: true
+            write: false
+      - name: USR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 296
+        description: |-
+          (read-write) Controls for APB data read interface (USER interface)
+        fields:
+          - name: DCTRL
+            description: |-
+              1 enables USER interface; 0 disables USER interface (enables SBPI).
+
+                                          This bit must be cleared before performing any SBPI access, such as when programming the OTP. The APB data read interface (USER interface) will be inaccessible during this time, and will return a bus error if any read is attempted.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PD
+            description: |-
+              Power-down; 1 disables current reference. Must be 0 to read data from the OTP.
+            index: 4
+            width: 1
+            read: true
+            write: true
+      - name: DBG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 300
+        description: |-
+          (read-write) Debug for OTP power-on state machine
+        fields:
+          - name: PSM_DONE
+            description: |-
+              PSM done status flag
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: BOOT_DONE
+            description: |-
+              PSM boot done status flag
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: ROSC_UP_SEEN
+            description: |-
+              Ring oscillator was seen up and running
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: ROSC_UP
+            description: |-
+              Ring oscillator is up and running
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: PSM_STATE
+            description: |-
+              Monitor the PSM FSM's state
+            index: 4
+            width: 4
+            read: true
+            write: false
+          - name: CUSTOMER_RMA_FLAG
+            description: |-
+              The chip is in RMA mode
+            index: 12
+            width: 1
+            read: true
+            write: false
+      - name: BIST
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 308
+        description: |-
+          (read-write) During BIST, count address locations that have at least one leaky bit
+        fields:
+          - name: CNT
+            description: |-
+              Number of locations that have at least one leaky bit. Note: This count is true only if the BIST was initiated without the fix option.
+            index: 0
+            width: 13
+            read: true
+            write: false
+          - name: CNT_MAX
+            description: |-
+              The cnt_fail flag will be set if the number of leaky locations exceeds this number
+            index: 16
+            width: 12
+            read: true
+            write: true
+          - name: CNT_ENA
+            description: |-
+              Enable the counter before the BIST function is initiated
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: CNT_CLR
+            description: |-
+              Clear counter before use
+            index: 29
+            width: 1
+            read: false
+            write: true
+          - name: CNT_FAIL
+            description: |-
+              Flag if the count of address locations with at least one leaky bit exceeds cnt_max
+            index: 30
+            width: 1
+            read: true
+            write: false
+      - name: CRT_KEY_W0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 312
+        description: |-
+          (write-only) Word 0 (bits 31..0) of the key. Write only, read returns 0x0
+        fields:
+          - name: CRT_KEY_W0
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: CRT_KEY_W1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 316
+        description: |-
+          (write-only) Word 1 (bits 63..32) of the key. Write only, read returns 0x0
+        fields:
+          - name: CRT_KEY_W1
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: CRT_KEY_W2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 320
+        description: |-
+          (write-only) Word 2 (bits 95..64) of the key. Write only, read returns 0x0
+        fields:
+          - name: CRT_KEY_W2
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: CRT_KEY_W3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 324
+        description: |-
+          (write-only) Word 3 (bits 127..96) of the key. Write only, read returns 0x0
+        fields:
+          - name: CRT_KEY_W3
+            index: 0
+            width: 32
+            read: false
+            write: true
+      - name: CRITICAL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 328
+        const: true
+        description: |-
+          (read-only) Quickly check values of critical flags read during boot up
+        fields:
+          - name: SECURE_BOOT_ENABLE
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: SECURE_DEBUG_DISABLE
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: DEBUG_DISABLE
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: DEFAULT_ARCHSEL
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: GLITCH_DETECTOR_ENABLE
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: GLITCH_DETECTOR_SENS
+            index: 5
+            width: 2
+            read: true
+            write: false
+          - name: ARM_DISABLE
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: RISCV_DISABLE
+            index: 17
+            width: 1
+            read: true
+            write: false
+      - name: KEY_VALID
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 332
+        const: true
+        description: |-
+          (read-only) Which keys were valid (enrolled) at boot time
+        fields:
+          - name: KEY_VALID
+            index: 0
+            width: 8
+            read: true
+            write: false
+      - name: DEBUGEN
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 336
+        description: |-
+          (read-write) Enable a debug feature that has been disabled. Debug features are disabled if one of the relevant critical boot flags is set in OTP (DEBUG_DISABLE or SECURE_DEBUG_DISABLE), OR if a debug key is marked valid in OTP, and the matching key value has not been supplied over SWD.
+
+                              Specifically:
+
+                              - The DEBUG_DISABLE flag disables all debug features. This can be fully overridden by setting all bits of this register.
+
+                              - The SECURE_DEBUG_DISABLE flag disables secure processor debug. This can be fully overridden by setting the PROC0_SECURE and PROC1_SECURE bits of this register.
+
+                              - If a single debug key has been registered, and no matching key value has been supplied over SWD, then all debug features are disabled. This can be fully overridden by setting all bits of this register.
+
+                              - If both debug keys have been registered, and the Non-secure key's value (key 6) has been supplied over SWD, secure processor debug is disabled. This can be fully overridden by setting the PROC0_SECURE and PROC1_SECURE bits of this register.
+
+                              - If both debug keys have been registered, and the Secure key's value (key 5) has been supplied over SWD, then no debug features are disabled by the key mechanism. However, note that in this case debug features may still be disabled by the critical boot flags.
+        fields:
+          - name: PROC0
+            description: |-
+              Enable core 0's Mem-AP if it is currently disabled.
+
+                                          The Mem-AP is disabled by default if either of the debug disable critical flags is set, or if at least one debug key has been enrolled and the least secure of these enrolled key values has not been provided over SWD.
+
+                                          Note also that core Mem-APs are unconditionally disabled when a core is switched to RISC-V mode (by setting the ARCHSEL bit and performing a warm reset of the core).
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PROC0_SECURE
+            description: |-
+              Permit core 0's Mem-AP to generate Secure accesses, assuming it is enabled at all. Also enable secure debug of core 0 (SPIDEN and SPNIDEN).
+
+                                          Secure debug of core 0 is disabled by default if the secure debug disable critical flag is set, or if at least one debug key has been enrolled and the most secure of these enrolled key values not yet provided over SWD.
+
+                                          Note also that core Mem-APs are unconditionally disabled when a core is switched to RISC-V mode (by setting the ARCHSEL bit and performing a warm reset of the core).
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: PROC1
+            description: |-
+              Enable core 1's Mem-AP if it is currently disabled.
+
+                                          The Mem-AP is disabled by default if either of the debug disable critical flags is set, or if at least one debug key has been enrolled and the least secure of these enrolled key values has not been provided over SWD.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: PROC1_SECURE
+            description: |-
+              Permit core 1's Mem-AP to generate Secure accesses, assuming it is enabled at all. Also enable secure debug of core 1 (SPIDEN and SPNIDEN).
+
+                                          Secure debug of core 1 is disabled by default if the secure debug disable critical flag is set, or if at least one debug key has been enrolled and the most secure of these enrolled key values not yet provided over SWD.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: MISC
+            description: |-
+              Enable other debug components. Specifically, the CTI, and the APB-AP used to access the RISC-V Debug Module.
+
+                                          These components are disabled by default if either of the debug disable critical flags is set, or if at least one debug key has been enrolled and the least secure of these enrolled key values has not been provided over SWD.
+            index: 8
+            width: 1
+            read: true
+            write: true
+      - name: DEBUGEN_LOCK
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 340
+        description: |-
+          (read-write) Write 1s to lock corresponding bits in DEBUGEN. This register is reset by the processor cold reset.
+        fields:
+          - name: PROC0
+            description: |-
+              Write 1 to lock the PROC0 bit of DEBUGEN. Can't be cleared once set.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PROC0_SECURE
+            description: |-
+              Write 1 to lock the PROC0_SECURE bit of DEBUGEN. Can't be cleared once set.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: PROC1
+            description: |-
+              Write 1 to lock the PROC1 bit of DEBUGEN. Can't be cleared once set.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: PROC1_SECURE
+            description: |-
+              Write 1 to lock the PROC1_SECURE bit of DEBUGEN. Can't be cleared once set.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: MISC
+            description: |-
+              Write 1 to lock the MISC bit of DEBUGEN. Can't be cleared once set.
+            index: 8
+            width: 1
+            read: true
+            write: true
+      - name: ARCHSEL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 344
+        description: |-
+          (read-write) Architecture select (Arm/RISC-V). The default and allowable values of this register are constrained by the critical boot flags.
+
+                              This register is reset by the earliest reset in the switched core power domain (before a processor cold reset).
+
+                              Cores sample their architecture select signal on a warm reset. The source of the warm reset could be the system power-up state machine, the watchdog timer, Arm SYSRESETREQ or from RISC-V hartresetreq.
+
+                              Note that when an Arm core is deselected, its cold reset domain is also held in reset, since in particular the SYSRESETREQ bit becomes inaccessible once the core is deselected. Note also the RISC-V cores do not have a cold reset domain, since their corresponding controls are located in the Debug Module.
+        fields:
+          - name: CORE0
+            description: |-
+              Select architecture for core 0.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CORE1
+            description: |-
+              Select architecture for core 1.
+            index: 1
+            width: 1
+            read: true
+            write: true
+      - name: ARCHSEL_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 348
+        const: true
+        description: |-
+          (read-only) Get the current architecture select state of each core. Cores sample the current value of the ARCHSEL register when their warm reset is released, at which point the corresponding bit in this register will also update.
+        fields:
+          - name: CORE0
+            description: |-
+              Current architecture for core 0. Updated on processor warm reset.
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: CORE1
+            description: |-
+              Current architecture for core 0. Updated on processor warm reset.
+            index: 1
+            width: 1
+            read: true
+            write: false
+      - name: BOOTDIS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 352
+        description: |-
+          (read-write) Tell the bootrom to ignore scratch register boot vectors (both power manager and watchdog) on the next power up.
+
+                              If an early boot stage has soft-locked some OTP pages in order to protect their contents from later stages, there is a risk that Secure code running at a later stage can unlock the pages by performing a watchdog reset that resets the OTP.
+
+                              This register can be used to ensure that the bootloader runs as normal on the next power up, preventing Secure code at a later stage from accessing OTP in its unlocked state.
+
+                              Should be used in conjunction with the power manager BOOTDIS register.
+        fields:
+          - name: NOW
+            description: |-
+              When the core is powered down, the current value of BOOTDIS_NEXT is OR'd into BOOTDIS_NOW, and BOOTDIS_NEXT is cleared.
+
+                                          The bootrom checks this flag before reading the boot scratch registers. If it is set, the bootrom clears it, and ignores the BOOT registers. This prevents Secure software from diverting the boot path before a bootloader has had the chance to soft lock OTP pages containing sensitive data.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: NEXT
+            description: |-
+              This flag always ORs writes into its current contents. It can be set but not cleared by software.
+
+                                          The BOOTDIS_NEXT bit is OR'd into the BOOTDIS_NOW bit when the core is powered down. Simultaneously, the BOOTDIS_NEXT bit is cleared. Setting this bit means that the boot scratch registers will be ignored following the next core power down.
+
+                                          This flag should be set by an early boot stage that has soft-locked OTP pages, to prevent later stages from unlocking it via watchdog reset.
+            index: 1
+            width: 1
+            read: true
+            write: true
+      - name: INTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 356
+        description: |-
+          (read-write) Raw Interrupts
+        fields:
+          - name: SBPI_FLAG_N
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: SBPI_WR_FAIL
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: APB_DCTRL_FAIL
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: APB_RD_SEC_FAIL
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: APB_RD_NSEC_FAIL
+            index: 4
+            width: 1
+            read: true
+            write: true
+      - name: INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 360
+        description: |-
+          (read-write) Interrupt Enable
+        fields:
+          - name: SBPI_FLAG_N
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SBPI_WR_FAIL
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: APB_DCTRL_FAIL
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: APB_RD_SEC_FAIL
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: APB_RD_NSEC_FAIL
+            index: 4
+            width: 1
+            read: true
+            write: true
+      - name: INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 364
+        description: |-
+          (read-write) Interrupt Force
+        fields:
+          - name: SBPI_FLAG_N
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SBPI_WR_FAIL
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: APB_DCTRL_FAIL
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: APB_RD_SEC_FAIL
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: APB_RD_NSEC_FAIL
+            index: 4
+            width: 1
+            read: true
+            write: true
+      - name: INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 368
+        const: true
+        description: |-
+          (read-only) Interrupt status after masking & forcing
+        fields:
+          - name: SBPI_FLAG_N
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: SBPI_WR_FAIL
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: APB_DCTRL_FAIL
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: APB_RD_SEC_FAIL
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: APB_RD_NSEC_FAIL
+            index: 4
+            width: 1
+            read: true
+            write: false
+enums:
+  OTP_SW_LOCK0_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK0_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK1_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK1_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK2_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK2_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK3_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK3_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK4_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK4_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK5_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK5_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK6_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK6_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK7_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK7_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK8_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK8_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK9_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK9_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK10_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK10_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK11_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK11_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK12_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK12_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK13_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK13_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK14_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK14_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK15_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK15_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK16_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK16_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK17_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK17_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK18_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK18_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK19_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK19_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK20_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK20_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK21_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK21_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK22_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK22_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK23_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK23_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK24_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK24_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK25_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK25_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK26_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK26_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK27_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK27_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK28_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK28_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK29_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK29_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK30_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK30_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK31_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK31_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK32_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK32_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK33_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK33_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK34_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK34_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK35_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK35_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK36_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK36_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK37_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK37_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK38_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK38_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK39_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK39_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK40_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK40_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK41_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK41_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK42_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK42_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK43_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK43_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK44_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK44_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK45_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK45_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK46_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK46_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK47_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK47_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK48_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK48_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK49_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK49_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK50_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK50_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK51_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK51_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK52_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK52_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK53_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK53_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK54_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK54_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK55_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK55_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK56_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK56_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK57_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK57_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK58_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK58_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK59_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK59_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK60_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK60_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK61_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK61_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK62_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK62_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK63_SEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  OTP_SW_LOCK63_NSEC:
+    enum:
+      read_write:
+        value: 0
+      read_only:
+        value: 1
+      inaccessible:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

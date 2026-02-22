@@ -1,0 +1,51 @@
+---
+structs:
+  hstx_fifo:
+    description: |-
+      FIFO status and write access for HSTX
+    instances:
+      - name: HSTX_FIFO
+        address: '0x50600000'
+    fields:
+      - name: STAT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: |-
+          (read-write) FIFO status
+        fields:
+          - name: LEVEL
+            index: 0
+            width: 8
+            read: true
+            write: false
+          - name: FULL
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: EMPTY
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: WOF
+            description: |-
+              FIFO was written when full. Write 1 to clear.
+            index: 10
+            width: 1
+            read: true
+            write: true
+      - name: FIFO
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: |-
+          (write-only) Write access to FIFO
+        fields:
+          - name: FIFO
+            index: 0
+            width: 32
+            read: false
+            write: true
+enums: {}

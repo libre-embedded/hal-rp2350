@@ -1,0 +1,2401 @@
+---
+structs:
+  clocks:
+    instances:
+      - name: CLOCKS
+        address: '0x40010000'
+    fields:
+      - name: CLK_GPOUT0_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 4
+            read: true
+            write: true
+            type: CLOCKS_CLK_GPOUT0_CTRL_AUXSRC
+          - name: KILL
+            description: |-
+              Asynchronously kills the clock generator, enable must be set low before deasserting kill
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: ENABLE
+            description: |-
+              Starts and stops the clock generator cleanly
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: DC50
+            description: |-
+              Enables duty cycle correction for odd divisors, can be changed on-the-fly
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: PHASE
+            description: |-
+              This delays the enable signal by up to 3 cycles of the input clock 
+                                          This must be set before the clock is enabled to have any effect
+            index: 16
+            width: 2
+            read: true
+            write: true
+          - name: NUDGE
+            description: |-
+              An edge on this signal shifts the phase of the output by 1 cycle of the input clock 
+                                          This can be done at any time
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: ENABLED
+            description: |-
+              clock generator is enabled
+            index: 28
+            width: 1
+            read: true
+            write: false
+      - name: CLK_GPOUT0_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        fields:
+          - name: FRAC
+            description: |-
+              Fractional component of the divisor, can be changed on-the-fly
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CLK_GPOUT0_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_GPOUT0_SELECTED
+            description: |-
+              This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: CLK_GPOUT1_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 4
+            read: true
+            write: true
+            type: CLOCKS_CLK_GPOUT1_CTRL_AUXSRC
+          - name: KILL
+            description: |-
+              Asynchronously kills the clock generator, enable must be set low before deasserting kill
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: ENABLE
+            description: |-
+              Starts and stops the clock generator cleanly
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: DC50
+            description: |-
+              Enables duty cycle correction for odd divisors, can be changed on-the-fly
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: PHASE
+            description: |-
+              This delays the enable signal by up to 3 cycles of the input clock 
+                                          This must be set before the clock is enabled to have any effect
+            index: 16
+            width: 2
+            read: true
+            write: true
+          - name: NUDGE
+            description: |-
+              An edge on this signal shifts the phase of the output by 1 cycle of the input clock 
+                                          This can be done at any time
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: ENABLED
+            description: |-
+              clock generator is enabled
+            index: 28
+            width: 1
+            read: true
+            write: false
+      - name: CLK_GPOUT1_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        fields:
+          - name: FRAC
+            description: |-
+              Fractional component of the divisor, can be changed on-the-fly
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CLK_GPOUT1_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_GPOUT1_SELECTED
+            description: |-
+              This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: CLK_GPOUT2_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 4
+            read: true
+            write: true
+            type: CLOCKS_CLK_GPOUT2_CTRL_AUXSRC
+          - name: KILL
+            description: |-
+              Asynchronously kills the clock generator, enable must be set low before deasserting kill
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: ENABLE
+            description: |-
+              Starts and stops the clock generator cleanly
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: DC50
+            description: |-
+              Enables duty cycle correction for odd divisors, can be changed on-the-fly
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: PHASE
+            description: |-
+              This delays the enable signal by up to 3 cycles of the input clock 
+                                          This must be set before the clock is enabled to have any effect
+            index: 16
+            width: 2
+            read: true
+            write: true
+          - name: NUDGE
+            description: |-
+              An edge on this signal shifts the phase of the output by 1 cycle of the input clock 
+                                          This can be done at any time
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: ENABLED
+            description: |-
+              clock generator is enabled
+            index: 28
+            width: 1
+            read: true
+            write: false
+      - name: CLK_GPOUT2_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        fields:
+          - name: FRAC
+            description: |-
+              Fractional component of the divisor, can be changed on-the-fly
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CLK_GPOUT2_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_GPOUT2_SELECTED
+            description: |-
+              This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: CLK_GPOUT3_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 4
+            read: true
+            write: true
+            type: CLOCKS_CLK_GPOUT3_CTRL_AUXSRC
+          - name: KILL
+            description: |-
+              Asynchronously kills the clock generator, enable must be set low before deasserting kill
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: ENABLE
+            description: |-
+              Starts and stops the clock generator cleanly
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: DC50
+            description: |-
+              Enables duty cycle correction for odd divisors, can be changed on-the-fly
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: PHASE
+            description: |-
+              This delays the enable signal by up to 3 cycles of the input clock 
+                                          This must be set before the clock is enabled to have any effect
+            index: 16
+            width: 2
+            read: true
+            write: true
+          - name: NUDGE
+            description: |-
+              An edge on this signal shifts the phase of the output by 1 cycle of the input clock 
+                                          This can be done at any time
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: ENABLED
+            description: |-
+              clock generator is enabled
+            index: 28
+            width: 1
+            read: true
+            write: false
+      - name: CLK_GPOUT3_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        fields:
+          - name: FRAC
+            description: |-
+              Fractional component of the divisor, can be changed on-the-fly
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CLK_GPOUT3_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_GPOUT3_SELECTED
+            description: |-
+              This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: CLK_REF_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: SRC
+            description: |-
+              Selects the clock source glitchlessly, can be changed on-the-fly
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: CLOCKS_CLK_REF_CTRL_SRC
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 2
+            read: true
+            write: true
+            type: CLOCKS_CLK_REF_CTRL_AUXSRC
+      - name: CLK_REF_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        fields:
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 8
+            read: true
+            write: true
+      - name: CLK_REF_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_REF_SELECTED
+            description: |-
+              The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s.
+            index: 0
+            width: 4
+            read: true
+            write: false
+      - name: CLK_SYS_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: SRC
+            description: |-
+              Selects the clock source glitchlessly, can be changed on-the-fly
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 3
+            read: true
+            write: true
+            type: CLOCKS_CLK_SYS_CTRL_AUXSRC
+      - name: CLK_SYS_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        fields:
+          - name: FRAC
+            description: |-
+              Fractional component of the divisor, can be changed on-the-fly
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CLK_SYS_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 68
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_SYS_SELECTED
+            description: |-
+              The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s.
+            index: 0
+            width: 2
+            read: true
+            write: false
+      - name: CLK_PERI_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 72
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 3
+            read: true
+            write: true
+            type: CLOCKS_CLK_PERI_CTRL_AUXSRC
+          - name: KILL
+            description: |-
+              Asynchronously kills the clock generator, enable must be set low before deasserting kill
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: ENABLE
+            description: |-
+              Starts and stops the clock generator cleanly
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: ENABLED
+            description: |-
+              clock generator is enabled
+            index: 28
+            width: 1
+            read: true
+            write: false
+      - name: CLK_PERI_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 76
+        fields:
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 2
+            read: true
+            write: true
+      - name: CLK_PERI_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 80
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_PERI_SELECTED
+            description: |-
+              This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: CLK_HSTX_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 84
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 3
+            read: true
+            write: true
+            type: CLOCKS_CLK_HSTX_CTRL_AUXSRC
+          - name: KILL
+            description: |-
+              Asynchronously kills the clock generator, enable must be set low before deasserting kill
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: ENABLE
+            description: |-
+              Starts and stops the clock generator cleanly
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: PHASE
+            description: |-
+              This delays the enable signal by up to 3 cycles of the input clock 
+                                          This must be set before the clock is enabled to have any effect
+            index: 16
+            width: 2
+            read: true
+            write: true
+          - name: NUDGE
+            description: |-
+              An edge on this signal shifts the phase of the output by 1 cycle of the input clock 
+                                          This can be done at any time
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: ENABLED
+            description: |-
+              clock generator is enabled
+            index: 28
+            width: 1
+            read: true
+            write: false
+      - name: CLK_HSTX_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 88
+        fields:
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 2
+            read: true
+            write: true
+      - name: CLK_HSTX_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 92
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_HSTX_SELECTED
+            description: |-
+              This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: CLK_USB_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 96
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 3
+            read: true
+            write: true
+            type: CLOCKS_CLK_USB_CTRL_AUXSRC
+          - name: KILL
+            description: |-
+              Asynchronously kills the clock generator, enable must be set low before deasserting kill
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: ENABLE
+            description: |-
+              Starts and stops the clock generator cleanly
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: PHASE
+            description: |-
+              This delays the enable signal by up to 3 cycles of the input clock 
+                                          This must be set before the clock is enabled to have any effect
+            index: 16
+            width: 2
+            read: true
+            write: true
+          - name: NUDGE
+            description: |-
+              An edge on this signal shifts the phase of the output by 1 cycle of the input clock 
+                                          This can be done at any time
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: ENABLED
+            description: |-
+              clock generator is enabled
+            index: 28
+            width: 1
+            read: true
+            write: false
+      - name: CLK_USB_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 100
+        fields:
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 4
+            read: true
+            write: true
+      - name: CLK_USB_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 104
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_USB_SELECTED
+            description: |-
+              This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: CLK_ADC_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 108
+        description: |-
+          (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+        fields:
+          - name: AUXSRC
+            description: |-
+              Selects the auxiliary clock source, will glitch when switching
+            index: 5
+            width: 3
+            read: true
+            write: true
+            type: CLOCKS_CLK_ADC_CTRL_AUXSRC
+          - name: KILL
+            description: |-
+              Asynchronously kills the clock generator, enable must be set low before deasserting kill
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: ENABLE
+            description: |-
+              Starts and stops the clock generator cleanly
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: PHASE
+            description: |-
+              This delays the enable signal by up to 3 cycles of the input clock 
+                                          This must be set before the clock is enabled to have any effect
+            index: 16
+            width: 2
+            read: true
+            write: true
+          - name: NUDGE
+            description: |-
+              An edge on this signal shifts the phase of the output by 1 cycle of the input clock 
+                                          This can be done at any time
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: ENABLED
+            description: |-
+              clock generator is enabled
+            index: 28
+            width: 1
+            read: true
+            write: false
+      - name: CLK_ADC_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 112
+        fields:
+          - name: INT
+            description: |-
+              Integer part of clock divisor, 0 -> max+1, can be changed on-the-fly
+            index: 16
+            width: 4
+            read: true
+            write: true
+      - name: CLK_ADC_SELECTED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 116
+        const: true
+        description: |-
+          (read-only) Indicates which src is currently selected (one-hot)
+        fields:
+          - name: CLK_ADC_SELECTED
+            description: |-
+              This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: DFTCLK_XOSC_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 120
+        fields:
+          - name: SRC
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: CLOCKS_DFTCLK_XOSC_CTRL_SRC
+      - name: DFTCLK_ROSC_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 124
+        fields:
+          - name: SRC
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: CLOCKS_DFTCLK_ROSC_CTRL_SRC
+      - name: DFTCLK_LPOSC_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 128
+        fields:
+          - name: SRC
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: CLOCKS_DFTCLK_LPOSC_CTRL_SRC
+      - name: CLK_SYS_RESUS_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 132
+        fields:
+          - name: TIMEOUT
+            description: |-
+              This is expressed as a number of clk_ref cycles 
+                                          and must be >= 2x clk_ref_freq/min_clk_tst_freq
+            index: 0
+            width: 8
+            read: true
+            write: true
+          - name: ENABLE
+            description: |-
+              Enable resus
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: FRCE
+            description: |-
+              Force a resus, for test purposes only
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: CLEAR
+            description: |-
+              For clearing the resus after the fault that triggered it has been corrected
+            index: 16
+            width: 1
+            read: true
+            write: true
+      - name: CLK_SYS_RESUS_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 136
+        const: true
+        fields:
+          - name: RESUSSED
+            description: |-
+              Clock has been resuscitated, correct the error then send ctrl_clear=1
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: FC0_REF_KHZ
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 140
+        description: |-
+          (read-write) Reference clock frequency in kHz
+        fields:
+          - name: FC0_REF_KHZ
+            index: 0
+            width: 20
+            read: true
+            write: true
+      - name: FC0_MIN_KHZ
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 144
+        description: |-
+          (read-write) Minimum pass frequency in kHz. This is optional. Set to 0 if you are not using the pass/fail flags
+        fields:
+          - name: FC0_MIN_KHZ
+            index: 0
+            width: 25
+            read: true
+            write: true
+      - name: FC0_MAX_KHZ
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 148
+        description: |-
+          (read-write) Maximum pass frequency in kHz. This is optional. Set to 0x1ffffff if you are not using the pass/fail flags
+        fields:
+          - name: FC0_MAX_KHZ
+            index: 0
+            width: 25
+            read: true
+            write: true
+      - name: FC0_DELAY
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 152
+        description: |-
+          (read-write) Delays the start of frequency counting to allow the mux to settle 
+                              Delay is measured in multiples of the reference clock period
+        fields:
+          - name: FC0_DELAY
+            index: 0
+            width: 3
+            read: true
+            write: true
+      - name: FC0_INTERVAL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 156
+        description: |-
+          (read-write) The test interval is 0.98us * 2**interval, but let's call it 1us * 2**interval 
+                              The default gives a test interval of 250us
+        fields:
+          - name: FC0_INTERVAL
+            index: 0
+            width: 4
+            read: true
+            write: true
+      - name: FC0_SRC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 160
+        description: |-
+          (read-write) Clock sent to frequency counter, set to 0 when not required 
+                              Writing to this register initiates the frequency count
+        fields:
+          - name: FC0_SRC
+            index: 0
+            width: 8
+            read: true
+            write: true
+            type: CLOCKS_FC0_SRC_FC0_SRC
+      - name: FC0_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 164
+        const: true
+        description: |-
+          (read-only) Frequency counter status
+        fields:
+          - name: PASS
+            description: |-
+              Test passed
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: DONE
+            description: |-
+              Test complete
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: RUNNING
+            description: |-
+              Test running
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: WAITING
+            description: |-
+              Waiting for test clock to start
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: FAIL
+            description: |-
+              Test failed
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: SLOW
+            description: |-
+              Test clock slower than expected, only valid when status_done=1
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: FAST
+            description: |-
+              Test clock faster than expected, only valid when status_done=1
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: DIED
+            description: |-
+              Test clock stopped during test
+            index: 28
+            width: 1
+            read: true
+            write: false
+      - name: FC0_RESULT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 168
+        const: true
+        description: |-
+          (read-only) Result of frequency measurement, only valid when status_done=1
+        fields:
+          - name: FRAC
+            index: 0
+            width: 5
+            read: true
+            write: false
+          - name: KHZ
+            index: 5
+            width: 25
+            read: true
+            write: false
+      - name: WAKE_EN0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 172
+        description: |-
+          (read-write) enable clock in wake mode
+        fields:
+          - name: CLK_SYS_CLOCKS
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_ACCESSCTRL
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CLK_ADC
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_ADC
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_BOOTRAM
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_BUSCTRL
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_BUSFABRIC
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_DMA
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_GLITCH_DETECTOR
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: CLK_HSTX
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_HSTX
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_I2C0
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_I2C1
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_IO
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_JTAG
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: CLK_REF_OTP
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_OTP
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PADS
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PIO0
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PIO1
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PIO2
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PLL_SYS
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PLL_USB
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: CLK_REF_POWMAN
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_POWMAN
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PWM
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_RESETS
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_ROM
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_ROSC
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PSM
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SHA256
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SIO
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: WAKE_EN1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 176
+        description: |-
+          (read-write) enable clock in wake mode
+        fields:
+          - name: CLK_PERI_SPI0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SPI0
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CLK_PERI_SPI1
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SPI1
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM0
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM1
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM2
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM3
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM4
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM5
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM6
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM7
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM8
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM9
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SYSCFG
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SYSINFO
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TBMAN
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: CLK_REF_TICKS
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TICKS
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TIMER0
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TIMER1
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TRNG
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: CLK_PERI_UART0
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_UART0
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: CLK_PERI_UART1
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_UART1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_USBCTRL
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: CLK_USB
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_WATCHDOG
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_XIP
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_XOSC
+            index: 30
+            width: 1
+            read: true
+            write: true
+      - name: SLEEP_EN0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 180
+        description: |-
+          (read-write) enable clock in sleep mode
+        fields:
+          - name: CLK_SYS_CLOCKS
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_ACCESSCTRL
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CLK_ADC
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_ADC
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_BOOTRAM
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_BUSCTRL
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_BUSFABRIC
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_DMA
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_GLITCH_DETECTOR
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: CLK_HSTX
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_HSTX
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_I2C0
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_I2C1
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_IO
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_JTAG
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: CLK_REF_OTP
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_OTP
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PADS
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PIO0
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PIO1
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PIO2
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PLL_SYS
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PLL_USB
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: CLK_REF_POWMAN
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_POWMAN
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PWM
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_RESETS
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_ROM
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_ROSC
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_PSM
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SHA256
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SIO
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: SLEEP_EN1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 184
+        description: |-
+          (read-write) enable clock in sleep mode
+        fields:
+          - name: CLK_PERI_SPI0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SPI0
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CLK_PERI_SPI1
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SPI1
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM0
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM1
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM2
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM3
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM4
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM5
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM6
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM7
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM8
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SRAM9
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SYSCFG
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_SYSINFO
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TBMAN
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: CLK_REF_TICKS
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TICKS
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TIMER0
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TIMER1
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_TRNG
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: CLK_PERI_UART0
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_UART0
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: CLK_PERI_UART1
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_UART1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_USBCTRL
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: CLK_USB
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_WATCHDOG
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_XIP
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: CLK_SYS_XOSC
+            index: 30
+            width: 1
+            read: true
+            write: true
+      - name: ENABLED0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 188
+        const: true
+        description: |-
+          (read-only) indicates the state of the clock enable
+        fields:
+          - name: CLK_SYS_CLOCKS
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_ACCESSCTRL
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: CLK_ADC
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_ADC
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_BOOTRAM
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_BUSCTRL
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_BUSFABRIC
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_DMA
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_GLITCH_DETECTOR
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: CLK_HSTX
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_HSTX
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_I2C0
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_I2C1
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_IO
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_JTAG
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: CLK_REF_OTP
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_OTP
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_PADS
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_PIO0
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_PIO1
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_PIO2
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_PLL_SYS
+            index: 21
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_PLL_USB
+            index: 22
+            width: 1
+            read: true
+            write: false
+          - name: CLK_REF_POWMAN
+            index: 23
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_POWMAN
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_PWM
+            index: 25
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_RESETS
+            index: 26
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_ROM
+            index: 27
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_ROSC
+            index: 28
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_PSM
+            index: 29
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SHA256
+            index: 30
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SIO
+            index: 31
+            width: 1
+            read: true
+            write: false
+      - name: ENABLED1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 192
+        const: true
+        description: |-
+          (read-only) indicates the state of the clock enable
+        fields:
+          - name: CLK_PERI_SPI0
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SPI0
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: CLK_PERI_SPI1
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SPI1
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM0
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM1
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM2
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM3
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM4
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM5
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM6
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM7
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM8
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SRAM9
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SYSCFG
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_SYSINFO
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_TBMAN
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: CLK_REF_TICKS
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_TICKS
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_TIMER0
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_TIMER1
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_TRNG
+            index: 21
+            width: 1
+            read: true
+            write: false
+          - name: CLK_PERI_UART0
+            index: 22
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_UART0
+            index: 23
+            width: 1
+            read: true
+            write: false
+          - name: CLK_PERI_UART1
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_UART1
+            index: 25
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_USBCTRL
+            index: 26
+            width: 1
+            read: true
+            write: false
+          - name: CLK_USB
+            index: 27
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_WATCHDOG
+            index: 28
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_XIP
+            index: 29
+            width: 1
+            read: true
+            write: false
+          - name: CLK_SYS_XOSC
+            index: 30
+            width: 1
+            read: true
+            write: false
+      - name: INTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 196
+        const: true
+        description: |-
+          (read-only) Raw Interrupts
+        fields:
+          - name: CLK_SYS_RESUS
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 200
+        description: |-
+          (read-write) Interrupt Enable
+        fields:
+          - name: CLK_SYS_RESUS
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 204
+        description: |-
+          (read-write) Interrupt Force
+        fields:
+          - name: CLK_SYS_RESUS
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 208
+        const: true
+        description: |-
+          (read-only) Interrupt status after masking & forcing
+        fields:
+          - name: CLK_SYS_RESUS
+            index: 0
+            width: 1
+            read: true
+            write: false
+enums:
+  CLOCKS_CLK_GPOUT0_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_gpin0:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+      clksrc_pll_usb:
+        value: 3
+      clksrc_pll_usb_primary_ref_opcg:
+        value: 4
+      rosc_clksrc:
+        value: 5
+      xosc_clksrc:
+        value: 6
+      lposc_clksrc:
+        value: 7
+      clk_sys:
+        value: 8
+      clk_usb:
+        value: 9
+      clk_adc:
+        value: 10
+      clk_ref:
+        value: 11
+      clk_peri:
+        value: 12
+      clk_hstx:
+        value: 13
+      otp_clk2fc:
+        value: 14
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_GPOUT1_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_gpin0:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+      clksrc_pll_usb:
+        value: 3
+      clksrc_pll_usb_primary_ref_opcg:
+        value: 4
+      rosc_clksrc:
+        value: 5
+      xosc_clksrc:
+        value: 6
+      lposc_clksrc:
+        value: 7
+      clk_sys:
+        value: 8
+      clk_usb:
+        value: 9
+      clk_adc:
+        value: 10
+      clk_ref:
+        value: 11
+      clk_peri:
+        value: 12
+      clk_hstx:
+        value: 13
+      otp_clk2fc:
+        value: 14
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_GPOUT2_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_gpin0:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+      clksrc_pll_usb:
+        value: 3
+      clksrc_pll_usb_primary_ref_opcg:
+        value: 4
+      rosc_clksrc_ph:
+        value: 5
+      xosc_clksrc:
+        value: 6
+      lposc_clksrc:
+        value: 7
+      clk_sys:
+        value: 8
+      clk_usb:
+        value: 9
+      clk_adc:
+        value: 10
+      clk_ref:
+        value: 11
+      clk_peri:
+        value: 12
+      clk_hstx:
+        value: 13
+      otp_clk2fc:
+        value: 14
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_GPOUT3_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_gpin0:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+      clksrc_pll_usb:
+        value: 3
+      clksrc_pll_usb_primary_ref_opcg:
+        value: 4
+      rosc_clksrc_ph:
+        value: 5
+      xosc_clksrc:
+        value: 6
+      lposc_clksrc:
+        value: 7
+      clk_sys:
+        value: 8
+      clk_usb:
+        value: 9
+      clk_adc:
+        value: 10
+      clk_ref:
+        value: 11
+      clk_peri:
+        value: 12
+      clk_hstx:
+        value: 13
+      otp_clk2fc:
+        value: 14
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_REF_CTRL_SRC:
+    enum:
+      rosc_clksrc_ph:
+        value: 0
+      clksrc_clk_ref_aux:
+        value: 1
+      xosc_clksrc:
+        value: 2
+      lposc_clksrc:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_REF_CTRL_AUXSRC:
+    enum:
+      pll_usb:
+        value: 0
+      gpin0:
+        value: 1
+      gpin1:
+        value: 2
+      pll_usb_primary_ref_opcg:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_SYS_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_pll_usb:
+        value: 1
+      rosc_clksrc:
+        value: 2
+      xosc_clksrc:
+        value: 3
+      clksrc_gpin0:
+        value: 4
+      clksrc_gpin1:
+        value: 5
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_PERI_CTRL_AUXSRC:
+    enum:
+      clk_sys:
+        value: 0
+      clksrc_pll_sys:
+        value: 1
+      clksrc_pll_usb:
+        value: 2
+      rosc_clksrc_ph:
+        value: 3
+      xosc_clksrc:
+        value: 4
+      clksrc_gpin0:
+        value: 5
+      clksrc_gpin1:
+        value: 6
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_HSTX_CTRL_AUXSRC:
+    enum:
+      _sys:
+        value: 0
+      src_pll_sys:
+        value: 1
+      src_pll_usb:
+        value: 2
+      src_gpin0:
+        value: 3
+      src_gpin1:
+        value: 4
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_USB_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_usb:
+        value: 0
+      clksrc_pll_sys:
+        value: 1
+      rosc_clksrc_ph:
+        value: 2
+      xosc_clksrc:
+        value: 3
+      clksrc_gpin0:
+        value: 4
+      clksrc_gpin1:
+        value: 5
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_ADC_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_usb:
+        value: 0
+      clksrc_pll_sys:
+        value: 1
+      rosc_clksrc_ph:
+        value: 2
+      xosc_clksrc:
+        value: 3
+      clksrc_gpin0:
+        value: 4
+      clksrc_gpin1:
+        value: 5
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_DFTCLK_XOSC_CTRL_SRC:
+    enum:
+      'NULL':
+        value: 0
+      clksrc_pll_usb_primary:
+        value: 1
+      clksrc_gpin0:
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_DFTCLK_ROSC_CTRL_SRC:
+    enum:
+      'NULL':
+        value: 0
+      clksrc_pll_sys_primary_rosc:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_DFTCLK_LPOSC_CTRL_SRC:
+    enum:
+      'NULL':
+        value: 0
+      clksrc_pll_usb_primary_lposc:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_FC0_SRC_FC0_SRC:
+    enum:
+      'NULL':
+        value: 0
+      pll_sys_clksrc_primary:
+        value: 1
+      pll_usb_clksrc_primary:
+        value: 2
+      rosc_clksrc:
+        value: 3
+      rosc_clksrc_ph:
+        value: 4
+      xosc_clksrc:
+        value: 5
+      clksrc_gpin0:
+        value: 6
+      clksrc_gpin1:
+        value: 7
+      clk_ref:
+        value: 8
+      clk_sys:
+        value: 9
+      clk_peri:
+        value: 10
+      clk_usb:
+        value: 11
+      clk_adc:
+        value: 12
+      clk_hstx:
+        value: 13
+      lposc_clksrc:
+        value: 14
+      otp_clk2fc:
+        value: 15
+      pll_usb_clksrc_primary_dft:
+        value: 16
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

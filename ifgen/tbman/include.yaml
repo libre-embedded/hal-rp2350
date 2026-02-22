@@ -1,0 +1,39 @@
+---
+structs:
+  tbman:
+    description: |-
+      For managing simulation testbenches
+    instances:
+      - name: TBMAN
+        address: '0x40160000'
+    fields:
+      - name: PLATFORM
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        const: true
+        description: |-
+          (read-only) Indicates the type of platform in use
+        fields:
+          - name: ASIC
+            description: |-
+              Indicates the platform is an ASIC
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: FPGA
+            description: |-
+              Indicates the platform is an FPGA
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: HDLSIM
+            description: |-
+              Indicates the platform is a simulation
+            index: 2
+            width: 1
+            read: true
+            write: false
+enums: {}

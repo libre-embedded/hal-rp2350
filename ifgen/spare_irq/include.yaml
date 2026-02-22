@@ -1,0 +1,8 @@
+---
+structs:
+  spare_irq:
+    instances:
+      - name: SPARE_IRQ
+        address: '0x00000000'
+    fields: []
+enums: {}

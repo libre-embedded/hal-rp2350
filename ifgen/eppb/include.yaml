@@ -1,0 +1,64 @@
+---
+structs:
+  eppb:
+    description: |-
+      Cortex-M33 EPPB vendor register block for RP2350
+    instances:
+      - name: EPPB
+        address: '0xe0080000'
+    fields:
+      - name: NMI_MASK0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: |-
+          (read-write) NMI mask for IRQs 0 through 31. This register is core-local, and is reset by a processor warm reset.
+        fields:
+          - name: NMI_MASK0
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: NMI_MASK1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: |-
+          (read-write) NMI mask for IRQs 0 though 51. This register is core-local, and is reset by a processor warm reset.
+        fields:
+          - name: NMI_MASK1
+            index: 0
+            width: 20
+            read: true
+            write: true
+      - name: SLEEPCTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: |-
+          (read-write) Nonstandard sleep control register
+        fields:
+          - name: LIGHT_SLEEP
+            description: |-
+              By default, any processor sleep will deassert the system-level clock request. Reenabling the clocks incurs 5 cycles of additional latency on wakeup.
+
+                                          Setting LIGHT_SLEEP to 1 keeps the clock request asserted during a normal sleep (Arm SCR.SLEEPDEEP = 0), for faster wakeup. Processor deep sleep (Arm SCR.SLEEPDEEP = 1) is not affected, and will always deassert the system-level clock request.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: WICENREQ
+            description: |-
+              Request that the next processor deep sleep is a WIC sleep. After setting this bit, before sleeping, poll WICENACK to ensure the processor interrupt controller has acknowledged the change.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: WICENACK
+            description: |-
+              Status signal from the processor's interrupt controller. Changes to WICENREQ are eventually reflected in WICENACK.
+            index: 2
+            width: 1
+            read: true
+            write: false
+enums: {}

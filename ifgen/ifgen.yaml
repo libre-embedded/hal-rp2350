@@ -1,0 +1,58 @@
+---
+includes:
+  - accessctrl/include.yaml
+  - adc/include.yaml
+  - bootram/include.yaml
+  - busctrl/include.yaml
+  - clocks/include.yaml
+  - coresight_trace/include.yaml
+  - dma/include.yaml
+  - eppb/include.yaml
+  - glitch_detector/include.yaml
+  - hstx_ctrl/include.yaml
+  - hstx_fifo/include.yaml
+  - i2c0/include.yaml
+  - io_bank0/include.yaml
+  - io_qspi/include.yaml
+  - otp/include.yaml
+  - otp_data/include.yaml
+  - otp_data_raw/include.yaml
+  - pads_bank0/include.yaml
+  - pads_qspi/include.yaml
+  - pio0/include.yaml
+  - pll_sys/include.yaml
+  - powman/include.yaml
+  - ppb/include.yaml
+  - psm/include.yaml
+  - pwm/include.yaml
+  - qmi/include.yaml
+  - resets/include.yaml
+  - rosc/include.yaml
+  - sha256/include.yaml
+  - sio/include.yaml
+  - spare_irq/include.yaml
+  - spi0/include.yaml
+  - syscfg/include.yaml
+  - sysinfo/include.yaml
+  - tbman/include.yaml
+  - ticks/include.yaml
+  - timer0/include.yaml
+  - trng/include.yaml
+  - uart0/include.yaml
+  - usb/include.yaml
+  - usb_dpram/include.yaml
+  - watchdog/include.yaml
+  - xip_aux/include.yaml
+  - xip_ctrl/include.yaml
+  - xosc/include.yaml
+namespace:
+  - RP2350
+struct:
+  stream: false
+  codec: false
+  methods: false
+  unit_test: false
+  packed: false
+enum:
+  use_map: false
+  identifier: false

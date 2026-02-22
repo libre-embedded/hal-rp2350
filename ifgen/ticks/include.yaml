@@ -1,0 +1,284 @@
+---
+structs:
+  ticks:
+    instances:
+      - name: TICKS
+        address: '0x40108000'
+    fields:
+      - name: PROC0_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: |-
+          (read-write) Controls the tick generator
+        fields:
+          - name: ENABLE
+            description: |-
+              start / stop tick generation
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RUNNING
+            description: |-
+              Is the tick generator running?
+            index: 1
+            width: 1
+            read: true
+            write: false
+      - name: PROC0_CYCLES
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        fields:
+          - name: PROC0_CYCLES
+            description: |-
+              Total number of clk_tick cycles before the next tick.
+            index: 0
+            width: 9
+            read: true
+            write: true
+      - name: PROC0_COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        const: true
+        fields:
+          - name: PROC0_COUNT
+            description: |-
+              Count down timer: the remaining number clk_tick cycles before the next tick is generated.
+            index: 0
+            width: 9
+            read: true
+            write: false
+      - name: PROC1_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: |-
+          (read-write) Controls the tick generator
+        fields:
+          - name: ENABLE
+            description: |-
+              start / stop tick generation
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RUNNING
+            description: |-
+              Is the tick generator running?
+            index: 1
+            width: 1
+            read: true
+            write: false
+      - name: PROC1_CYCLES
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        fields:
+          - name: PROC1_CYCLES
+            description: |-
+              Total number of clk_tick cycles before the next tick.
+            index: 0
+            width: 9
+            read: true
+            write: true
+      - name: PROC1_COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        const: true
+        fields:
+          - name: PROC1_COUNT
+            description: |-
+              Count down timer: the remaining number clk_tick cycles before the next tick is generated.
+            index: 0
+            width: 9
+            read: true
+            write: false
+      - name: TIMER0_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: |-
+          (read-write) Controls the tick generator
+        fields:
+          - name: ENABLE
+            description: |-
+              start / stop tick generation
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RUNNING
+            description: |-
+              Is the tick generator running?
+            index: 1
+            width: 1
+            read: true
+            write: false
+      - name: TIMER0_CYCLES
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        fields:
+          - name: TIMER0_CYCLES
+            description: |-
+              Total number of clk_tick cycles before the next tick.
+            index: 0
+            width: 9
+            read: true
+            write: true
+      - name: TIMER0_COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        const: true
+        fields:
+          - name: TIMER0_COUNT
+            description: |-
+              Count down timer: the remaining number clk_tick cycles before the next tick is generated.
+            index: 0
+            width: 9
+            read: true
+            write: false
+      - name: TIMER1_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: |-
+          (read-write) Controls the tick generator
+        fields:
+          - name: ENABLE
+            description: |-
+              start / stop tick generation
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RUNNING
+            description: |-
+              Is the tick generator running?
+            index: 1
+            width: 1
+            read: true
+            write: false
+      - name: TIMER1_CYCLES
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        fields:
+          - name: TIMER1_CYCLES
+            description: |-
+              Total number of clk_tick cycles before the next tick.
+            index: 0
+            width: 9
+            read: true
+            write: true
+      - name: TIMER1_COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        const: true
+        fields:
+          - name: TIMER1_COUNT
+            description: |-
+              Count down timer: the remaining number clk_tick cycles before the next tick is generated.
+            index: 0
+            width: 9
+            read: true
+            write: false
+      - name: WATCHDOG_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: |-
+          (read-write) Controls the tick generator
+        fields:
+          - name: ENABLE
+            description: |-
+              start / stop tick generation
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RUNNING
+            description: |-
+              Is the tick generator running?
+            index: 1
+            width: 1
+            read: true
+            write: false
+      - name: WATCHDOG_CYCLES
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        fields:
+          - name: WATCHDOG_CYCLES
+            description: |-
+              Total number of clk_tick cycles before the next tick.
+            index: 0
+            width: 9
+            read: true
+            write: true
+      - name: WATCHDOG_COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        const: true
+        fields:
+          - name: WATCHDOG_COUNT
+            description: |-
+              Count down timer: the remaining number clk_tick cycles before the next tick is generated.
+            index: 0
+            width: 9
+            read: true
+            write: false
+      - name: RISCV_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        description: |-
+          (read-write) Controls the tick generator
+        fields:
+          - name: ENABLE
+            description: |-
+              start / stop tick generation
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RUNNING
+            description: |-
+              Is the tick generator running?
+            index: 1
+            width: 1
+            read: true
+            write: false
+      - name: RISCV_CYCLES
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        fields:
+          - name: RISCV_CYCLES
+            description: |-
+              Total number of clk_tick cycles before the next tick.
+            index: 0
+            width: 9
+            read: true
+            write: true
+      - name: RISCV_COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 68
+        const: true
+        fields:
+          - name: RISCV_COUNT
+            description: |-
+              Count down timer: the remaining number clk_tick cycles before the next tick is generated.
+            index: 0
+            width: 9
+            read: true
+            write: false
+enums: {}
