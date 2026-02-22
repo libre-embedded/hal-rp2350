@@ -2,13 +2,13 @@
     =====================================
     generator=datazen
     version=3.2.3
-    hash=bfe69f692b5bac5b50e8f1b95a4ae301
+    hash=1778ce4d379f3bb6b00e1a69dca89171
     =====================================
 -->
 
 # hal-rp2350 ([0.1.0](https://github.com/libre-embedded/hal-rp2350/releases/tag/0.1.0))
 
-[![codecov](https://codecov.io/gh/libre-embedded/hal-rp2350/branch/main/graph/badge.svg)](https://codecov.io/gh/libre-embedded/hal-rp2350)
+[![codecov](https://codecov.io/gh/libre-embedded/hal-rp2350/branch/master/graph/badge.svg)](https://codecov.io/gh/libre-embedded/hal-rp2350)
 ![Build Status](https://github.com/libre-embedded/hal-rp2350/actions/workflows/yambs-project.yml/badge.svg)
 
 *A C++ RP2350 hardware abstraction layer.*
