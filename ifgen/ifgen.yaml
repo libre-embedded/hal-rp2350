@@ -11,7 +11,6 @@ includes:
   - glitch_detector/include.yaml
   - hstx_ctrl/include.yaml
   - hstx_fifo/include.yaml
-  - i2c0/include.yaml
   - io_bank0/include.yaml
   - io_qspi/include.yaml
   - otp/include.yaml
