@@ -38,7 +38,6 @@ includes:
   - ticks/include.yaml
   - timer0/include.yaml
   - trng/include.yaml
-  - uart0/include.yaml
   - usb/include.yaml
   - usb_dpram/include.yaml
   - watchdog/include.yaml

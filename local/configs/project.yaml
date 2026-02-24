@@ -5,6 +5,9 @@ owner: libre-embedded
 
 main_branch: master
 
+# need to prune more
+ci_docs: false
+
 version:
   major: 0
   minor: 1
