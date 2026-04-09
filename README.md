@@ -2,11 +2,11 @@
     =====================================
     generator=datazen
     version=3.2.4
-    hash=98f51e3d5de02162d511355a93f6a425
+    hash=e5c3371e8c2b85555220e46a6ee7e80d
     =====================================
 -->
 
-# hal-rp2350 ([0.1.1](https://github.com/libre-embedded/hal-rp2350/releases/tag/0.1.1))
+# hal-rp2350 ([0.2.0](https://github.com/libre-embedded/hal-rp2350/releases/tag/0.2.0))
 
 [![codecov](https://codecov.io/gh/libre-embedded/hal-rp2350/branch/master/graph/badge.svg)](https://codecov.io/gh/libre-embedded/hal-rp2350)
 ![Build Status](https://github.com/libre-embedded/hal-rp2350/actions/workflows/yambs-project.yml/badge.svg)
