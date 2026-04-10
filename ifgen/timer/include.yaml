@@ -1,6 +1,6 @@
 ---
 structs:
-  timer0:
+  timer:
     description: |-
       Controls time and alarms
 

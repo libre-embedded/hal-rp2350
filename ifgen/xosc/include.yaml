@@ -24,8 +24,8 @@ structs:
             type: XOSC_CTRL_FREQ_RANGE
           - name: ENABLE
             description: |-
-              On power-up this field is initialised to DISABLE and the chip runs from the ROSC. 
-                                          If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If  this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature. 
+              On power-up this field is initialised to DISABLE and the chip runs from the ROSC.
+                                          If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If  this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.
                                           The 12-bit code is intended to give some protection against accidental writes. An invalid setting will retain the previous value. The actual value being used can be read from STATUS_ENABLED
             index: 12
             width: 12
@@ -77,10 +77,10 @@ structs:
         fields:
           - name: DORMANT
             description: |-
-              This is used to save power by pausing the XOSC 
-                                          On power-up this field is initialised to WAKE 
-                                          An invalid write will also select WAKE 
-                                          Warning: stop the PLLs before selecting dormant mode 
+              This is used to save power by pausing the XOSC
+                                          On power-up this field is initialised to WAKE
+                                          An invalid write will also select WAKE
+                                          Warning: stop the PLLs before selecting dormant mode
                                           Warning: setup the irq before selecting dormant mode
             index: 0
             width: 32
@@ -113,10 +113,10 @@ structs:
         expected_size: 4
         expected_offset: 16
         description: |-
-          (read-write) A down counter running at the xosc frequency which counts to zero and stops. 
-                              Can be used for short software pauses when setting up time sensitive hardware. 
-                              To start the counter, write a non-zero value. Reads will return 1 while the count is running and 0 when it has finished. 
-                              Minimum count value is 4. Count values <4 will be treated as count value =4. 
+          (read-write) A down counter running at the xosc frequency which counts to zero and stops.
+                              Can be used for short software pauses when setting up time sensitive hardware.
+                              To start the counter, write a non-zero value. Reads will return 1 while the count is running and 0 when it has finished.
+                              Minimum count value is 4. Count values <4 will be treated as count value =4.
                               Note that synchronisation to the register clock domain costs 2 register clock cycles and the counter cannot compensate for that.
         fields:
           - name: COUNT
@@ -175,4 +175,4 @@ enums:
     json: false
     use_map: false
     identifier: false
-    underlying: uint16_t
+    underlying: uint32_t

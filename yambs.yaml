@@ -1,14 +1,14 @@
 # =====================================
 # generator=datazen
 # version=3.2.4
-# hash=bc36752a085929359645330bd80b4f18
+# hash=0fdeb658ce55cfbd1f9f6c31ec88dab0
 # =====================================
 ---
 project:
   name: hal-rp2350
 
   github: {owner: &self libre-embedded}
-  version: {major: 0, minor: 1, patch: 1}
+  version: {major: 0, minor: 2, patch: 0}
 variants:
   clang:
     suffix: &clang_version "-19"

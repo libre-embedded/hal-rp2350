@@ -2,7 +2,7 @@
 structs:
   sio:
     description: |-
-      Single-cycle IO block 
+      Single-cycle IO block
                   Provides core-local and inter-core hardware for the two processors, with single-cycle access.
     instances:
       - name: SIO
@@ -182,7 +182,7 @@ structs:
         expected_size: 4
         expected_offset: 28
         description: |-
-          (write-only) Output value set for GPIO32..47, QSPI IOs and USB pins. 
+          (write-only) Output value set for GPIO32..47, QSPI IOs and USB pins.
                               Perform an atomic bit-set on GPIO_HI_OUT, i.e. `GPIO_HI_OUT |= wdata`
         fields:
           - name: GPIO
@@ -234,7 +234,7 @@ structs:
         expected_size: 4
         expected_offset: 36
         description: |-
-          (write-only) Output value clear for GPIO32..47, QSPI IOs and USB pins. 
+          (write-only) Output value clear for GPIO32..47, QSPI IOs and USB pins.
                               Perform an atomic bit-clear on GPIO_HI_OUT, i.e. `GPIO_HI_OUT &= ~wdata`
         fields:
           - name: GPIO
@@ -286,7 +286,7 @@ structs:
         expected_size: 4
         expected_offset: 44
         description: |-
-          (write-only) Output value XOR for GPIO32..47, QSPI IOs and USB pins. 
+          (write-only) Output value XOR for GPIO32..47, QSPI IOs and USB pins.
                               Perform an atomic bitwise XOR on GPIO_HI_OUT, i.e. `GPIO_HI_OUT ^= wdata`
         fields:
           - name: GPIO
@@ -409,7 +409,7 @@ structs:
         expected_size: 4
         expected_offset: 60
         description: |-
-          (write-only) Output enable set for GPIO32...47, QSPI IOs and USB pins. 
+          (write-only) Output enable set for GPIO32...47, QSPI IOs and USB pins.
                               Perform an atomic bit-set on GPIO_HI_OE, i.e. `GPIO_HI_OE |= wdata`
         fields:
           - name: GPIO
@@ -461,7 +461,7 @@ structs:
         expected_size: 4
         expected_offset: 68
         description: |-
-          (write-only) Output enable clear for GPIO32...47, QSPI IOs and USB pins. 
+          (write-only) Output enable clear for GPIO32...47, QSPI IOs and USB pins.
                               Perform an atomic bit-clear on GPIO_HI_OE, i.e. `GPIO_HI_OE &= ~wdata`
         fields:
           - name: GPIO
@@ -513,7 +513,7 @@ structs:
         expected_size: 4
         expected_offset: 76
         description: |-
-          (write-only) Output enable XOR for GPIO32...47, QSPI IOs and USB pins. 
+          (write-only) Output enable XOR for GPIO32...47, QSPI IOs and USB pins.
                               Perform an atomic bitwise XOR on GPIO_HI_OE, i.e. `GPIO_HI_OE ^= wdata`
         fields:
           - name: GPIO
@@ -551,10 +551,10 @@ structs:
         expected_size: 4
         expected_offset: 80
         description: |-
-          (read-write) Status register for inter-core FIFOs (mailboxes). 
-                              There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep. 
-                              Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX). 
-                              Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX). 
+          (read-write) Status register for inter-core FIFOs (mailboxes).
+                              There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep.
+                              Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX).
+                              Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX).
                               The SIO IRQ for each core is the logical OR of the VLD, WOF and ROE fields of its FIFO_ST register.
         fields:
           - name: VLD
@@ -616,8 +616,8 @@ structs:
         expected_offset: 92
         const: true
         description: |-
-          (read-only) Spinlock state 
-                              A bitmap containing the state of all 32 spinlocks (1=locked). 
+          (read-only) Spinlock state
+                              A bitmap containing the state of all 32 spinlocks (1=locked).
                               Mainly intended for debugging.
         fields:
           - name: SPINLOCK_ST
@@ -786,7 +786,7 @@ structs:
             write: true
           - name: MASK_MSB
             description: |-
-              The most-significant bit allowed to pass by the mask (inclusive) 
+              The most-significant bit allowed to pass by the mask (inclusive)
                                           Setting MSB < LSB may cause chip to turn inside-out
             index: 10
             width: 5
@@ -794,7 +794,7 @@ structs:
             write: true
           - name: SIGNED
             description: |-
-              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits 
+              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
                                           before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
             index: 15
             width: 1
@@ -802,7 +802,7 @@ structs:
             write: true
           - name: CROSS_INPUT
             description: |-
-              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware. 
+              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
                                           Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
             index: 16
             width: 1
@@ -824,8 +824,8 @@ structs:
             write: true
           - name: FORCE_MSB
             description: |-
-              ORed into bits 29:28 of the lane result presented to the processor on the bus. 
-                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence 
+              ORed into bits 29:28 of the lane result presented to the processor on the bus.
+                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
                                           of pointers into flash or SRAM.
             index: 19
             width: 2
@@ -833,12 +833,12 @@ structs:
             write: true
           - name: BLEND
             description: |-
-              Only present on INTERP0 on each core. If BLEND mode is enabled: 
-                                          - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled 
-                                          by the 8 LSBs of lane 1 shift and mask value (a fractional number between 
-                                          0 and 255/256ths) 
-                                          - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value) 
-                                          - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask) 
+              Only present on INTERP0 on each core. If BLEND mode is enabled:
+                                          - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled
+                                          by the 8 LSBs of lane 1 shift and mask value (a fractional number between
+                                          0 and 255/256ths)
+                                          - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value)
+                                          - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)
                                           LANE1 SIGNED flag controls whether the interpolation is signed or unsigned.
             index: 21
             width: 1
@@ -888,7 +888,7 @@ structs:
             write: true
           - name: MASK_MSB
             description: |-
-              The most-significant bit allowed to pass by the mask (inclusive) 
+              The most-significant bit allowed to pass by the mask (inclusive)
                                           Setting MSB < LSB may cause chip to turn inside-out
             index: 10
             width: 5
@@ -896,7 +896,7 @@ structs:
             write: true
           - name: SIGNED
             description: |-
-              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits 
+              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
                                           before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
             index: 15
             width: 1
@@ -904,7 +904,7 @@ structs:
             write: true
           - name: CROSS_INPUT
             description: |-
-              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware. 
+              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
                                           Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
             index: 16
             width: 1
@@ -926,8 +926,8 @@ structs:
             write: true
           - name: FORCE_MSB
             description: |-
-              ORed into bits 29:28 of the lane result presented to the processor on the bus. 
-                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence 
+              ORed into bits 29:28 of the lane result presented to the processor on the bus.
+                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
                                           of pointers into flash or SRAM.
             index: 19
             width: 2
@@ -938,7 +938,7 @@ structs:
         expected_size: 4
         expected_offset: 180
         description: |-
-          (read-write) Values written here are atomically added to ACCUM0 
+          (read-write) Values written here are atomically added to ACCUM0
                               Reading yields lane 0's raw shift and mask value (BASE0 not added).
         fields:
           - name: INTERP0_ACCUM0_ADD
@@ -951,7 +951,7 @@ structs:
         expected_size: 4
         expected_offset: 184
         description: |-
-          (read-write) Values written here are atomically added to ACCUM1 
+          (read-write) Values written here are atomically added to ACCUM1
                               Reading yields lane 1's raw shift and mask value (BASE1 not added).
         fields:
           - name: INTERP0_ACCUM1_ADD
@@ -964,7 +964,7 @@ structs:
         expected_size: 4
         expected_offset: 188
         description: |-
-          (write-only) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously. 
+          (write-only) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.
                               Each half is sign-extended to 32 bits if that lane's SIGNED flag is set.
         fields:
           - name: INTERP0_BASE_1AND0
@@ -1133,7 +1133,7 @@ structs:
             write: true
           - name: MASK_MSB
             description: |-
-              The most-significant bit allowed to pass by the mask (inclusive) 
+              The most-significant bit allowed to pass by the mask (inclusive)
                                           Setting MSB < LSB may cause chip to turn inside-out
             index: 10
             width: 5
@@ -1141,7 +1141,7 @@ structs:
             write: true
           - name: SIGNED
             description: |-
-              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits 
+              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
                                           before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
             index: 15
             width: 1
@@ -1149,7 +1149,7 @@ structs:
             write: true
           - name: CROSS_INPUT
             description: |-
-              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware. 
+              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
                                           Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
             index: 16
             width: 1
@@ -1171,8 +1171,8 @@ structs:
             write: true
           - name: FORCE_MSB
             description: |-
-              ORed into bits 29:28 of the lane result presented to the processor on the bus. 
-                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence 
+              ORed into bits 29:28 of the lane result presented to the processor on the bus.
+                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
                                           of pointers into flash or SRAM.
             index: 19
             width: 2
@@ -1180,9 +1180,9 @@ structs:
             write: true
           - name: CLAMP
             description: |-
-              Only present on INTERP1 on each core. If CLAMP mode is enabled: 
-                                          - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of 
-                                          BASE0 and an upper bound of BASE1. 
+              Only present on INTERP1 on each core. If CLAMP mode is enabled:
+                                          - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of
+                                          BASE0 and an upper bound of BASE1.
                                           - Signedness of these comparisons is determined by LANE0_CTRL_SIGNED
             index: 22
             width: 1
@@ -1232,7 +1232,7 @@ structs:
             write: true
           - name: MASK_MSB
             description: |-
-              The most-significant bit allowed to pass by the mask (inclusive) 
+              The most-significant bit allowed to pass by the mask (inclusive)
                                           Setting MSB < LSB may cause chip to turn inside-out
             index: 10
             width: 5
@@ -1240,7 +1240,7 @@ structs:
             write: true
           - name: SIGNED
             description: |-
-              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits 
+              If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
                                           before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
             index: 15
             width: 1
@@ -1248,7 +1248,7 @@ structs:
             write: true
           - name: CROSS_INPUT
             description: |-
-              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware. 
+              If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
                                           Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
             index: 16
             width: 1
@@ -1270,8 +1270,8 @@ structs:
             write: true
           - name: FORCE_MSB
             description: |-
-              ORed into bits 29:28 of the lane result presented to the processor on the bus. 
-                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence 
+              ORed into bits 29:28 of the lane result presented to the processor on the bus.
+                                          No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
                                           of pointers into flash or SRAM.
             index: 19
             width: 2
@@ -1282,7 +1282,7 @@ structs:
         expected_size: 4
         expected_offset: 244
         description: |-
-          (read-write) Values written here are atomically added to ACCUM0 
+          (read-write) Values written here are atomically added to ACCUM0
                               Reading yields lane 0's raw shift and mask value (BASE0 not added).
         fields:
           - name: INTERP1_ACCUM0_ADD
@@ -1295,7 +1295,7 @@ structs:
         expected_size: 4
         expected_offset: 248
         description: |-
-          (read-write) Values written here are atomically added to ACCUM1 
+          (read-write) Values written here are atomically added to ACCUM1
                               Reading yields lane 1's raw shift and mask value (BASE1 not added).
         fields:
           - name: INTERP1_ACCUM1_ADD
@@ -1308,7 +1308,7 @@ structs:
         expected_size: 4
         expected_offset: 252
         description: |-
-          (write-only) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously. 
+          (write-only) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.
                               Each half is sign-extended to 32 bits if that lane's SIGNED flag is set.
         fields:
           - name: INTERP1_BASE_1AND0
@@ -1316,582 +1316,19 @@ structs:
             width: 32
             read: false
             write: true
-      - name: SPINLOCK0
+      - name: SPINLOCKS
         type: uint32_t
-        expected_size: 4
+        array_length: 32
+        expected_size: 128
         expected_offset: 256
         description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
+          (read-write) Reading from a spinlock address will:
+                              - Return 0 if lock is already locked
                               - Otherwise return nonzero, and simultaneously claim the lock
 
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
+                              Writing (any value) releases the lock.
+                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                               The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK0
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK1
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 260
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK1
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK2
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 264
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK2
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK3
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 268
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK3
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK4
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 272
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK4
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK5
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 276
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK5
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK6
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 280
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK6
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK7
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 284
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK7
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK8
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 288
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK8
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK9
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 292
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK9
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK10
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 296
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK10
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK11
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 300
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK11
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK12
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 304
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK12
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK13
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 308
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK13
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK14
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 312
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK14
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK15
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 316
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK15
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK16
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 320
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK16
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK17
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 324
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK17
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK18
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 328
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK18
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK19
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 332
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK19
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK20
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 336
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK20
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK21
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 340
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK21
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK22
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 344
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK22
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK23
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 348
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK23
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK24
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 352
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK24
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK25
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 356
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK25
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK26
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 360
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK26
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK27
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 364
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK27
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK28
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 368
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK28
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK29
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 372
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK29
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK30
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 376
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK30
-            index: 0
-            width: 32
-            read: true
-            write: true
-      - name: SPINLOCK31
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 380
-        description: |-
-          (read-write) Reading from a spinlock address will: 
-                              - Return 0 if lock is already locked 
-                              - Otherwise return nonzero, and simultaneously claim the lock
-
-                              Writing (any value) releases the lock. 
-                              If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins. 
-                              The value returned on success is 0x1 << lock number.
-        fields:
-          - name: SPINLOCK31
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: DOORBELL_OUT_SET
         type: uint32_t
         expected_size: 4

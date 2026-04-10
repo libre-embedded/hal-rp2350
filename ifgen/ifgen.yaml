@@ -35,7 +35,7 @@ includes:
   - sysinfo/include.yaml
   - tbman/include.yaml
   - ticks/include.yaml
-  - timer0/include.yaml
+  - timer/include.yaml
   - trng/include.yaml
   - usb/include.yaml
   - usb_dpram/include.yaml
