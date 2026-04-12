@@ -1,0 +1,7 @@
+---
+structs:
+  dma_debug:
+    instances:
+      - name: DMA_DEBUG_NULL
+        address: '0x00000000'
+    fields: []

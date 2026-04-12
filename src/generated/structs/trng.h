@@ -18,7 +18,7 @@ namespace RP2350
 struct trng
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 37;    /*!< trng's identifier. */
+    static constexpr struct_id_t id = 40;    /*!< trng's identifier. */
     static constexpr std::size_t size = 492; /*!< trng's size in bytes. */
 
     /* Fields. */

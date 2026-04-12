@@ -4,8 +4,8 @@
  */
 
 #pragma once
-#ifndef RP2350_ENUMS_DMA_CH1_CTRL_TRIG_DATA_SIZE_H
-#define RP2350_ENUMS_DMA_CH1_CTRL_TRIG_DATA_SIZE_H
+#ifndef RP2350_ENUMS_DMA_DATA_SIZE_H
+#define RP2350_ENUMS_DMA_DATA_SIZE_H
 
 #include "../ifgen/common.h"
 #include <cstdint>
@@ -14,33 +14,33 @@
 namespace RP2350
 {
 
-enum class DMA_CH1_CTRL_TRIG_DATA_SIZE : uint8_t
+enum class DMA_DATA_SIZE : uint8_t
 {
     BYTE,
     HALFWORD = 1,
     WORD = 2
 };
-static_assert(sizeof(DMA_CH1_CTRL_TRIG_DATA_SIZE) == 1);
+static_assert(sizeof(DMA_DATA_SIZE) == 1);
 
 /**
- * Converts DMA_CH1_CTRL_TRIG_DATA_SIZE to a C string.
+ * Converts DMA_DATA_SIZE to a C string.
  *
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(DMA_CH1_CTRL_TRIG_DATA_SIZE instance)
+inline const char *to_string(DMA_DATA_SIZE instance)
 {
-    const char *result = "UNKNOWN DMA_CH1_CTRL_TRIG_DATA_SIZE";
+    const char *result = "UNKNOWN DMA_DATA_SIZE";
 
     switch (instance)
     {
-    case DMA_CH1_CTRL_TRIG_DATA_SIZE::BYTE:
+    case DMA_DATA_SIZE::BYTE:
         result = "BYTE";
         break;
-    case DMA_CH1_CTRL_TRIG_DATA_SIZE::HALFWORD:
+    case DMA_DATA_SIZE::HALFWORD:
         result = "HALFWORD";
         break;
-    case DMA_CH1_CTRL_TRIG_DATA_SIZE::WORD:
+    case DMA_DATA_SIZE::WORD:
         result = "WORD";
         break;
     }
@@ -48,35 +48,34 @@ inline const char *to_string(DMA_CH1_CTRL_TRIG_DATA_SIZE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                DMA_CH1_CTRL_TRIG_DATA_SIZE instance)
+inline std::ostream &operator<<(std::ostream &stream, DMA_DATA_SIZE instance)
 {
     stream << to_string(instance);
     return stream;
 }
 
 /**
- * Converts a C string to DMA_CH1_CTRL_TRIG_DATA_SIZE.
+ * Converts a C string to DMA_DATA_SIZE.
  *
  * \param[in]  data   A C string to convert.
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, DMA_CH1_CTRL_TRIG_DATA_SIZE &output)
+inline bool from_string(const char *data, DMA_DATA_SIZE &output)
 {
     bool result = false;
 
     if ((result = !strncmp(data, "BYTE", 4)))
     {
-        output = DMA_CH1_CTRL_TRIG_DATA_SIZE::BYTE;
+        output = DMA_DATA_SIZE::BYTE;
     }
     else if ((result = !strncmp(data, "HALFWORD", 8)))
     {
-        output = DMA_CH1_CTRL_TRIG_DATA_SIZE::HALFWORD;
+        output = DMA_DATA_SIZE::HALFWORD;
     }
     else if ((result = !strncmp(data, "WORD", 4)))
     {
-        output = DMA_CH1_CTRL_TRIG_DATA_SIZE::WORD;
+        output = DMA_DATA_SIZE::WORD;
     }
 
     return result;

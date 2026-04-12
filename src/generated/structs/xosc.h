@@ -22,7 +22,7 @@ namespace RP2350
 struct xosc
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 43;   /*!< xosc's identifier. */
+    static constexpr struct_id_t id = 46;   /*!< xosc's identifier. */
     static constexpr std::size_t size = 20; /*!< xosc's size in bytes. */
 
     /* Fields. */

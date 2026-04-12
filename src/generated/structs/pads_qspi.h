@@ -21,7 +21,7 @@ namespace RP2350
 struct pads_qspi
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 18;   /*!< pads_qspi's identifier. */
+    static constexpr struct_id_t id = 21;   /*!< pads_qspi's identifier. */
     static constexpr std::size_t size = 28; /*!< pads_qspi's size in bytes. */
 
     /* Fields. */

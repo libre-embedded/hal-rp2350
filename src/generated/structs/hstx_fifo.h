@@ -18,7 +18,7 @@ namespace RP2350
 struct hstx_fifo
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 11;  /*!< hstx_fifo's identifier. */
+    static constexpr struct_id_t id = 14;  /*!< hstx_fifo's identifier. */
     static constexpr std::size_t size = 8; /*!< hstx_fifo's size in bytes. */
 
     /* Fields. */

@@ -15,7 +15,7 @@ namespace RP2350
 struct spare_irq
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 30;  /*!< spare_irq's identifier. */
+    static constexpr struct_id_t id = 33;  /*!< spare_irq's identifier. */
     static constexpr std::size_t size = 0; /*!< spare_irq's size in bytes. */
 
     /* Fields. */

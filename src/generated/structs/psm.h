@@ -15,7 +15,7 @@ namespace RP2350
 struct psm
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 23;   /*!< psm's identifier. */
+    static constexpr struct_id_t id = 26;   /*!< psm's identifier. */
     static constexpr std::size_t size = 16; /*!< psm's size in bytes. */
 
     /* Fields. */

@@ -53,7 +53,7 @@ namespace RP2350
 struct qmi
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 25;   /*!< qmi's identifier. */
+    static constexpr struct_id_t id = 28;   /*!< qmi's identifier. */
     static constexpr std::size_t size = 84; /*!< qmi's size in bytes. */
 
     /* Fields. */

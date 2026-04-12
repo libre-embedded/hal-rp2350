@@ -4,8 +4,8 @@
  */
 
 #pragma once
-#ifndef RP2350_ENUMS_DMA_CH15_CTRL_TRIG_TREQ_SEL_H
-#define RP2350_ENUMS_DMA_CH15_CTRL_TRIG_TREQ_SEL_H
+#ifndef RP2350_ENUMS_DMA_TREQ_SEL_H
+#define RP2350_ENUMS_DMA_TREQ_SEL_H
 
 #include "../ifgen/common.h"
 #include <cstdint>
@@ -14,7 +14,7 @@
 namespace RP2350
 {
 
-enum class DMA_CH15_CTRL_TRIG_TREQ_SEL : uint8_t
+enum class DMA_TREQ_SEL : uint8_t
 {
     PIO0_TX0 /*!< Select PIO0's TX FIFO 0 as TREQ */,
     PIO0_TX1 = 1 /*!< Select PIO0's TX FIFO 1 as TREQ */,
@@ -77,198 +77,198 @@ enum class DMA_CH15_CTRL_TRIG_TREQ_SEL : uint8_t
     TIMER3 = 62 /*!< Select Timer 3 as TREQ (Optional) */,
     PERMANENT = 63 /*!< Permanent request, for unpaced transfers. */
 };
-static_assert(sizeof(DMA_CH15_CTRL_TRIG_TREQ_SEL) == 1);
+static_assert(sizeof(DMA_TREQ_SEL) == 1);
 
 /**
- * Converts DMA_CH15_CTRL_TRIG_TREQ_SEL to a C string.
+ * Converts DMA_TREQ_SEL to a C string.
  *
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(DMA_CH15_CTRL_TRIG_TREQ_SEL instance)
+inline const char *to_string(DMA_TREQ_SEL instance)
 {
-    const char *result = "UNKNOWN DMA_CH15_CTRL_TRIG_TREQ_SEL";
+    const char *result = "UNKNOWN DMA_TREQ_SEL";
 
     switch (instance)
     {
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_TX0:
+    case DMA_TREQ_SEL::PIO0_TX0:
         result = "PIO0_TX0";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_TX1:
+    case DMA_TREQ_SEL::PIO0_TX1:
         result = "PIO0_TX1";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_TX2:
+    case DMA_TREQ_SEL::PIO0_TX2:
         result = "PIO0_TX2";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_TX3:
+    case DMA_TREQ_SEL::PIO0_TX3:
         result = "PIO0_TX3";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_RX0:
+    case DMA_TREQ_SEL::PIO0_RX0:
         result = "PIO0_RX0";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_RX1:
+    case DMA_TREQ_SEL::PIO0_RX1:
         result = "PIO0_RX1";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_RX2:
+    case DMA_TREQ_SEL::PIO0_RX2:
         result = "PIO0_RX2";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_RX3:
+    case DMA_TREQ_SEL::PIO0_RX3:
         result = "PIO0_RX3";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_TX0:
+    case DMA_TREQ_SEL::PIO1_TX0:
         result = "PIO1_TX0";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_TX1:
+    case DMA_TREQ_SEL::PIO1_TX1:
         result = "PIO1_TX1";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_TX2:
+    case DMA_TREQ_SEL::PIO1_TX2:
         result = "PIO1_TX2";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_TX3:
+    case DMA_TREQ_SEL::PIO1_TX3:
         result = "PIO1_TX3";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_RX0:
+    case DMA_TREQ_SEL::PIO1_RX0:
         result = "PIO1_RX0";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_RX1:
+    case DMA_TREQ_SEL::PIO1_RX1:
         result = "PIO1_RX1";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_RX2:
+    case DMA_TREQ_SEL::PIO1_RX2:
         result = "PIO1_RX2";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_RX3:
+    case DMA_TREQ_SEL::PIO1_RX3:
         result = "PIO1_RX3";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_TX0:
+    case DMA_TREQ_SEL::PIO2_TX0:
         result = "PIO2_TX0";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_TX1:
+    case DMA_TREQ_SEL::PIO2_TX1:
         result = "PIO2_TX1";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_TX2:
+    case DMA_TREQ_SEL::PIO2_TX2:
         result = "PIO2_TX2";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_TX3:
+    case DMA_TREQ_SEL::PIO2_TX3:
         result = "PIO2_TX3";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_RX0:
+    case DMA_TREQ_SEL::PIO2_RX0:
         result = "PIO2_RX0";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_RX1:
+    case DMA_TREQ_SEL::PIO2_RX1:
         result = "PIO2_RX1";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_RX2:
+    case DMA_TREQ_SEL::PIO2_RX2:
         result = "PIO2_RX2";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_RX3:
+    case DMA_TREQ_SEL::PIO2_RX3:
         result = "PIO2_RX3";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::SPI0_TX:
+    case DMA_TREQ_SEL::SPI0_TX:
         result = "SPI0_TX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::SPI0_RX:
+    case DMA_TREQ_SEL::SPI0_RX:
         result = "SPI0_RX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::SPI1_TX:
+    case DMA_TREQ_SEL::SPI1_TX:
         result = "SPI1_TX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::SPI1_RX:
+    case DMA_TREQ_SEL::SPI1_RX:
         result = "SPI1_RX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::UART0_TX:
+    case DMA_TREQ_SEL::UART0_TX:
         result = "UART0_TX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::UART0_RX:
+    case DMA_TREQ_SEL::UART0_RX:
         result = "UART0_RX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::UART1_TX:
+    case DMA_TREQ_SEL::UART1_TX:
         result = "UART1_TX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::UART1_RX:
+    case DMA_TREQ_SEL::UART1_RX:
         result = "UART1_RX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP0:
+    case DMA_TREQ_SEL::PWM_WRAP0:
         result = "PWM_WRAP0";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP1:
+    case DMA_TREQ_SEL::PWM_WRAP1:
         result = "PWM_WRAP1";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP2:
+    case DMA_TREQ_SEL::PWM_WRAP2:
         result = "PWM_WRAP2";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP3:
+    case DMA_TREQ_SEL::PWM_WRAP3:
         result = "PWM_WRAP3";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP4:
+    case DMA_TREQ_SEL::PWM_WRAP4:
         result = "PWM_WRAP4";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP5:
+    case DMA_TREQ_SEL::PWM_WRAP5:
         result = "PWM_WRAP5";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP6:
+    case DMA_TREQ_SEL::PWM_WRAP6:
         result = "PWM_WRAP6";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP7:
+    case DMA_TREQ_SEL::PWM_WRAP7:
         result = "PWM_WRAP7";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP8:
+    case DMA_TREQ_SEL::PWM_WRAP8:
         result = "PWM_WRAP8";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP9:
+    case DMA_TREQ_SEL::PWM_WRAP9:
         result = "PWM_WRAP9";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP10:
+    case DMA_TREQ_SEL::PWM_WRAP10:
         result = "PWM_WRAP10";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP11:
+    case DMA_TREQ_SEL::PWM_WRAP11:
         result = "PWM_WRAP11";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::I2C0_TX:
+    case DMA_TREQ_SEL::I2C0_TX:
         result = "I2C0_TX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::I2C0_RX:
+    case DMA_TREQ_SEL::I2C0_RX:
         result = "I2C0_RX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::I2C1_TX:
+    case DMA_TREQ_SEL::I2C1_TX:
         result = "I2C1_TX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::I2C1_RX:
+    case DMA_TREQ_SEL::I2C1_RX:
         result = "I2C1_RX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::ADC:
+    case DMA_TREQ_SEL::ADC:
         result = "ADC";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::XIP_STREAM:
+    case DMA_TREQ_SEL::XIP_STREAM:
         result = "XIP_STREAM";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::XIP_QMITX:
+    case DMA_TREQ_SEL::XIP_QMITX:
         result = "XIP_QMITX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::XIP_QMIRX:
+    case DMA_TREQ_SEL::XIP_QMIRX:
         result = "XIP_QMIRX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::HSTX:
+    case DMA_TREQ_SEL::HSTX:
         result = "HSTX";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::CORESIGHT:
+    case DMA_TREQ_SEL::CORESIGHT:
         result = "CORESIGHT";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::SHA256:
+    case DMA_TREQ_SEL::SHA256:
         result = "SHA256";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::TIMER0:
+    case DMA_TREQ_SEL::TIMER0:
         result = "TIMER0";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::TIMER1:
+    case DMA_TREQ_SEL::TIMER1:
         result = "TIMER1";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::TIMER2:
+    case DMA_TREQ_SEL::TIMER2:
         result = "TIMER2";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::TIMER3:
+    case DMA_TREQ_SEL::TIMER3:
         result = "TIMER3";
         break;
-    case DMA_CH15_CTRL_TRIG_TREQ_SEL::PERMANENT:
+    case DMA_TREQ_SEL::PERMANENT:
         result = "PERMANENT";
         break;
     }
@@ -276,263 +276,262 @@ inline const char *to_string(DMA_CH15_CTRL_TRIG_TREQ_SEL instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                DMA_CH15_CTRL_TRIG_TREQ_SEL instance)
+inline std::ostream &operator<<(std::ostream &stream, DMA_TREQ_SEL instance)
 {
     stream << to_string(instance);
     return stream;
 }
 
 /**
- * Converts a C string to DMA_CH15_CTRL_TRIG_TREQ_SEL.
+ * Converts a C string to DMA_TREQ_SEL.
  *
  * \param[in]  data   A C string to convert.
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, DMA_CH15_CTRL_TRIG_TREQ_SEL &output)
+inline bool from_string(const char *data, DMA_TREQ_SEL &output)
 {
     bool result = false;
 
     if ((result = !strncmp(data, "PIO0_TX0", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_TX0;
+        output = DMA_TREQ_SEL::PIO0_TX0;
     }
     else if ((result = !strncmp(data, "PIO0_TX1", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_TX1;
+        output = DMA_TREQ_SEL::PIO0_TX1;
     }
     else if ((result = !strncmp(data, "PIO0_TX2", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_TX2;
+        output = DMA_TREQ_SEL::PIO0_TX2;
     }
     else if ((result = !strncmp(data, "PIO0_TX3", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_TX3;
+        output = DMA_TREQ_SEL::PIO0_TX3;
     }
     else if ((result = !strncmp(data, "PIO0_RX0", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_RX0;
+        output = DMA_TREQ_SEL::PIO0_RX0;
     }
     else if ((result = !strncmp(data, "PIO0_RX1", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_RX1;
+        output = DMA_TREQ_SEL::PIO0_RX1;
     }
     else if ((result = !strncmp(data, "PIO0_RX2", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_RX2;
+        output = DMA_TREQ_SEL::PIO0_RX2;
     }
     else if ((result = !strncmp(data, "PIO0_RX3", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO0_RX3;
+        output = DMA_TREQ_SEL::PIO0_RX3;
     }
     else if ((result = !strncmp(data, "PIO1_TX0", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_TX0;
+        output = DMA_TREQ_SEL::PIO1_TX0;
     }
     else if ((result = !strncmp(data, "PIO1_TX1", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_TX1;
+        output = DMA_TREQ_SEL::PIO1_TX1;
     }
     else if ((result = !strncmp(data, "PIO1_TX2", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_TX2;
+        output = DMA_TREQ_SEL::PIO1_TX2;
     }
     else if ((result = !strncmp(data, "PIO1_TX3", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_TX3;
+        output = DMA_TREQ_SEL::PIO1_TX3;
     }
     else if ((result = !strncmp(data, "PIO1_RX0", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_RX0;
+        output = DMA_TREQ_SEL::PIO1_RX0;
     }
     else if ((result = !strncmp(data, "PIO1_RX1", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_RX1;
+        output = DMA_TREQ_SEL::PIO1_RX1;
     }
     else if ((result = !strncmp(data, "PIO1_RX2", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_RX2;
+        output = DMA_TREQ_SEL::PIO1_RX2;
     }
     else if ((result = !strncmp(data, "PIO1_RX3", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO1_RX3;
+        output = DMA_TREQ_SEL::PIO1_RX3;
     }
     else if ((result = !strncmp(data, "PIO2_TX0", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_TX0;
+        output = DMA_TREQ_SEL::PIO2_TX0;
     }
     else if ((result = !strncmp(data, "PIO2_TX1", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_TX1;
+        output = DMA_TREQ_SEL::PIO2_TX1;
     }
     else if ((result = !strncmp(data, "PIO2_TX2", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_TX2;
+        output = DMA_TREQ_SEL::PIO2_TX2;
     }
     else if ((result = !strncmp(data, "PIO2_TX3", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_TX3;
+        output = DMA_TREQ_SEL::PIO2_TX3;
     }
     else if ((result = !strncmp(data, "PIO2_RX0", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_RX0;
+        output = DMA_TREQ_SEL::PIO2_RX0;
     }
     else if ((result = !strncmp(data, "PIO2_RX1", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_RX1;
+        output = DMA_TREQ_SEL::PIO2_RX1;
     }
     else if ((result = !strncmp(data, "PIO2_RX2", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_RX2;
+        output = DMA_TREQ_SEL::PIO2_RX2;
     }
     else if ((result = !strncmp(data, "PIO2_RX3", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PIO2_RX3;
+        output = DMA_TREQ_SEL::PIO2_RX3;
     }
     else if ((result = !strncmp(data, "SPI0_TX", 7)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::SPI0_TX;
+        output = DMA_TREQ_SEL::SPI0_TX;
     }
     else if ((result = !strncmp(data, "SPI0_RX", 7)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::SPI0_RX;
+        output = DMA_TREQ_SEL::SPI0_RX;
     }
     else if ((result = !strncmp(data, "SPI1_TX", 7)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::SPI1_TX;
+        output = DMA_TREQ_SEL::SPI1_TX;
     }
     else if ((result = !strncmp(data, "SPI1_RX", 7)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::SPI1_RX;
+        output = DMA_TREQ_SEL::SPI1_RX;
     }
     else if ((result = !strncmp(data, "UART0_TX", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::UART0_TX;
+        output = DMA_TREQ_SEL::UART0_TX;
     }
     else if ((result = !strncmp(data, "UART0_RX", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::UART0_RX;
+        output = DMA_TREQ_SEL::UART0_RX;
     }
     else if ((result = !strncmp(data, "UART1_TX", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::UART1_TX;
+        output = DMA_TREQ_SEL::UART1_TX;
     }
     else if ((result = !strncmp(data, "UART1_RX", 8)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::UART1_RX;
+        output = DMA_TREQ_SEL::UART1_RX;
     }
     else if ((result = !strncmp(data, "PWM_WRAP0", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP0;
+        output = DMA_TREQ_SEL::PWM_WRAP0;
     }
     else if ((result = !strncmp(data, "PWM_WRAP1", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP1;
+        output = DMA_TREQ_SEL::PWM_WRAP1;
     }
     else if ((result = !strncmp(data, "PWM_WRAP2", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP2;
+        output = DMA_TREQ_SEL::PWM_WRAP2;
     }
     else if ((result = !strncmp(data, "PWM_WRAP3", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP3;
+        output = DMA_TREQ_SEL::PWM_WRAP3;
     }
     else if ((result = !strncmp(data, "PWM_WRAP4", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP4;
+        output = DMA_TREQ_SEL::PWM_WRAP4;
     }
     else if ((result = !strncmp(data, "PWM_WRAP5", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP5;
+        output = DMA_TREQ_SEL::PWM_WRAP5;
     }
     else if ((result = !strncmp(data, "PWM_WRAP6", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP6;
+        output = DMA_TREQ_SEL::PWM_WRAP6;
     }
     else if ((result = !strncmp(data, "PWM_WRAP7", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP7;
+        output = DMA_TREQ_SEL::PWM_WRAP7;
     }
     else if ((result = !strncmp(data, "PWM_WRAP8", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP8;
+        output = DMA_TREQ_SEL::PWM_WRAP8;
     }
     else if ((result = !strncmp(data, "PWM_WRAP9", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP9;
+        output = DMA_TREQ_SEL::PWM_WRAP9;
     }
     else if ((result = !strncmp(data, "PWM_WRAP10", 10)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP10;
+        output = DMA_TREQ_SEL::PWM_WRAP10;
     }
     else if ((result = !strncmp(data, "PWM_WRAP11", 10)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PWM_WRAP11;
+        output = DMA_TREQ_SEL::PWM_WRAP11;
     }
     else if ((result = !strncmp(data, "I2C0_TX", 7)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::I2C0_TX;
+        output = DMA_TREQ_SEL::I2C0_TX;
     }
     else if ((result = !strncmp(data, "I2C0_RX", 7)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::I2C0_RX;
+        output = DMA_TREQ_SEL::I2C0_RX;
     }
     else if ((result = !strncmp(data, "I2C1_TX", 7)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::I2C1_TX;
+        output = DMA_TREQ_SEL::I2C1_TX;
     }
     else if ((result = !strncmp(data, "I2C1_RX", 7)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::I2C1_RX;
+        output = DMA_TREQ_SEL::I2C1_RX;
     }
     else if ((result = !strncmp(data, "ADC", 3)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::ADC;
+        output = DMA_TREQ_SEL::ADC;
     }
     else if ((result = !strncmp(data, "XIP_STREAM", 10)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::XIP_STREAM;
+        output = DMA_TREQ_SEL::XIP_STREAM;
     }
     else if ((result = !strncmp(data, "XIP_QMITX", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::XIP_QMITX;
+        output = DMA_TREQ_SEL::XIP_QMITX;
     }
     else if ((result = !strncmp(data, "XIP_QMIRX", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::XIP_QMIRX;
+        output = DMA_TREQ_SEL::XIP_QMIRX;
     }
     else if ((result = !strncmp(data, "HSTX", 4)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::HSTX;
+        output = DMA_TREQ_SEL::HSTX;
     }
     else if ((result = !strncmp(data, "CORESIGHT", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::CORESIGHT;
+        output = DMA_TREQ_SEL::CORESIGHT;
     }
     else if ((result = !strncmp(data, "SHA256", 6)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::SHA256;
+        output = DMA_TREQ_SEL::SHA256;
     }
     else if ((result = !strncmp(data, "TIMER0", 6)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::TIMER0;
+        output = DMA_TREQ_SEL::TIMER0;
     }
     else if ((result = !strncmp(data, "TIMER1", 6)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::TIMER1;
+        output = DMA_TREQ_SEL::TIMER1;
     }
     else if ((result = !strncmp(data, "TIMER2", 6)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::TIMER2;
+        output = DMA_TREQ_SEL::TIMER2;
     }
     else if ((result = !strncmp(data, "TIMER3", 6)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::TIMER3;
+        output = DMA_TREQ_SEL::TIMER3;
     }
     else if ((result = !strncmp(data, "PERMANENT", 9)))
     {
-        output = DMA_CH15_CTRL_TRIG_TREQ_SEL::PERMANENT;
+        output = DMA_TREQ_SEL::PERMANENT;
     }
 
     return result;

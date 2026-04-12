@@ -4,8 +4,8 @@
  */
 
 #pragma once
-#ifndef RP2350_ENUMS_DMA_CH12_TRANS_COUNT_MODE_H
-#define RP2350_ENUMS_DMA_CH12_TRANS_COUNT_MODE_H
+#ifndef RP2350_ENUMS_DMA_TRANS_COUNT_MODE_H
+#define RP2350_ENUMS_DMA_TRANS_COUNT_MODE_H
 
 #include "../ifgen/common.h"
 #include <cstdint>
@@ -14,33 +14,33 @@
 namespace RP2350
 {
 
-enum class DMA_CH12_TRANS_COUNT_MODE : uint8_t
+enum class DMA_TRANS_COUNT_MODE : uint8_t
 {
     NORMAL,
     TRIGGER_SELF = 1,
     ENDLESS = 15
 };
-static_assert(sizeof(DMA_CH12_TRANS_COUNT_MODE) == 1);
+static_assert(sizeof(DMA_TRANS_COUNT_MODE) == 1);
 
 /**
- * Converts DMA_CH12_TRANS_COUNT_MODE to a C string.
+ * Converts DMA_TRANS_COUNT_MODE to a C string.
  *
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(DMA_CH12_TRANS_COUNT_MODE instance)
+inline const char *to_string(DMA_TRANS_COUNT_MODE instance)
 {
-    const char *result = "UNKNOWN DMA_CH12_TRANS_COUNT_MODE";
+    const char *result = "UNKNOWN DMA_TRANS_COUNT_MODE";
 
     switch (instance)
     {
-    case DMA_CH12_TRANS_COUNT_MODE::NORMAL:
+    case DMA_TRANS_COUNT_MODE::NORMAL:
         result = "NORMAL";
         break;
-    case DMA_CH12_TRANS_COUNT_MODE::TRIGGER_SELF:
+    case DMA_TRANS_COUNT_MODE::TRIGGER_SELF:
         result = "TRIGGER_SELF";
         break;
-    case DMA_CH12_TRANS_COUNT_MODE::ENDLESS:
+    case DMA_TRANS_COUNT_MODE::ENDLESS:
         result = "ENDLESS";
         break;
     }
@@ -49,34 +49,34 @@ inline const char *to_string(DMA_CH12_TRANS_COUNT_MODE instance)
 }
 
 inline std::ostream &operator<<(std::ostream &stream,
-                                DMA_CH12_TRANS_COUNT_MODE instance)
+                                DMA_TRANS_COUNT_MODE instance)
 {
     stream << to_string(instance);
     return stream;
 }
 
 /**
- * Converts a C string to DMA_CH12_TRANS_COUNT_MODE.
+ * Converts a C string to DMA_TRANS_COUNT_MODE.
  *
  * \param[in]  data   A C string to convert.
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, DMA_CH12_TRANS_COUNT_MODE &output)
+inline bool from_string(const char *data, DMA_TRANS_COUNT_MODE &output)
 {
     bool result = false;
 
     if ((result = !strncmp(data, "NORMAL", 6)))
     {
-        output = DMA_CH12_TRANS_COUNT_MODE::NORMAL;
+        output = DMA_TRANS_COUNT_MODE::NORMAL;
     }
     else if ((result = !strncmp(data, "TRIGGER_SELF", 12)))
     {
-        output = DMA_CH12_TRANS_COUNT_MODE::TRIGGER_SELF;
+        output = DMA_TRANS_COUNT_MODE::TRIGGER_SELF;
     }
     else if ((result = !strncmp(data, "ENDLESS", 7)))
     {
-        output = DMA_CH12_TRANS_COUNT_MODE::ENDLESS;
+        output = DMA_TRANS_COUNT_MODE::ENDLESS;
     }
 
     return result;

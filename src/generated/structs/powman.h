@@ -19,7 +19,7 @@ namespace RP2350
 struct powman
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 21;    /*!< powman's identifier. */
+    static constexpr struct_id_t id = 24;    /*!< powman's identifier. */
     static constexpr std::size_t size = 240; /*!< powman's size in bytes. */
 
     /* Fields. */

@@ -15,7 +15,7 @@ namespace RP2350
 struct watchdog
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 40;   /*!< watchdog's identifier. */
+    static constexpr struct_id_t id = 43;   /*!< watchdog's identifier. */
     static constexpr std::size_t size = 44; /*!< watchdog's size in bytes. */
 
     /* Fields. */

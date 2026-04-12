@@ -1,0 +1,76 @@
+---
+structs:
+  dma_interrupt:
+    instances:
+      - name: DMA_INTERRUPT_NULL
+        address: '0x00000000'
+    fields:
+      - name: R
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: |-
+          (read-write) Interrupt Status (raw)
+        fields:
+          - name: R
+            description: |-
+              Raw interrupt status for DMA Channels 0..15. Bit n corresponds to channel n. Ignores any masking or forcing. Channel interrupts can be cleared by writing a bit mask to INTR or INTS0/1/2/3.
+
+                                          Channel interrupts can be routed to either of four system-level IRQs based on INTE0, INTE1, INTE2 and INTE3.
+
+                                          The multiple system-level interrupts might be used to allow NVIC IRQ preemption for more time-critical channels, to spread IRQ load across different cores, or to target IRQs to different security domains.
+
+                                          It is also valid to ignore the multiple IRQs, and just use INTE0/INTS0/IRQ 0.
+
+                                          If this register is accessed at a security/privilege level less than that of a given channel (as defined by that channel's SECCFG_CHx register), then that channel's interrupt status will read as 0, ignore writes.
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: E
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: |-
+          (read-write) Interrupt Enables for IRQ N
+        fields:
+          - name: E
+            description: |-
+              Set bit n to pass interrupts from channel n to DMA IRQ N.
+
+                                          Note this bit has no effect if the channel security/privilege level, defined by SECCFG_CHx, is greater than the IRQ security/privilege defined by SECCFG_IRQN.
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: F
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: |-
+          (read-write) Force Interrupts
+        fields:
+          - name: F
+            description: |-
+              Write 1s to force the corresponding bits in INTSN. The interrupt remains asserted until INTFN is cleared.
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: S
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: |-
+          (read-write) Interrupt Status for IRQ N
+        fields:
+          - name: S
+            description: |-
+              Indicates active channel interrupt requests which are currently causing IRQ N to be asserted.
+                                          Channel interrupts can be cleared by writing a bit mask here.
+
+                                          Channels with a security/privilege (SECCFG_CHx) greater SECCFG_IRQN) read as 0 in this register, and ignore writes.
+            index: 0
+            width: 16
+            read: true
+            write: true

@@ -214,7 +214,7 @@ namespace RP2350
 struct otp_data_raw
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 16; /*!< otp_data_raw's identifier. */
+    static constexpr struct_id_t id = 19; /*!< otp_data_raw's identifier. */
     static constexpr std::size_t size =
         16384; /*!< otp_data_raw's size in bytes. */
 

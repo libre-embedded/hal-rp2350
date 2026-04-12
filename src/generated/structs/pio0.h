@@ -27,7 +27,7 @@ namespace RP2350
 struct pio0
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 19;    /*!< pio0's identifier. */
+    static constexpr struct_id_t id = 22;    /*!< pio0's identifier. */
     static constexpr std::size_t size = 392; /*!< pio0's size in bytes. */
 
     /* Fields. */

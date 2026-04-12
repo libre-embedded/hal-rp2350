@@ -21,7 +21,7 @@ namespace RP2350
 struct rosc
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 27;   /*!< rosc's identifier. */
+    static constexpr struct_id_t id = 30;   /*!< rosc's identifier. */
     static constexpr std::size_t size = 40; /*!< rosc's size in bytes. */
 
     /* Fields. */

@@ -18,7 +18,7 @@ namespace RP2350
 struct syscfg
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 32;   /*!< syscfg's identifier. */
+    static constexpr struct_id_t id = 35;   /*!< syscfg's identifier. */
     static constexpr std::size_t size = 24; /*!< syscfg's size in bytes. */
 
     /* Fields. */

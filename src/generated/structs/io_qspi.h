@@ -55,7 +55,7 @@ namespace RP2350
 struct io_qspi
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 13;    /*!< io_qspi's identifier. */
+    static constexpr struct_id_t id = 16;    /*!< io_qspi's identifier. */
     static constexpr std::size_t size = 576; /*!< io_qspi's size in bytes. */
 
     /* Fields. */

@@ -21,7 +21,7 @@ namespace RP2350
 struct sio
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 29;    /*!< sio's identifier. */
+    static constexpr struct_id_t id = 32;    /*!< sio's identifier. */
     static constexpr std::size_t size = 488; /*!< sio's size in bytes. */
 
     /* Fields. */

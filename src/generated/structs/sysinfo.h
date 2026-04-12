@@ -15,7 +15,7 @@ namespace RP2350
 struct sysinfo
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 33;   /*!< sysinfo's identifier. */
+    static constexpr struct_id_t id = 36;   /*!< sysinfo's identifier. */
     static constexpr std::size_t size = 24; /*!< sysinfo's size in bytes. */
 
     /* Fields. */

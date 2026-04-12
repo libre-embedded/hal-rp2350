@@ -19,7 +19,7 @@ namespace RP2350
 struct xip_aux
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 41;   /*!< xip_aux's identifier. */
+    static constexpr struct_id_t id = 44;   /*!< xip_aux's identifier. */
     static constexpr std::size_t size = 12; /*!< xip_aux's size in bytes. */
 
     /* Fields. */

@@ -21,7 +21,7 @@ namespace RP2350
 struct glitch_detector
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 9; /*!< glitch_detector's identifier. */
+    static constexpr struct_id_t id = 12; /*!< glitch_detector's identifier. */
     static constexpr std::size_t size =
         24; /*!< glitch_detector's size in bytes. */
 
