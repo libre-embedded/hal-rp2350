@@ -18,7 +18,7 @@ namespace RP2350
 struct xip_ctrl
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 45;   /*!< xip_ctrl's identifier. */
+    static constexpr struct_id_t id = 46;   /*!< xip_ctrl's identifier. */
     static constexpr std::size_t size = 32; /*!< xip_ctrl's size in bytes. */
 
     /* Fields. */

@@ -255,7 +255,7 @@ namespace RP2350
 struct io_bank0
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 15;    /*!< io_bank0's identifier. */
+    static constexpr struct_id_t id = 16;    /*!< io_bank0's identifier. */
     static constexpr std::size_t size = 800; /*!< io_bank0's size in bytes. */
 
     /* Fields. */

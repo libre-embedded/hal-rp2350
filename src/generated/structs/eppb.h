@@ -18,7 +18,7 @@ namespace RP2350
 struct eppb
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 11;   /*!< eppb's identifier. */
+    static constexpr struct_id_t id = 12;   /*!< eppb's identifier. */
     static constexpr std::size_t size = 12; /*!< eppb's size in bytes. */
 
     /* Fields. */

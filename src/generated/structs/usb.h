@@ -18,7 +18,7 @@ namespace RP2350
 struct usb
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 41;    /*!< usb's identifier. */
+    static constexpr struct_id_t id = 42;    /*!< usb's identifier. */
     static constexpr std::size_t size = 280; /*!< usb's size in bytes. */
 
     /* Fields. */

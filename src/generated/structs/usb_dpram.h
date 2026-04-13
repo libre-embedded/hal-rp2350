@@ -80,7 +80,7 @@ namespace RP2350
 struct usb_dpram
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 42;    /*!< usb_dpram's identifier. */
+    static constexpr struct_id_t id = 43;    /*!< usb_dpram's identifier. */
     static constexpr std::size_t size = 256; /*!< usb_dpram's size in bytes. */
 
     /* Fields. */

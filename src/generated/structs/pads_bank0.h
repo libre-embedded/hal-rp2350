@@ -65,7 +65,7 @@ namespace RP2350
 struct pads_bank0
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 20; /*!< pads_bank0's identifier. */
+    static constexpr struct_id_t id = 21; /*!< pads_bank0's identifier. */
     static constexpr std::size_t size =
         204; /*!< pads_bank0's size in bytes. */
 

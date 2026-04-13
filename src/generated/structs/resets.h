@@ -15,7 +15,7 @@ namespace RP2350
 struct resets
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 29;   /*!< resets's identifier. */
+    static constexpr struct_id_t id = 30;   /*!< resets's identifier. */
     static constexpr std::size_t size = 12; /*!< resets's size in bytes. */
 
     /* Fields. */

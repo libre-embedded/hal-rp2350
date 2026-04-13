@@ -4,4 +4,5 @@ includes:
   - dma_debug.yaml
   - dma_control.yaml
   - dma_interrupt.yaml
+  - dma_mpu.yaml
   - structs.yaml

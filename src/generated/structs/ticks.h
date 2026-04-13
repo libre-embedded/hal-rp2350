@@ -15,7 +15,7 @@ namespace RP2350
 struct ticks
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 38;   /*!< ticks's identifier. */
+    static constexpr struct_id_t id = 39;   /*!< ticks's identifier. */
     static constexpr std::size_t size = 72; /*!< ticks's size in bytes. */
 
     /* Fields. */

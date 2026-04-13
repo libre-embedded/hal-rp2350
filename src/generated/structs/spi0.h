@@ -15,7 +15,7 @@ namespace RP2350
 struct spi0
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 34;     /*!< spi0's identifier. */
+    static constexpr struct_id_t id = 35;     /*!< spi0's identifier. */
     static constexpr std::size_t size = 4096; /*!< spi0's size in bytes. */
 
     /* Fields. */

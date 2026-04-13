@@ -30,7 +30,7 @@ namespace RP2350
 struct pwm
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 27;    /*!< pwm's identifier. */
+    static constexpr struct_id_t id = 28;    /*!< pwm's identifier. */
     static constexpr std::size_t size = 272; /*!< pwm's size in bytes. */
 
     /* Fields. */

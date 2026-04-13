@@ -31,7 +31,7 @@ namespace RP2350
 struct timer
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 39;   /*!< timer's identifier. */
+    static constexpr struct_id_t id = 40;   /*!< timer's identifier. */
     static constexpr std::size_t size = 76; /*!< timer's size in bytes. */
 
     /* Fields. */

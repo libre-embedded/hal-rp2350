@@ -19,7 +19,7 @@ namespace RP2350
 struct hstx_ctrl
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 13;   /*!< hstx_ctrl's identifier. */
+    static constexpr struct_id_t id = 14;   /*!< hstx_ctrl's identifier. */
     static constexpr std::size_t size = 44; /*!< hstx_ctrl's size in bytes. */
 
     /* Fields. */

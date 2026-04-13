@@ -19,7 +19,7 @@ namespace RP2350
 struct sha256
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 31;   /*!< sha256's identifier. */
+    static constexpr struct_id_t id = 32;   /*!< sha256's identifier. */
     static constexpr std::size_t size = 40; /*!< sha256's size in bytes. */
 
     /* Fields. */
