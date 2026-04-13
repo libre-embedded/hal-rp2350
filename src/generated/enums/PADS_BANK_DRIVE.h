@@ -4,8 +4,8 @@
  */
 
 #pragma once
-#ifndef RP2350_ENUMS_PADS_BANK0_GPIO5_DRIVE_H
-#define RP2350_ENUMS_PADS_BANK0_GPIO5_DRIVE_H
+#ifndef RP2350_ENUMS_PADS_BANK_DRIVE_H
+#define RP2350_ENUMS_PADS_BANK_DRIVE_H
 
 #include "../ifgen/common.h"
 #include <cstdint>
@@ -14,37 +14,37 @@
 namespace RP2350
 {
 
-enum class PADS_BANK0_GPIO5_DRIVE : uint8_t
+enum class PADS_BANK_DRIVE : uint8_t
 {
     _2mA,
     _4mA = 1,
     _8mA = 2,
     _12mA = 3
 };
-static_assert(sizeof(PADS_BANK0_GPIO5_DRIVE) == 1);
+static_assert(sizeof(PADS_BANK_DRIVE) == 1);
 
 /**
- * Converts PADS_BANK0_GPIO5_DRIVE to a C string.
+ * Converts PADS_BANK_DRIVE to a C string.
  *
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(PADS_BANK0_GPIO5_DRIVE instance)
+inline const char *to_string(PADS_BANK_DRIVE instance)
 {
-    const char *result = "UNKNOWN PADS_BANK0_GPIO5_DRIVE";
+    const char *result = "UNKNOWN PADS_BANK_DRIVE";
 
     switch (instance)
     {
-    case PADS_BANK0_GPIO5_DRIVE::_2mA:
+    case PADS_BANK_DRIVE::_2mA:
         result = "_2mA";
         break;
-    case PADS_BANK0_GPIO5_DRIVE::_4mA:
+    case PADS_BANK_DRIVE::_4mA:
         result = "_4mA";
         break;
-    case PADS_BANK0_GPIO5_DRIVE::_8mA:
+    case PADS_BANK_DRIVE::_8mA:
         result = "_8mA";
         break;
-    case PADS_BANK0_GPIO5_DRIVE::_12mA:
+    case PADS_BANK_DRIVE::_12mA:
         result = "_12mA";
         break;
     }
@@ -52,39 +52,38 @@ inline const char *to_string(PADS_BANK0_GPIO5_DRIVE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                PADS_BANK0_GPIO5_DRIVE instance)
+inline std::ostream &operator<<(std::ostream &stream, PADS_BANK_DRIVE instance)
 {
     stream << to_string(instance);
     return stream;
 }
 
 /**
- * Converts a C string to PADS_BANK0_GPIO5_DRIVE.
+ * Converts a C string to PADS_BANK_DRIVE.
  *
  * \param[in]  data   A C string to convert.
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, PADS_BANK0_GPIO5_DRIVE &output)
+inline bool from_string(const char *data, PADS_BANK_DRIVE &output)
 {
     bool result = false;
 
     if ((result = !strncmp(data, "_2mA", 4)))
     {
-        output = PADS_BANK0_GPIO5_DRIVE::_2mA;
+        output = PADS_BANK_DRIVE::_2mA;
     }
     else if ((result = !strncmp(data, "_4mA", 4)))
     {
-        output = PADS_BANK0_GPIO5_DRIVE::_4mA;
+        output = PADS_BANK_DRIVE::_4mA;
     }
     else if ((result = !strncmp(data, "_8mA", 4)))
     {
-        output = PADS_BANK0_GPIO5_DRIVE::_8mA;
+        output = PADS_BANK_DRIVE::_8mA;
     }
     else if ((result = !strncmp(data, "_12mA", 5)))
     {
-        output = PADS_BANK0_GPIO5_DRIVE::_12mA;
+        output = PADS_BANK_DRIVE::_12mA;
     }
 
     return result;
