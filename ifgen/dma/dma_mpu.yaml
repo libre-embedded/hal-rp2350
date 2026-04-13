@@ -1,0 +1,56 @@
+---
+structs:
+  dma_mpu:
+    instances:
+      - name: DMA_MPU_AR_NULL
+        address: '0x00000000'
+    fields:
+      - name: BAR
+        type: uint32_t
+        expected_size: 4
+        description: |-
+          (read-write) Base address register for MPU region N. Writable only from a Secure, Privileged context.
+        fields:
+          - name: ADDR
+            description: |-
+              This MPU region matches addresses where addr[31:5] (the 27 most significant bits) are greater than or equal to BAR_ADDR, and less than or equal to LAR_ADDR.
+
+                                          Readable from any Privileged context, if and only if this region's S bit is clear, and MPU_CTRL_NS_HIDE_ADDR is clear. Otherwise readable only from a Secure, Privileged context.
+            index: 5
+            width: 27
+            read: true
+            write: true
+      - name: LAR
+        type: uint32_t
+        expected_size: 4
+        description: |-
+          (read-write) Limit address register for MPU region N. Writable only from a Secure, Privileged context, with the exception of the P bit.
+        fields:
+          - name: EN
+            description: |-
+              Region enable. If 1, any address within range specified by the base address (BAR_ADDR) and limit address (LAR_ADDR) has the attributes specified by S and P.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: P
+            description: |-
+              Determines the Privileged/Unprivileged (=1/0) status of addresses matching this region, if this region is enabled. Writable from any Privileged context, if and only if the S bit is clear. Otherwise, writable only from a Secure, Privileged context.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: S
+            description: |-
+              Determines the Secure/Non-secure (=1/0) status of addresses matching this region, if this region is enabled.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: ADDR
+            description: |-
+              Limit address bits 31:5. Readable from any Privileged context, if and only if this region's S bit is clear, and MPU_CTRL_NS_HIDE_ADDR is clear. Otherwise readable only from a Secure, Privileged context.
+            index: 5
+            width: 27
+            read: true
+            write: true

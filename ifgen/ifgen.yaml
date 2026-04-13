@@ -11,14 +11,14 @@ includes:
   - glitch_detector/include.yaml
   - hstx_ctrl/include.yaml
   - hstx_fifo/include.yaml
-  - io_bank0/include.yaml
+  - io_bank/include.yaml
   - io_qspi/include.yaml
   - otp/include.yaml
   - otp_data/include.yaml
   - otp_data_raw/include.yaml
-  - pads_bank0/include.yaml
+  - pads_bank/include.yaml
   - pads_qspi/include.yaml
-  - pio0/include.yaml
+  - pio/include.yaml
   - pll_sys/include.yaml
   - powman/include.yaml
   - ppb/include.yaml
@@ -30,7 +30,7 @@ includes:
   - sha256/include.yaml
   - sio/include.yaml
   - spare_irq/include.yaml
-  - spi0/include.yaml
+  - spi/include.yaml
   - syscfg/include.yaml
   - sysinfo/include.yaml
   - tbman/include.yaml

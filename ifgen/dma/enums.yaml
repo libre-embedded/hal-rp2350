@@ -1,0 +1,302 @@
+---
+enums:
+  DMA_TRANS_COUNT_MODE:
+    enum:
+      NORMAL:
+        value: 0
+      TRIGGER_SELF:
+        value: 1
+      ENDLESS:
+        value: 15
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  DMA_DATA_SIZE:
+    enum:
+      BYTE:
+        value: 0
+      HALFWORD:
+        value: 1
+      WORD:
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  DMA_TREQ_SEL:
+    enum:
+      PIO0_TX0:
+        description: |-
+          Select PIO0's TX FIFO 0 as TREQ
+        value: 0
+      PIO0_TX1:
+        description: |-
+          Select PIO0's TX FIFO 1 as TREQ
+        value: 1
+      PIO0_TX2:
+        description: |-
+          Select PIO0's TX FIFO 2 as TREQ
+        value: 2
+      PIO0_TX3:
+        description: |-
+          Select PIO0's TX FIFO 3 as TREQ
+        value: 3
+      PIO0_RX0:
+        description: |-
+          Select PIO0's RX FIFO 0 as TREQ
+        value: 4
+      PIO0_RX1:
+        description: |-
+          Select PIO0's RX FIFO 1 as TREQ
+        value: 5
+      PIO0_RX2:
+        description: |-
+          Select PIO0's RX FIFO 2 as TREQ
+        value: 6
+      PIO0_RX3:
+        description: |-
+          Select PIO0's RX FIFO 3 as TREQ
+        value: 7
+      PIO1_TX0:
+        description: |-
+          Select PIO1's TX FIFO 0 as TREQ
+        value: 8
+      PIO1_TX1:
+        description: |-
+          Select PIO1's TX FIFO 1 as TREQ
+        value: 9
+      PIO1_TX2:
+        description: |-
+          Select PIO1's TX FIFO 2 as TREQ
+        value: 10
+      PIO1_TX3:
+        description: |-
+          Select PIO1's TX FIFO 3 as TREQ
+        value: 11
+      PIO1_RX0:
+        description: |-
+          Select PIO1's RX FIFO 0 as TREQ
+        value: 12
+      PIO1_RX1:
+        description: |-
+          Select PIO1's RX FIFO 1 as TREQ
+        value: 13
+      PIO1_RX2:
+        description: |-
+          Select PIO1's RX FIFO 2 as TREQ
+        value: 14
+      PIO1_RX3:
+        description: |-
+          Select PIO1's RX FIFO 3 as TREQ
+        value: 15
+      PIO2_TX0:
+        description: |-
+          Select PIO2's TX FIFO 0 as TREQ
+        value: 16
+      PIO2_TX1:
+        description: |-
+          Select PIO2's TX FIFO 1 as TREQ
+        value: 17
+      PIO2_TX2:
+        description: |-
+          Select PIO2's TX FIFO 2 as TREQ
+        value: 18
+      PIO2_TX3:
+        description: |-
+          Select PIO2's TX FIFO 3 as TREQ
+        value: 19
+      PIO2_RX0:
+        description: |-
+          Select PIO2's RX FIFO 0 as TREQ
+        value: 20
+      PIO2_RX1:
+        description: |-
+          Select PIO2's RX FIFO 1 as TREQ
+        value: 21
+      PIO2_RX2:
+        description: |-
+          Select PIO2's RX FIFO 2 as TREQ
+        value: 22
+      PIO2_RX3:
+        description: |-
+          Select PIO2's RX FIFO 3 as TREQ
+        value: 23
+      SPI0_TX:
+        description: |-
+          Select SPI0's TX FIFO as TREQ
+        value: 24
+      SPI0_RX:
+        description: |-
+          Select SPI0's RX FIFO as TREQ
+        value: 25
+      SPI1_TX:
+        description: |-
+          Select SPI1's TX FIFO as TREQ
+        value: 26
+      SPI1_RX:
+        description: |-
+          Select SPI1's RX FIFO as TREQ
+        value: 27
+      UART0_TX:
+        description: |-
+          Select UART0's TX FIFO as TREQ
+        value: 28
+      UART0_RX:
+        description: |-
+          Select UART0's RX FIFO as TREQ
+        value: 29
+      UART1_TX:
+        description: |-
+          Select UART1's TX FIFO as TREQ
+        value: 30
+      UART1_RX:
+        description: |-
+          Select UART1's RX FIFO as TREQ
+        value: 31
+      PWM_WRAP0:
+        description: |-
+          Select PWM Counter 0's Wrap Value as TREQ
+        value: 32
+      PWM_WRAP1:
+        description: |-
+          Select PWM Counter 1's Wrap Value as TREQ
+        value: 33
+      PWM_WRAP2:
+        description: |-
+          Select PWM Counter 2's Wrap Value as TREQ
+        value: 34
+      PWM_WRAP3:
+        description: |-
+          Select PWM Counter 3's Wrap Value as TREQ
+        value: 35
+      PWM_WRAP4:
+        description: |-
+          Select PWM Counter 4's Wrap Value as TREQ
+        value: 36
+      PWM_WRAP5:
+        description: |-
+          Select PWM Counter 5's Wrap Value as TREQ
+        value: 37
+      PWM_WRAP6:
+        description: |-
+          Select PWM Counter 6's Wrap Value as TREQ
+        value: 38
+      PWM_WRAP7:
+        description: |-
+          Select PWM Counter 7's Wrap Value as TREQ
+        value: 39
+      PWM_WRAP8:
+        description: |-
+          Select PWM Counter 8's Wrap Value as TREQ
+        value: 40
+      PWM_WRAP9:
+        description: |-
+          Select PWM Counter 9's Wrap Value as TREQ
+        value: 41
+      PWM_WRAP10:
+        description: |-
+          Select PWM Counter 0's Wrap Value as TREQ
+        value: 42
+      PWM_WRAP11:
+        description: |-
+          Select PWM Counter 1's Wrap Value as TREQ
+        value: 43
+      I2C0_TX:
+        description: |-
+          Select I2C0's TX FIFO as TREQ
+        value: 44
+      I2C0_RX:
+        description: |-
+          Select I2C0's RX FIFO as TREQ
+        value: 45
+      I2C1_TX:
+        description: |-
+          Select I2C1's TX FIFO as TREQ
+        value: 46
+      I2C1_RX:
+        description: |-
+          Select I2C1's RX FIFO as TREQ
+        value: 47
+      ADC:
+        description: |-
+          Select the ADC as TREQ
+        value: 48
+      XIP_STREAM:
+        description: |-
+          Select the XIP Streaming FIFO as TREQ
+        value: 49
+      XIP_QMITX:
+        description: |-
+          Select XIP_QMITX as TREQ
+        value: 50
+      XIP_QMIRX:
+        description: |-
+          Select XIP_QMIRX as TREQ
+        value: 51
+      HSTX:
+        description: |-
+          Select HSTX as TREQ
+        value: 52
+      CORESIGHT:
+        description: |-
+          Select CORESIGHT as TREQ
+        value: 53
+      SHA256:
+        description: |-
+          Select SHA256 as TREQ
+        value: 54
+      TIMER0:
+        description: |-
+          Select Timer 0 as TREQ
+        value: 59
+      TIMER1:
+        description: |-
+          Select Timer 1 as TREQ
+        value: 60
+      TIMER2:
+        description: |-
+          Select Timer 2 as TREQ (Optional)
+        value: 61
+      TIMER3:
+        description: |-
+          Select Timer 3 as TREQ (Optional)
+        value: 62
+      PERMANENT:
+        description: |-
+          Permanent request, for unpaced transfers.
+        value: 63
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  DMA_SNIFF_CTRL_CALC:
+    enum:
+      CRC32:
+        description: |-
+          Calculate a CRC-32 (IEEE802.3 polynomial)
+        value: 0
+      CRC32R:
+        description: |-
+          Calculate a CRC-32 (IEEE802.3 polynomial) with bit reversed data
+        value: 1
+      CRC16:
+        description: |-
+          Calculate a CRC-16-CCITT
+        value: 2
+      CRC16R:
+        description: |-
+          Calculate a CRC-16-CCITT with bit reversed data
+        value: 3
+      EVEN:
+        description: |-
+          XOR reduction over all data. == 1 if the total 1 population count is odd.
+        value: 14
+      SUM:
+        description: |-
+          Calculate a simple 32-bit checksum (addition with a 32 bit accumulator)
+        value: 15
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

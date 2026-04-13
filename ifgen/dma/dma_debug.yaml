@@ -1,0 +1,29 @@
+---
+structs:
+  dma_debug:
+    instances:
+      - name: DMA_DEBUG_NULL
+        address: '0x00000000'
+    fields:
+      - name: CTDREQ
+        type: uint32_t
+        expected_size: 4
+        description: |-
+          (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
+        fields:
+          - name: CTDREQ
+            index: 0
+            width: 6
+            read: true
+            write: true
+      - name: TCR
+        type: uint32_t
+        expected_size: 4
+        const: true
+        description: |-
+          (read-only) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer
+
+      - name: reserved
+        type: uint32_t
+        expected_size: 56
+        array_length: 14
