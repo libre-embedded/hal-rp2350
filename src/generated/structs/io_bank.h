@@ -7,246 +7,58 @@
 #ifndef RP2350_STRUCTS_IO_BANK_H
 #define RP2350_STRUCTS_IO_BANK_H
 
-#include "../enums/IO_BANK0_GPIO0_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO0_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO0_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO0_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO0_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO10_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO10_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO10_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO10_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO10_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO11_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO11_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO11_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO11_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO11_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO12_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO12_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO12_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO12_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO12_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO13_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO13_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO13_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO13_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO13_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO14_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO14_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO14_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO14_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO14_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO15_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO15_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO15_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO15_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO15_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO16_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO16_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO16_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO16_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO16_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO17_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO17_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO17_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO17_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO17_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO18_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO18_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO18_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO18_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO18_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO19_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO19_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO19_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO19_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO19_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO1_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO1_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO1_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO1_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO1_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO20_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO20_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO20_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO20_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO20_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO21_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO21_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO21_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO21_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO21_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO22_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO22_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO22_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO22_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO22_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO23_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO23_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO23_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO23_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO23_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO24_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO24_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO24_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO24_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO24_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO25_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO25_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO25_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO25_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO25_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO26_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO26_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO26_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO26_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO26_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO27_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO27_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO27_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO27_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO27_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO28_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO28_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO28_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO28_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO28_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO29_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO29_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO29_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO29_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO29_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO2_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO2_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO2_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO2_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO2_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO30_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO30_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO30_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO30_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO30_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO31_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO31_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO31_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO31_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO31_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO32_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO32_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO32_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO32_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO32_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO33_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO33_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO33_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO33_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO33_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO34_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO34_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO34_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO34_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO34_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO35_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO35_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO35_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO35_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO35_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO36_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO36_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO36_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO36_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO36_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO37_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO37_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO37_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO37_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO37_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO38_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO38_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO38_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO38_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO38_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO39_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO39_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO39_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO39_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO39_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO3_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO3_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO3_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO3_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO3_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO40_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO40_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO40_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO40_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO40_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO41_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO41_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO41_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO41_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO41_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO42_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO42_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO42_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO42_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO42_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO43_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO43_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO43_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO43_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO43_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO44_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO44_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO44_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO44_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO44_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO45_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO45_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO45_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO45_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO45_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO46_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO46_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO46_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO46_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO46_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO47_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO47_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO47_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO47_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO47_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO4_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO4_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO4_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO4_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO4_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO5_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO5_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO5_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO5_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO5_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO6_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO6_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO6_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO6_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO6_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO7_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO7_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO7_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO7_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO7_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO8_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO8_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO8_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO8_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO8_CTRL_OUTOVER.h"
-#include "../enums/IO_BANK0_GPIO9_CTRL_FUNCSEL.h"
-#include "../enums/IO_BANK0_GPIO9_CTRL_INOVER.h"
-#include "../enums/IO_BANK0_GPIO9_CTRL_IRQOVER.h"
-#include "../enums/IO_BANK0_GPIO9_CTRL_OEOVER.h"
-#include "../enums/IO_BANK0_GPIO9_CTRL_OUTOVER.h"
+#include "../enums/IO_BANK_GPIO0_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO10_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO11_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO12_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO13_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO14_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO15_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO16_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO17_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO18_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO19_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO1_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO20_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO21_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO22_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO23_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO24_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO25_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO26_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO27_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO28_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO29_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO2_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO30_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO31_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO32_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO33_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO34_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO35_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO36_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO37_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO38_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO39_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO3_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO40_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO41_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO42_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO43_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO44_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO45_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO46_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO47_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO4_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO5_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO6_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO7_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO8_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_GPIO9_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_INOVER.h"
+#include "../enums/IO_BANK_IRQOVER.h"
+#include "../enums/IO_BANK_OEOVER.h"
+#include "../enums/IO_BANK_OUTOVER.h"
 #include "../ifgen/common.h"
 
 namespace RP2350
@@ -528,9 +340,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO0_CTRL_FUNCSEL get_GPIO0_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO0_CTRL_FUNCSEL get_GPIO0_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO0_CTRL_FUNCSEL(GPIO0_CTRL & 0b11111u);
+        return IO_BANK_GPIO0_CTRL_FUNCSEL(GPIO0_CTRL & 0b11111u);
     }
 
     /**
@@ -540,7 +352,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO0_CTRL_FUNCSEL(
-        IO_BANK0_GPIO0_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO0_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -553,16 +365,15 @@ struct io_bank
     /**
      * Get GPIO0_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO0_CTRL_OUTOVER get_GPIO0_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO0_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO0_CTRL_OUTOVER((GPIO0_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO0_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO0_CTRL's OUTOVER field.
      */
-    inline void set_GPIO0_CTRL_OUTOVER(
-        IO_BANK0_GPIO0_CTRL_OUTOVER value) volatile
+    inline void set_GPIO0_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -575,16 +386,15 @@ struct io_bank
     /**
      * Get GPIO0_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO0_CTRL_OEOVER get_GPIO0_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO0_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO0_CTRL_OEOVER((GPIO0_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO0_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO0_CTRL's OEOVER field.
      */
-    inline void set_GPIO0_CTRL_OEOVER(
-        IO_BANK0_GPIO0_CTRL_OEOVER value) volatile
+    inline void set_GPIO0_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -597,16 +407,15 @@ struct io_bank
     /**
      * Get GPIO0_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO0_CTRL_INOVER get_GPIO0_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO0_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO0_CTRL_INOVER((GPIO0_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO0_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO0_CTRL's INOVER field.
      */
-    inline void set_GPIO0_CTRL_INOVER(
-        IO_BANK0_GPIO0_CTRL_INOVER value) volatile
+    inline void set_GPIO0_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -619,16 +428,15 @@ struct io_bank
     /**
      * Get GPIO0_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO0_CTRL_IRQOVER get_GPIO0_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO0_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO0_CTRL_IRQOVER((GPIO0_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO0_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO0_CTRL's IRQOVER field.
      */
-    inline void set_GPIO0_CTRL_IRQOVER(
-        IO_BANK0_GPIO0_CTRL_IRQOVER value) volatile
+    inline void set_GPIO0_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -641,29 +449,27 @@ struct io_bank
     /**
      * Get all of GPIO0_CTRL's bit fields.
      */
-    inline void get_GPIO0_CTRL(IO_BANK0_GPIO0_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO0_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO0_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO0_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO0_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO0_CTRL(IO_BANK_GPIO0_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO0_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO0_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO0_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO0_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO0_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO0_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO0_CTRL's bit fields.
      */
-    inline void set_GPIO0_CTRL(IO_BANK0_GPIO0_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO0_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO0_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO0_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO0_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO0_CTRL(IO_BANK_GPIO0_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -741,9 +547,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO1_CTRL_FUNCSEL get_GPIO1_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO1_CTRL_FUNCSEL get_GPIO1_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO1_CTRL_FUNCSEL(GPIO1_CTRL & 0b11111u);
+        return IO_BANK_GPIO1_CTRL_FUNCSEL(GPIO1_CTRL & 0b11111u);
     }
 
     /**
@@ -753,7 +559,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO1_CTRL_FUNCSEL(
-        IO_BANK0_GPIO1_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO1_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -766,16 +572,15 @@ struct io_bank
     /**
      * Get GPIO1_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO1_CTRL_OUTOVER get_GPIO1_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO1_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO1_CTRL_OUTOVER((GPIO1_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO1_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO1_CTRL's OUTOVER field.
      */
-    inline void set_GPIO1_CTRL_OUTOVER(
-        IO_BANK0_GPIO1_CTRL_OUTOVER value) volatile
+    inline void set_GPIO1_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -788,16 +593,15 @@ struct io_bank
     /**
      * Get GPIO1_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO1_CTRL_OEOVER get_GPIO1_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO1_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO1_CTRL_OEOVER((GPIO1_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO1_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO1_CTRL's OEOVER field.
      */
-    inline void set_GPIO1_CTRL_OEOVER(
-        IO_BANK0_GPIO1_CTRL_OEOVER value) volatile
+    inline void set_GPIO1_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -810,16 +614,15 @@ struct io_bank
     /**
      * Get GPIO1_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO1_CTRL_INOVER get_GPIO1_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO1_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO1_CTRL_INOVER((GPIO1_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO1_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO1_CTRL's INOVER field.
      */
-    inline void set_GPIO1_CTRL_INOVER(
-        IO_BANK0_GPIO1_CTRL_INOVER value) volatile
+    inline void set_GPIO1_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -832,16 +635,15 @@ struct io_bank
     /**
      * Get GPIO1_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO1_CTRL_IRQOVER get_GPIO1_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO1_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO1_CTRL_IRQOVER((GPIO1_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO1_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO1_CTRL's IRQOVER field.
      */
-    inline void set_GPIO1_CTRL_IRQOVER(
-        IO_BANK0_GPIO1_CTRL_IRQOVER value) volatile
+    inline void set_GPIO1_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -854,29 +656,27 @@ struct io_bank
     /**
      * Get all of GPIO1_CTRL's bit fields.
      */
-    inline void get_GPIO1_CTRL(IO_BANK0_GPIO1_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO1_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO1_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO1_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO1_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO1_CTRL(IO_BANK_GPIO1_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO1_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO1_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO1_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO1_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO1_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO1_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO1_CTRL's bit fields.
      */
-    inline void set_GPIO1_CTRL(IO_BANK0_GPIO1_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO1_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO1_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO1_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO1_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO1_CTRL(IO_BANK_GPIO1_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -954,9 +754,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO2_CTRL_FUNCSEL get_GPIO2_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO2_CTRL_FUNCSEL get_GPIO2_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO2_CTRL_FUNCSEL(GPIO2_CTRL & 0b11111u);
+        return IO_BANK_GPIO2_CTRL_FUNCSEL(GPIO2_CTRL & 0b11111u);
     }
 
     /**
@@ -966,7 +766,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO2_CTRL_FUNCSEL(
-        IO_BANK0_GPIO2_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO2_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -979,16 +779,15 @@ struct io_bank
     /**
      * Get GPIO2_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO2_CTRL_OUTOVER get_GPIO2_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO2_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO2_CTRL_OUTOVER((GPIO2_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO2_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO2_CTRL's OUTOVER field.
      */
-    inline void set_GPIO2_CTRL_OUTOVER(
-        IO_BANK0_GPIO2_CTRL_OUTOVER value) volatile
+    inline void set_GPIO2_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -1001,16 +800,15 @@ struct io_bank
     /**
      * Get GPIO2_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO2_CTRL_OEOVER get_GPIO2_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO2_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO2_CTRL_OEOVER((GPIO2_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO2_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO2_CTRL's OEOVER field.
      */
-    inline void set_GPIO2_CTRL_OEOVER(
-        IO_BANK0_GPIO2_CTRL_OEOVER value) volatile
+    inline void set_GPIO2_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -1023,16 +821,15 @@ struct io_bank
     /**
      * Get GPIO2_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO2_CTRL_INOVER get_GPIO2_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO2_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO2_CTRL_INOVER((GPIO2_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO2_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO2_CTRL's INOVER field.
      */
-    inline void set_GPIO2_CTRL_INOVER(
-        IO_BANK0_GPIO2_CTRL_INOVER value) volatile
+    inline void set_GPIO2_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -1045,16 +842,15 @@ struct io_bank
     /**
      * Get GPIO2_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO2_CTRL_IRQOVER get_GPIO2_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO2_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO2_CTRL_IRQOVER((GPIO2_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO2_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO2_CTRL's IRQOVER field.
      */
-    inline void set_GPIO2_CTRL_IRQOVER(
-        IO_BANK0_GPIO2_CTRL_IRQOVER value) volatile
+    inline void set_GPIO2_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -1067,29 +863,27 @@ struct io_bank
     /**
      * Get all of GPIO2_CTRL's bit fields.
      */
-    inline void get_GPIO2_CTRL(IO_BANK0_GPIO2_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO2_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO2_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO2_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO2_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO2_CTRL(IO_BANK_GPIO2_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO2_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO2_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO2_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO2_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO2_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO2_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO2_CTRL's bit fields.
      */
-    inline void set_GPIO2_CTRL(IO_BANK0_GPIO2_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO2_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO2_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO2_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO2_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO2_CTRL(IO_BANK_GPIO2_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -1167,9 +961,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO3_CTRL_FUNCSEL get_GPIO3_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO3_CTRL_FUNCSEL get_GPIO3_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO3_CTRL_FUNCSEL(GPIO3_CTRL & 0b11111u);
+        return IO_BANK_GPIO3_CTRL_FUNCSEL(GPIO3_CTRL & 0b11111u);
     }
 
     /**
@@ -1179,7 +973,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO3_CTRL_FUNCSEL(
-        IO_BANK0_GPIO3_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO3_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1192,16 +986,15 @@ struct io_bank
     /**
      * Get GPIO3_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO3_CTRL_OUTOVER get_GPIO3_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO3_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO3_CTRL_OUTOVER((GPIO3_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO3_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO3_CTRL's OUTOVER field.
      */
-    inline void set_GPIO3_CTRL_OUTOVER(
-        IO_BANK0_GPIO3_CTRL_OUTOVER value) volatile
+    inline void set_GPIO3_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1214,16 +1007,15 @@ struct io_bank
     /**
      * Get GPIO3_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO3_CTRL_OEOVER get_GPIO3_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO3_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO3_CTRL_OEOVER((GPIO3_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO3_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO3_CTRL's OEOVER field.
      */
-    inline void set_GPIO3_CTRL_OEOVER(
-        IO_BANK0_GPIO3_CTRL_OEOVER value) volatile
+    inline void set_GPIO3_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1236,16 +1028,15 @@ struct io_bank
     /**
      * Get GPIO3_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO3_CTRL_INOVER get_GPIO3_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO3_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO3_CTRL_INOVER((GPIO3_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO3_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO3_CTRL's INOVER field.
      */
-    inline void set_GPIO3_CTRL_INOVER(
-        IO_BANK0_GPIO3_CTRL_INOVER value) volatile
+    inline void set_GPIO3_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1258,16 +1049,15 @@ struct io_bank
     /**
      * Get GPIO3_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO3_CTRL_IRQOVER get_GPIO3_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO3_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO3_CTRL_IRQOVER((GPIO3_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO3_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO3_CTRL's IRQOVER field.
      */
-    inline void set_GPIO3_CTRL_IRQOVER(
-        IO_BANK0_GPIO3_CTRL_IRQOVER value) volatile
+    inline void set_GPIO3_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1280,29 +1070,27 @@ struct io_bank
     /**
      * Get all of GPIO3_CTRL's bit fields.
      */
-    inline void get_GPIO3_CTRL(IO_BANK0_GPIO3_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO3_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO3_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO3_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO3_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO3_CTRL(IO_BANK_GPIO3_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO3_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO3_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO3_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO3_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO3_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO3_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO3_CTRL's bit fields.
      */
-    inline void set_GPIO3_CTRL(IO_BANK0_GPIO3_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO3_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO3_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO3_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO3_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO3_CTRL(IO_BANK_GPIO3_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1380,9 +1168,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO4_CTRL_FUNCSEL get_GPIO4_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO4_CTRL_FUNCSEL get_GPIO4_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO4_CTRL_FUNCSEL(GPIO4_CTRL & 0b11111u);
+        return IO_BANK_GPIO4_CTRL_FUNCSEL(GPIO4_CTRL & 0b11111u);
     }
 
     /**
@@ -1392,7 +1180,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO4_CTRL_FUNCSEL(
-        IO_BANK0_GPIO4_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO4_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1405,16 +1193,15 @@ struct io_bank
     /**
      * Get GPIO4_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO4_CTRL_OUTOVER get_GPIO4_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO4_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO4_CTRL_OUTOVER((GPIO4_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO4_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO4_CTRL's OUTOVER field.
      */
-    inline void set_GPIO4_CTRL_OUTOVER(
-        IO_BANK0_GPIO4_CTRL_OUTOVER value) volatile
+    inline void set_GPIO4_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1427,16 +1214,15 @@ struct io_bank
     /**
      * Get GPIO4_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO4_CTRL_OEOVER get_GPIO4_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO4_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO4_CTRL_OEOVER((GPIO4_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO4_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO4_CTRL's OEOVER field.
      */
-    inline void set_GPIO4_CTRL_OEOVER(
-        IO_BANK0_GPIO4_CTRL_OEOVER value) volatile
+    inline void set_GPIO4_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1449,16 +1235,15 @@ struct io_bank
     /**
      * Get GPIO4_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO4_CTRL_INOVER get_GPIO4_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO4_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO4_CTRL_INOVER((GPIO4_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO4_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO4_CTRL's INOVER field.
      */
-    inline void set_GPIO4_CTRL_INOVER(
-        IO_BANK0_GPIO4_CTRL_INOVER value) volatile
+    inline void set_GPIO4_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1471,16 +1256,15 @@ struct io_bank
     /**
      * Get GPIO4_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO4_CTRL_IRQOVER get_GPIO4_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO4_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO4_CTRL_IRQOVER((GPIO4_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO4_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO4_CTRL's IRQOVER field.
      */
-    inline void set_GPIO4_CTRL_IRQOVER(
-        IO_BANK0_GPIO4_CTRL_IRQOVER value) volatile
+    inline void set_GPIO4_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1493,29 +1277,27 @@ struct io_bank
     /**
      * Get all of GPIO4_CTRL's bit fields.
      */
-    inline void get_GPIO4_CTRL(IO_BANK0_GPIO4_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO4_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO4_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO4_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO4_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO4_CTRL(IO_BANK_GPIO4_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO4_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO4_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO4_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO4_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO4_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO4_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO4_CTRL's bit fields.
      */
-    inline void set_GPIO4_CTRL(IO_BANK0_GPIO4_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO4_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO4_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO4_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO4_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO4_CTRL(IO_BANK_GPIO4_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1593,9 +1375,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO5_CTRL_FUNCSEL get_GPIO5_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO5_CTRL_FUNCSEL get_GPIO5_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO5_CTRL_FUNCSEL(GPIO5_CTRL & 0b11111u);
+        return IO_BANK_GPIO5_CTRL_FUNCSEL(GPIO5_CTRL & 0b11111u);
     }
 
     /**
@@ -1605,7 +1387,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO5_CTRL_FUNCSEL(
-        IO_BANK0_GPIO5_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO5_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1618,16 +1400,15 @@ struct io_bank
     /**
      * Get GPIO5_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO5_CTRL_OUTOVER get_GPIO5_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO5_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO5_CTRL_OUTOVER((GPIO5_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO5_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO5_CTRL's OUTOVER field.
      */
-    inline void set_GPIO5_CTRL_OUTOVER(
-        IO_BANK0_GPIO5_CTRL_OUTOVER value) volatile
+    inline void set_GPIO5_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1640,16 +1421,15 @@ struct io_bank
     /**
      * Get GPIO5_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO5_CTRL_OEOVER get_GPIO5_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO5_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO5_CTRL_OEOVER((GPIO5_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO5_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO5_CTRL's OEOVER field.
      */
-    inline void set_GPIO5_CTRL_OEOVER(
-        IO_BANK0_GPIO5_CTRL_OEOVER value) volatile
+    inline void set_GPIO5_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1662,16 +1442,15 @@ struct io_bank
     /**
      * Get GPIO5_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO5_CTRL_INOVER get_GPIO5_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO5_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO5_CTRL_INOVER((GPIO5_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO5_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO5_CTRL's INOVER field.
      */
-    inline void set_GPIO5_CTRL_INOVER(
-        IO_BANK0_GPIO5_CTRL_INOVER value) volatile
+    inline void set_GPIO5_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1684,16 +1463,15 @@ struct io_bank
     /**
      * Get GPIO5_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO5_CTRL_IRQOVER get_GPIO5_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO5_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO5_CTRL_IRQOVER((GPIO5_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO5_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO5_CTRL's IRQOVER field.
      */
-    inline void set_GPIO5_CTRL_IRQOVER(
-        IO_BANK0_GPIO5_CTRL_IRQOVER value) volatile
+    inline void set_GPIO5_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1706,29 +1484,27 @@ struct io_bank
     /**
      * Get all of GPIO5_CTRL's bit fields.
      */
-    inline void get_GPIO5_CTRL(IO_BANK0_GPIO5_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO5_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO5_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO5_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO5_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO5_CTRL(IO_BANK_GPIO5_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO5_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO5_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO5_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO5_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO5_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO5_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO5_CTRL's bit fields.
      */
-    inline void set_GPIO5_CTRL(IO_BANK0_GPIO5_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO5_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO5_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO5_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO5_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO5_CTRL(IO_BANK_GPIO5_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1806,9 +1582,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO6_CTRL_FUNCSEL get_GPIO6_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO6_CTRL_FUNCSEL get_GPIO6_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO6_CTRL_FUNCSEL(GPIO6_CTRL & 0b11111u);
+        return IO_BANK_GPIO6_CTRL_FUNCSEL(GPIO6_CTRL & 0b11111u);
     }
 
     /**
@@ -1818,7 +1594,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO6_CTRL_FUNCSEL(
-        IO_BANK0_GPIO6_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO6_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -1831,16 +1607,15 @@ struct io_bank
     /**
      * Get GPIO6_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO6_CTRL_OUTOVER get_GPIO6_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO6_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO6_CTRL_OUTOVER((GPIO6_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO6_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO6_CTRL's OUTOVER field.
      */
-    inline void set_GPIO6_CTRL_OUTOVER(
-        IO_BANK0_GPIO6_CTRL_OUTOVER value) volatile
+    inline void set_GPIO6_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -1853,16 +1628,15 @@ struct io_bank
     /**
      * Get GPIO6_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO6_CTRL_OEOVER get_GPIO6_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO6_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO6_CTRL_OEOVER((GPIO6_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO6_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO6_CTRL's OEOVER field.
      */
-    inline void set_GPIO6_CTRL_OEOVER(
-        IO_BANK0_GPIO6_CTRL_OEOVER value) volatile
+    inline void set_GPIO6_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -1875,16 +1649,15 @@ struct io_bank
     /**
      * Get GPIO6_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO6_CTRL_INOVER get_GPIO6_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO6_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO6_CTRL_INOVER((GPIO6_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO6_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO6_CTRL's INOVER field.
      */
-    inline void set_GPIO6_CTRL_INOVER(
-        IO_BANK0_GPIO6_CTRL_INOVER value) volatile
+    inline void set_GPIO6_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -1897,16 +1670,15 @@ struct io_bank
     /**
      * Get GPIO6_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO6_CTRL_IRQOVER get_GPIO6_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO6_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO6_CTRL_IRQOVER((GPIO6_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO6_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO6_CTRL's IRQOVER field.
      */
-    inline void set_GPIO6_CTRL_IRQOVER(
-        IO_BANK0_GPIO6_CTRL_IRQOVER value) volatile
+    inline void set_GPIO6_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -1919,29 +1691,27 @@ struct io_bank
     /**
      * Get all of GPIO6_CTRL's bit fields.
      */
-    inline void get_GPIO6_CTRL(IO_BANK0_GPIO6_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO6_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO6_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO6_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO6_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO6_CTRL(IO_BANK_GPIO6_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO6_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO6_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO6_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO6_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO6_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO6_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO6_CTRL's bit fields.
      */
-    inline void set_GPIO6_CTRL(IO_BANK0_GPIO6_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO6_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO6_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO6_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO6_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO6_CTRL(IO_BANK_GPIO6_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -2019,9 +1789,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO7_CTRL_FUNCSEL get_GPIO7_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO7_CTRL_FUNCSEL get_GPIO7_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO7_CTRL_FUNCSEL(GPIO7_CTRL & 0b11111u);
+        return IO_BANK_GPIO7_CTRL_FUNCSEL(GPIO7_CTRL & 0b11111u);
     }
 
     /**
@@ -2031,7 +1801,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO7_CTRL_FUNCSEL(
-        IO_BANK0_GPIO7_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO7_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2044,16 +1814,15 @@ struct io_bank
     /**
      * Get GPIO7_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO7_CTRL_OUTOVER get_GPIO7_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO7_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO7_CTRL_OUTOVER((GPIO7_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO7_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO7_CTRL's OUTOVER field.
      */
-    inline void set_GPIO7_CTRL_OUTOVER(
-        IO_BANK0_GPIO7_CTRL_OUTOVER value) volatile
+    inline void set_GPIO7_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2066,16 +1835,15 @@ struct io_bank
     /**
      * Get GPIO7_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO7_CTRL_OEOVER get_GPIO7_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO7_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO7_CTRL_OEOVER((GPIO7_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO7_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO7_CTRL's OEOVER field.
      */
-    inline void set_GPIO7_CTRL_OEOVER(
-        IO_BANK0_GPIO7_CTRL_OEOVER value) volatile
+    inline void set_GPIO7_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2088,16 +1856,15 @@ struct io_bank
     /**
      * Get GPIO7_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO7_CTRL_INOVER get_GPIO7_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO7_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO7_CTRL_INOVER((GPIO7_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO7_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO7_CTRL's INOVER field.
      */
-    inline void set_GPIO7_CTRL_INOVER(
-        IO_BANK0_GPIO7_CTRL_INOVER value) volatile
+    inline void set_GPIO7_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2110,16 +1877,15 @@ struct io_bank
     /**
      * Get GPIO7_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO7_CTRL_IRQOVER get_GPIO7_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO7_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO7_CTRL_IRQOVER((GPIO7_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO7_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO7_CTRL's IRQOVER field.
      */
-    inline void set_GPIO7_CTRL_IRQOVER(
-        IO_BANK0_GPIO7_CTRL_IRQOVER value) volatile
+    inline void set_GPIO7_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2132,29 +1898,27 @@ struct io_bank
     /**
      * Get all of GPIO7_CTRL's bit fields.
      */
-    inline void get_GPIO7_CTRL(IO_BANK0_GPIO7_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO7_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO7_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO7_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO7_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO7_CTRL(IO_BANK_GPIO7_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO7_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO7_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO7_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO7_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO7_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO7_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO7_CTRL's bit fields.
      */
-    inline void set_GPIO7_CTRL(IO_BANK0_GPIO7_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO7_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO7_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO7_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO7_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO7_CTRL(IO_BANK_GPIO7_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2232,9 +1996,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO8_CTRL_FUNCSEL get_GPIO8_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO8_CTRL_FUNCSEL get_GPIO8_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO8_CTRL_FUNCSEL(GPIO8_CTRL & 0b11111u);
+        return IO_BANK_GPIO8_CTRL_FUNCSEL(GPIO8_CTRL & 0b11111u);
     }
 
     /**
@@ -2244,7 +2008,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO8_CTRL_FUNCSEL(
-        IO_BANK0_GPIO8_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO8_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2257,16 +2021,15 @@ struct io_bank
     /**
      * Get GPIO8_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO8_CTRL_OUTOVER get_GPIO8_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO8_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO8_CTRL_OUTOVER((GPIO8_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO8_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO8_CTRL's OUTOVER field.
      */
-    inline void set_GPIO8_CTRL_OUTOVER(
-        IO_BANK0_GPIO8_CTRL_OUTOVER value) volatile
+    inline void set_GPIO8_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2279,16 +2042,15 @@ struct io_bank
     /**
      * Get GPIO8_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO8_CTRL_OEOVER get_GPIO8_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO8_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO8_CTRL_OEOVER((GPIO8_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO8_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO8_CTRL's OEOVER field.
      */
-    inline void set_GPIO8_CTRL_OEOVER(
-        IO_BANK0_GPIO8_CTRL_OEOVER value) volatile
+    inline void set_GPIO8_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2301,16 +2063,15 @@ struct io_bank
     /**
      * Get GPIO8_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO8_CTRL_INOVER get_GPIO8_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO8_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO8_CTRL_INOVER((GPIO8_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO8_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO8_CTRL's INOVER field.
      */
-    inline void set_GPIO8_CTRL_INOVER(
-        IO_BANK0_GPIO8_CTRL_INOVER value) volatile
+    inline void set_GPIO8_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2323,16 +2084,15 @@ struct io_bank
     /**
      * Get GPIO8_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO8_CTRL_IRQOVER get_GPIO8_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO8_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO8_CTRL_IRQOVER((GPIO8_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO8_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO8_CTRL's IRQOVER field.
      */
-    inline void set_GPIO8_CTRL_IRQOVER(
-        IO_BANK0_GPIO8_CTRL_IRQOVER value) volatile
+    inline void set_GPIO8_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2345,29 +2105,27 @@ struct io_bank
     /**
      * Get all of GPIO8_CTRL's bit fields.
      */
-    inline void get_GPIO8_CTRL(IO_BANK0_GPIO8_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO8_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO8_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO8_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO8_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO8_CTRL(IO_BANK_GPIO8_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO8_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO8_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO8_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO8_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO8_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO8_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO8_CTRL's bit fields.
      */
-    inline void set_GPIO8_CTRL(IO_BANK0_GPIO8_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO8_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO8_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO8_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO8_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO8_CTRL(IO_BANK_GPIO8_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2445,9 +2203,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO9_CTRL_FUNCSEL get_GPIO9_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO9_CTRL_FUNCSEL get_GPIO9_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO9_CTRL_FUNCSEL(GPIO9_CTRL & 0b11111u);
+        return IO_BANK_GPIO9_CTRL_FUNCSEL(GPIO9_CTRL & 0b11111u);
     }
 
     /**
@@ -2457,7 +2215,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO9_CTRL_FUNCSEL(
-        IO_BANK0_GPIO9_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO9_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2470,16 +2228,15 @@ struct io_bank
     /**
      * Get GPIO9_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO9_CTRL_OUTOVER get_GPIO9_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO9_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO9_CTRL_OUTOVER((GPIO9_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO9_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO9_CTRL's OUTOVER field.
      */
-    inline void set_GPIO9_CTRL_OUTOVER(
-        IO_BANK0_GPIO9_CTRL_OUTOVER value) volatile
+    inline void set_GPIO9_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2492,16 +2249,15 @@ struct io_bank
     /**
      * Get GPIO9_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO9_CTRL_OEOVER get_GPIO9_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO9_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO9_CTRL_OEOVER((GPIO9_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO9_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO9_CTRL's OEOVER field.
      */
-    inline void set_GPIO9_CTRL_OEOVER(
-        IO_BANK0_GPIO9_CTRL_OEOVER value) volatile
+    inline void set_GPIO9_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2514,16 +2270,15 @@ struct io_bank
     /**
      * Get GPIO9_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO9_CTRL_INOVER get_GPIO9_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO9_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO9_CTRL_INOVER((GPIO9_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO9_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO9_CTRL's INOVER field.
      */
-    inline void set_GPIO9_CTRL_INOVER(
-        IO_BANK0_GPIO9_CTRL_INOVER value) volatile
+    inline void set_GPIO9_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2536,16 +2291,15 @@ struct io_bank
     /**
      * Get GPIO9_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO9_CTRL_IRQOVER get_GPIO9_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO9_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO9_CTRL_IRQOVER((GPIO9_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO9_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO9_CTRL's IRQOVER field.
      */
-    inline void set_GPIO9_CTRL_IRQOVER(
-        IO_BANK0_GPIO9_CTRL_IRQOVER value) volatile
+    inline void set_GPIO9_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2558,29 +2312,27 @@ struct io_bank
     /**
      * Get all of GPIO9_CTRL's bit fields.
      */
-    inline void get_GPIO9_CTRL(IO_BANK0_GPIO9_CTRL_FUNCSEL &FUNCSEL,
-                               IO_BANK0_GPIO9_CTRL_OUTOVER &OUTOVER,
-                               IO_BANK0_GPIO9_CTRL_OEOVER &OEOVER,
-                               IO_BANK0_GPIO9_CTRL_INOVER &INOVER,
-                               IO_BANK0_GPIO9_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO9_CTRL(IO_BANK_GPIO9_CTRL_FUNCSEL &FUNCSEL,
+                               IO_BANK_OUTOVER &OUTOVER,
+                               IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                               IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO9_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO9_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO9_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO9_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO9_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO9_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO9_CTRL's bit fields.
      */
-    inline void set_GPIO9_CTRL(IO_BANK0_GPIO9_CTRL_FUNCSEL FUNCSEL,
-                               IO_BANK0_GPIO9_CTRL_OUTOVER OUTOVER,
-                               IO_BANK0_GPIO9_CTRL_OEOVER OEOVER,
-                               IO_BANK0_GPIO9_CTRL_INOVER INOVER,
-                               IO_BANK0_GPIO9_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO9_CTRL(IO_BANK_GPIO9_CTRL_FUNCSEL FUNCSEL,
+                               IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                               IO_BANK_INOVER INOVER,
+                               IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2658,9 +2410,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO10_CTRL_FUNCSEL get_GPIO10_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO10_CTRL_FUNCSEL get_GPIO10_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO10_CTRL_FUNCSEL(GPIO10_CTRL & 0b11111u);
+        return IO_BANK_GPIO10_CTRL_FUNCSEL(GPIO10_CTRL & 0b11111u);
     }
 
     /**
@@ -2670,7 +2422,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO10_CTRL_FUNCSEL(
-        IO_BANK0_GPIO10_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO10_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2683,16 +2435,15 @@ struct io_bank
     /**
      * Get GPIO10_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO10_CTRL_OUTOVER get_GPIO10_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO10_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO10_CTRL_OUTOVER((GPIO10_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO10_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO10_CTRL's OUTOVER field.
      */
-    inline void set_GPIO10_CTRL_OUTOVER(
-        IO_BANK0_GPIO10_CTRL_OUTOVER value) volatile
+    inline void set_GPIO10_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2705,16 +2456,15 @@ struct io_bank
     /**
      * Get GPIO10_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO10_CTRL_OEOVER get_GPIO10_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO10_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO10_CTRL_OEOVER((GPIO10_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO10_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO10_CTRL's OEOVER field.
      */
-    inline void set_GPIO10_CTRL_OEOVER(
-        IO_BANK0_GPIO10_CTRL_OEOVER value) volatile
+    inline void set_GPIO10_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2727,16 +2477,15 @@ struct io_bank
     /**
      * Get GPIO10_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO10_CTRL_INOVER get_GPIO10_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO10_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO10_CTRL_INOVER((GPIO10_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO10_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO10_CTRL's INOVER field.
      */
-    inline void set_GPIO10_CTRL_INOVER(
-        IO_BANK0_GPIO10_CTRL_INOVER value) volatile
+    inline void set_GPIO10_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2749,16 +2498,15 @@ struct io_bank
     /**
      * Get GPIO10_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO10_CTRL_IRQOVER get_GPIO10_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO10_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO10_CTRL_IRQOVER((GPIO10_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO10_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO10_CTRL's IRQOVER field.
      */
-    inline void set_GPIO10_CTRL_IRQOVER(
-        IO_BANK0_GPIO10_CTRL_IRQOVER value) volatile
+    inline void set_GPIO10_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2771,29 +2519,27 @@ struct io_bank
     /**
      * Get all of GPIO10_CTRL's bit fields.
      */
-    inline void get_GPIO10_CTRL(IO_BANK0_GPIO10_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO10_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO10_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO10_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO10_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO10_CTRL(IO_BANK_GPIO10_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO10_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO10_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO10_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO10_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO10_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO10_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO10_CTRL's bit fields.
      */
-    inline void set_GPIO10_CTRL(IO_BANK0_GPIO10_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO10_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO10_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO10_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO10_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO10_CTRL(IO_BANK_GPIO10_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2871,9 +2617,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO11_CTRL_FUNCSEL get_GPIO11_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO11_CTRL_FUNCSEL get_GPIO11_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO11_CTRL_FUNCSEL(GPIO11_CTRL & 0b11111u);
+        return IO_BANK_GPIO11_CTRL_FUNCSEL(GPIO11_CTRL & 0b11111u);
     }
 
     /**
@@ -2883,7 +2629,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO11_CTRL_FUNCSEL(
-        IO_BANK0_GPIO11_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO11_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -2896,16 +2642,15 @@ struct io_bank
     /**
      * Get GPIO11_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO11_CTRL_OUTOVER get_GPIO11_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO11_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO11_CTRL_OUTOVER((GPIO11_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO11_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO11_CTRL's OUTOVER field.
      */
-    inline void set_GPIO11_CTRL_OUTOVER(
-        IO_BANK0_GPIO11_CTRL_OUTOVER value) volatile
+    inline void set_GPIO11_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -2918,16 +2663,15 @@ struct io_bank
     /**
      * Get GPIO11_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO11_CTRL_OEOVER get_GPIO11_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO11_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO11_CTRL_OEOVER((GPIO11_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO11_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO11_CTRL's OEOVER field.
      */
-    inline void set_GPIO11_CTRL_OEOVER(
-        IO_BANK0_GPIO11_CTRL_OEOVER value) volatile
+    inline void set_GPIO11_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -2940,16 +2684,15 @@ struct io_bank
     /**
      * Get GPIO11_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO11_CTRL_INOVER get_GPIO11_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO11_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO11_CTRL_INOVER((GPIO11_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO11_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO11_CTRL's INOVER field.
      */
-    inline void set_GPIO11_CTRL_INOVER(
-        IO_BANK0_GPIO11_CTRL_INOVER value) volatile
+    inline void set_GPIO11_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -2962,16 +2705,15 @@ struct io_bank
     /**
      * Get GPIO11_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO11_CTRL_IRQOVER get_GPIO11_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO11_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO11_CTRL_IRQOVER((GPIO11_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO11_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO11_CTRL's IRQOVER field.
      */
-    inline void set_GPIO11_CTRL_IRQOVER(
-        IO_BANK0_GPIO11_CTRL_IRQOVER value) volatile
+    inline void set_GPIO11_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -2984,29 +2726,27 @@ struct io_bank
     /**
      * Get all of GPIO11_CTRL's bit fields.
      */
-    inline void get_GPIO11_CTRL(IO_BANK0_GPIO11_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO11_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO11_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO11_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO11_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO11_CTRL(IO_BANK_GPIO11_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO11_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO11_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO11_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO11_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO11_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO11_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO11_CTRL's bit fields.
      */
-    inline void set_GPIO11_CTRL(IO_BANK0_GPIO11_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO11_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO11_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO11_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO11_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO11_CTRL(IO_BANK_GPIO11_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -3084,9 +2824,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO12_CTRL_FUNCSEL get_GPIO12_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO12_CTRL_FUNCSEL get_GPIO12_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO12_CTRL_FUNCSEL(GPIO12_CTRL & 0b11111u);
+        return IO_BANK_GPIO12_CTRL_FUNCSEL(GPIO12_CTRL & 0b11111u);
     }
 
     /**
@@ -3096,7 +2836,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO12_CTRL_FUNCSEL(
-        IO_BANK0_GPIO12_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO12_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3109,16 +2849,15 @@ struct io_bank
     /**
      * Get GPIO12_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO12_CTRL_OUTOVER get_GPIO12_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO12_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO12_CTRL_OUTOVER((GPIO12_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO12_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO12_CTRL's OUTOVER field.
      */
-    inline void set_GPIO12_CTRL_OUTOVER(
-        IO_BANK0_GPIO12_CTRL_OUTOVER value) volatile
+    inline void set_GPIO12_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3131,16 +2870,15 @@ struct io_bank
     /**
      * Get GPIO12_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO12_CTRL_OEOVER get_GPIO12_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO12_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO12_CTRL_OEOVER((GPIO12_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO12_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO12_CTRL's OEOVER field.
      */
-    inline void set_GPIO12_CTRL_OEOVER(
-        IO_BANK0_GPIO12_CTRL_OEOVER value) volatile
+    inline void set_GPIO12_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3153,16 +2891,15 @@ struct io_bank
     /**
      * Get GPIO12_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO12_CTRL_INOVER get_GPIO12_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO12_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO12_CTRL_INOVER((GPIO12_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO12_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO12_CTRL's INOVER field.
      */
-    inline void set_GPIO12_CTRL_INOVER(
-        IO_BANK0_GPIO12_CTRL_INOVER value) volatile
+    inline void set_GPIO12_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3175,16 +2912,15 @@ struct io_bank
     /**
      * Get GPIO12_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO12_CTRL_IRQOVER get_GPIO12_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO12_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO12_CTRL_IRQOVER((GPIO12_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO12_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO12_CTRL's IRQOVER field.
      */
-    inline void set_GPIO12_CTRL_IRQOVER(
-        IO_BANK0_GPIO12_CTRL_IRQOVER value) volatile
+    inline void set_GPIO12_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3197,29 +2933,27 @@ struct io_bank
     /**
      * Get all of GPIO12_CTRL's bit fields.
      */
-    inline void get_GPIO12_CTRL(IO_BANK0_GPIO12_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO12_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO12_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO12_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO12_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO12_CTRL(IO_BANK_GPIO12_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO12_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO12_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO12_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO12_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO12_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO12_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO12_CTRL's bit fields.
      */
-    inline void set_GPIO12_CTRL(IO_BANK0_GPIO12_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO12_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO12_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO12_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO12_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO12_CTRL(IO_BANK_GPIO12_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3297,9 +3031,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO13_CTRL_FUNCSEL get_GPIO13_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO13_CTRL_FUNCSEL get_GPIO13_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO13_CTRL_FUNCSEL(GPIO13_CTRL & 0b11111u);
+        return IO_BANK_GPIO13_CTRL_FUNCSEL(GPIO13_CTRL & 0b11111u);
     }
 
     /**
@@ -3309,7 +3043,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO13_CTRL_FUNCSEL(
-        IO_BANK0_GPIO13_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO13_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3322,16 +3056,15 @@ struct io_bank
     /**
      * Get GPIO13_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO13_CTRL_OUTOVER get_GPIO13_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO13_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO13_CTRL_OUTOVER((GPIO13_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO13_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO13_CTRL's OUTOVER field.
      */
-    inline void set_GPIO13_CTRL_OUTOVER(
-        IO_BANK0_GPIO13_CTRL_OUTOVER value) volatile
+    inline void set_GPIO13_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3344,16 +3077,15 @@ struct io_bank
     /**
      * Get GPIO13_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO13_CTRL_OEOVER get_GPIO13_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO13_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO13_CTRL_OEOVER((GPIO13_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO13_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO13_CTRL's OEOVER field.
      */
-    inline void set_GPIO13_CTRL_OEOVER(
-        IO_BANK0_GPIO13_CTRL_OEOVER value) volatile
+    inline void set_GPIO13_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3366,16 +3098,15 @@ struct io_bank
     /**
      * Get GPIO13_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO13_CTRL_INOVER get_GPIO13_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO13_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO13_CTRL_INOVER((GPIO13_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO13_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO13_CTRL's INOVER field.
      */
-    inline void set_GPIO13_CTRL_INOVER(
-        IO_BANK0_GPIO13_CTRL_INOVER value) volatile
+    inline void set_GPIO13_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3388,16 +3119,15 @@ struct io_bank
     /**
      * Get GPIO13_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO13_CTRL_IRQOVER get_GPIO13_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO13_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO13_CTRL_IRQOVER((GPIO13_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO13_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO13_CTRL's IRQOVER field.
      */
-    inline void set_GPIO13_CTRL_IRQOVER(
-        IO_BANK0_GPIO13_CTRL_IRQOVER value) volatile
+    inline void set_GPIO13_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3410,29 +3140,27 @@ struct io_bank
     /**
      * Get all of GPIO13_CTRL's bit fields.
      */
-    inline void get_GPIO13_CTRL(IO_BANK0_GPIO13_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO13_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO13_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO13_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO13_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO13_CTRL(IO_BANK_GPIO13_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO13_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO13_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO13_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO13_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO13_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO13_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO13_CTRL's bit fields.
      */
-    inline void set_GPIO13_CTRL(IO_BANK0_GPIO13_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO13_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO13_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO13_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO13_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO13_CTRL(IO_BANK_GPIO13_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3510,9 +3238,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO14_CTRL_FUNCSEL get_GPIO14_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO14_CTRL_FUNCSEL get_GPIO14_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO14_CTRL_FUNCSEL(GPIO14_CTRL & 0b11111u);
+        return IO_BANK_GPIO14_CTRL_FUNCSEL(GPIO14_CTRL & 0b11111u);
     }
 
     /**
@@ -3522,7 +3250,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO14_CTRL_FUNCSEL(
-        IO_BANK0_GPIO14_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO14_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3535,16 +3263,15 @@ struct io_bank
     /**
      * Get GPIO14_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO14_CTRL_OUTOVER get_GPIO14_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO14_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO14_CTRL_OUTOVER((GPIO14_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO14_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO14_CTRL's OUTOVER field.
      */
-    inline void set_GPIO14_CTRL_OUTOVER(
-        IO_BANK0_GPIO14_CTRL_OUTOVER value) volatile
+    inline void set_GPIO14_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3557,16 +3284,15 @@ struct io_bank
     /**
      * Get GPIO14_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO14_CTRL_OEOVER get_GPIO14_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO14_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO14_CTRL_OEOVER((GPIO14_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO14_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO14_CTRL's OEOVER field.
      */
-    inline void set_GPIO14_CTRL_OEOVER(
-        IO_BANK0_GPIO14_CTRL_OEOVER value) volatile
+    inline void set_GPIO14_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3579,16 +3305,15 @@ struct io_bank
     /**
      * Get GPIO14_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO14_CTRL_INOVER get_GPIO14_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO14_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO14_CTRL_INOVER((GPIO14_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO14_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO14_CTRL's INOVER field.
      */
-    inline void set_GPIO14_CTRL_INOVER(
-        IO_BANK0_GPIO14_CTRL_INOVER value) volatile
+    inline void set_GPIO14_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3601,16 +3326,15 @@ struct io_bank
     /**
      * Get GPIO14_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO14_CTRL_IRQOVER get_GPIO14_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO14_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO14_CTRL_IRQOVER((GPIO14_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO14_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO14_CTRL's IRQOVER field.
      */
-    inline void set_GPIO14_CTRL_IRQOVER(
-        IO_BANK0_GPIO14_CTRL_IRQOVER value) volatile
+    inline void set_GPIO14_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3623,29 +3347,27 @@ struct io_bank
     /**
      * Get all of GPIO14_CTRL's bit fields.
      */
-    inline void get_GPIO14_CTRL(IO_BANK0_GPIO14_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO14_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO14_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO14_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO14_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO14_CTRL(IO_BANK_GPIO14_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO14_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO14_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO14_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO14_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO14_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO14_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO14_CTRL's bit fields.
      */
-    inline void set_GPIO14_CTRL(IO_BANK0_GPIO14_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO14_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO14_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO14_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO14_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO14_CTRL(IO_BANK_GPIO14_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3723,9 +3445,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO15_CTRL_FUNCSEL get_GPIO15_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO15_CTRL_FUNCSEL get_GPIO15_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO15_CTRL_FUNCSEL(GPIO15_CTRL & 0b11111u);
+        return IO_BANK_GPIO15_CTRL_FUNCSEL(GPIO15_CTRL & 0b11111u);
     }
 
     /**
@@ -3735,7 +3457,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO15_CTRL_FUNCSEL(
-        IO_BANK0_GPIO15_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO15_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -3748,16 +3470,15 @@ struct io_bank
     /**
      * Get GPIO15_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO15_CTRL_OUTOVER get_GPIO15_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO15_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO15_CTRL_OUTOVER((GPIO15_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO15_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO15_CTRL's OUTOVER field.
      */
-    inline void set_GPIO15_CTRL_OUTOVER(
-        IO_BANK0_GPIO15_CTRL_OUTOVER value) volatile
+    inline void set_GPIO15_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -3770,16 +3491,15 @@ struct io_bank
     /**
      * Get GPIO15_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO15_CTRL_OEOVER get_GPIO15_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO15_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO15_CTRL_OEOVER((GPIO15_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO15_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO15_CTRL's OEOVER field.
      */
-    inline void set_GPIO15_CTRL_OEOVER(
-        IO_BANK0_GPIO15_CTRL_OEOVER value) volatile
+    inline void set_GPIO15_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -3792,16 +3512,15 @@ struct io_bank
     /**
      * Get GPIO15_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO15_CTRL_INOVER get_GPIO15_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO15_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO15_CTRL_INOVER((GPIO15_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO15_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO15_CTRL's INOVER field.
      */
-    inline void set_GPIO15_CTRL_INOVER(
-        IO_BANK0_GPIO15_CTRL_INOVER value) volatile
+    inline void set_GPIO15_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -3814,16 +3533,15 @@ struct io_bank
     /**
      * Get GPIO15_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO15_CTRL_IRQOVER get_GPIO15_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO15_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO15_CTRL_IRQOVER((GPIO15_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO15_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO15_CTRL's IRQOVER field.
      */
-    inline void set_GPIO15_CTRL_IRQOVER(
-        IO_BANK0_GPIO15_CTRL_IRQOVER value) volatile
+    inline void set_GPIO15_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -3836,29 +3554,27 @@ struct io_bank
     /**
      * Get all of GPIO15_CTRL's bit fields.
      */
-    inline void get_GPIO15_CTRL(IO_BANK0_GPIO15_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO15_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO15_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO15_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO15_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO15_CTRL(IO_BANK_GPIO15_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO15_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO15_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO15_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO15_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO15_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO15_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO15_CTRL's bit fields.
      */
-    inline void set_GPIO15_CTRL(IO_BANK0_GPIO15_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO15_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO15_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO15_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO15_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO15_CTRL(IO_BANK_GPIO15_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -3936,9 +3652,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO16_CTRL_FUNCSEL get_GPIO16_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO16_CTRL_FUNCSEL get_GPIO16_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO16_CTRL_FUNCSEL(GPIO16_CTRL & 0b11111u);
+        return IO_BANK_GPIO16_CTRL_FUNCSEL(GPIO16_CTRL & 0b11111u);
     }
 
     /**
@@ -3948,7 +3664,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO16_CTRL_FUNCSEL(
-        IO_BANK0_GPIO16_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO16_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -3961,16 +3677,15 @@ struct io_bank
     /**
      * Get GPIO16_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO16_CTRL_OUTOVER get_GPIO16_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO16_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO16_CTRL_OUTOVER((GPIO16_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO16_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO16_CTRL's OUTOVER field.
      */
-    inline void set_GPIO16_CTRL_OUTOVER(
-        IO_BANK0_GPIO16_CTRL_OUTOVER value) volatile
+    inline void set_GPIO16_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -3983,16 +3698,15 @@ struct io_bank
     /**
      * Get GPIO16_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO16_CTRL_OEOVER get_GPIO16_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO16_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO16_CTRL_OEOVER((GPIO16_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO16_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO16_CTRL's OEOVER field.
      */
-    inline void set_GPIO16_CTRL_OEOVER(
-        IO_BANK0_GPIO16_CTRL_OEOVER value) volatile
+    inline void set_GPIO16_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -4005,16 +3719,15 @@ struct io_bank
     /**
      * Get GPIO16_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO16_CTRL_INOVER get_GPIO16_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO16_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO16_CTRL_INOVER((GPIO16_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO16_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO16_CTRL's INOVER field.
      */
-    inline void set_GPIO16_CTRL_INOVER(
-        IO_BANK0_GPIO16_CTRL_INOVER value) volatile
+    inline void set_GPIO16_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -4027,16 +3740,15 @@ struct io_bank
     /**
      * Get GPIO16_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO16_CTRL_IRQOVER get_GPIO16_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO16_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO16_CTRL_IRQOVER((GPIO16_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO16_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO16_CTRL's IRQOVER field.
      */
-    inline void set_GPIO16_CTRL_IRQOVER(
-        IO_BANK0_GPIO16_CTRL_IRQOVER value) volatile
+    inline void set_GPIO16_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -4049,29 +3761,27 @@ struct io_bank
     /**
      * Get all of GPIO16_CTRL's bit fields.
      */
-    inline void get_GPIO16_CTRL(IO_BANK0_GPIO16_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO16_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO16_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO16_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO16_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO16_CTRL(IO_BANK_GPIO16_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO16_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO16_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO16_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO16_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO16_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO16_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO16_CTRL's bit fields.
      */
-    inline void set_GPIO16_CTRL(IO_BANK0_GPIO16_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO16_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO16_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO16_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO16_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO16_CTRL(IO_BANK_GPIO16_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -4149,9 +3859,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO17_CTRL_FUNCSEL get_GPIO17_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO17_CTRL_FUNCSEL get_GPIO17_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO17_CTRL_FUNCSEL(GPIO17_CTRL & 0b11111u);
+        return IO_BANK_GPIO17_CTRL_FUNCSEL(GPIO17_CTRL & 0b11111u);
     }
 
     /**
@@ -4161,7 +3871,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO17_CTRL_FUNCSEL(
-        IO_BANK0_GPIO17_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO17_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4174,16 +3884,15 @@ struct io_bank
     /**
      * Get GPIO17_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO17_CTRL_OUTOVER get_GPIO17_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO17_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO17_CTRL_OUTOVER((GPIO17_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO17_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO17_CTRL's OUTOVER field.
      */
-    inline void set_GPIO17_CTRL_OUTOVER(
-        IO_BANK0_GPIO17_CTRL_OUTOVER value) volatile
+    inline void set_GPIO17_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4196,16 +3905,15 @@ struct io_bank
     /**
      * Get GPIO17_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO17_CTRL_OEOVER get_GPIO17_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO17_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO17_CTRL_OEOVER((GPIO17_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO17_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO17_CTRL's OEOVER field.
      */
-    inline void set_GPIO17_CTRL_OEOVER(
-        IO_BANK0_GPIO17_CTRL_OEOVER value) volatile
+    inline void set_GPIO17_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4218,16 +3926,15 @@ struct io_bank
     /**
      * Get GPIO17_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO17_CTRL_INOVER get_GPIO17_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO17_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO17_CTRL_INOVER((GPIO17_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO17_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO17_CTRL's INOVER field.
      */
-    inline void set_GPIO17_CTRL_INOVER(
-        IO_BANK0_GPIO17_CTRL_INOVER value) volatile
+    inline void set_GPIO17_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4240,16 +3947,15 @@ struct io_bank
     /**
      * Get GPIO17_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO17_CTRL_IRQOVER get_GPIO17_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO17_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO17_CTRL_IRQOVER((GPIO17_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO17_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO17_CTRL's IRQOVER field.
      */
-    inline void set_GPIO17_CTRL_IRQOVER(
-        IO_BANK0_GPIO17_CTRL_IRQOVER value) volatile
+    inline void set_GPIO17_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4262,29 +3968,27 @@ struct io_bank
     /**
      * Get all of GPIO17_CTRL's bit fields.
      */
-    inline void get_GPIO17_CTRL(IO_BANK0_GPIO17_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO17_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO17_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO17_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO17_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO17_CTRL(IO_BANK_GPIO17_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO17_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO17_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO17_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO17_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO17_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO17_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO17_CTRL's bit fields.
      */
-    inline void set_GPIO17_CTRL(IO_BANK0_GPIO17_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO17_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO17_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO17_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO17_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO17_CTRL(IO_BANK_GPIO17_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4362,9 +4066,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO18_CTRL_FUNCSEL get_GPIO18_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO18_CTRL_FUNCSEL get_GPIO18_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO18_CTRL_FUNCSEL(GPIO18_CTRL & 0b11111u);
+        return IO_BANK_GPIO18_CTRL_FUNCSEL(GPIO18_CTRL & 0b11111u);
     }
 
     /**
@@ -4374,7 +4078,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO18_CTRL_FUNCSEL(
-        IO_BANK0_GPIO18_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO18_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4387,16 +4091,15 @@ struct io_bank
     /**
      * Get GPIO18_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO18_CTRL_OUTOVER get_GPIO18_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO18_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO18_CTRL_OUTOVER((GPIO18_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO18_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO18_CTRL's OUTOVER field.
      */
-    inline void set_GPIO18_CTRL_OUTOVER(
-        IO_BANK0_GPIO18_CTRL_OUTOVER value) volatile
+    inline void set_GPIO18_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4409,16 +4112,15 @@ struct io_bank
     /**
      * Get GPIO18_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO18_CTRL_OEOVER get_GPIO18_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO18_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO18_CTRL_OEOVER((GPIO18_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO18_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO18_CTRL's OEOVER field.
      */
-    inline void set_GPIO18_CTRL_OEOVER(
-        IO_BANK0_GPIO18_CTRL_OEOVER value) volatile
+    inline void set_GPIO18_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4431,16 +4133,15 @@ struct io_bank
     /**
      * Get GPIO18_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO18_CTRL_INOVER get_GPIO18_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO18_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO18_CTRL_INOVER((GPIO18_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO18_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO18_CTRL's INOVER field.
      */
-    inline void set_GPIO18_CTRL_INOVER(
-        IO_BANK0_GPIO18_CTRL_INOVER value) volatile
+    inline void set_GPIO18_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4453,16 +4154,15 @@ struct io_bank
     /**
      * Get GPIO18_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO18_CTRL_IRQOVER get_GPIO18_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO18_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO18_CTRL_IRQOVER((GPIO18_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO18_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO18_CTRL's IRQOVER field.
      */
-    inline void set_GPIO18_CTRL_IRQOVER(
-        IO_BANK0_GPIO18_CTRL_IRQOVER value) volatile
+    inline void set_GPIO18_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4475,29 +4175,27 @@ struct io_bank
     /**
      * Get all of GPIO18_CTRL's bit fields.
      */
-    inline void get_GPIO18_CTRL(IO_BANK0_GPIO18_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO18_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO18_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO18_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO18_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO18_CTRL(IO_BANK_GPIO18_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO18_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO18_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO18_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO18_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO18_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO18_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO18_CTRL's bit fields.
      */
-    inline void set_GPIO18_CTRL(IO_BANK0_GPIO18_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO18_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO18_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO18_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO18_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO18_CTRL(IO_BANK_GPIO18_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4575,9 +4273,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO19_CTRL_FUNCSEL get_GPIO19_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO19_CTRL_FUNCSEL get_GPIO19_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO19_CTRL_FUNCSEL(GPIO19_CTRL & 0b11111u);
+        return IO_BANK_GPIO19_CTRL_FUNCSEL(GPIO19_CTRL & 0b11111u);
     }
 
     /**
@@ -4587,7 +4285,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO19_CTRL_FUNCSEL(
-        IO_BANK0_GPIO19_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO19_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -4600,16 +4298,15 @@ struct io_bank
     /**
      * Get GPIO19_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO19_CTRL_OUTOVER get_GPIO19_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO19_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO19_CTRL_OUTOVER((GPIO19_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO19_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO19_CTRL's OUTOVER field.
      */
-    inline void set_GPIO19_CTRL_OUTOVER(
-        IO_BANK0_GPIO19_CTRL_OUTOVER value) volatile
+    inline void set_GPIO19_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -4622,16 +4319,15 @@ struct io_bank
     /**
      * Get GPIO19_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO19_CTRL_OEOVER get_GPIO19_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO19_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO19_CTRL_OEOVER((GPIO19_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO19_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO19_CTRL's OEOVER field.
      */
-    inline void set_GPIO19_CTRL_OEOVER(
-        IO_BANK0_GPIO19_CTRL_OEOVER value) volatile
+    inline void set_GPIO19_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -4644,16 +4340,15 @@ struct io_bank
     /**
      * Get GPIO19_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO19_CTRL_INOVER get_GPIO19_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO19_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO19_CTRL_INOVER((GPIO19_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO19_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO19_CTRL's INOVER field.
      */
-    inline void set_GPIO19_CTRL_INOVER(
-        IO_BANK0_GPIO19_CTRL_INOVER value) volatile
+    inline void set_GPIO19_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -4666,16 +4361,15 @@ struct io_bank
     /**
      * Get GPIO19_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO19_CTRL_IRQOVER get_GPIO19_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO19_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO19_CTRL_IRQOVER((GPIO19_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO19_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO19_CTRL's IRQOVER field.
      */
-    inline void set_GPIO19_CTRL_IRQOVER(
-        IO_BANK0_GPIO19_CTRL_IRQOVER value) volatile
+    inline void set_GPIO19_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -4688,29 +4382,27 @@ struct io_bank
     /**
      * Get all of GPIO19_CTRL's bit fields.
      */
-    inline void get_GPIO19_CTRL(IO_BANK0_GPIO19_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO19_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO19_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO19_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO19_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO19_CTRL(IO_BANK_GPIO19_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO19_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO19_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO19_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO19_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO19_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO19_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO19_CTRL's bit fields.
      */
-    inline void set_GPIO19_CTRL(IO_BANK0_GPIO19_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO19_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO19_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO19_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO19_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO19_CTRL(IO_BANK_GPIO19_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -4788,9 +4480,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO20_CTRL_FUNCSEL get_GPIO20_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO20_CTRL_FUNCSEL get_GPIO20_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO20_CTRL_FUNCSEL(GPIO20_CTRL & 0b11111u);
+        return IO_BANK_GPIO20_CTRL_FUNCSEL(GPIO20_CTRL & 0b11111u);
     }
 
     /**
@@ -4800,7 +4492,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO20_CTRL_FUNCSEL(
-        IO_BANK0_GPIO20_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO20_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -4813,16 +4505,15 @@ struct io_bank
     /**
      * Get GPIO20_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO20_CTRL_OUTOVER get_GPIO20_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO20_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO20_CTRL_OUTOVER((GPIO20_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO20_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO20_CTRL's OUTOVER field.
      */
-    inline void set_GPIO20_CTRL_OUTOVER(
-        IO_BANK0_GPIO20_CTRL_OUTOVER value) volatile
+    inline void set_GPIO20_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -4835,16 +4526,15 @@ struct io_bank
     /**
      * Get GPIO20_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO20_CTRL_OEOVER get_GPIO20_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO20_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO20_CTRL_OEOVER((GPIO20_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO20_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO20_CTRL's OEOVER field.
      */
-    inline void set_GPIO20_CTRL_OEOVER(
-        IO_BANK0_GPIO20_CTRL_OEOVER value) volatile
+    inline void set_GPIO20_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -4857,16 +4547,15 @@ struct io_bank
     /**
      * Get GPIO20_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO20_CTRL_INOVER get_GPIO20_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO20_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO20_CTRL_INOVER((GPIO20_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO20_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO20_CTRL's INOVER field.
      */
-    inline void set_GPIO20_CTRL_INOVER(
-        IO_BANK0_GPIO20_CTRL_INOVER value) volatile
+    inline void set_GPIO20_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -4879,16 +4568,15 @@ struct io_bank
     /**
      * Get GPIO20_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO20_CTRL_IRQOVER get_GPIO20_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO20_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO20_CTRL_IRQOVER((GPIO20_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO20_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO20_CTRL's IRQOVER field.
      */
-    inline void set_GPIO20_CTRL_IRQOVER(
-        IO_BANK0_GPIO20_CTRL_IRQOVER value) volatile
+    inline void set_GPIO20_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -4901,29 +4589,27 @@ struct io_bank
     /**
      * Get all of GPIO20_CTRL's bit fields.
      */
-    inline void get_GPIO20_CTRL(IO_BANK0_GPIO20_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO20_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO20_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO20_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO20_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO20_CTRL(IO_BANK_GPIO20_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO20_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO20_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO20_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO20_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO20_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO20_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO20_CTRL's bit fields.
      */
-    inline void set_GPIO20_CTRL(IO_BANK0_GPIO20_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO20_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO20_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO20_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO20_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO20_CTRL(IO_BANK_GPIO20_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -5001,9 +4687,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO21_CTRL_FUNCSEL get_GPIO21_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO21_CTRL_FUNCSEL get_GPIO21_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO21_CTRL_FUNCSEL(GPIO21_CTRL & 0b11111u);
+        return IO_BANK_GPIO21_CTRL_FUNCSEL(GPIO21_CTRL & 0b11111u);
     }
 
     /**
@@ -5013,7 +4699,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO21_CTRL_FUNCSEL(
-        IO_BANK0_GPIO21_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO21_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5026,16 +4712,15 @@ struct io_bank
     /**
      * Get GPIO21_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO21_CTRL_OUTOVER get_GPIO21_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO21_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO21_CTRL_OUTOVER((GPIO21_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO21_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO21_CTRL's OUTOVER field.
      */
-    inline void set_GPIO21_CTRL_OUTOVER(
-        IO_BANK0_GPIO21_CTRL_OUTOVER value) volatile
+    inline void set_GPIO21_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5048,16 +4733,15 @@ struct io_bank
     /**
      * Get GPIO21_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO21_CTRL_OEOVER get_GPIO21_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO21_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO21_CTRL_OEOVER((GPIO21_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO21_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO21_CTRL's OEOVER field.
      */
-    inline void set_GPIO21_CTRL_OEOVER(
-        IO_BANK0_GPIO21_CTRL_OEOVER value) volatile
+    inline void set_GPIO21_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5070,16 +4754,15 @@ struct io_bank
     /**
      * Get GPIO21_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO21_CTRL_INOVER get_GPIO21_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO21_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO21_CTRL_INOVER((GPIO21_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO21_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO21_CTRL's INOVER field.
      */
-    inline void set_GPIO21_CTRL_INOVER(
-        IO_BANK0_GPIO21_CTRL_INOVER value) volatile
+    inline void set_GPIO21_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5092,16 +4775,15 @@ struct io_bank
     /**
      * Get GPIO21_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO21_CTRL_IRQOVER get_GPIO21_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO21_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO21_CTRL_IRQOVER((GPIO21_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO21_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO21_CTRL's IRQOVER field.
      */
-    inline void set_GPIO21_CTRL_IRQOVER(
-        IO_BANK0_GPIO21_CTRL_IRQOVER value) volatile
+    inline void set_GPIO21_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5114,29 +4796,27 @@ struct io_bank
     /**
      * Get all of GPIO21_CTRL's bit fields.
      */
-    inline void get_GPIO21_CTRL(IO_BANK0_GPIO21_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO21_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO21_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO21_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO21_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO21_CTRL(IO_BANK_GPIO21_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO21_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO21_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO21_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO21_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO21_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO21_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO21_CTRL's bit fields.
      */
-    inline void set_GPIO21_CTRL(IO_BANK0_GPIO21_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO21_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO21_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO21_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO21_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO21_CTRL(IO_BANK_GPIO21_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5214,9 +4894,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO22_CTRL_FUNCSEL get_GPIO22_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO22_CTRL_FUNCSEL get_GPIO22_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO22_CTRL_FUNCSEL(GPIO22_CTRL & 0b11111u);
+        return IO_BANK_GPIO22_CTRL_FUNCSEL(GPIO22_CTRL & 0b11111u);
     }
 
     /**
@@ -5226,7 +4906,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO22_CTRL_FUNCSEL(
-        IO_BANK0_GPIO22_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO22_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5239,16 +4919,15 @@ struct io_bank
     /**
      * Get GPIO22_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO22_CTRL_OUTOVER get_GPIO22_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO22_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO22_CTRL_OUTOVER((GPIO22_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO22_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO22_CTRL's OUTOVER field.
      */
-    inline void set_GPIO22_CTRL_OUTOVER(
-        IO_BANK0_GPIO22_CTRL_OUTOVER value) volatile
+    inline void set_GPIO22_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5261,16 +4940,15 @@ struct io_bank
     /**
      * Get GPIO22_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO22_CTRL_OEOVER get_GPIO22_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO22_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO22_CTRL_OEOVER((GPIO22_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO22_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO22_CTRL's OEOVER field.
      */
-    inline void set_GPIO22_CTRL_OEOVER(
-        IO_BANK0_GPIO22_CTRL_OEOVER value) volatile
+    inline void set_GPIO22_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5283,16 +4961,15 @@ struct io_bank
     /**
      * Get GPIO22_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO22_CTRL_INOVER get_GPIO22_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO22_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO22_CTRL_INOVER((GPIO22_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO22_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO22_CTRL's INOVER field.
      */
-    inline void set_GPIO22_CTRL_INOVER(
-        IO_BANK0_GPIO22_CTRL_INOVER value) volatile
+    inline void set_GPIO22_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5305,16 +4982,15 @@ struct io_bank
     /**
      * Get GPIO22_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO22_CTRL_IRQOVER get_GPIO22_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO22_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO22_CTRL_IRQOVER((GPIO22_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO22_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO22_CTRL's IRQOVER field.
      */
-    inline void set_GPIO22_CTRL_IRQOVER(
-        IO_BANK0_GPIO22_CTRL_IRQOVER value) volatile
+    inline void set_GPIO22_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5327,29 +5003,27 @@ struct io_bank
     /**
      * Get all of GPIO22_CTRL's bit fields.
      */
-    inline void get_GPIO22_CTRL(IO_BANK0_GPIO22_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO22_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO22_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO22_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO22_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO22_CTRL(IO_BANK_GPIO22_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO22_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO22_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO22_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO22_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO22_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO22_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO22_CTRL's bit fields.
      */
-    inline void set_GPIO22_CTRL(IO_BANK0_GPIO22_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO22_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO22_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO22_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO22_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO22_CTRL(IO_BANK_GPIO22_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5427,9 +5101,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO23_CTRL_FUNCSEL get_GPIO23_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO23_CTRL_FUNCSEL get_GPIO23_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO23_CTRL_FUNCSEL(GPIO23_CTRL & 0b11111u);
+        return IO_BANK_GPIO23_CTRL_FUNCSEL(GPIO23_CTRL & 0b11111u);
     }
 
     /**
@@ -5439,7 +5113,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO23_CTRL_FUNCSEL(
-        IO_BANK0_GPIO23_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO23_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -5452,16 +5126,15 @@ struct io_bank
     /**
      * Get GPIO23_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO23_CTRL_OUTOVER get_GPIO23_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO23_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO23_CTRL_OUTOVER((GPIO23_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO23_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO23_CTRL's OUTOVER field.
      */
-    inline void set_GPIO23_CTRL_OUTOVER(
-        IO_BANK0_GPIO23_CTRL_OUTOVER value) volatile
+    inline void set_GPIO23_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -5474,16 +5147,15 @@ struct io_bank
     /**
      * Get GPIO23_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO23_CTRL_OEOVER get_GPIO23_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO23_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO23_CTRL_OEOVER((GPIO23_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO23_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO23_CTRL's OEOVER field.
      */
-    inline void set_GPIO23_CTRL_OEOVER(
-        IO_BANK0_GPIO23_CTRL_OEOVER value) volatile
+    inline void set_GPIO23_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -5496,16 +5168,15 @@ struct io_bank
     /**
      * Get GPIO23_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO23_CTRL_INOVER get_GPIO23_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO23_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO23_CTRL_INOVER((GPIO23_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO23_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO23_CTRL's INOVER field.
      */
-    inline void set_GPIO23_CTRL_INOVER(
-        IO_BANK0_GPIO23_CTRL_INOVER value) volatile
+    inline void set_GPIO23_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -5518,16 +5189,15 @@ struct io_bank
     /**
      * Get GPIO23_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO23_CTRL_IRQOVER get_GPIO23_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO23_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO23_CTRL_IRQOVER((GPIO23_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO23_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO23_CTRL's IRQOVER field.
      */
-    inline void set_GPIO23_CTRL_IRQOVER(
-        IO_BANK0_GPIO23_CTRL_IRQOVER value) volatile
+    inline void set_GPIO23_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -5540,29 +5210,27 @@ struct io_bank
     /**
      * Get all of GPIO23_CTRL's bit fields.
      */
-    inline void get_GPIO23_CTRL(IO_BANK0_GPIO23_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO23_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO23_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO23_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO23_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO23_CTRL(IO_BANK_GPIO23_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO23_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO23_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO23_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO23_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO23_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO23_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO23_CTRL's bit fields.
      */
-    inline void set_GPIO23_CTRL(IO_BANK0_GPIO23_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO23_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO23_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO23_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO23_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO23_CTRL(IO_BANK_GPIO23_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -5640,9 +5308,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO24_CTRL_FUNCSEL get_GPIO24_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO24_CTRL_FUNCSEL get_GPIO24_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO24_CTRL_FUNCSEL(GPIO24_CTRL & 0b11111u);
+        return IO_BANK_GPIO24_CTRL_FUNCSEL(GPIO24_CTRL & 0b11111u);
     }
 
     /**
@@ -5652,7 +5320,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO24_CTRL_FUNCSEL(
-        IO_BANK0_GPIO24_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO24_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -5665,16 +5333,15 @@ struct io_bank
     /**
      * Get GPIO24_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO24_CTRL_OUTOVER get_GPIO24_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO24_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO24_CTRL_OUTOVER((GPIO24_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO24_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO24_CTRL's OUTOVER field.
      */
-    inline void set_GPIO24_CTRL_OUTOVER(
-        IO_BANK0_GPIO24_CTRL_OUTOVER value) volatile
+    inline void set_GPIO24_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -5687,16 +5354,15 @@ struct io_bank
     /**
      * Get GPIO24_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO24_CTRL_OEOVER get_GPIO24_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO24_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO24_CTRL_OEOVER((GPIO24_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO24_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO24_CTRL's OEOVER field.
      */
-    inline void set_GPIO24_CTRL_OEOVER(
-        IO_BANK0_GPIO24_CTRL_OEOVER value) volatile
+    inline void set_GPIO24_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -5709,16 +5375,15 @@ struct io_bank
     /**
      * Get GPIO24_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO24_CTRL_INOVER get_GPIO24_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO24_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO24_CTRL_INOVER((GPIO24_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO24_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO24_CTRL's INOVER field.
      */
-    inline void set_GPIO24_CTRL_INOVER(
-        IO_BANK0_GPIO24_CTRL_INOVER value) volatile
+    inline void set_GPIO24_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -5731,16 +5396,15 @@ struct io_bank
     /**
      * Get GPIO24_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO24_CTRL_IRQOVER get_GPIO24_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO24_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO24_CTRL_IRQOVER((GPIO24_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO24_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO24_CTRL's IRQOVER field.
      */
-    inline void set_GPIO24_CTRL_IRQOVER(
-        IO_BANK0_GPIO24_CTRL_IRQOVER value) volatile
+    inline void set_GPIO24_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -5753,29 +5417,27 @@ struct io_bank
     /**
      * Get all of GPIO24_CTRL's bit fields.
      */
-    inline void get_GPIO24_CTRL(IO_BANK0_GPIO24_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO24_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO24_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO24_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO24_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO24_CTRL(IO_BANK_GPIO24_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO24_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO24_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO24_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO24_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO24_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO24_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO24_CTRL's bit fields.
      */
-    inline void set_GPIO24_CTRL(IO_BANK0_GPIO24_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO24_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO24_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO24_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO24_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO24_CTRL(IO_BANK_GPIO24_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -5853,9 +5515,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO25_CTRL_FUNCSEL get_GPIO25_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO25_CTRL_FUNCSEL get_GPIO25_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO25_CTRL_FUNCSEL(GPIO25_CTRL & 0b11111u);
+        return IO_BANK_GPIO25_CTRL_FUNCSEL(GPIO25_CTRL & 0b11111u);
     }
 
     /**
@@ -5865,7 +5527,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO25_CTRL_FUNCSEL(
-        IO_BANK0_GPIO25_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO25_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -5878,16 +5540,15 @@ struct io_bank
     /**
      * Get GPIO25_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO25_CTRL_OUTOVER get_GPIO25_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO25_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO25_CTRL_OUTOVER((GPIO25_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO25_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO25_CTRL's OUTOVER field.
      */
-    inline void set_GPIO25_CTRL_OUTOVER(
-        IO_BANK0_GPIO25_CTRL_OUTOVER value) volatile
+    inline void set_GPIO25_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -5900,16 +5561,15 @@ struct io_bank
     /**
      * Get GPIO25_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO25_CTRL_OEOVER get_GPIO25_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO25_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO25_CTRL_OEOVER((GPIO25_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO25_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO25_CTRL's OEOVER field.
      */
-    inline void set_GPIO25_CTRL_OEOVER(
-        IO_BANK0_GPIO25_CTRL_OEOVER value) volatile
+    inline void set_GPIO25_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -5922,16 +5582,15 @@ struct io_bank
     /**
      * Get GPIO25_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO25_CTRL_INOVER get_GPIO25_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO25_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO25_CTRL_INOVER((GPIO25_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO25_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO25_CTRL's INOVER field.
      */
-    inline void set_GPIO25_CTRL_INOVER(
-        IO_BANK0_GPIO25_CTRL_INOVER value) volatile
+    inline void set_GPIO25_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -5944,16 +5603,15 @@ struct io_bank
     /**
      * Get GPIO25_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO25_CTRL_IRQOVER get_GPIO25_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO25_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO25_CTRL_IRQOVER((GPIO25_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO25_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO25_CTRL's IRQOVER field.
      */
-    inline void set_GPIO25_CTRL_IRQOVER(
-        IO_BANK0_GPIO25_CTRL_IRQOVER value) volatile
+    inline void set_GPIO25_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -5966,29 +5624,27 @@ struct io_bank
     /**
      * Get all of GPIO25_CTRL's bit fields.
      */
-    inline void get_GPIO25_CTRL(IO_BANK0_GPIO25_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO25_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO25_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO25_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO25_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO25_CTRL(IO_BANK_GPIO25_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO25_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO25_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO25_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO25_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO25_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO25_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO25_CTRL's bit fields.
      */
-    inline void set_GPIO25_CTRL(IO_BANK0_GPIO25_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO25_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO25_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO25_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO25_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO25_CTRL(IO_BANK_GPIO25_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -6066,9 +5722,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO26_CTRL_FUNCSEL get_GPIO26_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO26_CTRL_FUNCSEL get_GPIO26_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO26_CTRL_FUNCSEL(GPIO26_CTRL & 0b11111u);
+        return IO_BANK_GPIO26_CTRL_FUNCSEL(GPIO26_CTRL & 0b11111u);
     }
 
     /**
@@ -6078,7 +5734,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO26_CTRL_FUNCSEL(
-        IO_BANK0_GPIO26_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO26_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6091,16 +5747,15 @@ struct io_bank
     /**
      * Get GPIO26_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO26_CTRL_OUTOVER get_GPIO26_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO26_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO26_CTRL_OUTOVER((GPIO26_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO26_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO26_CTRL's OUTOVER field.
      */
-    inline void set_GPIO26_CTRL_OUTOVER(
-        IO_BANK0_GPIO26_CTRL_OUTOVER value) volatile
+    inline void set_GPIO26_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6113,16 +5768,15 @@ struct io_bank
     /**
      * Get GPIO26_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO26_CTRL_OEOVER get_GPIO26_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO26_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO26_CTRL_OEOVER((GPIO26_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO26_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO26_CTRL's OEOVER field.
      */
-    inline void set_GPIO26_CTRL_OEOVER(
-        IO_BANK0_GPIO26_CTRL_OEOVER value) volatile
+    inline void set_GPIO26_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6135,16 +5789,15 @@ struct io_bank
     /**
      * Get GPIO26_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO26_CTRL_INOVER get_GPIO26_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO26_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO26_CTRL_INOVER((GPIO26_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO26_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO26_CTRL's INOVER field.
      */
-    inline void set_GPIO26_CTRL_INOVER(
-        IO_BANK0_GPIO26_CTRL_INOVER value) volatile
+    inline void set_GPIO26_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6157,16 +5810,15 @@ struct io_bank
     /**
      * Get GPIO26_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO26_CTRL_IRQOVER get_GPIO26_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO26_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO26_CTRL_IRQOVER((GPIO26_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO26_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO26_CTRL's IRQOVER field.
      */
-    inline void set_GPIO26_CTRL_IRQOVER(
-        IO_BANK0_GPIO26_CTRL_IRQOVER value) volatile
+    inline void set_GPIO26_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6179,29 +5831,27 @@ struct io_bank
     /**
      * Get all of GPIO26_CTRL's bit fields.
      */
-    inline void get_GPIO26_CTRL(IO_BANK0_GPIO26_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO26_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO26_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO26_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO26_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO26_CTRL(IO_BANK_GPIO26_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO26_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO26_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO26_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO26_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO26_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO26_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO26_CTRL's bit fields.
      */
-    inline void set_GPIO26_CTRL(IO_BANK0_GPIO26_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO26_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO26_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO26_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO26_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO26_CTRL(IO_BANK_GPIO26_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6279,9 +5929,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO27_CTRL_FUNCSEL get_GPIO27_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO27_CTRL_FUNCSEL get_GPIO27_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO27_CTRL_FUNCSEL(GPIO27_CTRL & 0b11111u);
+        return IO_BANK_GPIO27_CTRL_FUNCSEL(GPIO27_CTRL & 0b11111u);
     }
 
     /**
@@ -6291,7 +5941,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO27_CTRL_FUNCSEL(
-        IO_BANK0_GPIO27_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO27_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -6304,16 +5954,15 @@ struct io_bank
     /**
      * Get GPIO27_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO27_CTRL_OUTOVER get_GPIO27_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO27_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO27_CTRL_OUTOVER((GPIO27_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO27_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO27_CTRL's OUTOVER field.
      */
-    inline void set_GPIO27_CTRL_OUTOVER(
-        IO_BANK0_GPIO27_CTRL_OUTOVER value) volatile
+    inline void set_GPIO27_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -6326,16 +5975,15 @@ struct io_bank
     /**
      * Get GPIO27_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO27_CTRL_OEOVER get_GPIO27_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO27_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO27_CTRL_OEOVER((GPIO27_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO27_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO27_CTRL's OEOVER field.
      */
-    inline void set_GPIO27_CTRL_OEOVER(
-        IO_BANK0_GPIO27_CTRL_OEOVER value) volatile
+    inline void set_GPIO27_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -6348,16 +5996,15 @@ struct io_bank
     /**
      * Get GPIO27_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO27_CTRL_INOVER get_GPIO27_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO27_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO27_CTRL_INOVER((GPIO27_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO27_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO27_CTRL's INOVER field.
      */
-    inline void set_GPIO27_CTRL_INOVER(
-        IO_BANK0_GPIO27_CTRL_INOVER value) volatile
+    inline void set_GPIO27_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -6370,16 +6017,15 @@ struct io_bank
     /**
      * Get GPIO27_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO27_CTRL_IRQOVER get_GPIO27_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO27_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO27_CTRL_IRQOVER((GPIO27_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO27_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO27_CTRL's IRQOVER field.
      */
-    inline void set_GPIO27_CTRL_IRQOVER(
-        IO_BANK0_GPIO27_CTRL_IRQOVER value) volatile
+    inline void set_GPIO27_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -6392,29 +6038,27 @@ struct io_bank
     /**
      * Get all of GPIO27_CTRL's bit fields.
      */
-    inline void get_GPIO27_CTRL(IO_BANK0_GPIO27_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO27_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO27_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO27_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO27_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO27_CTRL(IO_BANK_GPIO27_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO27_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO27_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO27_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO27_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO27_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO27_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO27_CTRL's bit fields.
      */
-    inline void set_GPIO27_CTRL(IO_BANK0_GPIO27_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO27_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO27_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO27_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO27_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO27_CTRL(IO_BANK_GPIO27_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -6492,9 +6136,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO28_CTRL_FUNCSEL get_GPIO28_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO28_CTRL_FUNCSEL get_GPIO28_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO28_CTRL_FUNCSEL(GPIO28_CTRL & 0b11111u);
+        return IO_BANK_GPIO28_CTRL_FUNCSEL(GPIO28_CTRL & 0b11111u);
     }
 
     /**
@@ -6504,7 +6148,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO28_CTRL_FUNCSEL(
-        IO_BANK0_GPIO28_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO28_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -6517,16 +6161,15 @@ struct io_bank
     /**
      * Get GPIO28_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO28_CTRL_OUTOVER get_GPIO28_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO28_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO28_CTRL_OUTOVER((GPIO28_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO28_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO28_CTRL's OUTOVER field.
      */
-    inline void set_GPIO28_CTRL_OUTOVER(
-        IO_BANK0_GPIO28_CTRL_OUTOVER value) volatile
+    inline void set_GPIO28_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -6539,16 +6182,15 @@ struct io_bank
     /**
      * Get GPIO28_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO28_CTRL_OEOVER get_GPIO28_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO28_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO28_CTRL_OEOVER((GPIO28_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO28_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO28_CTRL's OEOVER field.
      */
-    inline void set_GPIO28_CTRL_OEOVER(
-        IO_BANK0_GPIO28_CTRL_OEOVER value) volatile
+    inline void set_GPIO28_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -6561,16 +6203,15 @@ struct io_bank
     /**
      * Get GPIO28_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO28_CTRL_INOVER get_GPIO28_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO28_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO28_CTRL_INOVER((GPIO28_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO28_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO28_CTRL's INOVER field.
      */
-    inline void set_GPIO28_CTRL_INOVER(
-        IO_BANK0_GPIO28_CTRL_INOVER value) volatile
+    inline void set_GPIO28_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -6583,16 +6224,15 @@ struct io_bank
     /**
      * Get GPIO28_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO28_CTRL_IRQOVER get_GPIO28_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO28_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO28_CTRL_IRQOVER((GPIO28_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO28_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO28_CTRL's IRQOVER field.
      */
-    inline void set_GPIO28_CTRL_IRQOVER(
-        IO_BANK0_GPIO28_CTRL_IRQOVER value) volatile
+    inline void set_GPIO28_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -6605,29 +6245,27 @@ struct io_bank
     /**
      * Get all of GPIO28_CTRL's bit fields.
      */
-    inline void get_GPIO28_CTRL(IO_BANK0_GPIO28_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO28_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO28_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO28_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO28_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO28_CTRL(IO_BANK_GPIO28_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO28_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO28_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO28_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO28_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO28_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO28_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO28_CTRL's bit fields.
      */
-    inline void set_GPIO28_CTRL(IO_BANK0_GPIO28_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO28_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO28_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO28_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO28_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO28_CTRL(IO_BANK_GPIO28_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -6705,9 +6343,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO29_CTRL_FUNCSEL get_GPIO29_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO29_CTRL_FUNCSEL get_GPIO29_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO29_CTRL_FUNCSEL(GPIO29_CTRL & 0b11111u);
+        return IO_BANK_GPIO29_CTRL_FUNCSEL(GPIO29_CTRL & 0b11111u);
     }
 
     /**
@@ -6717,7 +6355,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO29_CTRL_FUNCSEL(
-        IO_BANK0_GPIO29_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO29_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -6730,16 +6368,15 @@ struct io_bank
     /**
      * Get GPIO29_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO29_CTRL_OUTOVER get_GPIO29_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO29_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO29_CTRL_OUTOVER((GPIO29_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO29_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO29_CTRL's OUTOVER field.
      */
-    inline void set_GPIO29_CTRL_OUTOVER(
-        IO_BANK0_GPIO29_CTRL_OUTOVER value) volatile
+    inline void set_GPIO29_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -6752,16 +6389,15 @@ struct io_bank
     /**
      * Get GPIO29_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO29_CTRL_OEOVER get_GPIO29_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO29_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO29_CTRL_OEOVER((GPIO29_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO29_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO29_CTRL's OEOVER field.
      */
-    inline void set_GPIO29_CTRL_OEOVER(
-        IO_BANK0_GPIO29_CTRL_OEOVER value) volatile
+    inline void set_GPIO29_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -6774,16 +6410,15 @@ struct io_bank
     /**
      * Get GPIO29_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO29_CTRL_INOVER get_GPIO29_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO29_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO29_CTRL_INOVER((GPIO29_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO29_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO29_CTRL's INOVER field.
      */
-    inline void set_GPIO29_CTRL_INOVER(
-        IO_BANK0_GPIO29_CTRL_INOVER value) volatile
+    inline void set_GPIO29_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -6796,16 +6431,15 @@ struct io_bank
     /**
      * Get GPIO29_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO29_CTRL_IRQOVER get_GPIO29_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO29_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO29_CTRL_IRQOVER((GPIO29_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO29_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO29_CTRL's IRQOVER field.
      */
-    inline void set_GPIO29_CTRL_IRQOVER(
-        IO_BANK0_GPIO29_CTRL_IRQOVER value) volatile
+    inline void set_GPIO29_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -6818,29 +6452,27 @@ struct io_bank
     /**
      * Get all of GPIO29_CTRL's bit fields.
      */
-    inline void get_GPIO29_CTRL(IO_BANK0_GPIO29_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO29_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO29_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO29_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO29_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO29_CTRL(IO_BANK_GPIO29_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO29_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO29_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO29_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO29_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO29_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO29_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO29_CTRL's bit fields.
      */
-    inline void set_GPIO29_CTRL(IO_BANK0_GPIO29_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO29_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO29_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO29_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO29_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO29_CTRL(IO_BANK_GPIO29_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -6918,9 +6550,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO30_CTRL_FUNCSEL get_GPIO30_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO30_CTRL_FUNCSEL get_GPIO30_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO30_CTRL_FUNCSEL(GPIO30_CTRL & 0b11111u);
+        return IO_BANK_GPIO30_CTRL_FUNCSEL(GPIO30_CTRL & 0b11111u);
     }
 
     /**
@@ -6930,7 +6562,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO30_CTRL_FUNCSEL(
-        IO_BANK0_GPIO30_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO30_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO30_CTRL;
 
@@ -6943,16 +6575,15 @@ struct io_bank
     /**
      * Get GPIO30_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO30_CTRL_OUTOVER get_GPIO30_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO30_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO30_CTRL_OUTOVER((GPIO30_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO30_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO30_CTRL's OUTOVER field.
      */
-    inline void set_GPIO30_CTRL_OUTOVER(
-        IO_BANK0_GPIO30_CTRL_OUTOVER value) volatile
+    inline void set_GPIO30_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO30_CTRL;
 
@@ -6965,16 +6596,15 @@ struct io_bank
     /**
      * Get GPIO30_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO30_CTRL_OEOVER get_GPIO30_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO30_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO30_CTRL_OEOVER((GPIO30_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO30_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO30_CTRL's OEOVER field.
      */
-    inline void set_GPIO30_CTRL_OEOVER(
-        IO_BANK0_GPIO30_CTRL_OEOVER value) volatile
+    inline void set_GPIO30_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO30_CTRL;
 
@@ -6987,16 +6617,15 @@ struct io_bank
     /**
      * Get GPIO30_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO30_CTRL_INOVER get_GPIO30_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO30_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO30_CTRL_INOVER((GPIO30_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO30_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO30_CTRL's INOVER field.
      */
-    inline void set_GPIO30_CTRL_INOVER(
-        IO_BANK0_GPIO30_CTRL_INOVER value) volatile
+    inline void set_GPIO30_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO30_CTRL;
 
@@ -7009,16 +6638,15 @@ struct io_bank
     /**
      * Get GPIO30_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO30_CTRL_IRQOVER get_GPIO30_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO30_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO30_CTRL_IRQOVER((GPIO30_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO30_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO30_CTRL's IRQOVER field.
      */
-    inline void set_GPIO30_CTRL_IRQOVER(
-        IO_BANK0_GPIO30_CTRL_IRQOVER value) volatile
+    inline void set_GPIO30_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO30_CTRL;
 
@@ -7031,29 +6659,27 @@ struct io_bank
     /**
      * Get all of GPIO30_CTRL's bit fields.
      */
-    inline void get_GPIO30_CTRL(IO_BANK0_GPIO30_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO30_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO30_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO30_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO30_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO30_CTRL(IO_BANK_GPIO30_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO30_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO30_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO30_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO30_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO30_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO30_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO30_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO30_CTRL's bit fields.
      */
-    inline void set_GPIO30_CTRL(IO_BANK0_GPIO30_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO30_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO30_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO30_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO30_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO30_CTRL(IO_BANK_GPIO30_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO30_CTRL;
 
@@ -7131,9 +6757,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO31_CTRL_FUNCSEL get_GPIO31_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO31_CTRL_FUNCSEL get_GPIO31_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO31_CTRL_FUNCSEL(GPIO31_CTRL & 0b11111u);
+        return IO_BANK_GPIO31_CTRL_FUNCSEL(GPIO31_CTRL & 0b11111u);
     }
 
     /**
@@ -7143,7 +6769,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO31_CTRL_FUNCSEL(
-        IO_BANK0_GPIO31_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO31_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO31_CTRL;
 
@@ -7156,16 +6782,15 @@ struct io_bank
     /**
      * Get GPIO31_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO31_CTRL_OUTOVER get_GPIO31_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO31_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO31_CTRL_OUTOVER((GPIO31_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO31_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO31_CTRL's OUTOVER field.
      */
-    inline void set_GPIO31_CTRL_OUTOVER(
-        IO_BANK0_GPIO31_CTRL_OUTOVER value) volatile
+    inline void set_GPIO31_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO31_CTRL;
 
@@ -7178,16 +6803,15 @@ struct io_bank
     /**
      * Get GPIO31_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO31_CTRL_OEOVER get_GPIO31_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO31_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO31_CTRL_OEOVER((GPIO31_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO31_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO31_CTRL's OEOVER field.
      */
-    inline void set_GPIO31_CTRL_OEOVER(
-        IO_BANK0_GPIO31_CTRL_OEOVER value) volatile
+    inline void set_GPIO31_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO31_CTRL;
 
@@ -7200,16 +6824,15 @@ struct io_bank
     /**
      * Get GPIO31_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO31_CTRL_INOVER get_GPIO31_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO31_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO31_CTRL_INOVER((GPIO31_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO31_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO31_CTRL's INOVER field.
      */
-    inline void set_GPIO31_CTRL_INOVER(
-        IO_BANK0_GPIO31_CTRL_INOVER value) volatile
+    inline void set_GPIO31_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO31_CTRL;
 
@@ -7222,16 +6845,15 @@ struct io_bank
     /**
      * Get GPIO31_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO31_CTRL_IRQOVER get_GPIO31_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO31_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO31_CTRL_IRQOVER((GPIO31_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO31_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO31_CTRL's IRQOVER field.
      */
-    inline void set_GPIO31_CTRL_IRQOVER(
-        IO_BANK0_GPIO31_CTRL_IRQOVER value) volatile
+    inline void set_GPIO31_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO31_CTRL;
 
@@ -7244,29 +6866,27 @@ struct io_bank
     /**
      * Get all of GPIO31_CTRL's bit fields.
      */
-    inline void get_GPIO31_CTRL(IO_BANK0_GPIO31_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO31_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO31_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO31_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO31_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO31_CTRL(IO_BANK_GPIO31_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO31_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO31_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO31_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO31_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO31_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO31_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO31_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO31_CTRL's bit fields.
      */
-    inline void set_GPIO31_CTRL(IO_BANK0_GPIO31_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO31_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO31_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO31_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO31_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO31_CTRL(IO_BANK_GPIO31_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO31_CTRL;
 
@@ -7344,9 +6964,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO32_CTRL_FUNCSEL get_GPIO32_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO32_CTRL_FUNCSEL get_GPIO32_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO32_CTRL_FUNCSEL(GPIO32_CTRL & 0b11111u);
+        return IO_BANK_GPIO32_CTRL_FUNCSEL(GPIO32_CTRL & 0b11111u);
     }
 
     /**
@@ -7356,7 +6976,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO32_CTRL_FUNCSEL(
-        IO_BANK0_GPIO32_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO32_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO32_CTRL;
 
@@ -7369,16 +6989,15 @@ struct io_bank
     /**
      * Get GPIO32_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO32_CTRL_OUTOVER get_GPIO32_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO32_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO32_CTRL_OUTOVER((GPIO32_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO32_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO32_CTRL's OUTOVER field.
      */
-    inline void set_GPIO32_CTRL_OUTOVER(
-        IO_BANK0_GPIO32_CTRL_OUTOVER value) volatile
+    inline void set_GPIO32_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO32_CTRL;
 
@@ -7391,16 +7010,15 @@ struct io_bank
     /**
      * Get GPIO32_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO32_CTRL_OEOVER get_GPIO32_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO32_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO32_CTRL_OEOVER((GPIO32_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO32_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO32_CTRL's OEOVER field.
      */
-    inline void set_GPIO32_CTRL_OEOVER(
-        IO_BANK0_GPIO32_CTRL_OEOVER value) volatile
+    inline void set_GPIO32_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO32_CTRL;
 
@@ -7413,16 +7031,15 @@ struct io_bank
     /**
      * Get GPIO32_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO32_CTRL_INOVER get_GPIO32_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO32_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO32_CTRL_INOVER((GPIO32_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO32_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO32_CTRL's INOVER field.
      */
-    inline void set_GPIO32_CTRL_INOVER(
-        IO_BANK0_GPIO32_CTRL_INOVER value) volatile
+    inline void set_GPIO32_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO32_CTRL;
 
@@ -7435,16 +7052,15 @@ struct io_bank
     /**
      * Get GPIO32_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO32_CTRL_IRQOVER get_GPIO32_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO32_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO32_CTRL_IRQOVER((GPIO32_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO32_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO32_CTRL's IRQOVER field.
      */
-    inline void set_GPIO32_CTRL_IRQOVER(
-        IO_BANK0_GPIO32_CTRL_IRQOVER value) volatile
+    inline void set_GPIO32_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO32_CTRL;
 
@@ -7457,29 +7073,27 @@ struct io_bank
     /**
      * Get all of GPIO32_CTRL's bit fields.
      */
-    inline void get_GPIO32_CTRL(IO_BANK0_GPIO32_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO32_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO32_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO32_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO32_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO32_CTRL(IO_BANK_GPIO32_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO32_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO32_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO32_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO32_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO32_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO32_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO32_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO32_CTRL's bit fields.
      */
-    inline void set_GPIO32_CTRL(IO_BANK0_GPIO32_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO32_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO32_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO32_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO32_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO32_CTRL(IO_BANK_GPIO32_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO32_CTRL;
 
@@ -7557,9 +7171,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO33_CTRL_FUNCSEL get_GPIO33_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO33_CTRL_FUNCSEL get_GPIO33_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO33_CTRL_FUNCSEL(GPIO33_CTRL & 0b11111u);
+        return IO_BANK_GPIO33_CTRL_FUNCSEL(GPIO33_CTRL & 0b11111u);
     }
 
     /**
@@ -7569,7 +7183,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO33_CTRL_FUNCSEL(
-        IO_BANK0_GPIO33_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO33_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO33_CTRL;
 
@@ -7582,16 +7196,15 @@ struct io_bank
     /**
      * Get GPIO33_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO33_CTRL_OUTOVER get_GPIO33_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO33_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO33_CTRL_OUTOVER((GPIO33_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO33_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO33_CTRL's OUTOVER field.
      */
-    inline void set_GPIO33_CTRL_OUTOVER(
-        IO_BANK0_GPIO33_CTRL_OUTOVER value) volatile
+    inline void set_GPIO33_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO33_CTRL;
 
@@ -7604,16 +7217,15 @@ struct io_bank
     /**
      * Get GPIO33_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO33_CTRL_OEOVER get_GPIO33_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO33_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO33_CTRL_OEOVER((GPIO33_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO33_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO33_CTRL's OEOVER field.
      */
-    inline void set_GPIO33_CTRL_OEOVER(
-        IO_BANK0_GPIO33_CTRL_OEOVER value) volatile
+    inline void set_GPIO33_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO33_CTRL;
 
@@ -7626,16 +7238,15 @@ struct io_bank
     /**
      * Get GPIO33_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO33_CTRL_INOVER get_GPIO33_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO33_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO33_CTRL_INOVER((GPIO33_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO33_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO33_CTRL's INOVER field.
      */
-    inline void set_GPIO33_CTRL_INOVER(
-        IO_BANK0_GPIO33_CTRL_INOVER value) volatile
+    inline void set_GPIO33_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO33_CTRL;
 
@@ -7648,16 +7259,15 @@ struct io_bank
     /**
      * Get GPIO33_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO33_CTRL_IRQOVER get_GPIO33_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO33_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO33_CTRL_IRQOVER((GPIO33_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO33_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO33_CTRL's IRQOVER field.
      */
-    inline void set_GPIO33_CTRL_IRQOVER(
-        IO_BANK0_GPIO33_CTRL_IRQOVER value) volatile
+    inline void set_GPIO33_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO33_CTRL;
 
@@ -7670,29 +7280,27 @@ struct io_bank
     /**
      * Get all of GPIO33_CTRL's bit fields.
      */
-    inline void get_GPIO33_CTRL(IO_BANK0_GPIO33_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO33_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO33_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO33_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO33_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO33_CTRL(IO_BANK_GPIO33_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO33_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO33_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO33_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO33_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO33_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO33_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO33_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO33_CTRL's bit fields.
      */
-    inline void set_GPIO33_CTRL(IO_BANK0_GPIO33_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO33_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO33_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO33_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO33_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO33_CTRL(IO_BANK_GPIO33_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO33_CTRL;
 
@@ -7770,9 +7378,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO34_CTRL_FUNCSEL get_GPIO34_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO34_CTRL_FUNCSEL get_GPIO34_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO34_CTRL_FUNCSEL(GPIO34_CTRL & 0b11111u);
+        return IO_BANK_GPIO34_CTRL_FUNCSEL(GPIO34_CTRL & 0b11111u);
     }
 
     /**
@@ -7782,7 +7390,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO34_CTRL_FUNCSEL(
-        IO_BANK0_GPIO34_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO34_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO34_CTRL;
 
@@ -7795,16 +7403,15 @@ struct io_bank
     /**
      * Get GPIO34_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO34_CTRL_OUTOVER get_GPIO34_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO34_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO34_CTRL_OUTOVER((GPIO34_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO34_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO34_CTRL's OUTOVER field.
      */
-    inline void set_GPIO34_CTRL_OUTOVER(
-        IO_BANK0_GPIO34_CTRL_OUTOVER value) volatile
+    inline void set_GPIO34_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO34_CTRL;
 
@@ -7817,16 +7424,15 @@ struct io_bank
     /**
      * Get GPIO34_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO34_CTRL_OEOVER get_GPIO34_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO34_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO34_CTRL_OEOVER((GPIO34_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO34_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO34_CTRL's OEOVER field.
      */
-    inline void set_GPIO34_CTRL_OEOVER(
-        IO_BANK0_GPIO34_CTRL_OEOVER value) volatile
+    inline void set_GPIO34_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO34_CTRL;
 
@@ -7839,16 +7445,15 @@ struct io_bank
     /**
      * Get GPIO34_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO34_CTRL_INOVER get_GPIO34_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO34_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO34_CTRL_INOVER((GPIO34_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO34_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO34_CTRL's INOVER field.
      */
-    inline void set_GPIO34_CTRL_INOVER(
-        IO_BANK0_GPIO34_CTRL_INOVER value) volatile
+    inline void set_GPIO34_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO34_CTRL;
 
@@ -7861,16 +7466,15 @@ struct io_bank
     /**
      * Get GPIO34_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO34_CTRL_IRQOVER get_GPIO34_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO34_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO34_CTRL_IRQOVER((GPIO34_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO34_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO34_CTRL's IRQOVER field.
      */
-    inline void set_GPIO34_CTRL_IRQOVER(
-        IO_BANK0_GPIO34_CTRL_IRQOVER value) volatile
+    inline void set_GPIO34_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO34_CTRL;
 
@@ -7883,29 +7487,27 @@ struct io_bank
     /**
      * Get all of GPIO34_CTRL's bit fields.
      */
-    inline void get_GPIO34_CTRL(IO_BANK0_GPIO34_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO34_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO34_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO34_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO34_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO34_CTRL(IO_BANK_GPIO34_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO34_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO34_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO34_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO34_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO34_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO34_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO34_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO34_CTRL's bit fields.
      */
-    inline void set_GPIO34_CTRL(IO_BANK0_GPIO34_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO34_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO34_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO34_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO34_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO34_CTRL(IO_BANK_GPIO34_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO34_CTRL;
 
@@ -7983,9 +7585,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO35_CTRL_FUNCSEL get_GPIO35_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO35_CTRL_FUNCSEL get_GPIO35_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO35_CTRL_FUNCSEL(GPIO35_CTRL & 0b11111u);
+        return IO_BANK_GPIO35_CTRL_FUNCSEL(GPIO35_CTRL & 0b11111u);
     }
 
     /**
@@ -7995,7 +7597,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO35_CTRL_FUNCSEL(
-        IO_BANK0_GPIO35_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO35_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO35_CTRL;
 
@@ -8008,16 +7610,15 @@ struct io_bank
     /**
      * Get GPIO35_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO35_CTRL_OUTOVER get_GPIO35_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO35_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO35_CTRL_OUTOVER((GPIO35_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO35_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO35_CTRL's OUTOVER field.
      */
-    inline void set_GPIO35_CTRL_OUTOVER(
-        IO_BANK0_GPIO35_CTRL_OUTOVER value) volatile
+    inline void set_GPIO35_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO35_CTRL;
 
@@ -8030,16 +7631,15 @@ struct io_bank
     /**
      * Get GPIO35_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO35_CTRL_OEOVER get_GPIO35_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO35_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO35_CTRL_OEOVER((GPIO35_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO35_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO35_CTRL's OEOVER field.
      */
-    inline void set_GPIO35_CTRL_OEOVER(
-        IO_BANK0_GPIO35_CTRL_OEOVER value) volatile
+    inline void set_GPIO35_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO35_CTRL;
 
@@ -8052,16 +7652,15 @@ struct io_bank
     /**
      * Get GPIO35_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO35_CTRL_INOVER get_GPIO35_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO35_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO35_CTRL_INOVER((GPIO35_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO35_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO35_CTRL's INOVER field.
      */
-    inline void set_GPIO35_CTRL_INOVER(
-        IO_BANK0_GPIO35_CTRL_INOVER value) volatile
+    inline void set_GPIO35_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO35_CTRL;
 
@@ -8074,16 +7673,15 @@ struct io_bank
     /**
      * Get GPIO35_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO35_CTRL_IRQOVER get_GPIO35_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO35_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO35_CTRL_IRQOVER((GPIO35_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO35_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO35_CTRL's IRQOVER field.
      */
-    inline void set_GPIO35_CTRL_IRQOVER(
-        IO_BANK0_GPIO35_CTRL_IRQOVER value) volatile
+    inline void set_GPIO35_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO35_CTRL;
 
@@ -8096,29 +7694,27 @@ struct io_bank
     /**
      * Get all of GPIO35_CTRL's bit fields.
      */
-    inline void get_GPIO35_CTRL(IO_BANK0_GPIO35_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO35_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO35_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO35_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO35_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO35_CTRL(IO_BANK_GPIO35_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO35_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO35_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO35_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO35_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO35_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO35_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO35_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO35_CTRL's bit fields.
      */
-    inline void set_GPIO35_CTRL(IO_BANK0_GPIO35_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO35_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO35_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO35_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO35_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO35_CTRL(IO_BANK_GPIO35_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO35_CTRL;
 
@@ -8196,9 +7792,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO36_CTRL_FUNCSEL get_GPIO36_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO36_CTRL_FUNCSEL get_GPIO36_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO36_CTRL_FUNCSEL(GPIO36_CTRL & 0b11111u);
+        return IO_BANK_GPIO36_CTRL_FUNCSEL(GPIO36_CTRL & 0b11111u);
     }
 
     /**
@@ -8208,7 +7804,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO36_CTRL_FUNCSEL(
-        IO_BANK0_GPIO36_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO36_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO36_CTRL;
 
@@ -8221,16 +7817,15 @@ struct io_bank
     /**
      * Get GPIO36_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO36_CTRL_OUTOVER get_GPIO36_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO36_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO36_CTRL_OUTOVER((GPIO36_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO36_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO36_CTRL's OUTOVER field.
      */
-    inline void set_GPIO36_CTRL_OUTOVER(
-        IO_BANK0_GPIO36_CTRL_OUTOVER value) volatile
+    inline void set_GPIO36_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO36_CTRL;
 
@@ -8243,16 +7838,15 @@ struct io_bank
     /**
      * Get GPIO36_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO36_CTRL_OEOVER get_GPIO36_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO36_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO36_CTRL_OEOVER((GPIO36_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO36_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO36_CTRL's OEOVER field.
      */
-    inline void set_GPIO36_CTRL_OEOVER(
-        IO_BANK0_GPIO36_CTRL_OEOVER value) volatile
+    inline void set_GPIO36_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO36_CTRL;
 
@@ -8265,16 +7859,15 @@ struct io_bank
     /**
      * Get GPIO36_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO36_CTRL_INOVER get_GPIO36_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO36_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO36_CTRL_INOVER((GPIO36_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO36_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO36_CTRL's INOVER field.
      */
-    inline void set_GPIO36_CTRL_INOVER(
-        IO_BANK0_GPIO36_CTRL_INOVER value) volatile
+    inline void set_GPIO36_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO36_CTRL;
 
@@ -8287,16 +7880,15 @@ struct io_bank
     /**
      * Get GPIO36_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO36_CTRL_IRQOVER get_GPIO36_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO36_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO36_CTRL_IRQOVER((GPIO36_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO36_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO36_CTRL's IRQOVER field.
      */
-    inline void set_GPIO36_CTRL_IRQOVER(
-        IO_BANK0_GPIO36_CTRL_IRQOVER value) volatile
+    inline void set_GPIO36_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO36_CTRL;
 
@@ -8309,29 +7901,27 @@ struct io_bank
     /**
      * Get all of GPIO36_CTRL's bit fields.
      */
-    inline void get_GPIO36_CTRL(IO_BANK0_GPIO36_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO36_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO36_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO36_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO36_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO36_CTRL(IO_BANK_GPIO36_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO36_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO36_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO36_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO36_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO36_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO36_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO36_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO36_CTRL's bit fields.
      */
-    inline void set_GPIO36_CTRL(IO_BANK0_GPIO36_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO36_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO36_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO36_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO36_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO36_CTRL(IO_BANK_GPIO36_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO36_CTRL;
 
@@ -8409,9 +7999,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO37_CTRL_FUNCSEL get_GPIO37_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO37_CTRL_FUNCSEL get_GPIO37_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO37_CTRL_FUNCSEL(GPIO37_CTRL & 0b11111u);
+        return IO_BANK_GPIO37_CTRL_FUNCSEL(GPIO37_CTRL & 0b11111u);
     }
 
     /**
@@ -8421,7 +8011,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO37_CTRL_FUNCSEL(
-        IO_BANK0_GPIO37_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO37_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO37_CTRL;
 
@@ -8434,16 +8024,15 @@ struct io_bank
     /**
      * Get GPIO37_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO37_CTRL_OUTOVER get_GPIO37_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO37_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO37_CTRL_OUTOVER((GPIO37_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO37_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO37_CTRL's OUTOVER field.
      */
-    inline void set_GPIO37_CTRL_OUTOVER(
-        IO_BANK0_GPIO37_CTRL_OUTOVER value) volatile
+    inline void set_GPIO37_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO37_CTRL;
 
@@ -8456,16 +8045,15 @@ struct io_bank
     /**
      * Get GPIO37_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO37_CTRL_OEOVER get_GPIO37_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO37_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO37_CTRL_OEOVER((GPIO37_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO37_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO37_CTRL's OEOVER field.
      */
-    inline void set_GPIO37_CTRL_OEOVER(
-        IO_BANK0_GPIO37_CTRL_OEOVER value) volatile
+    inline void set_GPIO37_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO37_CTRL;
 
@@ -8478,16 +8066,15 @@ struct io_bank
     /**
      * Get GPIO37_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO37_CTRL_INOVER get_GPIO37_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO37_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO37_CTRL_INOVER((GPIO37_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO37_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO37_CTRL's INOVER field.
      */
-    inline void set_GPIO37_CTRL_INOVER(
-        IO_BANK0_GPIO37_CTRL_INOVER value) volatile
+    inline void set_GPIO37_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO37_CTRL;
 
@@ -8500,16 +8087,15 @@ struct io_bank
     /**
      * Get GPIO37_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO37_CTRL_IRQOVER get_GPIO37_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO37_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO37_CTRL_IRQOVER((GPIO37_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO37_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO37_CTRL's IRQOVER field.
      */
-    inline void set_GPIO37_CTRL_IRQOVER(
-        IO_BANK0_GPIO37_CTRL_IRQOVER value) volatile
+    inline void set_GPIO37_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO37_CTRL;
 
@@ -8522,29 +8108,27 @@ struct io_bank
     /**
      * Get all of GPIO37_CTRL's bit fields.
      */
-    inline void get_GPIO37_CTRL(IO_BANK0_GPIO37_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO37_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO37_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO37_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO37_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO37_CTRL(IO_BANK_GPIO37_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO37_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO37_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO37_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO37_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO37_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO37_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO37_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO37_CTRL's bit fields.
      */
-    inline void set_GPIO37_CTRL(IO_BANK0_GPIO37_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO37_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO37_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO37_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO37_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO37_CTRL(IO_BANK_GPIO37_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO37_CTRL;
 
@@ -8622,9 +8206,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO38_CTRL_FUNCSEL get_GPIO38_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO38_CTRL_FUNCSEL get_GPIO38_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO38_CTRL_FUNCSEL(GPIO38_CTRL & 0b11111u);
+        return IO_BANK_GPIO38_CTRL_FUNCSEL(GPIO38_CTRL & 0b11111u);
     }
 
     /**
@@ -8634,7 +8218,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO38_CTRL_FUNCSEL(
-        IO_BANK0_GPIO38_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO38_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO38_CTRL;
 
@@ -8647,16 +8231,15 @@ struct io_bank
     /**
      * Get GPIO38_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO38_CTRL_OUTOVER get_GPIO38_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO38_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO38_CTRL_OUTOVER((GPIO38_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO38_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO38_CTRL's OUTOVER field.
      */
-    inline void set_GPIO38_CTRL_OUTOVER(
-        IO_BANK0_GPIO38_CTRL_OUTOVER value) volatile
+    inline void set_GPIO38_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO38_CTRL;
 
@@ -8669,16 +8252,15 @@ struct io_bank
     /**
      * Get GPIO38_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO38_CTRL_OEOVER get_GPIO38_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO38_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO38_CTRL_OEOVER((GPIO38_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO38_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO38_CTRL's OEOVER field.
      */
-    inline void set_GPIO38_CTRL_OEOVER(
-        IO_BANK0_GPIO38_CTRL_OEOVER value) volatile
+    inline void set_GPIO38_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO38_CTRL;
 
@@ -8691,16 +8273,15 @@ struct io_bank
     /**
      * Get GPIO38_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO38_CTRL_INOVER get_GPIO38_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO38_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO38_CTRL_INOVER((GPIO38_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO38_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO38_CTRL's INOVER field.
      */
-    inline void set_GPIO38_CTRL_INOVER(
-        IO_BANK0_GPIO38_CTRL_INOVER value) volatile
+    inline void set_GPIO38_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO38_CTRL;
 
@@ -8713,16 +8294,15 @@ struct io_bank
     /**
      * Get GPIO38_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO38_CTRL_IRQOVER get_GPIO38_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO38_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO38_CTRL_IRQOVER((GPIO38_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO38_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO38_CTRL's IRQOVER field.
      */
-    inline void set_GPIO38_CTRL_IRQOVER(
-        IO_BANK0_GPIO38_CTRL_IRQOVER value) volatile
+    inline void set_GPIO38_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO38_CTRL;
 
@@ -8735,29 +8315,27 @@ struct io_bank
     /**
      * Get all of GPIO38_CTRL's bit fields.
      */
-    inline void get_GPIO38_CTRL(IO_BANK0_GPIO38_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO38_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO38_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO38_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO38_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO38_CTRL(IO_BANK_GPIO38_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO38_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO38_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO38_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO38_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO38_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO38_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO38_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO38_CTRL's bit fields.
      */
-    inline void set_GPIO38_CTRL(IO_BANK0_GPIO38_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO38_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO38_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO38_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO38_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO38_CTRL(IO_BANK_GPIO38_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO38_CTRL;
 
@@ -8835,9 +8413,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO39_CTRL_FUNCSEL get_GPIO39_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO39_CTRL_FUNCSEL get_GPIO39_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO39_CTRL_FUNCSEL(GPIO39_CTRL & 0b11111u);
+        return IO_BANK_GPIO39_CTRL_FUNCSEL(GPIO39_CTRL & 0b11111u);
     }
 
     /**
@@ -8847,7 +8425,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO39_CTRL_FUNCSEL(
-        IO_BANK0_GPIO39_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO39_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO39_CTRL;
 
@@ -8860,16 +8438,15 @@ struct io_bank
     /**
      * Get GPIO39_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO39_CTRL_OUTOVER get_GPIO39_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO39_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO39_CTRL_OUTOVER((GPIO39_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO39_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO39_CTRL's OUTOVER field.
      */
-    inline void set_GPIO39_CTRL_OUTOVER(
-        IO_BANK0_GPIO39_CTRL_OUTOVER value) volatile
+    inline void set_GPIO39_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO39_CTRL;
 
@@ -8882,16 +8459,15 @@ struct io_bank
     /**
      * Get GPIO39_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO39_CTRL_OEOVER get_GPIO39_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO39_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO39_CTRL_OEOVER((GPIO39_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO39_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO39_CTRL's OEOVER field.
      */
-    inline void set_GPIO39_CTRL_OEOVER(
-        IO_BANK0_GPIO39_CTRL_OEOVER value) volatile
+    inline void set_GPIO39_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO39_CTRL;
 
@@ -8904,16 +8480,15 @@ struct io_bank
     /**
      * Get GPIO39_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO39_CTRL_INOVER get_GPIO39_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO39_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO39_CTRL_INOVER((GPIO39_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO39_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO39_CTRL's INOVER field.
      */
-    inline void set_GPIO39_CTRL_INOVER(
-        IO_BANK0_GPIO39_CTRL_INOVER value) volatile
+    inline void set_GPIO39_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO39_CTRL;
 
@@ -8926,16 +8501,15 @@ struct io_bank
     /**
      * Get GPIO39_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO39_CTRL_IRQOVER get_GPIO39_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO39_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO39_CTRL_IRQOVER((GPIO39_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO39_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO39_CTRL's IRQOVER field.
      */
-    inline void set_GPIO39_CTRL_IRQOVER(
-        IO_BANK0_GPIO39_CTRL_IRQOVER value) volatile
+    inline void set_GPIO39_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO39_CTRL;
 
@@ -8948,29 +8522,27 @@ struct io_bank
     /**
      * Get all of GPIO39_CTRL's bit fields.
      */
-    inline void get_GPIO39_CTRL(IO_BANK0_GPIO39_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO39_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO39_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO39_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO39_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO39_CTRL(IO_BANK_GPIO39_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO39_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO39_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO39_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO39_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO39_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO39_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO39_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO39_CTRL's bit fields.
      */
-    inline void set_GPIO39_CTRL(IO_BANK0_GPIO39_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO39_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO39_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO39_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO39_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO39_CTRL(IO_BANK_GPIO39_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO39_CTRL;
 
@@ -9048,9 +8620,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO40_CTRL_FUNCSEL get_GPIO40_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO40_CTRL_FUNCSEL get_GPIO40_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO40_CTRL_FUNCSEL(GPIO40_CTRL & 0b11111u);
+        return IO_BANK_GPIO40_CTRL_FUNCSEL(GPIO40_CTRL & 0b11111u);
     }
 
     /**
@@ -9060,7 +8632,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO40_CTRL_FUNCSEL(
-        IO_BANK0_GPIO40_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO40_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO40_CTRL;
 
@@ -9073,16 +8645,15 @@ struct io_bank
     /**
      * Get GPIO40_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO40_CTRL_OUTOVER get_GPIO40_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO40_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO40_CTRL_OUTOVER((GPIO40_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO40_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO40_CTRL's OUTOVER field.
      */
-    inline void set_GPIO40_CTRL_OUTOVER(
-        IO_BANK0_GPIO40_CTRL_OUTOVER value) volatile
+    inline void set_GPIO40_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO40_CTRL;
 
@@ -9095,16 +8666,15 @@ struct io_bank
     /**
      * Get GPIO40_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO40_CTRL_OEOVER get_GPIO40_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO40_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO40_CTRL_OEOVER((GPIO40_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO40_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO40_CTRL's OEOVER field.
      */
-    inline void set_GPIO40_CTRL_OEOVER(
-        IO_BANK0_GPIO40_CTRL_OEOVER value) volatile
+    inline void set_GPIO40_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO40_CTRL;
 
@@ -9117,16 +8687,15 @@ struct io_bank
     /**
      * Get GPIO40_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO40_CTRL_INOVER get_GPIO40_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO40_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO40_CTRL_INOVER((GPIO40_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO40_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO40_CTRL's INOVER field.
      */
-    inline void set_GPIO40_CTRL_INOVER(
-        IO_BANK0_GPIO40_CTRL_INOVER value) volatile
+    inline void set_GPIO40_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO40_CTRL;
 
@@ -9139,16 +8708,15 @@ struct io_bank
     /**
      * Get GPIO40_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO40_CTRL_IRQOVER get_GPIO40_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO40_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO40_CTRL_IRQOVER((GPIO40_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO40_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO40_CTRL's IRQOVER field.
      */
-    inline void set_GPIO40_CTRL_IRQOVER(
-        IO_BANK0_GPIO40_CTRL_IRQOVER value) volatile
+    inline void set_GPIO40_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO40_CTRL;
 
@@ -9161,29 +8729,27 @@ struct io_bank
     /**
      * Get all of GPIO40_CTRL's bit fields.
      */
-    inline void get_GPIO40_CTRL(IO_BANK0_GPIO40_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO40_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO40_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO40_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO40_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO40_CTRL(IO_BANK_GPIO40_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO40_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO40_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO40_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO40_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO40_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO40_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO40_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO40_CTRL's bit fields.
      */
-    inline void set_GPIO40_CTRL(IO_BANK0_GPIO40_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO40_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO40_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO40_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO40_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO40_CTRL(IO_BANK_GPIO40_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO40_CTRL;
 
@@ -9261,9 +8827,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO41_CTRL_FUNCSEL get_GPIO41_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO41_CTRL_FUNCSEL get_GPIO41_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO41_CTRL_FUNCSEL(GPIO41_CTRL & 0b11111u);
+        return IO_BANK_GPIO41_CTRL_FUNCSEL(GPIO41_CTRL & 0b11111u);
     }
 
     /**
@@ -9273,7 +8839,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO41_CTRL_FUNCSEL(
-        IO_BANK0_GPIO41_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO41_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO41_CTRL;
 
@@ -9286,16 +8852,15 @@ struct io_bank
     /**
      * Get GPIO41_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO41_CTRL_OUTOVER get_GPIO41_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO41_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO41_CTRL_OUTOVER((GPIO41_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO41_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO41_CTRL's OUTOVER field.
      */
-    inline void set_GPIO41_CTRL_OUTOVER(
-        IO_BANK0_GPIO41_CTRL_OUTOVER value) volatile
+    inline void set_GPIO41_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO41_CTRL;
 
@@ -9308,16 +8873,15 @@ struct io_bank
     /**
      * Get GPIO41_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO41_CTRL_OEOVER get_GPIO41_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO41_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO41_CTRL_OEOVER((GPIO41_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO41_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO41_CTRL's OEOVER field.
      */
-    inline void set_GPIO41_CTRL_OEOVER(
-        IO_BANK0_GPIO41_CTRL_OEOVER value) volatile
+    inline void set_GPIO41_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO41_CTRL;
 
@@ -9330,16 +8894,15 @@ struct io_bank
     /**
      * Get GPIO41_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO41_CTRL_INOVER get_GPIO41_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO41_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO41_CTRL_INOVER((GPIO41_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO41_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO41_CTRL's INOVER field.
      */
-    inline void set_GPIO41_CTRL_INOVER(
-        IO_BANK0_GPIO41_CTRL_INOVER value) volatile
+    inline void set_GPIO41_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO41_CTRL;
 
@@ -9352,16 +8915,15 @@ struct io_bank
     /**
      * Get GPIO41_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO41_CTRL_IRQOVER get_GPIO41_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO41_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO41_CTRL_IRQOVER((GPIO41_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO41_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO41_CTRL's IRQOVER field.
      */
-    inline void set_GPIO41_CTRL_IRQOVER(
-        IO_BANK0_GPIO41_CTRL_IRQOVER value) volatile
+    inline void set_GPIO41_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO41_CTRL;
 
@@ -9374,29 +8936,27 @@ struct io_bank
     /**
      * Get all of GPIO41_CTRL's bit fields.
      */
-    inline void get_GPIO41_CTRL(IO_BANK0_GPIO41_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO41_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO41_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO41_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO41_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO41_CTRL(IO_BANK_GPIO41_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO41_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO41_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO41_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO41_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO41_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO41_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO41_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO41_CTRL's bit fields.
      */
-    inline void set_GPIO41_CTRL(IO_BANK0_GPIO41_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO41_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO41_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO41_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO41_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO41_CTRL(IO_BANK_GPIO41_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO41_CTRL;
 
@@ -9474,9 +9034,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO42_CTRL_FUNCSEL get_GPIO42_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO42_CTRL_FUNCSEL get_GPIO42_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO42_CTRL_FUNCSEL(GPIO42_CTRL & 0b11111u);
+        return IO_BANK_GPIO42_CTRL_FUNCSEL(GPIO42_CTRL & 0b11111u);
     }
 
     /**
@@ -9486,7 +9046,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO42_CTRL_FUNCSEL(
-        IO_BANK0_GPIO42_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO42_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO42_CTRL;
 
@@ -9499,16 +9059,15 @@ struct io_bank
     /**
      * Get GPIO42_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO42_CTRL_OUTOVER get_GPIO42_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO42_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO42_CTRL_OUTOVER((GPIO42_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO42_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO42_CTRL's OUTOVER field.
      */
-    inline void set_GPIO42_CTRL_OUTOVER(
-        IO_BANK0_GPIO42_CTRL_OUTOVER value) volatile
+    inline void set_GPIO42_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO42_CTRL;
 
@@ -9521,16 +9080,15 @@ struct io_bank
     /**
      * Get GPIO42_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO42_CTRL_OEOVER get_GPIO42_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO42_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO42_CTRL_OEOVER((GPIO42_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO42_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO42_CTRL's OEOVER field.
      */
-    inline void set_GPIO42_CTRL_OEOVER(
-        IO_BANK0_GPIO42_CTRL_OEOVER value) volatile
+    inline void set_GPIO42_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO42_CTRL;
 
@@ -9543,16 +9101,15 @@ struct io_bank
     /**
      * Get GPIO42_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO42_CTRL_INOVER get_GPIO42_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO42_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO42_CTRL_INOVER((GPIO42_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO42_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO42_CTRL's INOVER field.
      */
-    inline void set_GPIO42_CTRL_INOVER(
-        IO_BANK0_GPIO42_CTRL_INOVER value) volatile
+    inline void set_GPIO42_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO42_CTRL;
 
@@ -9565,16 +9122,15 @@ struct io_bank
     /**
      * Get GPIO42_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO42_CTRL_IRQOVER get_GPIO42_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO42_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO42_CTRL_IRQOVER((GPIO42_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO42_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO42_CTRL's IRQOVER field.
      */
-    inline void set_GPIO42_CTRL_IRQOVER(
-        IO_BANK0_GPIO42_CTRL_IRQOVER value) volatile
+    inline void set_GPIO42_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO42_CTRL;
 
@@ -9587,29 +9143,27 @@ struct io_bank
     /**
      * Get all of GPIO42_CTRL's bit fields.
      */
-    inline void get_GPIO42_CTRL(IO_BANK0_GPIO42_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO42_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO42_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO42_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO42_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO42_CTRL(IO_BANK_GPIO42_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO42_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO42_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO42_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO42_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO42_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO42_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO42_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO42_CTRL's bit fields.
      */
-    inline void set_GPIO42_CTRL(IO_BANK0_GPIO42_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO42_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO42_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO42_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO42_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO42_CTRL(IO_BANK_GPIO42_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO42_CTRL;
 
@@ -9687,9 +9241,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO43_CTRL_FUNCSEL get_GPIO43_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO43_CTRL_FUNCSEL get_GPIO43_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO43_CTRL_FUNCSEL(GPIO43_CTRL & 0b11111u);
+        return IO_BANK_GPIO43_CTRL_FUNCSEL(GPIO43_CTRL & 0b11111u);
     }
 
     /**
@@ -9699,7 +9253,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO43_CTRL_FUNCSEL(
-        IO_BANK0_GPIO43_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO43_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO43_CTRL;
 
@@ -9712,16 +9266,15 @@ struct io_bank
     /**
      * Get GPIO43_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO43_CTRL_OUTOVER get_GPIO43_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO43_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO43_CTRL_OUTOVER((GPIO43_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO43_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO43_CTRL's OUTOVER field.
      */
-    inline void set_GPIO43_CTRL_OUTOVER(
-        IO_BANK0_GPIO43_CTRL_OUTOVER value) volatile
+    inline void set_GPIO43_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO43_CTRL;
 
@@ -9734,16 +9287,15 @@ struct io_bank
     /**
      * Get GPIO43_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO43_CTRL_OEOVER get_GPIO43_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO43_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO43_CTRL_OEOVER((GPIO43_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO43_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO43_CTRL's OEOVER field.
      */
-    inline void set_GPIO43_CTRL_OEOVER(
-        IO_BANK0_GPIO43_CTRL_OEOVER value) volatile
+    inline void set_GPIO43_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO43_CTRL;
 
@@ -9756,16 +9308,15 @@ struct io_bank
     /**
      * Get GPIO43_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO43_CTRL_INOVER get_GPIO43_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO43_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO43_CTRL_INOVER((GPIO43_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO43_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO43_CTRL's INOVER field.
      */
-    inline void set_GPIO43_CTRL_INOVER(
-        IO_BANK0_GPIO43_CTRL_INOVER value) volatile
+    inline void set_GPIO43_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO43_CTRL;
 
@@ -9778,16 +9329,15 @@ struct io_bank
     /**
      * Get GPIO43_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO43_CTRL_IRQOVER get_GPIO43_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO43_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO43_CTRL_IRQOVER((GPIO43_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO43_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO43_CTRL's IRQOVER field.
      */
-    inline void set_GPIO43_CTRL_IRQOVER(
-        IO_BANK0_GPIO43_CTRL_IRQOVER value) volatile
+    inline void set_GPIO43_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO43_CTRL;
 
@@ -9800,29 +9350,27 @@ struct io_bank
     /**
      * Get all of GPIO43_CTRL's bit fields.
      */
-    inline void get_GPIO43_CTRL(IO_BANK0_GPIO43_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO43_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO43_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO43_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO43_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO43_CTRL(IO_BANK_GPIO43_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO43_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO43_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO43_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO43_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO43_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO43_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO43_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO43_CTRL's bit fields.
      */
-    inline void set_GPIO43_CTRL(IO_BANK0_GPIO43_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO43_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO43_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO43_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO43_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO43_CTRL(IO_BANK_GPIO43_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO43_CTRL;
 
@@ -9900,9 +9448,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO44_CTRL_FUNCSEL get_GPIO44_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO44_CTRL_FUNCSEL get_GPIO44_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO44_CTRL_FUNCSEL(GPIO44_CTRL & 0b11111u);
+        return IO_BANK_GPIO44_CTRL_FUNCSEL(GPIO44_CTRL & 0b11111u);
     }
 
     /**
@@ -9912,7 +9460,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO44_CTRL_FUNCSEL(
-        IO_BANK0_GPIO44_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO44_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO44_CTRL;
 
@@ -9925,16 +9473,15 @@ struct io_bank
     /**
      * Get GPIO44_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO44_CTRL_OUTOVER get_GPIO44_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO44_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO44_CTRL_OUTOVER((GPIO44_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO44_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO44_CTRL's OUTOVER field.
      */
-    inline void set_GPIO44_CTRL_OUTOVER(
-        IO_BANK0_GPIO44_CTRL_OUTOVER value) volatile
+    inline void set_GPIO44_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO44_CTRL;
 
@@ -9947,16 +9494,15 @@ struct io_bank
     /**
      * Get GPIO44_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO44_CTRL_OEOVER get_GPIO44_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO44_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO44_CTRL_OEOVER((GPIO44_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO44_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO44_CTRL's OEOVER field.
      */
-    inline void set_GPIO44_CTRL_OEOVER(
-        IO_BANK0_GPIO44_CTRL_OEOVER value) volatile
+    inline void set_GPIO44_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO44_CTRL;
 
@@ -9969,16 +9515,15 @@ struct io_bank
     /**
      * Get GPIO44_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO44_CTRL_INOVER get_GPIO44_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO44_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO44_CTRL_INOVER((GPIO44_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO44_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO44_CTRL's INOVER field.
      */
-    inline void set_GPIO44_CTRL_INOVER(
-        IO_BANK0_GPIO44_CTRL_INOVER value) volatile
+    inline void set_GPIO44_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO44_CTRL;
 
@@ -9991,16 +9536,15 @@ struct io_bank
     /**
      * Get GPIO44_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO44_CTRL_IRQOVER get_GPIO44_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO44_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO44_CTRL_IRQOVER((GPIO44_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO44_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO44_CTRL's IRQOVER field.
      */
-    inline void set_GPIO44_CTRL_IRQOVER(
-        IO_BANK0_GPIO44_CTRL_IRQOVER value) volatile
+    inline void set_GPIO44_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO44_CTRL;
 
@@ -10013,29 +9557,27 @@ struct io_bank
     /**
      * Get all of GPIO44_CTRL's bit fields.
      */
-    inline void get_GPIO44_CTRL(IO_BANK0_GPIO44_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO44_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO44_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO44_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO44_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO44_CTRL(IO_BANK_GPIO44_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO44_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO44_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO44_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO44_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO44_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO44_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO44_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO44_CTRL's bit fields.
      */
-    inline void set_GPIO44_CTRL(IO_BANK0_GPIO44_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO44_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO44_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO44_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO44_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO44_CTRL(IO_BANK_GPIO44_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO44_CTRL;
 
@@ -10113,9 +9655,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO45_CTRL_FUNCSEL get_GPIO45_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO45_CTRL_FUNCSEL get_GPIO45_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO45_CTRL_FUNCSEL(GPIO45_CTRL & 0b11111u);
+        return IO_BANK_GPIO45_CTRL_FUNCSEL(GPIO45_CTRL & 0b11111u);
     }
 
     /**
@@ -10125,7 +9667,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO45_CTRL_FUNCSEL(
-        IO_BANK0_GPIO45_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO45_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO45_CTRL;
 
@@ -10138,16 +9680,15 @@ struct io_bank
     /**
      * Get GPIO45_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO45_CTRL_OUTOVER get_GPIO45_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO45_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO45_CTRL_OUTOVER((GPIO45_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO45_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO45_CTRL's OUTOVER field.
      */
-    inline void set_GPIO45_CTRL_OUTOVER(
-        IO_BANK0_GPIO45_CTRL_OUTOVER value) volatile
+    inline void set_GPIO45_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO45_CTRL;
 
@@ -10160,16 +9701,15 @@ struct io_bank
     /**
      * Get GPIO45_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO45_CTRL_OEOVER get_GPIO45_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO45_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO45_CTRL_OEOVER((GPIO45_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO45_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO45_CTRL's OEOVER field.
      */
-    inline void set_GPIO45_CTRL_OEOVER(
-        IO_BANK0_GPIO45_CTRL_OEOVER value) volatile
+    inline void set_GPIO45_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO45_CTRL;
 
@@ -10182,16 +9722,15 @@ struct io_bank
     /**
      * Get GPIO45_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO45_CTRL_INOVER get_GPIO45_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO45_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO45_CTRL_INOVER((GPIO45_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO45_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO45_CTRL's INOVER field.
      */
-    inline void set_GPIO45_CTRL_INOVER(
-        IO_BANK0_GPIO45_CTRL_INOVER value) volatile
+    inline void set_GPIO45_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO45_CTRL;
 
@@ -10204,16 +9743,15 @@ struct io_bank
     /**
      * Get GPIO45_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO45_CTRL_IRQOVER get_GPIO45_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO45_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO45_CTRL_IRQOVER((GPIO45_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO45_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO45_CTRL's IRQOVER field.
      */
-    inline void set_GPIO45_CTRL_IRQOVER(
-        IO_BANK0_GPIO45_CTRL_IRQOVER value) volatile
+    inline void set_GPIO45_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO45_CTRL;
 
@@ -10226,29 +9764,27 @@ struct io_bank
     /**
      * Get all of GPIO45_CTRL's bit fields.
      */
-    inline void get_GPIO45_CTRL(IO_BANK0_GPIO45_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO45_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO45_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO45_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO45_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO45_CTRL(IO_BANK_GPIO45_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO45_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO45_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO45_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO45_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO45_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO45_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO45_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO45_CTRL's bit fields.
      */
-    inline void set_GPIO45_CTRL(IO_BANK0_GPIO45_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO45_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO45_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO45_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO45_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO45_CTRL(IO_BANK_GPIO45_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO45_CTRL;
 
@@ -10326,9 +9862,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO46_CTRL_FUNCSEL get_GPIO46_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO46_CTRL_FUNCSEL get_GPIO46_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO46_CTRL_FUNCSEL(GPIO46_CTRL & 0b11111u);
+        return IO_BANK_GPIO46_CTRL_FUNCSEL(GPIO46_CTRL & 0b11111u);
     }
 
     /**
@@ -10338,7 +9874,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO46_CTRL_FUNCSEL(
-        IO_BANK0_GPIO46_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO46_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO46_CTRL;
 
@@ -10351,16 +9887,15 @@ struct io_bank
     /**
      * Get GPIO46_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO46_CTRL_OUTOVER get_GPIO46_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO46_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO46_CTRL_OUTOVER((GPIO46_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO46_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO46_CTRL's OUTOVER field.
      */
-    inline void set_GPIO46_CTRL_OUTOVER(
-        IO_BANK0_GPIO46_CTRL_OUTOVER value) volatile
+    inline void set_GPIO46_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO46_CTRL;
 
@@ -10373,16 +9908,15 @@ struct io_bank
     /**
      * Get GPIO46_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO46_CTRL_OEOVER get_GPIO46_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO46_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO46_CTRL_OEOVER((GPIO46_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO46_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO46_CTRL's OEOVER field.
      */
-    inline void set_GPIO46_CTRL_OEOVER(
-        IO_BANK0_GPIO46_CTRL_OEOVER value) volatile
+    inline void set_GPIO46_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO46_CTRL;
 
@@ -10395,16 +9929,15 @@ struct io_bank
     /**
      * Get GPIO46_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO46_CTRL_INOVER get_GPIO46_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO46_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO46_CTRL_INOVER((GPIO46_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO46_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO46_CTRL's INOVER field.
      */
-    inline void set_GPIO46_CTRL_INOVER(
-        IO_BANK0_GPIO46_CTRL_INOVER value) volatile
+    inline void set_GPIO46_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO46_CTRL;
 
@@ -10417,16 +9950,15 @@ struct io_bank
     /**
      * Get GPIO46_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO46_CTRL_IRQOVER get_GPIO46_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO46_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO46_CTRL_IRQOVER((GPIO46_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO46_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO46_CTRL's IRQOVER field.
      */
-    inline void set_GPIO46_CTRL_IRQOVER(
-        IO_BANK0_GPIO46_CTRL_IRQOVER value) volatile
+    inline void set_GPIO46_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO46_CTRL;
 
@@ -10439,29 +9971,27 @@ struct io_bank
     /**
      * Get all of GPIO46_CTRL's bit fields.
      */
-    inline void get_GPIO46_CTRL(IO_BANK0_GPIO46_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO46_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO46_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO46_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO46_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO46_CTRL(IO_BANK_GPIO46_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO46_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO46_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO46_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO46_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO46_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO46_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO46_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO46_CTRL's bit fields.
      */
-    inline void set_GPIO46_CTRL(IO_BANK0_GPIO46_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO46_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO46_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO46_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO46_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO46_CTRL(IO_BANK_GPIO46_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO46_CTRL;
 
@@ -10539,9 +10069,9 @@ struct io_bank
      * 0-31 -> selects pin function according to the gpio table
      *                             31 == NULL
      */
-    inline IO_BANK0_GPIO47_CTRL_FUNCSEL get_GPIO47_CTRL_FUNCSEL() volatile
+    inline IO_BANK_GPIO47_CTRL_FUNCSEL get_GPIO47_CTRL_FUNCSEL() volatile
     {
-        return IO_BANK0_GPIO47_CTRL_FUNCSEL(GPIO47_CTRL & 0b11111u);
+        return IO_BANK_GPIO47_CTRL_FUNCSEL(GPIO47_CTRL & 0b11111u);
     }
 
     /**
@@ -10551,7 +10081,7 @@ struct io_bank
      *                             31 == NULL
      */
     inline void set_GPIO47_CTRL_FUNCSEL(
-        IO_BANK0_GPIO47_CTRL_FUNCSEL value) volatile
+        IO_BANK_GPIO47_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO47_CTRL;
 
@@ -10564,16 +10094,15 @@ struct io_bank
     /**
      * Get GPIO47_CTRL's OUTOVER field.
      */
-    inline IO_BANK0_GPIO47_CTRL_OUTOVER get_GPIO47_CTRL_OUTOVER() volatile
+    inline IO_BANK_OUTOVER get_GPIO47_CTRL_OUTOVER() volatile
     {
-        return IO_BANK0_GPIO47_CTRL_OUTOVER((GPIO47_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OUTOVER((GPIO47_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO47_CTRL's OUTOVER field.
      */
-    inline void set_GPIO47_CTRL_OUTOVER(
-        IO_BANK0_GPIO47_CTRL_OUTOVER value) volatile
+    inline void set_GPIO47_CTRL_OUTOVER(IO_BANK_OUTOVER value) volatile
     {
         uint32_t curr = GPIO47_CTRL;
 
@@ -10586,16 +10115,15 @@ struct io_bank
     /**
      * Get GPIO47_CTRL's OEOVER field.
      */
-    inline IO_BANK0_GPIO47_CTRL_OEOVER get_GPIO47_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO47_CTRL_OEOVER() volatile
     {
-        return IO_BANK0_GPIO47_CTRL_OEOVER((GPIO47_CTRL >> 14u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO47_CTRL >> 14u) & 0b11u);
     }
 
     /**
      * Set GPIO47_CTRL's OEOVER field.
      */
-    inline void set_GPIO47_CTRL_OEOVER(
-        IO_BANK0_GPIO47_CTRL_OEOVER value) volatile
+    inline void set_GPIO47_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO47_CTRL;
 
@@ -10608,16 +10136,15 @@ struct io_bank
     /**
      * Get GPIO47_CTRL's INOVER field.
      */
-    inline IO_BANK0_GPIO47_CTRL_INOVER get_GPIO47_CTRL_INOVER() volatile
+    inline IO_BANK_INOVER get_GPIO47_CTRL_INOVER() volatile
     {
-        return IO_BANK0_GPIO47_CTRL_INOVER((GPIO47_CTRL >> 16u) & 0b11u);
+        return IO_BANK_INOVER((GPIO47_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO47_CTRL's INOVER field.
      */
-    inline void set_GPIO47_CTRL_INOVER(
-        IO_BANK0_GPIO47_CTRL_INOVER value) volatile
+    inline void set_GPIO47_CTRL_INOVER(IO_BANK_INOVER value) volatile
     {
         uint32_t curr = GPIO47_CTRL;
 
@@ -10630,16 +10157,15 @@ struct io_bank
     /**
      * Get GPIO47_CTRL's IRQOVER field.
      */
-    inline IO_BANK0_GPIO47_CTRL_IRQOVER get_GPIO47_CTRL_IRQOVER() volatile
+    inline IO_BANK_IRQOVER get_GPIO47_CTRL_IRQOVER() volatile
     {
-        return IO_BANK0_GPIO47_CTRL_IRQOVER((GPIO47_CTRL >> 28u) & 0b11u);
+        return IO_BANK_IRQOVER((GPIO47_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO47_CTRL's IRQOVER field.
      */
-    inline void set_GPIO47_CTRL_IRQOVER(
-        IO_BANK0_GPIO47_CTRL_IRQOVER value) volatile
+    inline void set_GPIO47_CTRL_IRQOVER(IO_BANK_IRQOVER value) volatile
     {
         uint32_t curr = GPIO47_CTRL;
 
@@ -10652,29 +10178,27 @@ struct io_bank
     /**
      * Get all of GPIO47_CTRL's bit fields.
      */
-    inline void get_GPIO47_CTRL(IO_BANK0_GPIO47_CTRL_FUNCSEL &FUNCSEL,
-                                IO_BANK0_GPIO47_CTRL_OUTOVER &OUTOVER,
-                                IO_BANK0_GPIO47_CTRL_OEOVER &OEOVER,
-                                IO_BANK0_GPIO47_CTRL_INOVER &INOVER,
-                                IO_BANK0_GPIO47_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO47_CTRL(IO_BANK_GPIO47_CTRL_FUNCSEL &FUNCSEL,
+                                IO_BANK_OUTOVER &OUTOVER,
+                                IO_BANK_OEOVER &OEOVER, IO_BANK_INOVER &INOVER,
+                                IO_BANK_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO47_CTRL;
 
-        FUNCSEL = IO_BANK0_GPIO47_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK0_GPIO47_CTRL_OUTOVER((curr >> 12u) & 0b11u);
-        OEOVER = IO_BANK0_GPIO47_CTRL_OEOVER((curr >> 14u) & 0b11u);
-        INOVER = IO_BANK0_GPIO47_CTRL_INOVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK0_GPIO47_CTRL_IRQOVER((curr >> 28u) & 0b11u);
+        FUNCSEL = IO_BANK_GPIO47_CTRL_FUNCSEL(curr & 0b11111u);
+        OUTOVER = IO_BANK_OUTOVER((curr >> 12u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 14u) & 0b11u);
+        INOVER = IO_BANK_INOVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_IRQOVER((curr >> 28u) & 0b11u);
     }
 
     /**
      * Set all of GPIO47_CTRL's bit fields.
      */
-    inline void set_GPIO47_CTRL(IO_BANK0_GPIO47_CTRL_FUNCSEL FUNCSEL,
-                                IO_BANK0_GPIO47_CTRL_OUTOVER OUTOVER,
-                                IO_BANK0_GPIO47_CTRL_OEOVER OEOVER,
-                                IO_BANK0_GPIO47_CTRL_INOVER INOVER,
-                                IO_BANK0_GPIO47_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO47_CTRL(IO_BANK_GPIO47_CTRL_FUNCSEL FUNCSEL,
+                                IO_BANK_OUTOVER OUTOVER, IO_BANK_OEOVER OEOVER,
+                                IO_BANK_INOVER INOVER,
+                                IO_BANK_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO47_CTRL;
 
@@ -65584,7 +65108,7 @@ struct io_bank
 static_assert(sizeof(io_bank) == io_bank::size);
 static_assert(ifgen_struct<io_bank>);
 
-static volatile io_bank *const IO_BANK0 =
+static volatile io_bank *const IO_BANK =
     reinterpret_cast<io_bank *>(0x40028000);
 
 }; // namespace RP2350
