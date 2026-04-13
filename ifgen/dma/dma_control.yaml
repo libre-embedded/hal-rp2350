@@ -11,28 +11,12 @@ structs:
         expected_offset: 0
         description: |-
           (read-write) DMA Channel 0 Read Address pointer
-        fields:
-          - name: READ_ADDR
-            description: |-
-              This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: WRITE_ADDR
         type: uint32_t
         expected_size: 4
         expected_offset: 4
         description: |-
           (read-write) DMA Channel 0 Write Address pointer
-        fields:
-          - name: WRITE_ADDR
-            description: |-
-              This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: TRANS_COUNT
         type: uint32_t
         expected_size: 4
@@ -75,7 +59,7 @@ structs:
         expected_offset: 12
         description: |-
           (read-write) DMA Channel 0 Control and Status
-        fields:
+        fields: &ctrl_fields
           - name: EN
             description: |-
               DMA Channel Enable.
@@ -237,36 +221,19 @@ structs:
         expected_offset: 16
         description: |-
           (read-write) Alias for channel N CTRL register
-        fields:
-          - name: AL1_CTRL
-            index: 0
-            width: 32
-            read: true
-            write: true
+        fields: *ctrl_fields
       - name: AL1_READ_ADDR
         type: uint32_t
         expected_size: 4
         expected_offset: 20
         description: |-
           (read-write) Alias for channel N READ_ADDR register
-        fields:
-          - name: AL1_READ_ADDR
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: AL1_WRITE_ADDR
         type: uint32_t
         expected_size: 4
         expected_offset: 24
         description: |-
           (read-write) Alias for channel N WRITE_ADDR register
-        fields:
-          - name: AL1_WRITE_ADDR
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: AL1_TRANS_COUNT_TRIG
         type: uint32_t
         expected_size: 4
@@ -275,48 +242,25 @@ structs:
           (read-write) Alias for channel N TRANS_COUNT register
                               This is a trigger register (0xc). Writing a nonzero value will
                               reload the channel counter and start the channel.
-        fields:
-          - name: AL1_TRANS_COUNT_TRIG
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: AL2_CTRL
         type: uint32_t
         expected_size: 4
         expected_offset: 32
         description: |-
           (read-write) Alias for channel N CTRL register
-        fields:
-          - name: AL2_CTRL
-            index: 0
-            width: 32
-            read: true
-            write: true
+        fields: *ctrl_fields
       - name: AL2_TRANS_COUNT
         type: uint32_t
         expected_size: 4
         expected_offset: 36
         description: |-
           (read-write) Alias for channel N TRANS_COUNT register
-        fields:
-          - name: AL2_TRANS_COUNT
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: AL2_READ_ADDR
         type: uint32_t
         expected_size: 4
         expected_offset: 40
         description: |-
           (read-write) Alias for channel N READ_ADDR register
-        fields:
-          - name: AL2_READ_ADDR
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: AL2_WRITE_ADDR_TRIG
         type: uint32_t
         expected_size: 4
@@ -325,48 +269,25 @@ structs:
           (read-write) Alias for channel N WRITE_ADDR register
                               This is a trigger register (0xc). Writing a nonzero value will
                               reload the channel counter and start the channel.
-        fields:
-          - name: AL2_WRITE_ADDR_TRIG
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: AL3_CTRL
         type: uint32_t
         expected_size: 4
         expected_offset: 48
         description: |-
           (read-write) Alias for channel N CTRL register
-        fields:
-          - name: AL3_CTRL
-            index: 0
-            width: 32
-            read: true
-            write: true
+        fields: *ctrl_fields
       - name: AL3_WRITE_ADDR
         type: uint32_t
         expected_size: 4
         expected_offset: 52
         description: |-
           (read-write) Alias for channel N WRITE_ADDR register
-        fields:
-          - name: AL3_WRITE_ADDR
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: AL3_TRANS_COUNT
         type: uint32_t
         expected_size: 4
         expected_offset: 56
         description: |-
           (read-write) Alias for channel N TRANS_COUNT register
-        fields:
-          - name: AL3_TRANS_COUNT
-            index: 0
-            width: 32
-            read: true
-            write: true
       - name: AL3_READ_ADDR_TRIG
         type: uint32_t
         expected_size: 4
@@ -375,9 +296,3 @@ structs:
           (read-write) Alias for channel N READ_ADDR register
                               This is a trigger register (0xc). Writing a nonzero value will
                               reload the channel counter and start the channel.
-        fields:
-          - name: AL3_READ_ADDR_TRIG
-            index: 0
-            width: 32
-            read: true
-            write: true
