@@ -4,8 +4,8 @@
  */
 
 #pragma once
-#ifndef RP2350_STRUCTS_PADS_BANK0_H
-#define RP2350_STRUCTS_PADS_BANK0_H
+#ifndef RP2350_STRUCTS_PADS_BANK_H
+#define RP2350_STRUCTS_PADS_BANK_H
 
 #include "../enums/PADS_BANK0_GPIO0_DRIVE.h"
 #include "../enums/PADS_BANK0_GPIO10_DRIVE.h"
@@ -62,12 +62,11 @@
 namespace RP2350
 {
 
-struct pads_bank0
+struct pads_bank
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 21; /*!< pads_bank0's identifier. */
-    static constexpr std::size_t size =
-        204; /*!< pads_bank0's size in bytes. */
+    static constexpr struct_id_t id = 21;    /*!< pads_bank's identifier. */
+    static constexpr std::size_t size = 204; /*!< pads_bank's size in bytes. */
 
     /* Fields. */
     uint32_t
@@ -18008,11 +18007,11 @@ struct pads_bank0
     }
 };
 
-static_assert(sizeof(pads_bank0) == pads_bank0::size);
-static_assert(ifgen_struct<pads_bank0>);
+static_assert(sizeof(pads_bank) == pads_bank::size);
+static_assert(ifgen_struct<pads_bank>);
 
-static volatile pads_bank0 *const PADS_BANK0 =
-    reinterpret_cast<pads_bank0 *>(0x40038000);
+static volatile pads_bank *const PADS_BANK0 =
+    reinterpret_cast<pads_bank *>(0x40038000);
 
 }; // namespace RP2350
 

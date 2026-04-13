@@ -4,19 +4,19 @@
  */
 
 #pragma once
-#ifndef RP2350_STRUCTS_SPI0_H
-#define RP2350_STRUCTS_SPI0_H
+#ifndef RP2350_STRUCTS_SPI_H
+#define RP2350_STRUCTS_SPI_H
 
 #include "../ifgen/common.h"
 
 namespace RP2350
 {
 
-struct spi0
+struct spi
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 35;     /*!< spi0's identifier. */
-    static constexpr std::size_t size = 4096; /*!< spi0's size in bytes. */
+    static constexpr struct_id_t id = 35;     /*!< spi's identifier. */
+    static constexpr std::size_t size = 4096; /*!< spi's size in bytes. */
 
     /* Fields. */
     uint32_t
@@ -1380,12 +1380,12 @@ struct spi0
     }
 };
 
-static_assert(sizeof(spi0) == spi0::size);
-static_assert(ifgen_struct<spi0>);
+static_assert(sizeof(spi) == spi::size);
+static_assert(ifgen_struct<spi>);
 
-static volatile spi0 *const SPI0 = reinterpret_cast<spi0 *>(0x40080000);
+static volatile spi *const SPI0 = reinterpret_cast<spi *>(0x40080000);
 
-static volatile spi0 *const SPI1 = reinterpret_cast<spi0 *>(0x40088000);
+static volatile spi *const SPI1 = reinterpret_cast<spi *>(0x40088000);
 
 }; // namespace RP2350
 

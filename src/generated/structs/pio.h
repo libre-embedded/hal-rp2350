@@ -4,8 +4,8 @@
  */
 
 #pragma once
-#ifndef RP2350_STRUCTS_PIO0_H
-#define RP2350_STRUCTS_PIO0_H
+#ifndef RP2350_STRUCTS_PIO_H
+#define RP2350_STRUCTS_PIO_H
 
 #include "../enums/PIO0_DBG_CFGINFO_VERSION.h"
 #include "../enums/PIO0_SM0_EXECCTRL_STATUS_N.h"
@@ -24,11 +24,11 @@ namespace RP2350
 /**
  * Programmable IO block
  */
-struct pio0
+struct pio
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 23;    /*!< pio0's identifier. */
-    static constexpr std::size_t size = 392; /*!< pio0's size in bytes. */
+    static constexpr struct_id_t id = 23;    /*!< pio's identifier. */
+    static constexpr std::size_t size = 392; /*!< pio's size in bytes. */
 
     /* Fields. */
     uint32_t CTRL;              /*!< (read-write) PIO control register */
@@ -10024,14 +10024,14 @@ are also exposed here. */
     }
 };
 
-static_assert(sizeof(pio0) == pio0::size);
-static_assert(ifgen_struct<pio0>);
+static_assert(sizeof(pio) == pio::size);
+static_assert(ifgen_struct<pio>);
 
-static volatile pio0 *const PIO0 = reinterpret_cast<pio0 *>(0x50200000);
+static volatile pio *const PIO0 = reinterpret_cast<pio *>(0x50200000);
 
-static volatile pio0 *const PIO1 = reinterpret_cast<pio0 *>(0x50300000);
+static volatile pio *const PIO1 = reinterpret_cast<pio *>(0x50300000);
 
-static volatile pio0 *const PIO2 = reinterpret_cast<pio0 *>(0x50400000);
+static volatile pio *const PIO2 = reinterpret_cast<pio *>(0x50400000);
 
 }; // namespace RP2350
 

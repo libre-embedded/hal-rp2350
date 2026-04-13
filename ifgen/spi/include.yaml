@@ -1,6 +1,6 @@
 ---
 structs:
-  spi0:
+  spi:
     instances:
       - name: SPI0
         address: '0x40080000'

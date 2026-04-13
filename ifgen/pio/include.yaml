@@ -1,6 +1,6 @@
 ---
 structs:
-  pio0:
+  pio:
     description: |-
       Programmable IO block
     instances:
@@ -350,9 +350,9 @@ structs:
         expected_size: 4
         expected_offset: 56
         description: |-
-          (read-write) There is a 2-flipflop synchronizer on each GPIO input, which protects PIO logic from metastabilities. This increases input delay, and for fast synchronous IO (e.g. SPI) these synchronizers may need to be bypassed. Each bit in this register corresponds to one GPIO. 
-                              0 -> input is synchronized (default) 
-                              1 -> synchronizer is bypassed 
+          (read-write) There is a 2-flipflop synchronizer on each GPIO input, which protects PIO logic from metastabilities. This increases input delay, and for fast synchronous IO (e.g. SPI) these synchronizers may need to be bypassed. Each bit in this register corresponds to one GPIO.
+                              0 -> input is synchronized (default)
+                              1 -> synchronizer is bypassed
                               If in doubt, leave this register as all zeroes.
         fields:
           - name: INPUT_SYNC_BYPASS
@@ -392,13 +392,13 @@ structs:
         expected_offset: 68
         const: true
         description: |-
-          (read-only) The PIO hardware has some free parameters that may vary between chip products. 
+          (read-only) The PIO hardware has some free parameters that may vary between chip products.
                               These should be provided in the chip datasheet, but are also exposed here.
         fields:
           - name: FIFO_DEPTH
             description: |-
-              The depth of the state machine TX/RX FIFOs, measured in words. 
-                                          Joining fifos via SHIFTCTRL_FJOIN gives one FIFO with double 
+              The depth of the state machine TX/RX FIFOs, measured in words.
+                                          Joining fifos via SHIFTCTRL_FJOIN gives one FIFO with double
                                           this depth.
             index: 0
             width: 6
@@ -815,7 +815,7 @@ structs:
         expected_size: 4
         expected_offset: 200
         description: |-
-          (read-write) Clock divisor register for state machine 0 
+          (read-write) Clock divisor register for state machine 0
                               Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
         fields:
           - name: FRAC
@@ -827,7 +827,7 @@ structs:
             write: true
           - name: INT
             description: |-
-              Effective frequency is sysclk/(int + frac/256). 
+              Effective frequency is sysclk/(int + frac/256).
                                           Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
             index: 16
             width: 16
@@ -867,7 +867,7 @@ structs:
             write: true
           - name: WRAP_TOP
             description: |-
-              After reaching this address, execution is wrapped to wrap_bottom. 
+              After reaching this address, execution is wrapped to wrap_bottom.
                                           If the instruction is a jump, and the jump condition is true, the jump takes priority.
             index: 12
             width: 5
@@ -882,9 +882,9 @@ structs:
             write: true
           - name: INLINE_OUT_EN
             description: |-
-              If 1, use a bit of OUT data as an auxiliary write enable 
-                                          When used in conjunction with OUT_STICKY, writes with an enable of 0 will 
-                                          deassert the latest pin write. This can create useful masking/override behaviour 
+              If 1, use a bit of OUT data as an auxiliary write enable
+                                          When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+                                          deassert the latest pin write. This can create useful masking/override behaviour
                                           due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
             index: 18
             width: 1
@@ -995,7 +995,7 @@ structs:
             write: true
           - name: PUSH_THRESH
             description: |-
-              Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place. 
+              Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
                                           Write 0 for value of 32.
             index: 20
             width: 5
@@ -1003,7 +1003,7 @@ structs:
             write: true
           - name: PULL_THRESH
             description: |-
-              Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place. 
+              Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
                                           Write 0 for value of 32.
             index: 25
             width: 5
@@ -1011,8 +1011,8 @@ structs:
             write: true
           - name: FJOIN_TX
             description: |-
-              When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep. 
-                                          RX FIFO is disabled as a result (always reads as both full and empty). 
+              When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+                                          RX FIFO is disabled as a result (always reads as both full and empty).
                                           FIFOs are flushed when this bit is changed.
             index: 30
             width: 1
@@ -1020,8 +1020,8 @@ structs:
             write: true
           - name: FJOIN_RX
             description: |-
-              When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep. 
-                                          TX FIFO is disabled as a result (always reads as both full and empty). 
+              When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+                                          TX FIFO is disabled as a result (always reads as both full and empty).
                                           FIFOs are flushed when this bit is changed.
             index: 31
             width: 1
@@ -1045,7 +1045,7 @@ structs:
         expected_size: 4
         expected_offset: 216
         description: |-
-          (read-write) Read to see the instruction currently addressed by state machine 0's program counter 
+          (read-write) Read to see the instruction currently addressed by state machine 0's program counter
                               Write to execute an instruction immediately (including jumps) and then resume execution.
         fields:
           - name: SM0_INSTR
@@ -1114,7 +1114,7 @@ structs:
         expected_size: 4
         expected_offset: 224
         description: |-
-          (read-write) Clock divisor register for state machine 1 
+          (read-write) Clock divisor register for state machine 1
                               Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
         fields:
           - name: FRAC
@@ -1126,7 +1126,7 @@ structs:
             write: true
           - name: INT
             description: |-
-              Effective frequency is sysclk/(int + frac/256). 
+              Effective frequency is sysclk/(int + frac/256).
                                           Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
             index: 16
             width: 16
@@ -1166,7 +1166,7 @@ structs:
             write: true
           - name: WRAP_TOP
             description: |-
-              After reaching this address, execution is wrapped to wrap_bottom. 
+              After reaching this address, execution is wrapped to wrap_bottom.
                                           If the instruction is a jump, and the jump condition is true, the jump takes priority.
             index: 12
             width: 5
@@ -1181,9 +1181,9 @@ structs:
             write: true
           - name: INLINE_OUT_EN
             description: |-
-              If 1, use a bit of OUT data as an auxiliary write enable 
-                                          When used in conjunction with OUT_STICKY, writes with an enable of 0 will 
-                                          deassert the latest pin write. This can create useful masking/override behaviour 
+              If 1, use a bit of OUT data as an auxiliary write enable
+                                          When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+                                          deassert the latest pin write. This can create useful masking/override behaviour
                                           due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
             index: 18
             width: 1
@@ -1294,7 +1294,7 @@ structs:
             write: true
           - name: PUSH_THRESH
             description: |-
-              Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place. 
+              Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
                                           Write 0 for value of 32.
             index: 20
             width: 5
@@ -1302,7 +1302,7 @@ structs:
             write: true
           - name: PULL_THRESH
             description: |-
-              Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place. 
+              Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
                                           Write 0 for value of 32.
             index: 25
             width: 5
@@ -1310,8 +1310,8 @@ structs:
             write: true
           - name: FJOIN_TX
             description: |-
-              When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep. 
-                                          RX FIFO is disabled as a result (always reads as both full and empty). 
+              When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+                                          RX FIFO is disabled as a result (always reads as both full and empty).
                                           FIFOs are flushed when this bit is changed.
             index: 30
             width: 1
@@ -1319,8 +1319,8 @@ structs:
             write: true
           - name: FJOIN_RX
             description: |-
-              When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep. 
-                                          TX FIFO is disabled as a result (always reads as both full and empty). 
+              When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+                                          TX FIFO is disabled as a result (always reads as both full and empty).
                                           FIFOs are flushed when this bit is changed.
             index: 31
             width: 1
@@ -1344,7 +1344,7 @@ structs:
         expected_size: 4
         expected_offset: 240
         description: |-
-          (read-write) Read to see the instruction currently addressed by state machine 1's program counter 
+          (read-write) Read to see the instruction currently addressed by state machine 1's program counter
                               Write to execute an instruction immediately (including jumps) and then resume execution.
         fields:
           - name: SM1_INSTR
@@ -1413,7 +1413,7 @@ structs:
         expected_size: 4
         expected_offset: 248
         description: |-
-          (read-write) Clock divisor register for state machine 2 
+          (read-write) Clock divisor register for state machine 2
                               Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
         fields:
           - name: FRAC
@@ -1425,7 +1425,7 @@ structs:
             write: true
           - name: INT
             description: |-
-              Effective frequency is sysclk/(int + frac/256). 
+              Effective frequency is sysclk/(int + frac/256).
                                           Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
             index: 16
             width: 16
@@ -1465,7 +1465,7 @@ structs:
             write: true
           - name: WRAP_TOP
             description: |-
-              After reaching this address, execution is wrapped to wrap_bottom. 
+              After reaching this address, execution is wrapped to wrap_bottom.
                                           If the instruction is a jump, and the jump condition is true, the jump takes priority.
             index: 12
             width: 5
@@ -1480,9 +1480,9 @@ structs:
             write: true
           - name: INLINE_OUT_EN
             description: |-
-              If 1, use a bit of OUT data as an auxiliary write enable 
-                                          When used in conjunction with OUT_STICKY, writes with an enable of 0 will 
-                                          deassert the latest pin write. This can create useful masking/override behaviour 
+              If 1, use a bit of OUT data as an auxiliary write enable
+                                          When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+                                          deassert the latest pin write. This can create useful masking/override behaviour
                                           due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
             index: 18
             width: 1
@@ -1593,7 +1593,7 @@ structs:
             write: true
           - name: PUSH_THRESH
             description: |-
-              Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place. 
+              Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
                                           Write 0 for value of 32.
             index: 20
             width: 5
@@ -1601,7 +1601,7 @@ structs:
             write: true
           - name: PULL_THRESH
             description: |-
-              Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place. 
+              Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
                                           Write 0 for value of 32.
             index: 25
             width: 5
@@ -1609,8 +1609,8 @@ structs:
             write: true
           - name: FJOIN_TX
             description: |-
-              When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep. 
-                                          RX FIFO is disabled as a result (always reads as both full and empty). 
+              When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+                                          RX FIFO is disabled as a result (always reads as both full and empty).
                                           FIFOs are flushed when this bit is changed.
             index: 30
             width: 1
@@ -1618,8 +1618,8 @@ structs:
             write: true
           - name: FJOIN_RX
             description: |-
-              When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep. 
-                                          TX FIFO is disabled as a result (always reads as both full and empty). 
+              When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+                                          TX FIFO is disabled as a result (always reads as both full and empty).
                                           FIFOs are flushed when this bit is changed.
             index: 31
             width: 1
@@ -1643,7 +1643,7 @@ structs:
         expected_size: 4
         expected_offset: 264
         description: |-
-          (read-write) Read to see the instruction currently addressed by state machine 2's program counter 
+          (read-write) Read to see the instruction currently addressed by state machine 2's program counter
                               Write to execute an instruction immediately (including jumps) and then resume execution.
         fields:
           - name: SM2_INSTR
@@ -1712,7 +1712,7 @@ structs:
         expected_size: 4
         expected_offset: 272
         description: |-
-          (read-write) Clock divisor register for state machine 3 
+          (read-write) Clock divisor register for state machine 3
                               Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
         fields:
           - name: FRAC
@@ -1724,7 +1724,7 @@ structs:
             write: true
           - name: INT
             description: |-
-              Effective frequency is sysclk/(int + frac/256). 
+              Effective frequency is sysclk/(int + frac/256).
                                           Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
             index: 16
             width: 16
@@ -1764,7 +1764,7 @@ structs:
             write: true
           - name: WRAP_TOP
             description: |-
-              After reaching this address, execution is wrapped to wrap_bottom. 
+              After reaching this address, execution is wrapped to wrap_bottom.
                                           If the instruction is a jump, and the jump condition is true, the jump takes priority.
             index: 12
             width: 5
@@ -1779,9 +1779,9 @@ structs:
             write: true
           - name: INLINE_OUT_EN
             description: |-
-              If 1, use a bit of OUT data as an auxiliary write enable 
-                                          When used in conjunction with OUT_STICKY, writes with an enable of 0 will 
-                                          deassert the latest pin write. This can create useful masking/override behaviour 
+              If 1, use a bit of OUT data as an auxiliary write enable
+                                          When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+                                          deassert the latest pin write. This can create useful masking/override behaviour
                                           due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
             index: 18
             width: 1
@@ -1892,7 +1892,7 @@ structs:
             write: true
           - name: PUSH_THRESH
             description: |-
-              Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place. 
+              Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
                                           Write 0 for value of 32.
             index: 20
             width: 5
@@ -1900,7 +1900,7 @@ structs:
             write: true
           - name: PULL_THRESH
             description: |-
-              Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place. 
+              Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
                                           Write 0 for value of 32.
             index: 25
             width: 5
@@ -1908,8 +1908,8 @@ structs:
             write: true
           - name: FJOIN_TX
             description: |-
-              When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep. 
-                                          RX FIFO is disabled as a result (always reads as both full and empty). 
+              When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+                                          RX FIFO is disabled as a result (always reads as both full and empty).
                                           FIFOs are flushed when this bit is changed.
             index: 30
             width: 1
@@ -1917,8 +1917,8 @@ structs:
             write: true
           - name: FJOIN_RX
             description: |-
-              When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep. 
-                                          TX FIFO is disabled as a result (always reads as both full and empty). 
+              When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+                                          TX FIFO is disabled as a result (always reads as both full and empty).
                                           FIFOs are flushed when this bit is changed.
             index: 31
             width: 1
@@ -1942,7 +1942,7 @@ structs:
         expected_size: 4
         expected_offset: 288
         description: |-
-          (read-write) Read to see the instruction currently addressed by state machine 3's program counter 
+          (read-write) Read to see the instruction currently addressed by state machine 3's program counter
                               Write to execute an instruction immediately (including jumps) and then resume execution.
         fields:
           - name: SM3_INSTR

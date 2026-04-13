@@ -1,6 +1,6 @@
 ---
 structs:
-  pads_bank0:
+  pads_bank:
     instances:
       - name: PADS_BANK0
         address: '0x40038000'

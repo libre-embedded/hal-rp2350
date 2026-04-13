@@ -1,6 +1,6 @@
 ---
 structs:
-  io_bank0:
+  io_bank:
     instances:
       - name: IO_BANK0
         address: '0x40028000'
@@ -46,7 +46,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -118,7 +118,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -190,7 +190,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -262,7 +262,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -334,7 +334,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -406,7 +406,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -478,7 +478,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -550,7 +550,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -622,7 +622,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -694,7 +694,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -766,7 +766,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -838,7 +838,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -910,7 +910,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -982,7 +982,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1054,7 +1054,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1126,7 +1126,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1198,7 +1198,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1270,7 +1270,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1342,7 +1342,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1414,7 +1414,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1486,7 +1486,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1558,7 +1558,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1630,7 +1630,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1702,7 +1702,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1774,7 +1774,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1846,7 +1846,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1918,7 +1918,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -1990,7 +1990,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2062,7 +2062,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2134,7 +2134,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2206,7 +2206,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2278,7 +2278,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2350,7 +2350,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2422,7 +2422,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2494,7 +2494,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2566,7 +2566,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2638,7 +2638,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2710,7 +2710,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2782,7 +2782,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2854,7 +2854,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2926,7 +2926,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -2998,7 +2998,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -3070,7 +3070,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -3142,7 +3142,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -3214,7 +3214,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -3286,7 +3286,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -3358,7 +3358,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5
@@ -3430,7 +3430,7 @@ structs:
         fields:
           - name: FUNCSEL
             description: |-
-              0-31 -> selects pin function according to the gpio table 
+              0-31 -> selects pin function according to the gpio table
                                           31 == NULL
             index: 0
             width: 5

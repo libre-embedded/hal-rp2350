@@ -4,8 +4,8 @@
  */
 
 #pragma once
-#ifndef RP2350_STRUCTS_IO_BANK0_H
-#define RP2350_STRUCTS_IO_BANK0_H
+#ifndef RP2350_STRUCTS_IO_BANK_H
+#define RP2350_STRUCTS_IO_BANK_H
 
 #include "../enums/IO_BANK0_GPIO0_CTRL_FUNCSEL.h"
 #include "../enums/IO_BANK0_GPIO0_CTRL_INOVER.h"
@@ -252,11 +252,11 @@
 namespace RP2350
 {
 
-struct io_bank0
+struct io_bank
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 16;    /*!< io_bank0's identifier. */
-    static constexpr std::size_t size = 800; /*!< io_bank0's size in bytes. */
+    static constexpr struct_id_t id = 16;    /*!< io_bank's identifier. */
+    static constexpr std::size_t size = 800; /*!< io_bank's size in bytes. */
 
     /* Fields. */
     const uint32_t GPIO0_STATUS = {};
@@ -65581,11 +65581,11 @@ struct io_bank0
     }
 };
 
-static_assert(sizeof(io_bank0) == io_bank0::size);
-static_assert(ifgen_struct<io_bank0>);
+static_assert(sizeof(io_bank) == io_bank::size);
+static_assert(ifgen_struct<io_bank>);
 
-static volatile io_bank0 *const IO_BANK0 =
-    reinterpret_cast<io_bank0 *>(0x40028000);
+static volatile io_bank *const IO_BANK0 =
+    reinterpret_cast<io_bank *>(0x40028000);
 
 }; // namespace RP2350
 
