@@ -1,0 +1,263 @@
+---
+structs:
+  pio_interrupt_cluster:
+    fields:
+      - name: E
+        type: uint32_t
+        expected_size: 4
+        description: |-
+          (read-write) Interrupt Enable for irqN
+        fields:
+          - name: SM0_RXNEMPTY
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SM1_RXNEMPTY
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SM2_RXNEMPTY
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SM3_RXNEMPTY
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: SM0_TXNFULL
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: SM1_TXNFULL
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: SM2_TXNFULL
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: SM3_TXNFULL
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: SM0
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: SM1
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: SM2
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: SM3
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: SM4
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: SM5
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: SM6
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: SM7
+            index: 15
+            width: 1
+            read: true
+            write: true
+      - name: F
+        type: uint32_t
+        expected_size: 4
+        description: |-
+          (read-write) Interrupt Force for irqN
+        fields:
+          - name: SM0_RXNEMPTY
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SM1_RXNEMPTY
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SM2_RXNEMPTY
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SM3_RXNEMPTY
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: SM0_TXNFULL
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: SM1_TXNFULL
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: SM2_TXNFULL
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: SM3_TXNFULL
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: SM0
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: SM1
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: SM2
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: SM3
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: SM4
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: SM5
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: SM6
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: SM7
+            index: 15
+            width: 1
+            read: true
+            write: true
+      - name: S
+        type: uint32_t
+        expected_size: 4
+        const: true
+        description: |-
+          (read-only) Interrupt status after masking & forcing for irqN
+        fields:
+          - name: SM0_RXNEMPTY
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: SM1_RXNEMPTY
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: SM2_RXNEMPTY
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: SM3_RXNEMPTY
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: SM0_TXNFULL
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: SM1_TXNFULL
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: SM2_TXNFULL
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: SM3_TXNFULL
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: SM0
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: SM1
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: SM2
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: SM3
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: SM4
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: SM5
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: SM6
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: SM7
+            index: 15
+            width: 1
+            read: true
+            write: false

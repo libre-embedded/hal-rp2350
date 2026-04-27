@@ -1,0 +1,54 @@
+---
+enums:
+  DBG_CFGINFO_VERSION:
+    enum:
+      v0:
+        description: |-
+          Version 0 (RP2040)
+        value: 0
+      v1:
+        description: |-
+          Version 1 (RP2350)
+        value: 1
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+
+  SM_EXECCTRL_STATUS_N:
+    enum:
+      IRQ:
+        description: |-
+          Index 0-7 of an IRQ flag in this PIO block
+        value: 0
+      _PREVPIO:
+        description: |-
+          Index 0-7 of an IRQ flag in the next lower-numbered PIO block
+        value: 8
+      _NEXTPIO:
+        description: |-
+          Index 0-7 of an IRQ flag in the next higher-numbered PIO block
+        value: 16
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+
+  SM_EXECCTRL_STATUS_SEL:
+    enum:
+      TXLEVEL:
+        description: |-
+          All-ones if TX FIFO level < N, otherwise all-zeroes
+        value: 0
+      RXLEVEL:
+        description: |-
+          All-ones if RX FIFO level < N, otherwise all-zeroes
+        value: 1
+      IRQ:
+        description: |-
+          All-ones if the indexed IRQ flag is raised, otherwise all-zeroes
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
