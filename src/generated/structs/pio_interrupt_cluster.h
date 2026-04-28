@@ -31,7 +31,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM0_RXNEMPTY bit.
      */
-    inline bool get_E_SM0_RXNEMPTY()
+    inline bool get_E_SM0_RXNEMPTY() volatile
     {
         return E & 1u;
     }
@@ -39,7 +39,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM0_RXNEMPTY bit.
      */
-    inline void set_E_SM0_RXNEMPTY()
+    inline void set_E_SM0_RXNEMPTY() volatile
     {
         E |= 1u;
     }
@@ -47,7 +47,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM0_RXNEMPTY bit.
      */
-    inline void clear_E_SM0_RXNEMPTY()
+    inline void clear_E_SM0_RXNEMPTY() volatile
     {
         E &= ~(1u);
     }
@@ -55,7 +55,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM0_RXNEMPTY bit.
      */
-    inline void toggle_E_SM0_RXNEMPTY()
+    inline void toggle_E_SM0_RXNEMPTY() volatile
     {
         E ^= 1u;
     }
@@ -63,7 +63,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM1_RXNEMPTY bit.
      */
-    inline bool get_E_SM1_RXNEMPTY()
+    inline bool get_E_SM1_RXNEMPTY() volatile
     {
         return E & (1u << 1u);
     }
@@ -71,7 +71,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM1_RXNEMPTY bit.
      */
-    inline void set_E_SM1_RXNEMPTY()
+    inline void set_E_SM1_RXNEMPTY() volatile
     {
         E |= 1u << 1u;
     }
@@ -79,7 +79,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM1_RXNEMPTY bit.
      */
-    inline void clear_E_SM1_RXNEMPTY()
+    inline void clear_E_SM1_RXNEMPTY() volatile
     {
         E &= ~(1u << 1u);
     }
@@ -87,7 +87,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM1_RXNEMPTY bit.
      */
-    inline void toggle_E_SM1_RXNEMPTY()
+    inline void toggle_E_SM1_RXNEMPTY() volatile
     {
         E ^= 1u << 1u;
     }
@@ -95,7 +95,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM2_RXNEMPTY bit.
      */
-    inline bool get_E_SM2_RXNEMPTY()
+    inline bool get_E_SM2_RXNEMPTY() volatile
     {
         return E & (1u << 2u);
     }
@@ -103,7 +103,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM2_RXNEMPTY bit.
      */
-    inline void set_E_SM2_RXNEMPTY()
+    inline void set_E_SM2_RXNEMPTY() volatile
     {
         E |= 1u << 2u;
     }
@@ -111,7 +111,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM2_RXNEMPTY bit.
      */
-    inline void clear_E_SM2_RXNEMPTY()
+    inline void clear_E_SM2_RXNEMPTY() volatile
     {
         E &= ~(1u << 2u);
     }
@@ -119,7 +119,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM2_RXNEMPTY bit.
      */
-    inline void toggle_E_SM2_RXNEMPTY()
+    inline void toggle_E_SM2_RXNEMPTY() volatile
     {
         E ^= 1u << 2u;
     }
@@ -127,7 +127,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM3_RXNEMPTY bit.
      */
-    inline bool get_E_SM3_RXNEMPTY()
+    inline bool get_E_SM3_RXNEMPTY() volatile
     {
         return E & (1u << 3u);
     }
@@ -135,7 +135,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM3_RXNEMPTY bit.
      */
-    inline void set_E_SM3_RXNEMPTY()
+    inline void set_E_SM3_RXNEMPTY() volatile
     {
         E |= 1u << 3u;
     }
@@ -143,7 +143,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM3_RXNEMPTY bit.
      */
-    inline void clear_E_SM3_RXNEMPTY()
+    inline void clear_E_SM3_RXNEMPTY() volatile
     {
         E &= ~(1u << 3u);
     }
@@ -151,7 +151,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM3_RXNEMPTY bit.
      */
-    inline void toggle_E_SM3_RXNEMPTY()
+    inline void toggle_E_SM3_RXNEMPTY() volatile
     {
         E ^= 1u << 3u;
     }
@@ -159,7 +159,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM0_TXNFULL bit.
      */
-    inline bool get_E_SM0_TXNFULL()
+    inline bool get_E_SM0_TXNFULL() volatile
     {
         return E & (1u << 4u);
     }
@@ -167,7 +167,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM0_TXNFULL bit.
      */
-    inline void set_E_SM0_TXNFULL()
+    inline void set_E_SM0_TXNFULL() volatile
     {
         E |= 1u << 4u;
     }
@@ -175,7 +175,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM0_TXNFULL bit.
      */
-    inline void clear_E_SM0_TXNFULL()
+    inline void clear_E_SM0_TXNFULL() volatile
     {
         E &= ~(1u << 4u);
     }
@@ -183,7 +183,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM0_TXNFULL bit.
      */
-    inline void toggle_E_SM0_TXNFULL()
+    inline void toggle_E_SM0_TXNFULL() volatile
     {
         E ^= 1u << 4u;
     }
@@ -191,7 +191,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM1_TXNFULL bit.
      */
-    inline bool get_E_SM1_TXNFULL()
+    inline bool get_E_SM1_TXNFULL() volatile
     {
         return E & (1u << 5u);
     }
@@ -199,7 +199,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM1_TXNFULL bit.
      */
-    inline void set_E_SM1_TXNFULL()
+    inline void set_E_SM1_TXNFULL() volatile
     {
         E |= 1u << 5u;
     }
@@ -207,7 +207,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM1_TXNFULL bit.
      */
-    inline void clear_E_SM1_TXNFULL()
+    inline void clear_E_SM1_TXNFULL() volatile
     {
         E &= ~(1u << 5u);
     }
@@ -215,7 +215,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM1_TXNFULL bit.
      */
-    inline void toggle_E_SM1_TXNFULL()
+    inline void toggle_E_SM1_TXNFULL() volatile
     {
         E ^= 1u << 5u;
     }
@@ -223,7 +223,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM2_TXNFULL bit.
      */
-    inline bool get_E_SM2_TXNFULL()
+    inline bool get_E_SM2_TXNFULL() volatile
     {
         return E & (1u << 6u);
     }
@@ -231,7 +231,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM2_TXNFULL bit.
      */
-    inline void set_E_SM2_TXNFULL()
+    inline void set_E_SM2_TXNFULL() volatile
     {
         E |= 1u << 6u;
     }
@@ -239,7 +239,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM2_TXNFULL bit.
      */
-    inline void clear_E_SM2_TXNFULL()
+    inline void clear_E_SM2_TXNFULL() volatile
     {
         E &= ~(1u << 6u);
     }
@@ -247,7 +247,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM2_TXNFULL bit.
      */
-    inline void toggle_E_SM2_TXNFULL()
+    inline void toggle_E_SM2_TXNFULL() volatile
     {
         E ^= 1u << 6u;
     }
@@ -255,7 +255,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM3_TXNFULL bit.
      */
-    inline bool get_E_SM3_TXNFULL()
+    inline bool get_E_SM3_TXNFULL() volatile
     {
         return E & (1u << 7u);
     }
@@ -263,7 +263,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM3_TXNFULL bit.
      */
-    inline void set_E_SM3_TXNFULL()
+    inline void set_E_SM3_TXNFULL() volatile
     {
         E |= 1u << 7u;
     }
@@ -271,7 +271,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM3_TXNFULL bit.
      */
-    inline void clear_E_SM3_TXNFULL()
+    inline void clear_E_SM3_TXNFULL() volatile
     {
         E &= ~(1u << 7u);
     }
@@ -279,7 +279,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM3_TXNFULL bit.
      */
-    inline void toggle_E_SM3_TXNFULL()
+    inline void toggle_E_SM3_TXNFULL() volatile
     {
         E ^= 1u << 7u;
     }
@@ -287,7 +287,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM0 bit.
      */
-    inline bool get_E_SM0()
+    inline bool get_E_SM0() volatile
     {
         return E & (1u << 8u);
     }
@@ -295,7 +295,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM0 bit.
      */
-    inline void set_E_SM0()
+    inline void set_E_SM0() volatile
     {
         E |= 1u << 8u;
     }
@@ -303,7 +303,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM0 bit.
      */
-    inline void clear_E_SM0()
+    inline void clear_E_SM0() volatile
     {
         E &= ~(1u << 8u);
     }
@@ -311,7 +311,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM0 bit.
      */
-    inline void toggle_E_SM0()
+    inline void toggle_E_SM0() volatile
     {
         E ^= 1u << 8u;
     }
@@ -319,7 +319,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM1 bit.
      */
-    inline bool get_E_SM1()
+    inline bool get_E_SM1() volatile
     {
         return E & (1u << 9u);
     }
@@ -327,7 +327,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM1 bit.
      */
-    inline void set_E_SM1()
+    inline void set_E_SM1() volatile
     {
         E |= 1u << 9u;
     }
@@ -335,7 +335,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM1 bit.
      */
-    inline void clear_E_SM1()
+    inline void clear_E_SM1() volatile
     {
         E &= ~(1u << 9u);
     }
@@ -343,7 +343,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM1 bit.
      */
-    inline void toggle_E_SM1()
+    inline void toggle_E_SM1() volatile
     {
         E ^= 1u << 9u;
     }
@@ -351,7 +351,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM2 bit.
      */
-    inline bool get_E_SM2()
+    inline bool get_E_SM2() volatile
     {
         return E & (1u << 10u);
     }
@@ -359,7 +359,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM2 bit.
      */
-    inline void set_E_SM2()
+    inline void set_E_SM2() volatile
     {
         E |= 1u << 10u;
     }
@@ -367,7 +367,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM2 bit.
      */
-    inline void clear_E_SM2()
+    inline void clear_E_SM2() volatile
     {
         E &= ~(1u << 10u);
     }
@@ -375,7 +375,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM2 bit.
      */
-    inline void toggle_E_SM2()
+    inline void toggle_E_SM2() volatile
     {
         E ^= 1u << 10u;
     }
@@ -383,7 +383,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM3 bit.
      */
-    inline bool get_E_SM3()
+    inline bool get_E_SM3() volatile
     {
         return E & (1u << 11u);
     }
@@ -391,7 +391,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM3 bit.
      */
-    inline void set_E_SM3()
+    inline void set_E_SM3() volatile
     {
         E |= 1u << 11u;
     }
@@ -399,7 +399,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM3 bit.
      */
-    inline void clear_E_SM3()
+    inline void clear_E_SM3() volatile
     {
         E &= ~(1u << 11u);
     }
@@ -407,7 +407,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM3 bit.
      */
-    inline void toggle_E_SM3()
+    inline void toggle_E_SM3() volatile
     {
         E ^= 1u << 11u;
     }
@@ -415,7 +415,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM4 bit.
      */
-    inline bool get_E_SM4()
+    inline bool get_E_SM4() volatile
     {
         return E & (1u << 12u);
     }
@@ -423,7 +423,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM4 bit.
      */
-    inline void set_E_SM4()
+    inline void set_E_SM4() volatile
     {
         E |= 1u << 12u;
     }
@@ -431,7 +431,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM4 bit.
      */
-    inline void clear_E_SM4()
+    inline void clear_E_SM4() volatile
     {
         E &= ~(1u << 12u);
     }
@@ -439,7 +439,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM4 bit.
      */
-    inline void toggle_E_SM4()
+    inline void toggle_E_SM4() volatile
     {
         E ^= 1u << 12u;
     }
@@ -447,7 +447,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM5 bit.
      */
-    inline bool get_E_SM5()
+    inline bool get_E_SM5() volatile
     {
         return E & (1u << 13u);
     }
@@ -455,7 +455,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM5 bit.
      */
-    inline void set_E_SM5()
+    inline void set_E_SM5() volatile
     {
         E |= 1u << 13u;
     }
@@ -463,7 +463,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM5 bit.
      */
-    inline void clear_E_SM5()
+    inline void clear_E_SM5() volatile
     {
         E &= ~(1u << 13u);
     }
@@ -471,7 +471,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM5 bit.
      */
-    inline void toggle_E_SM5()
+    inline void toggle_E_SM5() volatile
     {
         E ^= 1u << 13u;
     }
@@ -479,7 +479,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM6 bit.
      */
-    inline bool get_E_SM6()
+    inline bool get_E_SM6() volatile
     {
         return E & (1u << 14u);
     }
@@ -487,7 +487,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM6 bit.
      */
-    inline void set_E_SM6()
+    inline void set_E_SM6() volatile
     {
         E |= 1u << 14u;
     }
@@ -495,7 +495,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM6 bit.
      */
-    inline void clear_E_SM6()
+    inline void clear_E_SM6() volatile
     {
         E &= ~(1u << 14u);
     }
@@ -503,7 +503,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM6 bit.
      */
-    inline void toggle_E_SM6()
+    inline void toggle_E_SM6() volatile
     {
         E ^= 1u << 14u;
     }
@@ -511,7 +511,7 @@ struct pio_interrupt_cluster
     /**
      * Get E's SM7 bit.
      */
-    inline bool get_E_SM7()
+    inline bool get_E_SM7() volatile
     {
         return E & (1u << 15u);
     }
@@ -519,7 +519,7 @@ struct pio_interrupt_cluster
     /**
      * Set E's SM7 bit.
      */
-    inline void set_E_SM7()
+    inline void set_E_SM7() volatile
     {
         E |= 1u << 15u;
     }
@@ -527,7 +527,7 @@ struct pio_interrupt_cluster
     /**
      * Clear E's SM7 bit.
      */
-    inline void clear_E_SM7()
+    inline void clear_E_SM7() volatile
     {
         E &= ~(1u << 15u);
     }
@@ -535,7 +535,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle E's SM7 bit.
      */
-    inline void toggle_E_SM7()
+    inline void toggle_E_SM7() volatile
     {
         E ^= 1u << 15u;
     }
@@ -549,7 +549,8 @@ struct pio_interrupt_cluster
                       bool &SM2_RXNEMPTY, bool &SM3_RXNEMPTY,
                       bool &SM0_TXNFULL, bool &SM1_TXNFULL, bool &SM2_TXNFULL,
                       bool &SM3_TXNFULL, bool &SM0, bool &SM1, bool &SM2,
-                      bool &SM3, bool &SM4, bool &SM5, bool &SM6, bool &SM7)
+                      bool &SM3, bool &SM4, bool &SM5, bool &SM6,
+                      bool &SM7) volatile
     {
         uint32_t curr = E;
 
@@ -580,7 +581,7 @@ struct pio_interrupt_cluster
                       bool SM3_RXNEMPTY, bool SM0_TXNFULL, bool SM1_TXNFULL,
                       bool SM2_TXNFULL, bool SM3_TXNFULL, bool SM0, bool SM1,
                       bool SM2, bool SM3, bool SM4, bool SM5, bool SM6,
-                      bool SM7)
+                      bool SM7) volatile
     {
         uint32_t curr = E;
 
@@ -623,7 +624,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM0_RXNEMPTY bit.
      */
-    inline bool get_F_SM0_RXNEMPTY()
+    inline bool get_F_SM0_RXNEMPTY() volatile
     {
         return F & 1u;
     }
@@ -631,7 +632,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM0_RXNEMPTY bit.
      */
-    inline void set_F_SM0_RXNEMPTY()
+    inline void set_F_SM0_RXNEMPTY() volatile
     {
         F |= 1u;
     }
@@ -639,7 +640,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM0_RXNEMPTY bit.
      */
-    inline void clear_F_SM0_RXNEMPTY()
+    inline void clear_F_SM0_RXNEMPTY() volatile
     {
         F &= ~(1u);
     }
@@ -647,7 +648,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM0_RXNEMPTY bit.
      */
-    inline void toggle_F_SM0_RXNEMPTY()
+    inline void toggle_F_SM0_RXNEMPTY() volatile
     {
         F ^= 1u;
     }
@@ -655,7 +656,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM1_RXNEMPTY bit.
      */
-    inline bool get_F_SM1_RXNEMPTY()
+    inline bool get_F_SM1_RXNEMPTY() volatile
     {
         return F & (1u << 1u);
     }
@@ -663,7 +664,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM1_RXNEMPTY bit.
      */
-    inline void set_F_SM1_RXNEMPTY()
+    inline void set_F_SM1_RXNEMPTY() volatile
     {
         F |= 1u << 1u;
     }
@@ -671,7 +672,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM1_RXNEMPTY bit.
      */
-    inline void clear_F_SM1_RXNEMPTY()
+    inline void clear_F_SM1_RXNEMPTY() volatile
     {
         F &= ~(1u << 1u);
     }
@@ -679,7 +680,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM1_RXNEMPTY bit.
      */
-    inline void toggle_F_SM1_RXNEMPTY()
+    inline void toggle_F_SM1_RXNEMPTY() volatile
     {
         F ^= 1u << 1u;
     }
@@ -687,7 +688,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM2_RXNEMPTY bit.
      */
-    inline bool get_F_SM2_RXNEMPTY()
+    inline bool get_F_SM2_RXNEMPTY() volatile
     {
         return F & (1u << 2u);
     }
@@ -695,7 +696,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM2_RXNEMPTY bit.
      */
-    inline void set_F_SM2_RXNEMPTY()
+    inline void set_F_SM2_RXNEMPTY() volatile
     {
         F |= 1u << 2u;
     }
@@ -703,7 +704,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM2_RXNEMPTY bit.
      */
-    inline void clear_F_SM2_RXNEMPTY()
+    inline void clear_F_SM2_RXNEMPTY() volatile
     {
         F &= ~(1u << 2u);
     }
@@ -711,7 +712,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM2_RXNEMPTY bit.
      */
-    inline void toggle_F_SM2_RXNEMPTY()
+    inline void toggle_F_SM2_RXNEMPTY() volatile
     {
         F ^= 1u << 2u;
     }
@@ -719,7 +720,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM3_RXNEMPTY bit.
      */
-    inline bool get_F_SM3_RXNEMPTY()
+    inline bool get_F_SM3_RXNEMPTY() volatile
     {
         return F & (1u << 3u);
     }
@@ -727,7 +728,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM3_RXNEMPTY bit.
      */
-    inline void set_F_SM3_RXNEMPTY()
+    inline void set_F_SM3_RXNEMPTY() volatile
     {
         F |= 1u << 3u;
     }
@@ -735,7 +736,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM3_RXNEMPTY bit.
      */
-    inline void clear_F_SM3_RXNEMPTY()
+    inline void clear_F_SM3_RXNEMPTY() volatile
     {
         F &= ~(1u << 3u);
     }
@@ -743,7 +744,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM3_RXNEMPTY bit.
      */
-    inline void toggle_F_SM3_RXNEMPTY()
+    inline void toggle_F_SM3_RXNEMPTY() volatile
     {
         F ^= 1u << 3u;
     }
@@ -751,7 +752,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM0_TXNFULL bit.
      */
-    inline bool get_F_SM0_TXNFULL()
+    inline bool get_F_SM0_TXNFULL() volatile
     {
         return F & (1u << 4u);
     }
@@ -759,7 +760,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM0_TXNFULL bit.
      */
-    inline void set_F_SM0_TXNFULL()
+    inline void set_F_SM0_TXNFULL() volatile
     {
         F |= 1u << 4u;
     }
@@ -767,7 +768,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM0_TXNFULL bit.
      */
-    inline void clear_F_SM0_TXNFULL()
+    inline void clear_F_SM0_TXNFULL() volatile
     {
         F &= ~(1u << 4u);
     }
@@ -775,7 +776,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM0_TXNFULL bit.
      */
-    inline void toggle_F_SM0_TXNFULL()
+    inline void toggle_F_SM0_TXNFULL() volatile
     {
         F ^= 1u << 4u;
     }
@@ -783,7 +784,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM1_TXNFULL bit.
      */
-    inline bool get_F_SM1_TXNFULL()
+    inline bool get_F_SM1_TXNFULL() volatile
     {
         return F & (1u << 5u);
     }
@@ -791,7 +792,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM1_TXNFULL bit.
      */
-    inline void set_F_SM1_TXNFULL()
+    inline void set_F_SM1_TXNFULL() volatile
     {
         F |= 1u << 5u;
     }
@@ -799,7 +800,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM1_TXNFULL bit.
      */
-    inline void clear_F_SM1_TXNFULL()
+    inline void clear_F_SM1_TXNFULL() volatile
     {
         F &= ~(1u << 5u);
     }
@@ -807,7 +808,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM1_TXNFULL bit.
      */
-    inline void toggle_F_SM1_TXNFULL()
+    inline void toggle_F_SM1_TXNFULL() volatile
     {
         F ^= 1u << 5u;
     }
@@ -815,7 +816,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM2_TXNFULL bit.
      */
-    inline bool get_F_SM2_TXNFULL()
+    inline bool get_F_SM2_TXNFULL() volatile
     {
         return F & (1u << 6u);
     }
@@ -823,7 +824,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM2_TXNFULL bit.
      */
-    inline void set_F_SM2_TXNFULL()
+    inline void set_F_SM2_TXNFULL() volatile
     {
         F |= 1u << 6u;
     }
@@ -831,7 +832,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM2_TXNFULL bit.
      */
-    inline void clear_F_SM2_TXNFULL()
+    inline void clear_F_SM2_TXNFULL() volatile
     {
         F &= ~(1u << 6u);
     }
@@ -839,7 +840,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM2_TXNFULL bit.
      */
-    inline void toggle_F_SM2_TXNFULL()
+    inline void toggle_F_SM2_TXNFULL() volatile
     {
         F ^= 1u << 6u;
     }
@@ -847,7 +848,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM3_TXNFULL bit.
      */
-    inline bool get_F_SM3_TXNFULL()
+    inline bool get_F_SM3_TXNFULL() volatile
     {
         return F & (1u << 7u);
     }
@@ -855,7 +856,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM3_TXNFULL bit.
      */
-    inline void set_F_SM3_TXNFULL()
+    inline void set_F_SM3_TXNFULL() volatile
     {
         F |= 1u << 7u;
     }
@@ -863,7 +864,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM3_TXNFULL bit.
      */
-    inline void clear_F_SM3_TXNFULL()
+    inline void clear_F_SM3_TXNFULL() volatile
     {
         F &= ~(1u << 7u);
     }
@@ -871,7 +872,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM3_TXNFULL bit.
      */
-    inline void toggle_F_SM3_TXNFULL()
+    inline void toggle_F_SM3_TXNFULL() volatile
     {
         F ^= 1u << 7u;
     }
@@ -879,7 +880,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM0 bit.
      */
-    inline bool get_F_SM0()
+    inline bool get_F_SM0() volatile
     {
         return F & (1u << 8u);
     }
@@ -887,7 +888,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM0 bit.
      */
-    inline void set_F_SM0()
+    inline void set_F_SM0() volatile
     {
         F |= 1u << 8u;
     }
@@ -895,7 +896,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM0 bit.
      */
-    inline void clear_F_SM0()
+    inline void clear_F_SM0() volatile
     {
         F &= ~(1u << 8u);
     }
@@ -903,7 +904,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM0 bit.
      */
-    inline void toggle_F_SM0()
+    inline void toggle_F_SM0() volatile
     {
         F ^= 1u << 8u;
     }
@@ -911,7 +912,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM1 bit.
      */
-    inline bool get_F_SM1()
+    inline bool get_F_SM1() volatile
     {
         return F & (1u << 9u);
     }
@@ -919,7 +920,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM1 bit.
      */
-    inline void set_F_SM1()
+    inline void set_F_SM1() volatile
     {
         F |= 1u << 9u;
     }
@@ -927,7 +928,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM1 bit.
      */
-    inline void clear_F_SM1()
+    inline void clear_F_SM1() volatile
     {
         F &= ~(1u << 9u);
     }
@@ -935,7 +936,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM1 bit.
      */
-    inline void toggle_F_SM1()
+    inline void toggle_F_SM1() volatile
     {
         F ^= 1u << 9u;
     }
@@ -943,7 +944,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM2 bit.
      */
-    inline bool get_F_SM2()
+    inline bool get_F_SM2() volatile
     {
         return F & (1u << 10u);
     }
@@ -951,7 +952,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM2 bit.
      */
-    inline void set_F_SM2()
+    inline void set_F_SM2() volatile
     {
         F |= 1u << 10u;
     }
@@ -959,7 +960,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM2 bit.
      */
-    inline void clear_F_SM2()
+    inline void clear_F_SM2() volatile
     {
         F &= ~(1u << 10u);
     }
@@ -967,7 +968,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM2 bit.
      */
-    inline void toggle_F_SM2()
+    inline void toggle_F_SM2() volatile
     {
         F ^= 1u << 10u;
     }
@@ -975,7 +976,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM3 bit.
      */
-    inline bool get_F_SM3()
+    inline bool get_F_SM3() volatile
     {
         return F & (1u << 11u);
     }
@@ -983,7 +984,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM3 bit.
      */
-    inline void set_F_SM3()
+    inline void set_F_SM3() volatile
     {
         F |= 1u << 11u;
     }
@@ -991,7 +992,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM3 bit.
      */
-    inline void clear_F_SM3()
+    inline void clear_F_SM3() volatile
     {
         F &= ~(1u << 11u);
     }
@@ -999,7 +1000,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM3 bit.
      */
-    inline void toggle_F_SM3()
+    inline void toggle_F_SM3() volatile
     {
         F ^= 1u << 11u;
     }
@@ -1007,7 +1008,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM4 bit.
      */
-    inline bool get_F_SM4()
+    inline bool get_F_SM4() volatile
     {
         return F & (1u << 12u);
     }
@@ -1015,7 +1016,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM4 bit.
      */
-    inline void set_F_SM4()
+    inline void set_F_SM4() volatile
     {
         F |= 1u << 12u;
     }
@@ -1023,7 +1024,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM4 bit.
      */
-    inline void clear_F_SM4()
+    inline void clear_F_SM4() volatile
     {
         F &= ~(1u << 12u);
     }
@@ -1031,7 +1032,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM4 bit.
      */
-    inline void toggle_F_SM4()
+    inline void toggle_F_SM4() volatile
     {
         F ^= 1u << 12u;
     }
@@ -1039,7 +1040,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM5 bit.
      */
-    inline bool get_F_SM5()
+    inline bool get_F_SM5() volatile
     {
         return F & (1u << 13u);
     }
@@ -1047,7 +1048,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM5 bit.
      */
-    inline void set_F_SM5()
+    inline void set_F_SM5() volatile
     {
         F |= 1u << 13u;
     }
@@ -1055,7 +1056,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM5 bit.
      */
-    inline void clear_F_SM5()
+    inline void clear_F_SM5() volatile
     {
         F &= ~(1u << 13u);
     }
@@ -1063,7 +1064,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM5 bit.
      */
-    inline void toggle_F_SM5()
+    inline void toggle_F_SM5() volatile
     {
         F ^= 1u << 13u;
     }
@@ -1071,7 +1072,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM6 bit.
      */
-    inline bool get_F_SM6()
+    inline bool get_F_SM6() volatile
     {
         return F & (1u << 14u);
     }
@@ -1079,7 +1080,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM6 bit.
      */
-    inline void set_F_SM6()
+    inline void set_F_SM6() volatile
     {
         F |= 1u << 14u;
     }
@@ -1087,7 +1088,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM6 bit.
      */
-    inline void clear_F_SM6()
+    inline void clear_F_SM6() volatile
     {
         F &= ~(1u << 14u);
     }
@@ -1095,7 +1096,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM6 bit.
      */
-    inline void toggle_F_SM6()
+    inline void toggle_F_SM6() volatile
     {
         F ^= 1u << 14u;
     }
@@ -1103,7 +1104,7 @@ struct pio_interrupt_cluster
     /**
      * Get F's SM7 bit.
      */
-    inline bool get_F_SM7()
+    inline bool get_F_SM7() volatile
     {
         return F & (1u << 15u);
     }
@@ -1111,7 +1112,7 @@ struct pio_interrupt_cluster
     /**
      * Set F's SM7 bit.
      */
-    inline void set_F_SM7()
+    inline void set_F_SM7() volatile
     {
         F |= 1u << 15u;
     }
@@ -1119,7 +1120,7 @@ struct pio_interrupt_cluster
     /**
      * Clear F's SM7 bit.
      */
-    inline void clear_F_SM7()
+    inline void clear_F_SM7() volatile
     {
         F &= ~(1u << 15u);
     }
@@ -1127,7 +1128,7 @@ struct pio_interrupt_cluster
     /**
      * Toggle F's SM7 bit.
      */
-    inline void toggle_F_SM7()
+    inline void toggle_F_SM7() volatile
     {
         F ^= 1u << 15u;
     }
@@ -1141,7 +1142,8 @@ struct pio_interrupt_cluster
                       bool &SM2_RXNEMPTY, bool &SM3_RXNEMPTY,
                       bool &SM0_TXNFULL, bool &SM1_TXNFULL, bool &SM2_TXNFULL,
                       bool &SM3_TXNFULL, bool &SM0, bool &SM1, bool &SM2,
-                      bool &SM3, bool &SM4, bool &SM5, bool &SM6, bool &SM7)
+                      bool &SM3, bool &SM4, bool &SM5, bool &SM6,
+                      bool &SM7) volatile
     {
         uint32_t curr = F;
 
@@ -1172,7 +1174,7 @@ struct pio_interrupt_cluster
                       bool SM3_RXNEMPTY, bool SM0_TXNFULL, bool SM1_TXNFULL,
                       bool SM2_TXNFULL, bool SM3_TXNFULL, bool SM0, bool SM1,
                       bool SM2, bool SM3, bool SM4, bool SM5, bool SM6,
-                      bool SM7)
+                      bool SM7) volatile
     {
         uint32_t curr = F;
 
@@ -1215,7 +1217,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM0_RXNEMPTY bit.
      */
-    inline bool get_S_SM0_RXNEMPTY()
+    inline bool get_S_SM0_RXNEMPTY() volatile
     {
         return S & 1u;
     }
@@ -1223,7 +1225,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM1_RXNEMPTY bit.
      */
-    inline bool get_S_SM1_RXNEMPTY()
+    inline bool get_S_SM1_RXNEMPTY() volatile
     {
         return S & (1u << 1u);
     }
@@ -1231,7 +1233,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM2_RXNEMPTY bit.
      */
-    inline bool get_S_SM2_RXNEMPTY()
+    inline bool get_S_SM2_RXNEMPTY() volatile
     {
         return S & (1u << 2u);
     }
@@ -1239,7 +1241,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM3_RXNEMPTY bit.
      */
-    inline bool get_S_SM3_RXNEMPTY()
+    inline bool get_S_SM3_RXNEMPTY() volatile
     {
         return S & (1u << 3u);
     }
@@ -1247,7 +1249,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM0_TXNFULL bit.
      */
-    inline bool get_S_SM0_TXNFULL()
+    inline bool get_S_SM0_TXNFULL() volatile
     {
         return S & (1u << 4u);
     }
@@ -1255,7 +1257,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM1_TXNFULL bit.
      */
-    inline bool get_S_SM1_TXNFULL()
+    inline bool get_S_SM1_TXNFULL() volatile
     {
         return S & (1u << 5u);
     }
@@ -1263,7 +1265,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM2_TXNFULL bit.
      */
-    inline bool get_S_SM2_TXNFULL()
+    inline bool get_S_SM2_TXNFULL() volatile
     {
         return S & (1u << 6u);
     }
@@ -1271,7 +1273,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM3_TXNFULL bit.
      */
-    inline bool get_S_SM3_TXNFULL()
+    inline bool get_S_SM3_TXNFULL() volatile
     {
         return S & (1u << 7u);
     }
@@ -1279,7 +1281,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM0 bit.
      */
-    inline bool get_S_SM0()
+    inline bool get_S_SM0() volatile
     {
         return S & (1u << 8u);
     }
@@ -1287,7 +1289,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM1 bit.
      */
-    inline bool get_S_SM1()
+    inline bool get_S_SM1() volatile
     {
         return S & (1u << 9u);
     }
@@ -1295,7 +1297,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM2 bit.
      */
-    inline bool get_S_SM2()
+    inline bool get_S_SM2() volatile
     {
         return S & (1u << 10u);
     }
@@ -1303,7 +1305,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM3 bit.
      */
-    inline bool get_S_SM3()
+    inline bool get_S_SM3() volatile
     {
         return S & (1u << 11u);
     }
@@ -1311,7 +1313,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM4 bit.
      */
-    inline bool get_S_SM4()
+    inline bool get_S_SM4() volatile
     {
         return S & (1u << 12u);
     }
@@ -1319,7 +1321,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM5 bit.
      */
-    inline bool get_S_SM5()
+    inline bool get_S_SM5() volatile
     {
         return S & (1u << 13u);
     }
@@ -1327,7 +1329,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM6 bit.
      */
-    inline bool get_S_SM6()
+    inline bool get_S_SM6() volatile
     {
         return S & (1u << 14u);
     }
@@ -1335,7 +1337,7 @@ struct pio_interrupt_cluster
     /**
      * Get S's SM7 bit.
      */
-    inline bool get_S_SM7()
+    inline bool get_S_SM7() volatile
     {
         return S & (1u << 15u);
     }
@@ -1349,7 +1351,8 @@ struct pio_interrupt_cluster
                       bool &SM2_RXNEMPTY, bool &SM3_RXNEMPTY,
                       bool &SM0_TXNFULL, bool &SM1_TXNFULL, bool &SM2_TXNFULL,
                       bool &SM3_TXNFULL, bool &SM0, bool &SM1, bool &SM2,
-                      bool &SM3, bool &SM4, bool &SM5, bool &SM6, bool &SM7)
+                      bool &SM3, bool &SM4, bool &SM5, bool &SM6,
+                      bool &SM7) volatile
     {
         uint32_t curr = S;
 
@@ -1374,6 +1377,9 @@ struct pio_interrupt_cluster
 
 static_assert(sizeof(pio_interrupt_cluster) == pio_interrupt_cluster::size);
 static_assert(ifgen_struct<pio_interrupt_cluster>);
+
+static volatile pio_interrupt_cluster *const PIO_INTERRUPT_CLUSTER_NULL =
+    reinterpret_cast<pio_interrupt_cluster *>(0x00000000);
 
 }; // namespace RP2350
 

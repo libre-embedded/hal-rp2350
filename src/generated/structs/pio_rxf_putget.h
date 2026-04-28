@@ -20,16 +20,20 @@ struct pio_rxf_putget
         16; /*!< pio_rxf_putget's size in bytes. */
 
     /* Fields. */
-    std::array<uint32_t, 4>
-        FIFO; /*!< (read-write) Direct read/write access to entry M of SMN's RX
-                 FIFO, if SHIFTCTRL_FJOIN_RX_PUT xor SHIFTCTRL_FJOIN_RX_GET is
-                 set. */
+    static constexpr std::size_t FIFO_length = 4;
+    uint32_t
+        FIFO[FIFO_length]; /*!< (read-write) Direct read/write access to entry
+                              M of SMN's RX FIFO, if SHIFTCTRL_FJOIN_RX_PUT xor
+                              SHIFTCTRL_FJOIN_RX_GET is set. */
 
     /* Methods. */
 };
 
 static_assert(sizeof(pio_rxf_putget) == pio_rxf_putget::size);
 static_assert(ifgen_struct<pio_rxf_putget>);
+
+static volatile pio_rxf_putget *const PIO_RXF_PUTGET_NULL =
+    reinterpret_cast<pio_rxf_putget *>(0x00000000);
 
 }; // namespace RP2350
 

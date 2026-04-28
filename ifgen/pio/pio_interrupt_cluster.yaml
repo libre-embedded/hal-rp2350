@@ -261,3 +261,6 @@ structs:
             width: 1
             read: true
             write: false
+    instances:
+      - name: PIO_INTERRUPT_CLUSTER_NULL
+        address: '0x00000000'

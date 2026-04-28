@@ -42,7 +42,7 @@ struct pio_sm
      *
      * Fractional part of clock divisor
      */
-    inline uint8_t get_CLKDIV_FRAC()
+    inline uint8_t get_CLKDIV_FRAC() volatile
     {
         return (CLKDIV >> 8u) & 0xffu;
     }
@@ -52,7 +52,7 @@ struct pio_sm
      *
      * Fractional part of clock divisor
      */
-    inline void set_CLKDIV_FRAC(uint8_t value)
+    inline void set_CLKDIV_FRAC(uint8_t value) volatile
     {
         uint32_t curr = CLKDIV;
 
@@ -69,7 +69,7 @@ struct pio_sm
      *                             Value of 0 is interpreted as 65536. If INT
      * is 0, FRAC must also be 0.
      */
-    inline uint16_t get_CLKDIV_INT()
+    inline uint16_t get_CLKDIV_INT() volatile
     {
         return (CLKDIV >> 16u) & 0xffffu;
     }
@@ -81,7 +81,7 @@ struct pio_sm
      *                             Value of 0 is interpreted as 65536. If INT
      * is 0, FRAC must also be 0.
      */
-    inline void set_CLKDIV_INT(uint16_t value)
+    inline void set_CLKDIV_INT(uint16_t value) volatile
     {
         uint32_t curr = CLKDIV;
 
@@ -98,7 +98,7 @@ struct pio_sm
      *                     Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC /
      * 256)
      */
-    inline void get_CLKDIV(uint8_t &FRAC, uint16_t &INT)
+    inline void get_CLKDIV(uint8_t &FRAC, uint16_t &INT) volatile
     {
         uint32_t curr = CLKDIV;
 
@@ -113,7 +113,7 @@ struct pio_sm
      *                     Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC /
      * 256)
      */
-    inline void set_CLKDIV(uint8_t FRAC, uint16_t INT)
+    inline void set_CLKDIV(uint8_t FRAC, uint16_t INT) volatile
     {
         uint32_t curr = CLKDIV;
 
@@ -134,7 +134,7 @@ struct pio_sm
      * values of STATUS_N greater than the current FIFO depth are reserved, and
      * have undefined behaviour.
      */
-    inline SM_EXECCTRL_STATUS_N get_EXECCTRL_STATUS_N()
+    inline SM_EXECCTRL_STATUS_N get_EXECCTRL_STATUS_N() volatile
     {
         return SM_EXECCTRL_STATUS_N(EXECCTRL & 0b11111u);
     }
@@ -148,7 +148,7 @@ struct pio_sm
      * values of STATUS_N greater than the current FIFO depth are reserved, and
      * have undefined behaviour.
      */
-    inline void set_EXECCTRL_STATUS_N(SM_EXECCTRL_STATUS_N value)
+    inline void set_EXECCTRL_STATUS_N(SM_EXECCTRL_STATUS_N value) volatile
     {
         uint32_t curr = EXECCTRL;
 
@@ -163,7 +163,7 @@ struct pio_sm
      *
      * Comparison used for the MOV x, STATUS instruction.
      */
-    inline SM_EXECCTRL_STATUS_SEL get_EXECCTRL_STATUS_SEL()
+    inline SM_EXECCTRL_STATUS_SEL get_EXECCTRL_STATUS_SEL() volatile
     {
         return SM_EXECCTRL_STATUS_SEL((EXECCTRL >> 5u) & 0b11u);
     }
@@ -173,7 +173,7 @@ struct pio_sm
      *
      * Comparison used for the MOV x, STATUS instruction.
      */
-    inline void set_EXECCTRL_STATUS_SEL(SM_EXECCTRL_STATUS_SEL value)
+    inline void set_EXECCTRL_STATUS_SEL(SM_EXECCTRL_STATUS_SEL value) volatile
     {
         uint32_t curr = EXECCTRL;
 
@@ -188,7 +188,7 @@ struct pio_sm
      *
      * After reaching wrap_top, execution is wrapped to this address.
      */
-    inline uint8_t get_EXECCTRL_WRAP_BOTTOM()
+    inline uint8_t get_EXECCTRL_WRAP_BOTTOM() volatile
     {
         return (EXECCTRL >> 7u) & 0b11111u;
     }
@@ -198,7 +198,7 @@ struct pio_sm
      *
      * After reaching wrap_top, execution is wrapped to this address.
      */
-    inline void set_EXECCTRL_WRAP_BOTTOM(uint8_t value)
+    inline void set_EXECCTRL_WRAP_BOTTOM(uint8_t value) volatile
     {
         uint32_t curr = EXECCTRL;
 
@@ -215,7 +215,7 @@ struct pio_sm
      *                             If the instruction is a jump, and the jump
      * condition is true, the jump takes priority.
      */
-    inline uint8_t get_EXECCTRL_WRAP_TOP()
+    inline uint8_t get_EXECCTRL_WRAP_TOP() volatile
     {
         return (EXECCTRL >> 12u) & 0b11111u;
     }
@@ -227,7 +227,7 @@ struct pio_sm
      *                             If the instruction is a jump, and the jump
      * condition is true, the jump takes priority.
      */
-    inline void set_EXECCTRL_WRAP_TOP(uint8_t value)
+    inline void set_EXECCTRL_WRAP_TOP(uint8_t value) volatile
     {
         uint32_t curr = EXECCTRL;
 
@@ -242,7 +242,7 @@ struct pio_sm
      *
      * Continuously assert the most recent OUT/SET to the pins
      */
-    inline bool get_EXECCTRL_OUT_STICKY()
+    inline bool get_EXECCTRL_OUT_STICKY() volatile
     {
         return EXECCTRL & (1u << 17u);
     }
@@ -252,7 +252,7 @@ struct pio_sm
      *
      * Continuously assert the most recent OUT/SET to the pins
      */
-    inline void set_EXECCTRL_OUT_STICKY()
+    inline void set_EXECCTRL_OUT_STICKY() volatile
     {
         EXECCTRL |= 1u << 17u;
     }
@@ -262,7 +262,7 @@ struct pio_sm
      *
      * Continuously assert the most recent OUT/SET to the pins
      */
-    inline void clear_EXECCTRL_OUT_STICKY()
+    inline void clear_EXECCTRL_OUT_STICKY() volatile
     {
         EXECCTRL &= ~(1u << 17u);
     }
@@ -272,7 +272,7 @@ struct pio_sm
      *
      * Continuously assert the most recent OUT/SET to the pins
      */
-    inline void toggle_EXECCTRL_OUT_STICKY()
+    inline void toggle_EXECCTRL_OUT_STICKY() volatile
     {
         EXECCTRL ^= 1u << 17u;
     }
@@ -286,7 +286,7 @@ struct pio_sm
      * create useful masking/override behaviour due to the priority ordering of
      * state machine pin writes (SM0 < SM1 < ...)
      */
-    inline bool get_EXECCTRL_INLINE_OUT_EN()
+    inline bool get_EXECCTRL_INLINE_OUT_EN() volatile
     {
         return EXECCTRL & (1u << 18u);
     }
@@ -300,7 +300,7 @@ struct pio_sm
      * create useful masking/override behaviour due to the priority ordering of
      * state machine pin writes (SM0 < SM1 < ...)
      */
-    inline void set_EXECCTRL_INLINE_OUT_EN()
+    inline void set_EXECCTRL_INLINE_OUT_EN() volatile
     {
         EXECCTRL |= 1u << 18u;
     }
@@ -314,7 +314,7 @@ struct pio_sm
      * create useful masking/override behaviour due to the priority ordering of
      * state machine pin writes (SM0 < SM1 < ...)
      */
-    inline void clear_EXECCTRL_INLINE_OUT_EN()
+    inline void clear_EXECCTRL_INLINE_OUT_EN() volatile
     {
         EXECCTRL &= ~(1u << 18u);
     }
@@ -328,7 +328,7 @@ struct pio_sm
      * create useful masking/override behaviour due to the priority ordering of
      * state machine pin writes (SM0 < SM1 < ...)
      */
-    inline void toggle_EXECCTRL_INLINE_OUT_EN()
+    inline void toggle_EXECCTRL_INLINE_OUT_EN() volatile
     {
         EXECCTRL ^= 1u << 18u;
     }
@@ -338,7 +338,7 @@ struct pio_sm
      *
      * Which data bit to use for inline OUT enable
      */
-    inline uint8_t get_EXECCTRL_OUT_EN_SEL()
+    inline uint8_t get_EXECCTRL_OUT_EN_SEL() volatile
     {
         return (EXECCTRL >> 19u) & 0b11111u;
     }
@@ -348,7 +348,7 @@ struct pio_sm
      *
      * Which data bit to use for inline OUT enable
      */
-    inline void set_EXECCTRL_OUT_EN_SEL(uint8_t value)
+    inline void set_EXECCTRL_OUT_EN_SEL(uint8_t value) volatile
     {
         uint32_t curr = EXECCTRL;
 
@@ -364,7 +364,7 @@ struct pio_sm
      * The GPIO number to use as condition for JMP PIN. Unaffected by input
      * mapping.
      */
-    inline uint8_t get_EXECCTRL_JMP_PIN()
+    inline uint8_t get_EXECCTRL_JMP_PIN() volatile
     {
         return (EXECCTRL >> 24u) & 0b11111u;
     }
@@ -375,7 +375,7 @@ struct pio_sm
      * The GPIO number to use as condition for JMP PIN. Unaffected by input
      * mapping.
      */
-    inline void set_EXECCTRL_JMP_PIN(uint8_t value)
+    inline void set_EXECCTRL_JMP_PIN(uint8_t value) volatile
     {
         uint32_t curr = EXECCTRL;
 
@@ -390,7 +390,7 @@ struct pio_sm
      *
      * If 1, side-set data is asserted to pin directions, instead of pin values
      */
-    inline bool get_EXECCTRL_SIDE_PINDIR()
+    inline bool get_EXECCTRL_SIDE_PINDIR() volatile
     {
         return EXECCTRL & (1u << 29u);
     }
@@ -400,7 +400,7 @@ struct pio_sm
      *
      * If 1, side-set data is asserted to pin directions, instead of pin values
      */
-    inline void set_EXECCTRL_SIDE_PINDIR()
+    inline void set_EXECCTRL_SIDE_PINDIR() volatile
     {
         EXECCTRL |= 1u << 29u;
     }
@@ -410,7 +410,7 @@ struct pio_sm
      *
      * If 1, side-set data is asserted to pin directions, instead of pin values
      */
-    inline void clear_EXECCTRL_SIDE_PINDIR()
+    inline void clear_EXECCTRL_SIDE_PINDIR() volatile
     {
         EXECCTRL &= ~(1u << 29u);
     }
@@ -420,7 +420,7 @@ struct pio_sm
      *
      * If 1, side-set data is asserted to pin directions, instead of pin values
      */
-    inline void toggle_EXECCTRL_SIDE_PINDIR()
+    inline void toggle_EXECCTRL_SIDE_PINDIR() volatile
     {
         EXECCTRL ^= 1u << 29u;
     }
@@ -435,7 +435,7 @@ struct pio_sm
      * to 4. Note that the value of PINCTRL_SIDESET_COUNT is inclusive of this
      * enable bit.
      */
-    inline bool get_EXECCTRL_SIDE_EN()
+    inline bool get_EXECCTRL_SIDE_EN() volatile
     {
         return EXECCTRL & (1u << 30u);
     }
@@ -450,7 +450,7 @@ struct pio_sm
      * to 4. Note that the value of PINCTRL_SIDESET_COUNT is inclusive of this
      * enable bit.
      */
-    inline void set_EXECCTRL_SIDE_EN()
+    inline void set_EXECCTRL_SIDE_EN() volatile
     {
         EXECCTRL |= 1u << 30u;
     }
@@ -465,7 +465,7 @@ struct pio_sm
      * to 4. Note that the value of PINCTRL_SIDESET_COUNT is inclusive of this
      * enable bit.
      */
-    inline void clear_EXECCTRL_SIDE_EN()
+    inline void clear_EXECCTRL_SIDE_EN() volatile
     {
         EXECCTRL &= ~(1u << 30u);
     }
@@ -480,7 +480,7 @@ struct pio_sm
      * to 4. Note that the value of PINCTRL_SIDESET_COUNT is inclusive of this
      * enable bit.
      */
-    inline void toggle_EXECCTRL_SIDE_EN()
+    inline void toggle_EXECCTRL_SIDE_EN() volatile
     {
         EXECCTRL ^= 1u << 30u;
     }
@@ -491,7 +491,7 @@ struct pio_sm
      * If 1, an instruction written to SMx_INSTR is stalled, and latched by the
      * state machine. Will clear to 0 once this instruction completes.
      */
-    inline bool get_EXECCTRL_EXEC_STALLED()
+    inline bool get_EXECCTRL_EXEC_STALLED() volatile
     {
         return EXECCTRL & (1u << 31u);
     }
@@ -507,7 +507,7 @@ struct pio_sm
                              bool &OUT_STICKY, bool &INLINE_OUT_EN,
                              uint8_t &OUT_EN_SEL, uint8_t &JMP_PIN,
                              bool &SIDE_PINDIR, bool &SIDE_EN,
-                             bool &EXEC_STALLED)
+                             bool &EXEC_STALLED) volatile
     {
         uint32_t curr = EXECCTRL;
 
@@ -534,7 +534,7 @@ struct pio_sm
                              uint8_t WRAP_BOTTOM, uint8_t WRAP_TOP,
                              bool OUT_STICKY, bool INLINE_OUT_EN,
                              uint8_t OUT_EN_SEL, uint8_t JMP_PIN,
-                             bool SIDE_PINDIR, bool SIDE_EN)
+                             bool SIDE_PINDIR, bool SIDE_EN) volatile
     {
         uint32_t curr = EXECCTRL;
 
@@ -578,7 +578,7 @@ struct pio_sm
      * useful for the MOV x, PINS instruction, which otherwise has no way of
      * masking pins.
      */
-    inline uint8_t get_SHIFTCTRL_IN_COUNT()
+    inline uint8_t get_SHIFTCTRL_IN_COUNT() volatile
     {
         return SHIFTCTRL & 0b11111u;
     }
@@ -599,7 +599,7 @@ struct pio_sm
      * useful for the MOV x, PINS instruction, which otherwise has no way of
      * masking pins.
      */
-    inline void set_SHIFTCTRL_IN_COUNT(uint8_t value)
+    inline void set_SHIFTCTRL_IN_COUNT(uint8_t value) volatile
     {
         uint32_t curr = SHIFTCTRL;
 
@@ -624,7 +624,7 @@ struct pio_sm
      *                             Setting this bit will clear the FJOIN_TX and
      * FJOIN_RX bits.
      */
-    inline bool get_SHIFTCTRL_FJOIN_RX_GET()
+    inline bool get_SHIFTCTRL_FJOIN_RX_GET() volatile
     {
         return SHIFTCTRL & (1u << 14u);
     }
@@ -644,7 +644,7 @@ struct pio_sm
      *                             Setting this bit will clear the FJOIN_TX and
      * FJOIN_RX bits.
      */
-    inline void set_SHIFTCTRL_FJOIN_RX_GET()
+    inline void set_SHIFTCTRL_FJOIN_RX_GET() volatile
     {
         SHIFTCTRL |= 1u << 14u;
     }
@@ -664,7 +664,7 @@ struct pio_sm
      *                             Setting this bit will clear the FJOIN_TX and
      * FJOIN_RX bits.
      */
-    inline void clear_SHIFTCTRL_FJOIN_RX_GET()
+    inline void clear_SHIFTCTRL_FJOIN_RX_GET() volatile
     {
         SHIFTCTRL &= ~(1u << 14u);
     }
@@ -684,7 +684,7 @@ struct pio_sm
      *                             Setting this bit will clear the FJOIN_TX and
      * FJOIN_RX bits.
      */
-    inline void toggle_SHIFTCTRL_FJOIN_RX_GET()
+    inline void toggle_SHIFTCTRL_FJOIN_RX_GET() volatile
     {
         SHIFTCTRL ^= 1u << 14u;
     }
@@ -704,7 +704,7 @@ struct pio_sm
      *                             Setting this bit will clear the FJOIN_TX and
      * FJOIN_RX bits.
      */
-    inline bool get_SHIFTCTRL_FJOIN_RX_PUT()
+    inline bool get_SHIFTCTRL_FJOIN_RX_PUT() volatile
     {
         return SHIFTCTRL & (1u << 15u);
     }
@@ -724,7 +724,7 @@ struct pio_sm
      *                             Setting this bit will clear the FJOIN_TX and
      * FJOIN_RX bits.
      */
-    inline void set_SHIFTCTRL_FJOIN_RX_PUT()
+    inline void set_SHIFTCTRL_FJOIN_RX_PUT() volatile
     {
         SHIFTCTRL |= 1u << 15u;
     }
@@ -744,7 +744,7 @@ struct pio_sm
      *                             Setting this bit will clear the FJOIN_TX and
      * FJOIN_RX bits.
      */
-    inline void clear_SHIFTCTRL_FJOIN_RX_PUT()
+    inline void clear_SHIFTCTRL_FJOIN_RX_PUT() volatile
     {
         SHIFTCTRL &= ~(1u << 15u);
     }
@@ -764,7 +764,7 @@ struct pio_sm
      *                             Setting this bit will clear the FJOIN_TX and
      * FJOIN_RX bits.
      */
-    inline void toggle_SHIFTCTRL_FJOIN_RX_PUT()
+    inline void toggle_SHIFTCTRL_FJOIN_RX_PUT() volatile
     {
         SHIFTCTRL ^= 1u << 15u;
     }
@@ -776,7 +776,7 @@ struct pio_sm
      * IN instruction which causes the input shift counter to reach or exceed
      * PUSH_THRESH.
      */
-    inline bool get_SHIFTCTRL_AUTOPUSH()
+    inline bool get_SHIFTCTRL_AUTOPUSH() volatile
     {
         return SHIFTCTRL & (1u << 16u);
     }
@@ -788,7 +788,7 @@ struct pio_sm
      * IN instruction which causes the input shift counter to reach or exceed
      * PUSH_THRESH.
      */
-    inline void set_SHIFTCTRL_AUTOPUSH()
+    inline void set_SHIFTCTRL_AUTOPUSH() volatile
     {
         SHIFTCTRL |= 1u << 16u;
     }
@@ -800,7 +800,7 @@ struct pio_sm
      * IN instruction which causes the input shift counter to reach or exceed
      * PUSH_THRESH.
      */
-    inline void clear_SHIFTCTRL_AUTOPUSH()
+    inline void clear_SHIFTCTRL_AUTOPUSH() volatile
     {
         SHIFTCTRL &= ~(1u << 16u);
     }
@@ -812,7 +812,7 @@ struct pio_sm
      * IN instruction which causes the input shift counter to reach or exceed
      * PUSH_THRESH.
      */
-    inline void toggle_SHIFTCTRL_AUTOPUSH()
+    inline void toggle_SHIFTCTRL_AUTOPUSH() volatile
     {
         SHIFTCTRL ^= 1u << 16u;
     }
@@ -824,7 +824,7 @@ struct pio_sm
      * following an OUT instruction which causes the output shift counter to
      * reach or exceed PULL_THRESH.
      */
-    inline bool get_SHIFTCTRL_AUTOPULL()
+    inline bool get_SHIFTCTRL_AUTOPULL() volatile
     {
         return SHIFTCTRL & (1u << 17u);
     }
@@ -836,7 +836,7 @@ struct pio_sm
      * following an OUT instruction which causes the output shift counter to
      * reach or exceed PULL_THRESH.
      */
-    inline void set_SHIFTCTRL_AUTOPULL()
+    inline void set_SHIFTCTRL_AUTOPULL() volatile
     {
         SHIFTCTRL |= 1u << 17u;
     }
@@ -848,7 +848,7 @@ struct pio_sm
      * following an OUT instruction which causes the output shift counter to
      * reach or exceed PULL_THRESH.
      */
-    inline void clear_SHIFTCTRL_AUTOPULL()
+    inline void clear_SHIFTCTRL_AUTOPULL() volatile
     {
         SHIFTCTRL &= ~(1u << 17u);
     }
@@ -860,7 +860,7 @@ struct pio_sm
      * following an OUT instruction which causes the output shift counter to
      * reach or exceed PULL_THRESH.
      */
-    inline void toggle_SHIFTCTRL_AUTOPULL()
+    inline void toggle_SHIFTCTRL_AUTOPULL() volatile
     {
         SHIFTCTRL ^= 1u << 17u;
     }
@@ -871,7 +871,7 @@ struct pio_sm
      * 1 = shift input shift register to right (data enters from left). 0 = to
      * left.
      */
-    inline bool get_SHIFTCTRL_IN_SHIFTDIR()
+    inline bool get_SHIFTCTRL_IN_SHIFTDIR() volatile
     {
         return SHIFTCTRL & (1u << 18u);
     }
@@ -882,7 +882,7 @@ struct pio_sm
      * 1 = shift input shift register to right (data enters from left). 0 = to
      * left.
      */
-    inline void set_SHIFTCTRL_IN_SHIFTDIR()
+    inline void set_SHIFTCTRL_IN_SHIFTDIR() volatile
     {
         SHIFTCTRL |= 1u << 18u;
     }
@@ -893,7 +893,7 @@ struct pio_sm
      * 1 = shift input shift register to right (data enters from left). 0 = to
      * left.
      */
-    inline void clear_SHIFTCTRL_IN_SHIFTDIR()
+    inline void clear_SHIFTCTRL_IN_SHIFTDIR() volatile
     {
         SHIFTCTRL &= ~(1u << 18u);
     }
@@ -904,7 +904,7 @@ struct pio_sm
      * 1 = shift input shift register to right (data enters from left). 0 = to
      * left.
      */
-    inline void toggle_SHIFTCTRL_IN_SHIFTDIR()
+    inline void toggle_SHIFTCTRL_IN_SHIFTDIR() volatile
     {
         SHIFTCTRL ^= 1u << 18u;
     }
@@ -914,7 +914,7 @@ struct pio_sm
      *
      * 1 = shift out of output shift register to right. 0 = to left.
      */
-    inline bool get_SHIFTCTRL_OUT_SHIFTDIR()
+    inline bool get_SHIFTCTRL_OUT_SHIFTDIR() volatile
     {
         return SHIFTCTRL & (1u << 19u);
     }
@@ -924,7 +924,7 @@ struct pio_sm
      *
      * 1 = shift out of output shift register to right. 0 = to left.
      */
-    inline void set_SHIFTCTRL_OUT_SHIFTDIR()
+    inline void set_SHIFTCTRL_OUT_SHIFTDIR() volatile
     {
         SHIFTCTRL |= 1u << 19u;
     }
@@ -934,7 +934,7 @@ struct pio_sm
      *
      * 1 = shift out of output shift register to right. 0 = to left.
      */
-    inline void clear_SHIFTCTRL_OUT_SHIFTDIR()
+    inline void clear_SHIFTCTRL_OUT_SHIFTDIR() volatile
     {
         SHIFTCTRL &= ~(1u << 19u);
     }
@@ -944,7 +944,7 @@ struct pio_sm
      *
      * 1 = shift out of output shift register to right. 0 = to left.
      */
-    inline void toggle_SHIFTCTRL_OUT_SHIFTDIR()
+    inline void toggle_SHIFTCTRL_OUT_SHIFTDIR() volatile
     {
         SHIFTCTRL ^= 1u << 19u;
     }
@@ -955,7 +955,7 @@ struct pio_sm
      * Number of bits shifted into ISR before autopush, or conditional push
      * (PUSH IFFULL), will take place. Write 0 for value of 32.
      */
-    inline uint8_t get_SHIFTCTRL_PUSH_THRESH()
+    inline uint8_t get_SHIFTCTRL_PUSH_THRESH() volatile
     {
         return (SHIFTCTRL >> 20u) & 0b11111u;
     }
@@ -966,7 +966,7 @@ struct pio_sm
      * Number of bits shifted into ISR before autopush, or conditional push
      * (PUSH IFFULL), will take place. Write 0 for value of 32.
      */
-    inline void set_SHIFTCTRL_PUSH_THRESH(uint8_t value)
+    inline void set_SHIFTCTRL_PUSH_THRESH(uint8_t value) volatile
     {
         uint32_t curr = SHIFTCTRL;
 
@@ -982,7 +982,7 @@ struct pio_sm
      * Number of bits shifted out of OSR before autopull, or conditional pull
      * (PULL IFEMPTY), will take place. Write 0 for value of 32.
      */
-    inline uint8_t get_SHIFTCTRL_PULL_THRESH()
+    inline uint8_t get_SHIFTCTRL_PULL_THRESH() volatile
     {
         return (SHIFTCTRL >> 25u) & 0b11111u;
     }
@@ -993,7 +993,7 @@ struct pio_sm
      * Number of bits shifted out of OSR before autopull, or conditional pull
      * (PULL IFEMPTY), will take place. Write 0 for value of 32.
      */
-    inline void set_SHIFTCTRL_PULL_THRESH(uint8_t value)
+    inline void set_SHIFTCTRL_PULL_THRESH(uint8_t value) volatile
     {
         uint32_t curr = SHIFTCTRL;
 
@@ -1011,7 +1011,7 @@ struct pio_sm
      * reads as both full and empty). FIFOs are flushed when this bit is
      * changed.
      */
-    inline bool get_SHIFTCTRL_FJOIN_TX()
+    inline bool get_SHIFTCTRL_FJOIN_TX() volatile
     {
         return SHIFTCTRL & (1u << 30u);
     }
@@ -1024,7 +1024,7 @@ struct pio_sm
      * reads as both full and empty). FIFOs are flushed when this bit is
      * changed.
      */
-    inline void set_SHIFTCTRL_FJOIN_TX()
+    inline void set_SHIFTCTRL_FJOIN_TX() volatile
     {
         SHIFTCTRL |= 1u << 30u;
     }
@@ -1037,7 +1037,7 @@ struct pio_sm
      * reads as both full and empty). FIFOs are flushed when this bit is
      * changed.
      */
-    inline void clear_SHIFTCTRL_FJOIN_TX()
+    inline void clear_SHIFTCTRL_FJOIN_TX() volatile
     {
         SHIFTCTRL &= ~(1u << 30u);
     }
@@ -1050,7 +1050,7 @@ struct pio_sm
      * reads as both full and empty). FIFOs are flushed when this bit is
      * changed.
      */
-    inline void toggle_SHIFTCTRL_FJOIN_TX()
+    inline void toggle_SHIFTCTRL_FJOIN_TX() volatile
     {
         SHIFTCTRL ^= 1u << 30u;
     }
@@ -1063,7 +1063,7 @@ struct pio_sm
      * reads as both full and empty). FIFOs are flushed when this bit is
      * changed.
      */
-    inline bool get_SHIFTCTRL_FJOIN_RX()
+    inline bool get_SHIFTCTRL_FJOIN_RX() volatile
     {
         return SHIFTCTRL & (1u << 31u);
     }
@@ -1076,7 +1076,7 @@ struct pio_sm
      * reads as both full and empty). FIFOs are flushed when this bit is
      * changed.
      */
-    inline void set_SHIFTCTRL_FJOIN_RX()
+    inline void set_SHIFTCTRL_FJOIN_RX() volatile
     {
         SHIFTCTRL |= 1u << 31u;
     }
@@ -1089,7 +1089,7 @@ struct pio_sm
      * reads as both full and empty). FIFOs are flushed when this bit is
      * changed.
      */
-    inline void clear_SHIFTCTRL_FJOIN_RX()
+    inline void clear_SHIFTCTRL_FJOIN_RX() volatile
     {
         SHIFTCTRL &= ~(1u << 31u);
     }
@@ -1102,7 +1102,7 @@ struct pio_sm
      * reads as both full and empty). FIFOs are flushed when this bit is
      * changed.
      */
-    inline void toggle_SHIFTCTRL_FJOIN_RX()
+    inline void toggle_SHIFTCTRL_FJOIN_RX() volatile
     {
         SHIFTCTRL ^= 1u << 31u;
     }
@@ -1118,7 +1118,7 @@ struct pio_sm
                               bool &AUTOPULL, bool &IN_SHIFTDIR,
                               bool &OUT_SHIFTDIR, uint8_t &PUSH_THRESH,
                               uint8_t &PULL_THRESH, bool &FJOIN_TX,
-                              bool &FJOIN_RX)
+                              bool &FJOIN_RX) volatile
     {
         uint32_t curr = SHIFTCTRL;
 
@@ -1145,7 +1145,7 @@ struct pio_sm
                               bool FJOIN_RX_PUT, bool AUTOPUSH, bool AUTOPULL,
                               bool IN_SHIFTDIR, bool OUT_SHIFTDIR,
                               uint8_t PUSH_THRESH, uint8_t PULL_THRESH,
-                              bool FJOIN_TX, bool FJOIN_RX)
+                              bool FJOIN_TX, bool FJOIN_RX) volatile
     {
         uint32_t curr = SHIFTCTRL;
 
@@ -1178,7 +1178,7 @@ struct pio_sm
     /**
      * Get ADDR's ADDR field.
      */
-    inline uint8_t get_ADDR()
+    inline uint8_t get_ADDR() volatile
     {
         return ADDR & 0b11111u;
     }
@@ -1186,7 +1186,7 @@ struct pio_sm
     /**
      * Get INSTR's INSTR field.
      */
-    inline uint16_t get_INSTR()
+    inline uint16_t get_INSTR() volatile
     {
         return INSTR & 0xffffu;
     }
@@ -1194,7 +1194,7 @@ struct pio_sm
     /**
      * Set INSTR's INSTR field.
      */
-    inline void set_INSTR(uint16_t value)
+    inline void set_INSTR(uint16_t value) volatile
     {
         uint32_t curr = INSTR;
 
@@ -1211,7 +1211,7 @@ struct pio_sm
      * PINDIRS or MOV PINS instruction. The data written to this pin will
      * always be the least-significant bit of the OUT or MOV data.
      */
-    inline uint8_t get_PINCTRL_OUT_BASE()
+    inline uint8_t get_PINCTRL_OUT_BASE() volatile
     {
         return PINCTRL & 0b11111u;
     }
@@ -1223,7 +1223,7 @@ struct pio_sm
      * PINDIRS or MOV PINS instruction. The data written to this pin will
      * always be the least-significant bit of the OUT or MOV data.
      */
-    inline void set_PINCTRL_OUT_BASE(uint8_t value)
+    inline void set_PINCTRL_OUT_BASE(uint8_t value) volatile
     {
         uint32_t curr = PINCTRL;
 
@@ -1240,7 +1240,7 @@ struct pio_sm
      * PINDIRS instruction. The data written to this pin is the
      * least-significant bit of the SET data.
      */
-    inline uint8_t get_PINCTRL_SET_BASE()
+    inline uint8_t get_PINCTRL_SET_BASE() volatile
     {
         return (PINCTRL >> 5u) & 0b11111u;
     }
@@ -1252,7 +1252,7 @@ struct pio_sm
      * PINDIRS instruction. The data written to this pin is the
      * least-significant bit of the SET data.
      */
-    inline void set_PINCTRL_SET_BASE(uint8_t value)
+    inline void set_PINCTRL_SET_BASE(uint8_t value) volatile
     {
         uint32_t curr = PINCTRL;
 
@@ -1272,7 +1272,7 @@ struct pio_sm
      * bit written to this pin, with more-significant bits written to
      * higher-numbered pins.
      */
-    inline uint8_t get_PINCTRL_SIDESET_BASE()
+    inline uint8_t get_PINCTRL_SIDESET_BASE() volatile
     {
         return (PINCTRL >> 10u) & 0b11111u;
     }
@@ -1287,7 +1287,7 @@ struct pio_sm
      * bit written to this pin, with more-significant bits written to
      * higher-numbered pins.
      */
-    inline void set_PINCTRL_SIDESET_BASE(uint8_t value)
+    inline void set_PINCTRL_SIDESET_BASE(uint8_t value) volatile
     {
         uint32_t curr = PINCTRL;
 
@@ -1304,7 +1304,7 @@ struct pio_sm
      * machine's IN data bus. Higher-numbered pins are mapped to consecutively
      * more-significant data bits, with a modulo of 32 applied to pin number.
      */
-    inline uint8_t get_PINCTRL_IN_BASE()
+    inline uint8_t get_PINCTRL_IN_BASE() volatile
     {
         return (PINCTRL >> 15u) & 0b11111u;
     }
@@ -1316,7 +1316,7 @@ struct pio_sm
      * machine's IN data bus. Higher-numbered pins are mapped to consecutively
      * more-significant data bits, with a modulo of 32 applied to pin number.
      */
-    inline void set_PINCTRL_IN_BASE(uint8_t value)
+    inline void set_PINCTRL_IN_BASE(uint8_t value) volatile
     {
         uint32_t curr = PINCTRL;
 
@@ -1332,7 +1332,7 @@ struct pio_sm
      * The number of pins asserted by an OUT PINS, OUT PINDIRS or MOV PINS
      * instruction. In the range 0 to 32 inclusive.
      */
-    inline uint8_t get_PINCTRL_OUT_COUNT()
+    inline uint8_t get_PINCTRL_OUT_COUNT() volatile
     {
         return (PINCTRL >> 20u) & 0b111111u;
     }
@@ -1343,7 +1343,7 @@ struct pio_sm
      * The number of pins asserted by an OUT PINS, OUT PINDIRS or MOV PINS
      * instruction. In the range 0 to 32 inclusive.
      */
-    inline void set_PINCTRL_OUT_COUNT(uint8_t value)
+    inline void set_PINCTRL_OUT_COUNT(uint8_t value) volatile
     {
         uint32_t curr = PINCTRL;
 
@@ -1358,7 +1358,7 @@ struct pio_sm
      *
      * The number of pins asserted by a SET. In the range 0 to 5 inclusive.
      */
-    inline uint8_t get_PINCTRL_SET_COUNT()
+    inline uint8_t get_PINCTRL_SET_COUNT() volatile
     {
         return (PINCTRL >> 26u) & 0b111u;
     }
@@ -1368,7 +1368,7 @@ struct pio_sm
      *
      * The number of pins asserted by a SET. In the range 0 to 5 inclusive.
      */
-    inline void set_PINCTRL_SET_COUNT(uint8_t value)
+    inline void set_PINCTRL_SET_COUNT(uint8_t value) volatile
     {
         uint32_t curr = PINCTRL;
 
@@ -1385,7 +1385,7 @@ struct pio_sm
      * used for side-set. Inclusive of the enable bit, if present. Minimum of 0
      * (all delay bits, no side-set) and maximum of 5 (all side-set, no delay).
      */
-    inline uint8_t get_PINCTRL_SIDESET_COUNT()
+    inline uint8_t get_PINCTRL_SIDESET_COUNT() volatile
     {
         return (PINCTRL >> 29u) & 0b111u;
     }
@@ -1397,7 +1397,7 @@ struct pio_sm
      * used for side-set. Inclusive of the enable bit, if present. Minimum of 0
      * (all delay bits, no side-set) and maximum of 5 (all side-set, no delay).
      */
-    inline void set_PINCTRL_SIDESET_COUNT(uint8_t value)
+    inline void set_PINCTRL_SIDESET_COUNT(uint8_t value) volatile
     {
         uint32_t curr = PINCTRL;
 
@@ -1415,7 +1415,7 @@ struct pio_sm
     inline void get_PINCTRL(uint8_t &OUT_BASE, uint8_t &SET_BASE,
                             uint8_t &SIDESET_BASE, uint8_t &IN_BASE,
                             uint8_t &OUT_COUNT, uint8_t &SET_COUNT,
-                            uint8_t &SIDESET_COUNT)
+                            uint8_t &SIDESET_COUNT) volatile
     {
         uint32_t curr = PINCTRL;
 
@@ -1436,7 +1436,7 @@ struct pio_sm
     inline void set_PINCTRL(uint8_t OUT_BASE, uint8_t SET_BASE,
                             uint8_t SIDESET_BASE, uint8_t IN_BASE,
                             uint8_t OUT_COUNT, uint8_t SET_COUNT,
-                            uint8_t SIDESET_COUNT)
+                            uint8_t SIDESET_COUNT) volatile
     {
         uint32_t curr = PINCTRL;
 
@@ -1461,6 +1461,9 @@ struct pio_sm
 
 static_assert(sizeof(pio_sm) == pio_sm::size);
 static_assert(ifgen_struct<pio_sm>);
+
+static volatile pio_sm *const PIO_SM_NULL =
+    reinterpret_cast<pio_sm *>(0x00000000);
 
 }; // namespace RP2350
 

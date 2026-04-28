@@ -1,6 +1,9 @@
 ---
 structs:
   pio_rxf_putget:
+    instances:
+      - name: PIO_RXF_PUTGET_NULL
+        address: '0x00000000'
     fields:
       - name: FIFO
         type: uint32_t
@@ -10,6 +13,9 @@ structs:
           (read-write) Direct read/write access to entry M of SMN's RX FIFO, if SHIFTCTRL_FJOIN_RX_PUT xor SHIFTCTRL_FJOIN_RX_GET is set.
 
   pio_sm:
+    instances:
+      - name: PIO_SM_NULL
+        address: '0x00000000'
     fields:
       - name: CLKDIV
         type: uint32_t
